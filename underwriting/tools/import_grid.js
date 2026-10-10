@@ -16,6 +16,8 @@
  *   columns: { "Whole Life :: Carrier A": { "product": "carrier-a-fe" },   <- backs up a loaded carrier file
  *              "Term/IUL :: Carrier Z":   { "underwriting": "accelerated" }, <- grid-only
  *              "Whole Life :: Comments":  "skip" }
+ *            column options: product, absorbInto, approveOnly, bestOutcome, keepGuideFace,
+ *            declineAs ("gi": the column's declines become that outcome)
  * Column keys are "<tab> :: <column header>" so the same carrier in two tabs
  * stays two products.
  *   values:  { "IC": "refer", "2yr GR": [{ "withinYears": 2, "outcome": "graded" }, { "outcome": "best" }] }
@@ -579,6 +581,10 @@ absorbed.forEach(function (k) {
   Object.keys(grid[kind]).forEach(function (id) {
     Object.keys(grid[kind][id]).forEach(function (col) {
       var cell = grid[kind][id][col];
+      // "declineAs": a carrier whose grid "decline" really means its fallback plan (e.g. AIG: decline = GI)
+      if (columns[col].declineAs && cell.rules) {
+        cell.rules = cell.rules.map(function (r) { return r.outcome === 'decline' ? Object.assign({}, r, { outcome: columns[col].declineAs }) : r; });
+      }
       if (!columns[col].approveOnly || !cell.rules) return;
       cell.rules = cell.rules.map(function (r) {
         return r.outcome === 'decline' || r.outcome === 'refer' ? r : Object.assign({}, r, { outcome: 'standard' });

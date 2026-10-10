@@ -292,6 +292,19 @@ test('class limits: a class the client cannot get drops to the next one', functi
   assert.strictEqual(run({ faceAmount: 30000, conditions: [{ id: 'cirrhosis' }] }).best, 'decline');
 });
 
+test('class limits: tobacco age limit and chained fallbacks (level -> graded -> GI)', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 'aig', carrier: 'A', product: 'A', type: 'final_expense', underwriting: 'instant', bestOutcome: 'level',
+    tierLimits: { level: { tobaccoAgeMax: 70, fallback: 'graded' }, graded: { faceMax: 25000, fallback: 'gi' }, gi: { faceMax: 25000, fallback: 'decline' } },
+    conditions: { hiv_aids: { rules: [{ outcome: 'gi' }] } } });
+  var run = function (c) { return UW.evaluate(c)[0].best; };
+  assert.strictEqual(run({ age: 70, tobacco: 'yes' }), 'level');
+  assert.strictEqual(run({ age: 71, tobacco: 'yes' }), 'graded');
+  assert.strictEqual(run({ age: 71, tobacco: 'no' }), 'level');
+  assert.strictEqual(run({ age: 71, tobacco: 'yes', faceAmount: 30000 }), 'decline');
+  assert.strictEqual(run({ faceAmount: 20000, conditions: [{ id: 'hiv_aids' }] }), 'gi');
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });

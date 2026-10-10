@@ -96,6 +96,7 @@ The **Rule check** tab lists every rule with a time window or an age at diagnosi
 | Build chart | one row per inch: `{ h: 70, min: 112, max: { level: 279, graded: 314 } }` |
 | Underweight tiers ("Graded 15–16.5 BMI, Select 16.5–18.5") | `under: { standard: 103, graded: 93 }` on the build row; `min` is the best tier's minimum |
 | A class with its own limits ("Graded issued 18–80, max $25k"; "Premier not in CA") | `tierLimits: { graded: { ageMax: 80, faceMax: 25000, fallback: 'decline' } }`: the class drops to `fallback` when the client's age, face or state rules it out |
+| A carrier whose grid "decline" means its fallback plan (AIG: decline = GI) | column option `"declineAs": "gi"` in `grid-mapping.json` |
 | Cancer by type | conditions such as `cancer_breast` have `parent: 'cancer'`: carriers without a breast-cancer rule use their general cancer rule |
 
 Per-product: `preferGrid: true` makes your grid win over an outdated guide (the guide's answer is shown under each grid answer). Used for Mutual of Omaha Term Life Express and IUL Express.

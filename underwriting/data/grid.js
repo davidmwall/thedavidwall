@@ -62,7 +62,10 @@ UW.registerGrid({
     "max": 35000,
     "source": "grid: Max face amount",
     "min": 5000
-   }
+   },
+   "product": "aig-siwl",
+   "declineAs": "gi",
+   "keepGuideFace": true
   },
   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
    "carrier": "American Amicable Senior Choice Immediate",
@@ -1528,7 +1531,7 @@ UW.registerGrid({
     "raw": "If \"Is assistance currently being received due to a chronic or debilitating condition?\" answered \"Yes\" , Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -1684,7 +1687,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -2011,7 +2014,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -2407,7 +2410,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -2739,7 +2742,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -3061,7 +3064,7 @@ UW.registerGrid({
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \"Is the prospect confined to a wheelchair or motorized mobility device?\" answered \"Yes\" , Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -3847,7 +3850,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 0.5,
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -3969,7 +3972,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 0.5,
-      "outcome": "decline"
+      "outcome": "gi"
      },
      {
       "withinYears": 2,
@@ -4202,11 +4205,11 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 0.5,
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      },
      {
@@ -4576,7 +4579,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 0.5,
-      "outcome": "decline"
+      "outcome": "gi"
      },
      {
       "outcome": "graded",
@@ -5274,7 +5277,7 @@ UW.registerGrid({
     "raw": "If currently, Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -6897,7 +6900,7 @@ UW.registerGrid({
     "raw": "If currently, Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -7761,7 +7764,7 @@ UW.registerGrid({
       "outcome": "graded"
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -8579,7 +8582,7 @@ UW.registerGrid({
     "raw": "Metastatic or Recurrent Cancer of the same\ntype (Stage III or Stage IV cancer),  Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -8881,7 +8884,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      },
      {
@@ -10353,7 +10356,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -10535,7 +10538,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -11055,7 +11058,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -11558,7 +11561,7 @@ UW.registerGrid({
       "outcome": "graded"
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -13054,7 +13057,7 @@ UW.registerGrid({
       "outcome": "graded"
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -13349,7 +13352,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -14841,7 +14844,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      },
      {
@@ -15320,7 +15323,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      },
      {
@@ -15328,7 +15331,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      },
      {
@@ -15708,7 +15711,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      },
      {
@@ -16284,7 +16287,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -16665,7 +16668,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -17467,7 +17470,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -17868,7 +17871,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -18193,7 +18196,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -18506,7 +18509,7 @@ UW.registerGrid({
       "outcome": "graded"
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -19268,7 +19271,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -19972,14 +19975,14 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 0.5,
-      "outcome": "decline"
+      "outcome": "gi"
      },
      {
       "withinYears": 2,
       "outcome": "graded"
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -21066,7 +21069,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 0.5,
-      "outcome": "decline"
+      "outcome": "gi"
      },
      {
       "outcome": "graded",
@@ -21683,7 +21686,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 0.5,
-      "outcome": "decline"
+      "outcome": "gi"
      },
      {
       "outcome": "graded",
@@ -23526,7 +23529,7 @@ UW.registerGrid({
     "raw": "If currently, Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -23951,7 +23954,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -24239,7 +24242,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -24408,7 +24411,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -24628,7 +24631,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -25368,7 +25371,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -25475,7 +25478,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -25589,7 +25592,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -25931,7 +25934,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -27258,7 +27261,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -28078,7 +28081,7 @@ UW.registerGrid({
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -28839,7 +28842,7 @@ UW.registerGrid({
     "raw": "If currently, Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -29009,7 +29012,7 @@ UW.registerGrid({
     "raw": "If currently, Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -29339,7 +29342,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -30599,7 +30602,7 @@ UW.registerGrid({
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \"Is the prospect confined to a wheelchair or motorized mobility device?\" answered \"Yes\" , Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -32918,7 +32921,7 @@ UW.registerGrid({
       "outcome": "graded"
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -33036,7 +33039,7 @@ UW.registerGrid({
       "outcome": "graded"
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -34087,7 +34090,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -35331,7 +35334,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "decline"
+      "outcome": "gi"
      },
      {
       "withinYears": 2,
@@ -35733,7 +35736,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -36634,7 +36637,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -36745,7 +36748,7 @@ UW.registerGrid({
     "raw": "If currently, Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -37149,7 +37152,7 @@ UW.registerGrid({
     "raw": "Decline",
     "rules": [
      {
-      "outcome": "decline"
+      "outcome": "gi"
      }
     ]
    },
@@ -37432,11 +37435,11 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 0.5,
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      },
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -38532,7 +38535,7 @@ UW.registerGrid({
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \"Due to chronic illness or disease?\" answered \"Yes\" , Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],
@@ -38651,7 +38654,7 @@ UW.registerGrid({
     "raw": "If \"Due to chronic illness or disease?\" answered \"Yes\" , Decline. If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
     "rules": [
      {
-      "outcome": "decline",
+      "outcome": "gi",
       "conditional": true
      }
     ],

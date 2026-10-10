@@ -305,7 +305,12 @@
     "WHOLE LIFE :: TransAmerica Easy Solution": "skip",
     "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": "skip",
     "WHOLE LIFE :: TransAmerica Immediate Solution Standard": "skip",
-    "WHOLE LIFE :: Transamerica (FEX Solutions)": "skip"
+    "WHOLE LIFE :: Transamerica (FEX Solutions)": "skip",
+    "WHOLE LIFE :: AIG (SIWL)": {
+      "product": "aig-siwl",
+      "declineAs": "gi",
+      "keepGuideFace": true
+    }
   },
   "values": {
     "Accepted — Guaranteed Issue (no health questions)": "gi"

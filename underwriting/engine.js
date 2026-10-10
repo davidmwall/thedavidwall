@@ -493,7 +493,8 @@
 
   // ---------------------------------------------------------------------------
   // tierLimits: { graded: { ageMax: 80, faceMax: 25000, fallback: 'decline', name: 'Graded FE Express' },
-  //               preferred: { faceMin: 10000, statesNot: ['CA'], fallback: 'standard' } }
+  //               preferred: { faceMin: 10000, statesNot: ['CA'], fallback: 'standard' },
+  //               level: { tobaccoAgeMax: 70, fallback: 'graded' } }
   function capTier(p, client, o, why) {
     for (var n = 0; n < 6 && o && p.tierLimits[o]; n++) {
       var t = p.tierLimits[o], r = [];
@@ -505,6 +506,7 @@
       if (face !== null && t.faceMax != null && face > t.faceMax) r.push('max $' + t.faceMax.toLocaleString('en-US'));
       if (face !== null && t.faceMin != null && face < t.faceMin) r.push('min $' + t.faceMin.toLocaleString('en-US'));
       if (st && t.statesNot && t.statesNot.indexOf(st) !== -1) r.push('not available in ' + st);
+      if (age !== null && t.tobaccoAgeMax != null && client.tobacco === 'yes' && age > t.tobaccoAgeMax) r.push('tobacco users issued to age ' + t.tobaccoAgeMax);
       if (!r.length) break;
       why.push((t.name || label(o)) + ' ' + r.join(', ') + ' → ' + label(t.fallback));
       o = t.fallback;
