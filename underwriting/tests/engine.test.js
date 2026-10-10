@@ -209,7 +209,7 @@ test('importer reads all xlsx tabs, skips UHL, parses timed cells', function () 
     '--mapping=' + path.join(__dirname, 'fixtures', 'sample-grid-mapping.json'), '--out=' + out], { encoding: 'utf8' });
   assert.strictEqual(res.status, 0, res.stderr);
   assert.match(res.stdout, /UHL \(skipped\)/);
-  assert.match(res.stdout, /Gout/);         // unmatched row reported, not guessed
+  assert.match(res.stdout, /Zebra Fever/);  // unmatched row reported, not guessed
   assert.match(res.stdout, /"Ask Bob"/);    // unreadable cell reported
   var captured;
   var saved = UW.registerGrid;

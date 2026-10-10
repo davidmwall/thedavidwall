@@ -157,6 +157,21 @@
       gridLine + '</div></li>';
   }
 
+  function linkify(text) {
+    return esc(text).replace(/(https?:\/\/[^\s<]+)/g, function (u) {
+      return '<a href="' + u + '" target="_blank" rel="noopener noreferrer">' + (u.length > 48 ? u.slice(0, 45) + '…' : u) + '</a>';
+    }).replace(/\n/g, '<br>');
+  }
+
+  function infoBlock(info) {
+    if (!info) return '';
+    var keys = Object.keys(info);
+    if (!keys.length) return '';
+    return '<details class="pinfo"><summary>Product info (from your grid)</summary><dl>' +
+      keys.map(function (k) { return '<dt>' + esc(k) + '</dt><dd>' + linkify(info[k]) + '</dd>'; }).join('') +
+      '</dl></details>';
+  }
+
   function card(r, open) {
     var p = r.product;
     var flags = [];
@@ -176,6 +191,7 @@
       '<div class="r-body">' +
         (r.factors.length ? '<ul class="factors">' + r.factors.map(factorRow).join('') + '</ul>' : '<p class="muted">Enter client details to see how this product treats them.</p>') +
         (p.notes ? '<p class="pnote">' + esc(p.notes) + '</p>' : '') +
+        infoBlock(p.gridInfo) +
         '<p class="guide">Source: ' + esc(g.document || '—') + (g.revision ? ' · ' + esc(g.revision) : '') + (g.lastReviewed ? ' · reviewed ' + esc(g.lastReviewed) : '') + '</p>' +
       '</div></details>';
   }

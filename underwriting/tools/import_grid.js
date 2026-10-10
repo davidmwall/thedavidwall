@@ -19,6 +19,9 @@
  * Column keys are "<tab> :: <column header>" so the same carrier in two tabs
  * stays two products.
  *   values:  { "IC": "refer", "2yr GR": [{ "withinYears": 2, "outcome": "graded" }, { "outcome": "best" }] }
+ *   tiers:   [{ "name": "SimpliNow Legacy Max", "outcome": "level", "columns": "AIG (SIWL)" }]
+ *            carrier-specific tier names, read like Level/Graded wherever they appear in a
+ *            cell. "columns" (optional) limits a tier to columns whose key contains it.
  *
  * Writes underwriting/data/grid.js and prints a report of anything it could
  * not match or interpret. Unmatched rows/columns and unreadable cells are
@@ -45,7 +48,7 @@ if (!input) {
 var mappingPath = opt('mapping', path.join(ROOT, 'grid-mapping.json'));
 var outPath = opt('out', path.join(ROOT, 'data', 'grid.js'));
 var mapping = fs.existsSync(mappingPath) ? JSON.parse(fs.readFileSync(mappingPath, 'utf8')) : {};
-mapping.tabs = mapping.tabs || {}; mapping.rows = mapping.rows || {}; mapping.columns = mapping.columns || {}; mapping.values = mapping.values || {};
+mapping.tiers = mapping.tiers || []; mapping.tabs = mapping.tabs || {}; mapping.rows = mapping.rows || {}; mapping.columns = mapping.columns || {}; mapping.values = mapping.values || {};
 
 // --- CSV ---------------------------------------------------------------------
 function parseCSV(text) {
@@ -87,9 +90,20 @@ var KEYWORDS = [
   [/\b(not asked|acceptable|accepted|accept|approved|approve|eligible|yes|ok|y)\b|^(✓|✔|√)$/, 'best']
 ];
 
+var activeTiers = []; // carrier tier names for the column being read
+
+function escapeRe(x) { return x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function tiersFor(colKey) {
+  return mapping.tiers
+    .filter(function (t) { return !t.columns || colKey.toLowerCase().indexOf(String(t.columns).toLowerCase()) !== -1; })
+    .sort(function (a, b) { return b.name.length - a.name.length; })
+    .map(function (t) { return [new RegExp('\\b' + escapeRe(t.name.toLowerCase()) + '\\b'), t.outcome]; });
+}
+
 function outcomesIn(seg) {
   var found = [];
-  KEYWORDS.forEach(function (k) {
+  activeTiers.concat(KEYWORDS).forEach(function (k) {
     var re = new RegExp(k[0].source, 'g'), m;
     while ((m = re.exec(seg))) found.push({ outcome: k[1], at: m.index, len: m[0].length });
   });
@@ -191,6 +205,20 @@ function interpret(raw) {
   return { rules: timed.concat(fallback, conditional), qualified: qualified };
 }
 
+// Two grid rows that map to the same condition (e.g. "Angioplasty" and "Stent
+// placement"). Same meaning -> keep one answer. Different -> show the full
+// range as conditional so the user checks which row applies.
+function mergeCells(a, b) {
+  if (a.raw === b.raw) return a;
+  var raw = a.raw + ' | ' + b.raw;
+  if (!a.rules || !b.rules) return { raw: raw, rules: null };
+  if (JSON.stringify(a.rules) === JSON.stringify(b.rules) && !!a.qualified === !!b.qualified) {
+    return Object.assign({}, a, { raw: raw });
+  }
+  var all = a.rules.concat(b.rules).map(function (r) { return Object.assign({}, r, { conditional: true }); });
+  return { raw: raw, rules: all, qualified: true };
+}
+
 // --- Row / column matching -----------------------------------------------------
 function exactMatch(dict, name) {
   var n = name.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -207,6 +235,7 @@ function exactMatch(dict, name) {
 function matchRow(name) {
   var m = mapping.rows[name];
   if (m === 'skip') return { skip: true };
+  if (m && m.indexOf('info:') === 0) return { info: m.slice(5) };
   if (m) { var parts = m.split(':'); return { kind: parts[0] === 'medication' ? 'medications' : 'conditions', id: parts[1], how: 'mapping' }; }
   var c = exactMatch(UW.state.conditions, name);
   if (c) return { kind: 'conditions', id: c, how: 'auto' };
@@ -229,9 +258,9 @@ function loadSheets(file) {
 }
 
 var sheets = loadSheets(input);
-var columns = {};
+var columns = {}, explicit = {};
 var grid = { conditions: {}, medications: {} };
-var report = { tabs: [], notSpecified: 0, rowsMatched: 0, rowsUnmatched: {}, rowsSkipped: 0, gridOnly: [], cells: 0, unparsed: {} };
+var report = { tabs: [], infoRows: 0, notSpecified: 0, rowsMatched: 0, rowsUnmatched: {}, rowsSkipped: 0, gridOnly: [], cells: 0, unparsed: {} };
 
 Object.keys(sheets).forEach(function (tab) {
   var tabCfg = mapping.tabs[tab];
@@ -248,10 +277,12 @@ Object.keys(sheets).forEach(function (tab) {
     var m = mapping.columns[key];
     if (m === 'skip') return;
     colKeys[i + 1] = key;
-    var cfg = Object.assign({ carrier: h, productName: tab + ' (from grid)' }, tabCfg, m || {});
+    var tabTitle = tab.toLowerCase().replace(/\b[a-z]/g, function (x) { return x.toUpperCase(); }).replace(/\b(Ul|Iul)\b/g, function (x) { return x.toUpperCase(); });
+    var cfg = Object.assign({ carrier: h, productName: tabTitle + ' (from your grid)' }, tabCfg);
     delete cfg.skip;
     columns[key] = cfg;
-    if (!cfg.product) report.gridOnly.push(key);
+    explicit[key] = m || {};
+    if (!(m && m.product)) report.gridOnly.push(key);
   });
 
   rows.slice(1).forEach(function (r) {
@@ -260,6 +291,17 @@ Object.keys(sheets).forEach(function (tab) {
     var match = matchRow(name);
     if (!match) { report.rowsUnmatched[name] = (report.rowsUnmatched[name] || []).concat(tab); return; }
     if (match.skip) { report.rowsSkipped++; return; }
+    if (match.info) {
+      // Product facts (ages, face, links): shown on the carrier card.
+      for (var k = 1; k < r.length; k++) {
+        var ck = colKeys[k], v = String(r[k] || '').trim();
+        if (!ck || !v || NOT_SPECIFIED.test(v.toLowerCase())) continue;
+        columns[ck].info = columns[ck].info || {};
+        columns[ck].info[match.info] = v;
+      }
+      report.infoRows++;
+      return;
+    }
     if (!(match.kind === 'conditions' ? UW.state.conditions : UW.state.medications)[match.id]) {
       report.rowsUnmatched[name + '  (mapping points to unknown ID "' + match.id + '")'] = [tab]; return;
     }
@@ -268,17 +310,66 @@ Object.keys(sheets).forEach(function (tab) {
     for (var i = 1; i < r.length; i++) {
       var col = colKeys[i], raw = String(r[i] || '').trim();
       if (!col || !raw) continue;
+      activeTiers = tiersFor(col);
       var res = interpret(raw);
       if (res === 'empty') { report.notSpecified++; continue; }
       if (!res) report.unparsed[raw] = (report.unparsed[raw] || 0) + 1;
       var cell = { raw: raw, rules: res ? res.rules : null };
       if (res && res.qualified) cell.qualified = true;
-      // Two rows mapping to the same condition: keep both texts, needs a human look.
-      target[col] = target[col] && target[col].raw !== raw
-        ? { raw: target[col].raw + ' | ' + raw, rules: null }
-        : cell;
+      target[col] = target[col] ? mergeCells(target[col], cell) : cell;
       report.cells++;
     }
+  });
+});
+
+// --- Product type / tier from the grid's own info rows ---------------------------
+// Explicit settings in grid-mapping.json "columns" always win over inference.
+Object.keys(columns).forEach(function (key) {
+  var c = columns[key], info = c.info || {}, name = c.carrier.toLowerCase();
+  var ptype = (info['Product type'] || '').toLowerCase();
+  var cov = (info['Coverage type'] || '').toLowerCase();
+  if (/requires mortgage/.test(ptype)) c.type = 'mortgage_protection';
+  else if (/indexed universal|\biul\b/.test(ptype + ' ' + name)) c.type = 'iul';
+  else if (/universal life|\bul\b/.test(ptype + ' ' + name)) c.type = 'universal_life';
+  else if (/term/.test(ptype)) c.type = 'term';
+  if (/children/.test(name)) c.type = 'whole_life';
+  if (/guaranteed (issue|acceptance)/.test(name) || /^gi$|guaranteed issue only/.test(cov)) {
+    c.underwriting = 'guaranteed'; c.bestOutcome = 'gi';
+    c.unlisted = { outcome: 'gi', note: 'Guaranteed issue: no health questions' };
+  } else if (/level|immediate/.test(cov)) c.bestOutcome = 'level';
+  else if (/graded/.test(cov)) c.bestOutcome = 'graded';
+  // Issue ages: only a plain "50 - 85" range is trusted; banded text stays as info.
+  // Banded text ("Level 40-89 / Modified 40-75") -> outer limits only: anyone
+  // outside every band is out; inside, the card shows the bands to check.
+  var ageText = info['Age range'] || '', pairs = [], am, re = /(\d{1,2})\s*(?:-|–|to)\s*(\d{1,3})(?!\s*(?:-?year|yr|%|,\d))/gi;
+  while ((am = re.exec(ageText))) {
+    var lo = Number(am[1]), hi = Number(am[2]);
+    if (lo < hi && hi <= 100) pairs.push([lo, hi]);
+  }
+  if (pairs.length) {
+    var banded = pairs.length > 1 || !/^\s*\d{1,2}\s*(?:-|–|to)\s*\d{1,3}\s*$/.test(ageText);
+    c.issueAges = {
+      min: Math.min.apply(null, pairs.map(function (x) { return x[0]; })),
+      max: Math.max.apply(null, pairs.map(function (x) { return x[1]; })),
+      source: 'grid: Age range',
+      note: banded ? 'outer limits of: ' + ageText.replace(/\s+/g, ' ').trim() : ''
+    };
+  }
+  // No-exam term, mortgage protection, UL and IUL products are simply approved
+  // (Standard) or declined — no preferred classes.
+  if (['term', 'mortgage_protection', 'iul', 'universal_life'].indexOf(c.type) !== -1) { c.approveOnly = true; c.bestOutcome = 'standard'; }
+  Object.assign(c, explicit[key]);
+});
+
+['conditions', 'medications'].forEach(function (kind) {
+  Object.keys(grid[kind]).forEach(function (id) {
+    Object.keys(grid[kind][id]).forEach(function (col) {
+      var cell = grid[kind][id][col];
+      if (!columns[col].approveOnly || !cell.rules) return;
+      cell.rules = cell.rules.map(function (r) {
+        return r.outcome === 'decline' || r.outcome === 'refer' ? r : Object.assign({}, r, { outcome: 'standard' });
+      });
+    });
   });
 });
 
@@ -299,7 +390,7 @@ var unparsed = Object.keys(report.unparsed).sort(function (a, b) { return report
 console.log('Wrote ' + path.relative(process.cwd(), outPath));
 var unmatched = Object.keys(report.rowsUnmatched);
 console.log('Tabs: ' + report.tabs.join(', '));
-console.log('Rows: ' + report.rowsMatched + ' matched, ' + report.rowsSkipped + ' skipped, ' + unmatched.length + ' unmatched');
+console.log('Rows: ' + report.rowsMatched + ' matched, ' + report.infoRows + ' product-info, ' + report.rowsSkipped + ' skipped, ' + unmatched.length + ' unmatched');
 console.log('Columns: ' + Object.keys(columns).length + ' (' + report.gridOnly.length + ' grid-only: no carrier file mapped)');
 console.log('Cells: ' + report.cells + ' imported, ' + report.notSpecified + ' "does not specify" treated as blank, ' + unparsed.length + ' distinct values not understood');
 if (unmatched.length) {

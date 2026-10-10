@@ -31,6 +31,7 @@
     term: 'Term',
     mortgage_protection: 'Mortgage Protection',
     iul: 'IUL',
+    universal_life: 'Universal Life',
     whole_life: 'Whole Life'
   };
 
@@ -73,18 +74,22 @@
       var c = grid.columns[col];
       if (c.product) {
         var p = state.products.filter(function (x) { return x.id === c.product; })[0];
-        if (p) p.gridColumn = col;
+        if (p) { p.gridColumn = col; p.gridInfo = c.info || null; }
         return;
       }
       state.products.push({
         id: 'grid-' + col.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
         carrier: c.carrier || col,
-        product: c.productName || 'From condition grid',
+        product: c.productName || 'From your grid',
         type: c.type || 'final_expense',
         underwriting: c.underwriting || 'simplified',
-        bestOutcome: c.bestOutcome || (c.type === 'term' || c.type === 'iul' ? 'standard' : 'level'),
+        // Unknown best class: let the grid's own answers set the class.
+        bestOutcome: c.bestOutcome || null,
         gridOnly: true,
         gridColumn: col,
+        issueAges: c.issueAges,
+        gridInfo: c.info || null,
+        unlisted: c.unlisted,
         sample: grid.sample || false,
         guide: { document: (grid.source && grid.source.document) || 'Condition grid', revision: 'grid only — no carrier guide loaded', lastReviewed: grid.source && grid.source.imported },
         conditions: {},
@@ -99,9 +104,13 @@
     return row ? row[p.gridColumn] || null : null;
   }
 
+  function defaultBest(p) {
+    return p.bestOutcome || (p.type === 'final_expense' || p.type === 'whole_life' ? 'level' : 'standard');
+  }
+
   function resolveRules(rules, p) {
     return rules.map(function (r) {
-      return r.outcome === 'best' ? Object.assign({}, r, { outcome: p.bestOutcome || 'standard' }) : r;
+      return r.outcome === 'best' ? Object.assign({}, r, { outcome: defaultBest(p) }) : r;
     });
   }
 
@@ -163,12 +172,14 @@
   function evalAge(p, age) {
     if (!p.issueAges) return factor('age', 'Age ' + age, null, null, { verify: true, note: 'Issue ages not loaded (no carrier guide yet)' });
     var a = p.issueAges;
+    var extra = a.note ? ' (' + a.note + ')' : '';
     if ((a.min != null && age < a.min) || (a.max != null && age > a.max)) {
       return factor('age', 'Age ' + age, 'decline', 'decline',
-        { note: 'Issue ages ' + a.min + '–' + a.max, source: a.source || '' });
+        { note: 'Issue ages ' + a.min + '–' + a.max + extra, source: a.source || '' });
     }
-    // Optional age-banded caps, e.g. term length or class limits by age.
-    return factor('age', 'Age ' + age, null, null, { note: 'Within issue ages ' + a.min + '–' + a.max });
+    // Banded ages: inside the outer limits, but check which plan/term fits.
+    return factor('age', 'Age ' + age, null, null,
+      { note: 'Within issue ages ' + a.min + '–' + a.max + extra, verify: !!a.note, source: a.source || '' });
   }
 
   function evalState(p, st) {
@@ -369,12 +380,16 @@
     (client.conditions || []).forEach(function (c) { factors.push(evalCondition(p, c)); });
     (client.medications || []).forEach(function (m) { factors.push(evalMedication(p, m)); });
 
-    var best = p.bestOutcome || 'standard';
+    // A product with no stated best class (some grid-only products) takes its
+    // class from the answers; with no answers it shows the type's usual class.
+    var best = p.bestOutcome || null;
     var worst = best;
     factors.forEach(function (f) {
-      if (f.best) best = worse(best, f.best);
-      if (f.worst) worst = worse(worst, f.worst);
+      if (f.best) best = best === null ? f.best : worse(best, f.best);
+      if (f.worst) worst = worst === null ? f.worst : worse(worst, f.worst);
     });
+    if (best === null) best = defaultBest(p);
+    if (worst === null || rank(worst) < rank(best)) worst = worse(best, worst || best);
 
     var verifyCount = factors.filter(function (f) { return f.verify; }).length;
     var timingCount = factors.filter(function (f) { return f.timing; }).length;
@@ -417,9 +432,9 @@
         rank(a.best) - rank(b.best) ||
         rank(a.worst) - rank(b.worst) ||
         (a.product.gridOnly ? 1 : 0) - (b.product.gridOnly ? 1 : 0) ||
-        a.backupCount - b.backupCount ||
         (a.status === 'fit' ? 0 : 1) - (b.status === 'fit' ? 0 : 1) ||
         a.verifyCount - b.verifyCount ||
+        a.backupCount - b.backupCount ||
         (a.product.carrier + a.product.product).localeCompare(b.product.carrier + b.product.product);
     });
     return results;
