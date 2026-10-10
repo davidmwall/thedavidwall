@@ -67,91 +67,6 @@ UW.registerGrid({
    "declineAs": "gi",
    "keepGuideFace": true
   },
-  "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-   "carrier": "American Amicable Senior Choice Immediate",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "LEVEL",
-    "Max face amount": "50–75 $35,000 \n76 - 85 $20,000",
-    "Age range": "50 - 85",
-    "Build / UW guide": "https://drive.google.com/file/d/1c9D-QuvNHb_8SnBeXEqb0fG1Yoi7uHwb/view?usp=sharing",
-    "Payment methods": "ACH"
-   },
-   "bestOutcome": "level",
-   "issueAges": {
-    "min": 50,
-    "max": 85,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 35000,
-    "source": "grid: Max face amount",
-    "bands": [
-     {
-      "min": 50,
-      "max": 75,
-      "face": 35000
-     },
-     {
-      "min": 76,
-      "max": 85,
-      "face": 20000
-     }
-    ],
-    "note": "50–75 $35,000 76 - 85 $20,000"
-   }
-  },
-  "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-   "carrier": "American Amicable Senior Choice Graded",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "GRADED",
-    "Max face amount": "$20,000",
-    "Age range": "50 - 85",
-    "Build / UW guide": "https://drive.google.com/file/d/1c9D-QuvNHb_8SnBeXEqb0fG1Yoi7uHwb/view?usp=sharing",
-    "Payment methods": "ACH"
-   },
-   "bestOutcome": "graded",
-   "issueAges": {
-    "min": 50,
-    "max": 85,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 20000,
-    "source": "grid: Max face amount"
-   }
-  },
-  "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-   "carrier": "American Amicable Senior Choice Return of Premium",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "GRADED",
-    "Max face amount": "$20,000",
-    "Age range": "50 - 85",
-    "Build / UW guide": "https://drive.google.com/file/d/1c9D-QuvNHb_8SnBeXEqb0fG1Yoi7uHwb/view?usp=sharing",
-    "Payment methods": "ACH"
-   },
-   "bestOutcome": "graded",
-   "issueAges": {
-    "min": 50,
-    "max": 85,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 20000,
-    "source": "grid: Max face amount"
-   }
-  },
   "WHOLE LIFE :: American Amicable (Senior Choice)": {
    "carrier": "American Amicable (Senior Choice)",
    "productName": "Whole Life (from your grid)",
@@ -204,7 +119,8 @@ UW.registerGrid({
      }
     ],
     "note": "MIN $2,500 ($5,000 in WA) Max 50 to 75: $35,000 76 to 85: $20,000 Graded Death Benefit 50 to 85: $20,000 ROP Death Benefit 50 to 85: $20,000"
-   }
+   },
+   "product": "amam-senior-choice"
   },
   "WHOLE LIFE :: American Home Life (Patriot Series)": {
    "carrier": "American Home Life (Patriot Series)",
@@ -1492,30 +1408,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
     "rules": [
@@ -1643,30 +1535,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -1958,40 +1826,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP",
@@ -2327,30 +2161,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Decline",
     "rules": [
@@ -2630,30 +2440,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -2941,30 +2727,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Decline",
     "rules": [
@@ -3239,40 +3001,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Ethos - TruStage Advantage Whole Life": {
     "raw": "Case by case — automated UW decision",
     "rules": [
@@ -3444,6 +3172,22 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Modified / ROP: Accepted",
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "modified"
+     },
+     {
+      "withinYears": 3,
+      "outcome": "graded"
+     },
+     {
+      "outcome": "level"
      }
     ]
    },
@@ -4060,40 +3804,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP. If treated between 2 and 3 years ago, Graded",
     "rules": [
@@ -4402,40 +4112,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If performed within 2 years, ROP. If performed between 2 and 3 years ago, Graded",
@@ -7564,40 +7240,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP. If treated between 2 and 3 years ago, Graded",
     "rules": [
@@ -7883,40 +7525,6 @@ UW.registerGrid({
   },
   "heart_bypass": {
    "WHOLE LIFE :: AIG Guaranteed Issue": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
     "raw": "Accepted",
     "rules": [
      {
@@ -8361,30 +7969,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Return of Premium",
     "rules": [
@@ -8652,30 +8236,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Decline",
@@ -8958,40 +8518,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -9310,40 +8836,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -10063,40 +9555,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP. If treated between 2 and 3 years ago, Graded",
     "rules": [
@@ -10219,40 +9677,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP. If treated between 2 and 3 years ago, Graded",
     "rules": [
@@ -10372,40 +9796,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -10710,30 +10100,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -11202,40 +10568,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP. If treated between 2 and 3 years ago, Graded",
     "rules": [
@@ -11641,63 +10973,6 @@ UW.registerGrid({
       "outcome": "best"
      }
     ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 1 YEAR SINCE POSITIVE TEST RESULT, TREATMENT AND QUARANTINE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 1 YEAR SINCE POSITIVE TEST RESULT, TREATMENT AND QUARANTINE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Y IF > 30 DAYS SINCE POSITIVE TEST RESULT, TREATMENT OR QUARANTINE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
@@ -12391,30 +11666,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Ethos - TruStage Advantage Whole Life": {
     "raw": "Decline",
     "rules": [
@@ -12585,6 +11836,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline | Modified / ROP: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -12929,40 +12188,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -14092,44 +13317,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Ethos - TruStage Advantage Whole Life": {
     "raw": "Case by case — if no complications: answer depends on questions",
     "rules": [
@@ -14351,6 +13538,10 @@ UW.registerGrid({
     ],
     "qualified": true
    },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Graded: Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Modified / ROP: Accepted",
+    "rules": null
+   },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF NO COMPLICATIONS | Standard: Y IF NO COMPLICATIONS | Graded: Accepted",
     "rules": null
@@ -14517,44 +13708,6 @@ UW.registerGrid({
   },
   "diabetes_oral": {
    "WHOLE LIFE :: AIG Guaranteed Issue": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
     "raw": "Accepted",
     "rules": [
      {
@@ -14809,6 +13962,10 @@ UW.registerGrid({
     ],
     "qualified": true
    },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Graded: Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Modified / ROP: Accepted",
+    "rules": null
+   },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF NO COMPLICATIONS | Standard: Y IF NO COMPLICATIONS | Graded: Accepted",
     "rules": null
@@ -14998,30 +14155,6 @@ UW.registerGrid({
     "qualified": true
    },
    "WHOLE LIFE :: AIG Guaranteed Issue": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
     "raw": "Accepted",
     "rules": [
      {
@@ -15241,30 +14374,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Decline",
@@ -16981,40 +16090,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP",
     "rules": [
@@ -17994,40 +17069,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP. If treated between 2 and 3 years ago, Graded",
     "rules": [
@@ -18343,35 +17384,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -19259,18 +18271,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
-    "rules": null
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
-    "rules": null
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
-    "rules": null
-   },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
     "rules": [
@@ -19373,6 +18373,10 @@ UW.registerGrid({
     ],
     "qualified": true
    },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa) | Graded: Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa) | Modified / ROP: Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
+    "rules": null
+   },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN | Standard: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN | Graded: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
     "rules": null
@@ -19416,40 +18420,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If within 2 years, ROP. If between 2 and 3 years ago, Graded",
@@ -20486,40 +19456,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If performed within 2 years, ROP. If performed between 2 and 3 years ago, Graded",
     "rules": [
@@ -21061,40 +19997,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If performed within 2 years, ROP. If performed between 2 and 3 years ago, Graded",
     "rules": [
@@ -21423,56 +20325,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF NOT CHRONIS OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP",
     "rules": [
@@ -21778,56 +20630,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP. If treated between 2 and 3 years ago, Graded",
     "rules": [
@@ -22129,56 +20931,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -22919,51 +21671,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF NOT CURRENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF NOT CURRENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Y IF NOT CURRENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: Ethos - TruStage Advantage Whole Life": {
     "raw": "Case by case — automated UW decision",
     "rules": [
@@ -23143,6 +21850,10 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
+   },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Y IF NOT CURRENT | Graded: Y IF NOT CURRENT | Modified / ROP: Y IF NOT CURRENT",
+    "rules": null
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
@@ -23855,30 +22566,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Decline",
     "rules": [
@@ -24178,30 +22865,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "Modified",
     "rules": [
@@ -24420,6 +23083,14 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline | Modified / ROP: Accepted",
+    "rules": [
+     {
+      "outcome": "modified"
      }
     ]
    },
@@ -24786,30 +23457,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "ROP",
     "rules": [
@@ -25102,30 +23749,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Decline",
     "rules": [
@@ -25403,30 +24026,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Ethos - TruStage Advantage Whole Life": {
     "raw": "Case by case — automated UW decision",
     "rules": [
@@ -25617,6 +24216,14 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Accepted | Graded: Accepted | Modified / ROP: Accepted",
+    "rules": [
+     {
+      "outcome": "level"
+     }
+    ]
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Accepted | Graded: Accepted",
     "rules": [
@@ -25641,40 +24248,6 @@ UW.registerGrid({
      {
       "withinYears": 4,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -25974,51 +24547,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF NOT ILLEGAL",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF NOT ILLEGAL",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Y IF NOT ILLEGAL",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: Ethos - TruStage Advantage Whole Life": {
     "raw": "Case by case — automated UW decision (non-tobacco rates if no nicotine)",
     "rules": [
@@ -26226,6 +24754,10 @@ UW.registerGrid({
      }
     ],
     "qualified": true
+   },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Y IF NOT ILLEGAL | Graded: Y IF NOT ILLEGAL | Modified / ROP: Y IF NOT ILLEGAL",
+    "rules": null
    }
   },
   "melanoma": {
@@ -26890,35 +25422,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 3 years, Graded",
     "rules": [
@@ -27193,35 +25696,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 3 years, Graded. If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
     "rules": [
@@ -27489,40 +25963,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
     "rules": [
@@ -27541,6 +25981,22 @@ UW.registerGrid({
      },
      {
       "outcome": "best"
+     }
+    ]
+   },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Modified / ROP: Accepted",
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "modified"
+     },
+     {
+      "withinYears": 3,
+      "outcome": "graded"
+     },
+     {
+      "outcome": "level"
      }
     ]
    },
@@ -27933,30 +26389,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
     "rules": [
@@ -28086,30 +26518,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
@@ -28396,30 +26804,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -28729,30 +27113,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "Used within last 12 months- Decline Used within last 1-2 yrs- Preferred",
     "rules": null
@@ -28934,6 +27294,14 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline | Modified / ROP: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF > 1 YEAR SINCE TREATMENT | Standard: Y IF > 1 YEAR SINCE TREATMENT | Graded: Y IF > 1 YEAR SINCE TREATMENT",
     "rules": [
@@ -28978,40 +27346,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -29327,40 +27661,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP",
     "rules": [
@@ -29615,35 +27915,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \" of 2 or more extremities?\" answered \"Yes\" , Graded",
@@ -29972,35 +28243,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -32490,40 +30732,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Immediate",
     "rules": [
@@ -33078,40 +31286,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -33974,40 +32148,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Immediate",
     "rules": [
@@ -34300,40 +32440,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -34980,30 +33086,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
     "rules": [
@@ -35179,6 +33261,14 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline | Modified / ROP: Accepted",
+    "rules": [
+     {
+      "outcome": "modified"
+     }
+    ]
+   },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Decline | Standard: Decline | Graded: Decline",
     "rules": [
@@ -35219,40 +33309,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -35659,56 +33715,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF COMPLETED AND > 3 YEARS FOR HEART, BRAIN OR CIRCULATORY",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF COMPLETED AND > 2 YEARS FOR HEART, BRAIN OR CIRCULATORY",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
@@ -36318,40 +34324,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If treated within 2 years, ROP. If treated between 2 and 3 years ago, Graded",
@@ -37634,30 +35606,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
     "rules": [
@@ -37849,6 +35797,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: American Amicable (Senior Choice)": {
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline | Modified / ROP: Decline",
     "rules": [
      {
       "outcome": "decline"

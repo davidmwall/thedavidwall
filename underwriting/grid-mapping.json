@@ -333,6 +333,21 @@
     },
     "TERM, UL, IUL :: Ethos Trustage Term": {
       "product": "ethos-trustage-term"
+    },
+    "WHOLE LIFE :: American Amicable (Senior Choice)": {
+      "product": "amam-senior-choice"
+    },
+    "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
+      "absorbInto": "WHOLE LIFE :: American Amicable (Senior Choice)",
+      "as": "level"
+    },
+    "WHOLE LIFE :: American Amicable Senior Choice Graded": {
+      "absorbInto": "WHOLE LIFE :: American Amicable (Senior Choice)",
+      "as": "graded"
+    },
+    "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
+      "absorbInto": "WHOLE LIFE :: American Amicable (Senior Choice)",
+      "as": "modified"
     }
   },
   "values": {
