@@ -348,6 +348,9 @@
     "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
       "absorbInto": "WHOLE LIFE :: American Amicable (Senior Choice)",
       "as": "modified"
+    },
+    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
+      "product": "amam-term-made-simple"
     }
   },
   "values": {

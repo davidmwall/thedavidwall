@@ -675,7 +675,8 @@ UW.registerGrid({
     "source": "grid: Max face amount"
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "amam-term-made-simple"
   },
   "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
    "carrier": "Ethos Accumulation IUL - North American",
