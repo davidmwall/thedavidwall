@@ -357,6 +357,9 @@
     },
     "WHOLE LIFE :: American Home Life (Patriot Series)": {
       "product": "ahl-patriot-series"
+    },
+    "WHOLE LIFE :: AIG Guaranteed Issue": {
+      "product": "aig-giwl"
     }
   },
   "values": {

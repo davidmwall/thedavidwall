@@ -35,7 +35,8 @@ UW.registerGrid({
     "max": 25000,
     "source": "grid: Max face amount",
     "min": 5000
-   }
+   },
+   "product": "aig-giwl"
   },
   "WHOLE LIFE :: AIG (SIWL)": {
    "carrier": "AIG (SIWL)",
