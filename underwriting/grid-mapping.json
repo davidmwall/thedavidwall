@@ -366,7 +366,9 @@
     },
     "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
       "official": true
-    }
+    },
+    "WHOLE LIFE :: Ethos - Banner Life Simplified Issue Whole Life": "skip",
+    "WHOLE LIFE :: Ethos - Banner Life Guaranteed Issue Whole Life": "skip"
   },
   "values": {
     "Accepted — Guaranteed Issue (no health questions)": "gi"

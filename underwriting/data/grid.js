@@ -304,36 +304,6 @@ UW.registerGrid({
    },
    "product": "ethos-trustage-ga-wl"
   },
-  "WHOLE LIFE :: Ethos - Banner Life Simplified Issue Whole Life": {
-   "carrier": "Ethos - Banner Life Simplified Issue Whole Life",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "LEVEL",
-    "Build / UW guide": "Simplified Issue Whole Life via Banner Life",
-    "Sales tool": "ethoslife.com/agents",
-    "Quote tool": "app.ethoslife.com"
-   },
-   "bestOutcome": "level"
-  },
-  "WHOLE LIFE :: Ethos - Banner Life Guaranteed Issue Whole Life": {
-   "carrier": "Ethos - Banner Life Guaranteed Issue Whole Life",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "guaranteed",
-   "info": {
-    "Coverage type": "GRADED",
-    "Build / UW guide": "Guaranteed Issue Whole Life via Banner Life",
-    "Sales tool": "ethoslife.com/agents",
-    "Quote tool": "app.ethoslife.com"
-   },
-   "bestOutcome": "gi",
-   "unlisted": {
-    "outcome": "gi",
-    "note": "Guaranteed issue: no health questions"
-   }
-  },
   "WHOLE LIFE :: Foresters (Plan Right)": {
    "carrier": "Foresters (Plan Right)",
    "productName": "Whole Life (from your grid)",
