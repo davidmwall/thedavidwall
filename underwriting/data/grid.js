@@ -697,7 +697,8 @@ UW.registerGrid({
     "note": "$25,000 - $2,000,000 18-50: up to $2M 51-60: up to $1M 61-65: up to $250K Financial: multiple of household income (30x age 18-30, 25x 31-40, 20x 41-50, 15x 51-60, 10x 61-65)"
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "ethos-accumulation-iul"
   },
   "TERM, UL, IUL :: Ethos Term Life - Prime": {
    "carrier": "Ethos Term Life - Prime",

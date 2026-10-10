@@ -368,7 +368,10 @@
       "official": true
     },
     "WHOLE LIFE :: Ethos - Banner Life Simplified Issue Whole Life": "skip",
-    "WHOLE LIFE :: Ethos - Banner Life Guaranteed Issue Whole Life": "skip"
+    "WHOLE LIFE :: Ethos - Banner Life Guaranteed Issue Whole Life": "skip",
+    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
+      "product": "ethos-accumulation-iul"
+    }
   },
   "values": {
     "Accepted — Guaranteed Issue (no health questions)": "gi"
