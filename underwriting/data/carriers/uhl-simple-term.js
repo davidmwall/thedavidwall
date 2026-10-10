@@ -13,8 +13,139 @@ UW.addProduct({
     "effective": "2026-09",
     "lastReviewed": "2026-10-10"
   },
-  // No build chart, issue ages, face limits or state list in this guide; the grid fills these as backup.
-  "build": null,
+  "build": {
+    "source": "UHL tab of the agency grid (Premier / Deluxe columns); heights between rows use the shorter row; over Deluxe = no term plan",
+    "rows": [
+      {
+        "h": 60,
+        "max": {
+          "preferred": 210,
+          "standard": 240
+        }
+      },
+      {
+        "h": 61,
+        "max": {
+          "preferred": 210,
+          "standard": 240
+        },
+        "note": "between chart rows: uses 5 ft 0 in limits"
+      },
+      {
+        "h": 62,
+        "max": {
+          "preferred": 225,
+          "standard": 255
+        }
+      },
+      {
+        "h": 63,
+        "max": {
+          "preferred": 225,
+          "standard": 255
+        },
+        "note": "between chart rows: uses 5 ft 2 in limits"
+      },
+      {
+        "h": 64,
+        "max": {
+          "preferred": 240,
+          "standard": 270
+        }
+      },
+      {
+        "h": 65,
+        "max": {
+          "preferred": 240,
+          "standard": 270
+        },
+        "note": "between chart rows: uses 5 ft 4 in limits"
+      },
+      {
+        "h": 66,
+        "max": {
+          "preferred": 255,
+          "standard": 290
+        }
+      },
+      {
+        "h": 67,
+        "max": {
+          "preferred": 255,
+          "standard": 290
+        },
+        "note": "between chart rows: uses 5 ft 6 in limits"
+      },
+      {
+        "h": 68,
+        "max": {
+          "preferred": 270,
+          "standard": 305
+        }
+      },
+      {
+        "h": 69,
+        "max": {
+          "preferred": 270,
+          "standard": 305
+        },
+        "note": "between chart rows: uses 5 ft 8 in limits"
+      },
+      {
+        "h": 70,
+        "max": {
+          "preferred": 285,
+          "standard": 325
+        }
+      },
+      {
+        "h": 71,
+        "max": {
+          "preferred": 285,
+          "standard": 325
+        },
+        "note": "between chart rows: uses 5 ft 10 in limits"
+      },
+      {
+        "h": 72,
+        "max": {
+          "preferred": 305,
+          "standard": 340
+        }
+      },
+      {
+        "h": 73,
+        "max": {
+          "preferred": 305,
+          "standard": 340
+        },
+        "note": "between chart rows: uses 6 ft 0 in limits"
+      },
+      {
+        "h": 74,
+        "max": {
+          "preferred": 305,
+          "standard": 340
+        },
+        "note": "between chart rows: uses 6 ft 0 in limits"
+      },
+      {
+        "h": 75,
+        "max": {
+          "preferred": 305,
+          "standard": 340
+        },
+        "note": "between chart rows: uses 6 ft 0 in limits"
+      },
+      {
+        "h": 76,
+        "max": {
+          "preferred": 340,
+          "standard": 385
+        }
+      }
+    ]
+  },
   "conditions": {
     "hiv_aids": {
       "rules": [

@@ -253,13 +253,14 @@
     for (var j = 0; j < tiers.length; j++) {
       if (weightLb <= row.max[tiers[j]]) {
         return factor('build', lbl, tiers[j], tiers[j],
-          { note: 'Max ' + row.max[tiers[j]] + ' lb for ' + label(tiers[j]), source: b.source || '' });
+          { note: 'Max ' + row.max[tiers[j]] + ' lb for ' + label(tiers[j]) + (row.note ? ' (' + row.note + ')' : ''), source: b.source || '' });
       }
     }
     var top = tiers.length ? row.max[tiers[tiers.length - 1]] : null;
     var over = b.overweight || 'decline';
     return factor('build', lbl, over, over,
-      { note: 'Over maximum weight' + (top ? ' (' + top + ' lb)' : ''), source: b.source || '' });
+      { note: (over === 'decline' ? 'Over maximum weight' : 'Over the chart (' + label(over) + ' has a higher or no limit)') +
+          (top ? ' — chart max ' + top + ' lb' : '') + (row.note ? ' (' + row.note + ')' : ''), source: b.source || '' });
   }
 
   // rules: [{ withinYears: 2, outcome: 'decline' }, { withinYears: 5, outcome: 'graded' }, { outcome: 'level' }]
