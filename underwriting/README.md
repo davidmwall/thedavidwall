@@ -76,6 +76,16 @@ node underwriting/tools/import_grid.js underwriting/guides/<grid>.xlsx
   Nothing is guessed. Record each decision in `grid-mapping.json` and re-run. Re-imports keep every decision.
 - When you add a carrier's PDF, link its grid column so the grid backs up that carrier instead of showing a separate grid-only entry: `"Whole Life :: Carrier X": { "product": "carrier-x-fe" }`.
 
+### Age and time rules (check these first)
+
+The **Rule check** tab lists every rule with a time window or an age at diagnosis (934 today), with the original wording next to how the app reads it, e.g.:
+
+- "Y IF > 2 YEARS SINCE DIAGNOSIS" → Decline if within 2 yrs · after 2 yrs: Approved
+- "Y IF ONSET > AGE 45" → Decline if diagnosed at age 45 or younger · otherwise Approved
+- "Within 10 years or current medication, Decline" → Decline if within 10 yrs · possibly Decline (other branch)
+
+**Age at diagnosis = client's age − years since diagnosis.** Enter both and these rules give a firm answer; the card shows the check ("diagnosed at age 50: passes the over-45 cutoff"). `underwriting/tests/grid-parse.test.js` locks in 50 of the grid's real phrasings so a change can't silently misread one.
+
 ### How rules work
 
 | Guide says | Data |
@@ -84,6 +94,8 @@ node underwriting/tools/import_grid.js underwriting/guides/<grid>.xlsx
 | "Heart attack within 1 yr decline, 1–2 yrs graded" | `heart_attack: { rules: [{ withinYears: 1, outcome: 'decline' }, { withinYears: 2, outcome: 'graded' }] }` (older than 2 yrs = not asked) |
 | "COPD within 2 yrs graded, otherwise level" | `copd: { rules: [{ withinYears: 2, outcome: 'graded' }, { outcome: 'level' }] }` |
 | Build chart | one row per inch: `{ h: 70, min: 112, max: { level: 279, graded: 314 } }` |
+
+Per-product: `preferGrid: true` makes your grid win over an outdated guide (the guide's answer is shown under each grid answer). Used for Mutual of Omaha Term Life Express and IUL Express.
 
 Outcomes from best to worst: `preferred_plus, preferred, standard_plus, standard, level, table, graded, modified, gi, refer, decline`. A product's overall result is the **worst** outcome across everything entered.
 

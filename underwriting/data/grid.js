@@ -1185,7 +1185,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If currently, Decline",
@@ -1369,7 +1373,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -1764,7 +1772,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 2 years, Basic",
@@ -2001,11 +2013,25 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If drug/alcohol abuse within past 10 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If drug/alcohol abuse within past 10 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline",
@@ -2088,7 +2114,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "If alcohol abuse/treatment within 5 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "If treated within 5 years, Decline",
@@ -2201,7 +2234,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -2585,7 +2622,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -2899,10 +2940,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -2969,15 +3006,15 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If \"Is the prospect confined to a wheelchair or motorized mobility device?\" answered \"Yes\" , Decline. If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -3050,10 +3087,6 @@ UW.registerGrid({
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \"Is the prospect confined to a wheelchair or motorized mobility device?\" answered \"Yes\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -3327,11 +3360,20 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -3342,6 +3384,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Plan Right Standard": {
     "raw": "Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -3589,7 +3636,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Basic",
@@ -3703,7 +3754,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 2 years, Basic",
@@ -3828,7 +3883,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 2 years, Basic",
@@ -3948,7 +4007,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Basic",
@@ -4062,7 +4125,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 2 years, Basic",
@@ -4239,7 +4306,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 1 year, Basic. If treated between 1 and 2 years ago, Standard",
@@ -4593,10 +4664,6 @@ UW.registerGrid({
      {
       "outcome": "graded",
       "conditional": true
-     },
-     {
-      "outcome": "graded",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -4680,7 +4747,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If performed within 1 year, Basic. If performed between 1 and 2 years ago, Standard",
@@ -4822,33 +4893,37 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS AGO AND AGE 45 OR GREATER AT ONSET",
     "rules": [
      {
-      "withinYears": 2,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeBelow": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 2,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 1 YEAR AGO AND AGE 45 OR GREATER AT ONSET",
     "rules": [
      {
-      "withinYears": 1,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeBelow": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 1,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "If younger than 17, Decline",
@@ -4871,6 +4946,11 @@ UW.registerGrid({
       "withinYears": 7,
       "outcome": "decline",
       "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
     ],
     "qualified": true
@@ -4894,6 +4974,11 @@ UW.registerGrid({
       "withinYears": 10,
       "outcome": "decline",
       "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
     ],
     "qualified": true
@@ -4909,6 +4994,11 @@ UW.registerGrid({
       "withinYears": 10,
       "outcome": "decline",
       "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
     ],
     "qualified": true
@@ -4957,6 +5047,11 @@ UW.registerGrid({
       "withinYears": 10,
       "outcome": "decline",
       "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
     ],
     "qualified": true
@@ -4972,6 +5067,11 @@ UW.registerGrid({
       "withinYears": 10,
       "outcome": "decline",
       "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
     ],
     "qualified": true
@@ -4987,6 +5087,11 @@ UW.registerGrid({
       "withinYears": 10,
       "outcome": "decline",
       "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
     ],
     "qualified": true
@@ -5130,7 +5235,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -5398,7 +5507,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If currently, Decline",
@@ -5668,7 +5781,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -5741,10 +5858,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -5752,10 +5865,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "If paired with tobacco, Decline. If \"Is the prospect taking any inhaled steroid medications or do they use 3 or more inhalers?\" answered \"Yes\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -5769,10 +5878,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -5780,10 +5885,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "If \"Is the prospect taking any inhaled steroid medications or do they use 3 or more inhalers?\" answered \"Yes\" , Decline. If paired with tobacco, Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -5803,15 +5904,45 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Mild/moderate = approved. severe/hospitalization = declined",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "Mild/moderate = approved. severe/hospitalization = declined",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Mild/moderate = approved. severe/hospitalization = declined",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Decline",
@@ -5914,7 +6045,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -6018,10 +6153,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -6029,10 +6160,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "If paired with tobacco, Decline. If \"Is the prospect taking any inhaled steroid medications or do they use 3 or more inhalers?\" answered \"Yes\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -6046,10 +6173,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -6057,10 +6180,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "If \"Is the prospect taking any inhaled steroid medications or do they use 3 or more inhalers?\" answered \"Yes\" , Decline. If paired with tobacco, Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -6096,15 +6215,45 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Mild/moderate = approved. severe/hospitalization = declined",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "Mild/moderate = approved. severe/hospitalization = declined",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Mild/moderate = approved. severe/hospitalization = declined",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Accepted",
@@ -6150,6 +6299,11 @@ UW.registerGrid({
     "raw": "Y IF MILD, NON SMOKER AND NO STEROID USE",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -6159,6 +6313,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF MILD, NON SMOKER AND NO STEROID USE",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -6178,7 +6337,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
@@ -6383,7 +6546,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -6458,6 +6625,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREAMENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 2,
       "outcome": "decline",
@@ -6668,7 +6840,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "PREFERRED LEVEL",
@@ -6834,7 +7010,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -7056,7 +7236,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If currently, Decline",
@@ -7187,7 +7371,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -7256,6 +7444,11 @@ UW.registerGrid({
     "raw": "Y IF > AGE 18 (Call UW if client has a history of alcohol/drug abuse)",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -7273,6 +7466,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > AGE 18 (Call UW if client has a history of alcohol/drug abuse)",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -7324,7 +7522,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "If hospitalization/inpatient within last 5 years or suicidal thoughts past 6 mo, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Decline",
@@ -7451,7 +7656,11 @@ UW.registerGrid({
   "blood_clots": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If \"More than 1 episode or continuing anticoagulant (blood thinner) medication?\" answered \"Yes\" , Decline",
@@ -7598,7 +7807,11 @@ UW.registerGrid({
   "blood_disorder": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -7735,7 +7948,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -7984,7 +8201,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -8313,7 +8534,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
@@ -8578,7 +8803,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if within last 5 years, or at any time w/ tobacco/diabetes/stroke",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -8725,7 +8960,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -8845,7 +9084,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Decline",
@@ -9115,10 +9358,6 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
       "outcome": "graded",
       "conditional": true
      }
@@ -9183,7 +9422,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -9560,7 +9803,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If diagnosis or  \ntreatment within 3  years – Basic Death  Benefit",
@@ -9602,6 +9849,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Plan Right Basic": {
     "raw": "Y IF NOT CURRENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -9984,7 +10236,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -10363,7 +10619,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -10554,6 +10814,11 @@ UW.registerGrid({
     "raw": "Y IF MILD TO MODERATE",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -10581,6 +10846,11 @@ UW.registerGrid({
     "raw": "Y IF > 9 YEARS OF AGE, MILD AND SELF- SUFFICIENT",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -10590,6 +10860,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF > 9 YEARS OF AGE, MILD AND SELF- SUFFICIENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -10601,7 +10876,11 @@ UW.registerGrid({
   "chronic_pain": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Approved",
@@ -10811,7 +11090,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -11045,7 +11328,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -11275,7 +11562,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -11288,6 +11579,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF MILD TO MODERATE",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -11376,10 +11672,10 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": false,
+      "dxAgeBelow": 20
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "If diagnosed prior to age 20, Decline. If diagnosed within 1 year, Decline",
@@ -11390,10 +11686,10 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": false,
+      "dxAgeBelow": 20
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Express Term)": {
     "raw": "If diagnosed within 1 year, Decline. If diagnosed prior to age 20, Decline",
@@ -11404,10 +11700,10 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": false,
+      "dxAgeBelow": 20
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "If diagnosed prior to age 20, Decline. If diagnosed within 1 year, Decline",
@@ -11418,10 +11714,10 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": false,
+      "dxAgeBelow": 20
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline (intestinal disorder — ulcerative colitis) | Decline (intestinal disorder)",
@@ -11635,7 +11931,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -11738,11 +12038,14 @@ UW.registerGrid({
     "raw": "Y IF > 45 YEARS OLD AT DIAGNOSIS",
     "rules": [
      {
-      "outcome": "best",
-      "conditional": true
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
     "raw": "Decline",
@@ -11836,7 +12139,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if heart surgery/bypass/valve/attack within last 5 yrs or w/ tobacco/diabetes/stroke at any time",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -11939,7 +12249,11 @@ UW.registerGrid({
   "cad": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -12007,7 +12321,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if within last 5 yrs or w/ tobacco/diabetes/stroke at any time",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -12196,7 +12520,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -12447,7 +12775,13 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "COPD with more than minimal/\noccasional symptoms, requiring\noxygen, disabled, hospitalization\nor tobacco use - Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
@@ -12550,7 +12884,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -12622,6 +12960,11 @@ UW.registerGrid({
     "raw": "Y IF > 1 YEAR SINCE POSITIVE TEST RESULT, TREATMENT AND QUARANTINE",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
@@ -12637,6 +12980,11 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable Senior Choice Graded": {
     "raw": "Y IF > 1 YEAR SINCE POSITIVE TEST RESULT, TREATMENT AND QUARANTINE",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 1,
       "outcome": "decline",
@@ -12654,6 +13002,11 @@ UW.registerGrid({
     "raw": "Y IF > 30 DAYS SINCE POSITIVE TEST RESULT, TREATMENT OR QUARANTINE",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -12662,11 +13015,20 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -12677,6 +13039,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Plan Right Standard": {
     "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -12696,6 +13063,11 @@ UW.registerGrid({
     "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -12706,6 +13078,11 @@ UW.registerGrid({
     "raw": "Y IF > 30 DAYS SINCE SYMPTOMS, QUARANTINE, POSITIVE TEST RESULTS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -12715,6 +13092,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Y IF > 30 DAYS SINCE SYMPTOMS, QUARANTINE, POSITIVE TEST RESULTS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -12733,10 +13115,6 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If \"Within the past 30 days, have you been advised to get specified medical care that has not yet been completed as a result of fever, cough, shortness of breath, or fatigue?\" answered \"Yes\" , ROP. If \"In the past 12 months, has the insured been quarantined or been recommended to be quarantined by a medical professional for covid-19?\" answered \"Yes\" , ROP",
     "rules": [
-     {
-      "outcome": "modified",
-      "conditional": true
-     },
      {
       "outcome": "modified",
       "conditional": true
@@ -12828,6 +13206,11 @@ UW.registerGrid({
     "raw": "Y IF TESTED POSITIVE > 3 MONTHS AGO, NO RESIDUAL EFFECTS WITHIN THE LAST 6 MONTHS, NO SYMPTOMS WITHIN THE LAST 30 DAYS | If \"Within the past 30 days, have you been advised to get specified medical care that has not yet been completed as a result of fever, cough, shortness of breath, or fatigue?\" answered \"Yes\" , Decline. If \"In the past 12 months, has the insured been quarantined or been recommended to be quarantined by a medical professional for covid-19?\" answered \"Yes\" , Decline",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 0.25,
       "outcome": "decline",
       "note": "implied by grid",
@@ -12835,10 +13218,6 @@ UW.registerGrid({
      },
      {
       "outcome": "standard",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
       "conditional": true
      },
      {
@@ -12852,6 +13231,11 @@ UW.registerGrid({
     "raw": "Y IF TESTED POSITIVE > 3 MONTHS AGO, NO RESIDUAL EFFECTS WITHIN THE LAST 6 MONTHS, NO SYMPTOMS WITHIN THE LAST 30 DAYS | If \"In the past 12 months, has the insured been quarantined or been recommended to be quarantined by a medical professional for covid-19?\" answered \"Yes\" , Decline. If \"Within the past 30 days, have you been advised to get specified medical care that has not yet been completed as a result of fever, cough, shortness of breath, or fatigue?\" answered \"Yes\" , Decline",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 0.25,
       "outcome": "decline",
       "note": "implied by grid",
@@ -12859,10 +13243,6 @@ UW.registerGrid({
      },
      {
       "outcome": "standard",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
       "conditional": true
      },
      {
@@ -12876,6 +13256,11 @@ UW.registerGrid({
     "raw": "Y IF TESTED POSITIVE > 3 MONTHS AGO, NO RESIDUAL EFFECTS WITHIN THE LAST 6 MONTHS, NO SYMPTOMS WITHIN THE LAST 30 DAYS | If \"Within the past 30 days, have you been advised to get specified medical care that has not yet been completed as a result of fever, cough, shortness of breath, or fatigue?\" answered \"Yes\" , Decline. If \"In the past 12 months, has the insured been quarantined or been recommended to be quarantined by a medical professional for covid-19?\" answered \"Yes\" , Decline",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 0.25,
       "outcome": "decline",
       "note": "implied by grid",
@@ -12883,10 +13268,6 @@ UW.registerGrid({
      },
      {
       "outcome": "standard",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
       "conditional": true
      },
      {
@@ -12900,6 +13281,11 @@ UW.registerGrid({
     "raw": "Y IF TESTED POSITIVE > 3 MONTHS AGO, NO RESIDUAL EFFECTS WITHIN THE LAST 6 MONTHS, NO SYMPTOMS WITHIN THE LAST 30 DAYS | If \"Within the past 30 days, have you been advised to get specified medical care that has not yet been completed as a result of fever, cough, shortness of breath, or fatigue?\" answered \"Yes\" , Decline. If \"In the past 12 months, has the insured been quarantined or been recommended to be quarantined by a medical professional for covid-19?\" answered \"Yes\" , Decline",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 0.25,
       "outcome": "decline",
       "note": "implied by grid",
@@ -12907,10 +13293,6 @@ UW.registerGrid({
      },
      {
       "outcome": "standard",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
       "conditional": true
      },
      {
@@ -12948,6 +13330,11 @@ UW.registerGrid({
     "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED | Approved",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      },
@@ -12962,6 +13349,11 @@ UW.registerGrid({
     "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED | Approved",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      },
@@ -12975,6 +13367,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED | Approved",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -13022,6 +13419,11 @@ UW.registerGrid({
     "raw": "Y IF TESTED POSITIVE > 3 MONTHS AGO, NO RESIDUAL EFFECTS WITHIN THE LAST 6 MONTHS, NO SYMPTOMS WITHIN THE LAST 30 DAYS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 0.25,
       "outcome": "decline",
       "note": "implied by grid",
@@ -13037,6 +13439,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF TESTED POSITIVE > 3 MONTHS AGO, NO RESIDUAL EFFECTS WITHIN THE LAST 6 MONTHS, NO SYMPTOMS WITHIN THE LAST 30 DAYS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 0.25,
       "outcome": "decline",
@@ -13110,7 +13517,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -13123,6 +13534,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF > 5 YEARS IN REMISSION",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 5,
       "outcome": "decline",
@@ -13196,11 +13612,14 @@ UW.registerGrid({
     "raw": "Y IF ONSET > AGE 26",
     "rules": [
      {
-      "outcome": "best",
-      "conditional": true
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 26
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
@@ -13219,10 +13638,10 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": false,
+      "dxAgeBelow": 20
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "If diagnosed prior to age 20, Decline. If diagnosed within 1 year, Decline",
@@ -13233,10 +13652,10 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": false,
+      "dxAgeBelow": 20
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Express Term)": {
     "raw": "If diagnosed prior to age 20, Decline. If diagnosed within 1 year, Decline",
@@ -13247,10 +13666,10 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": false,
+      "dxAgeBelow": 20
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "If diagnosed prior to age 20, Decline. If diagnosed within 1 year, Decline",
@@ -13261,14 +13680,19 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": false,
+      "dxAgeBelow": 20
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Y IF > 5 YEARS IN REMISSION",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 5,
       "outcome": "decline",
@@ -13286,6 +13710,11 @@ UW.registerGrid({
     "raw": "Y IF > 5 YEARS IN REMISSION",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 5,
       "outcome": "decline",
       "note": "implied by grid",
@@ -13301,6 +13730,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Y IF > 5 YEARS IN REMISSION",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 5,
       "outcome": "decline",
@@ -13418,7 +13852,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Decline",
@@ -13692,7 +14130,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -14057,7 +14499,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If implanted within 1 year, Basic. If implanted between 1 and 2 years ago, Standard",
@@ -14202,6 +14648,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 45 YEARS OLD WHEN INSTALLED AND > 1 YEAR SINCE INSTALLATION",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 1,
       "outcome": "decline",
@@ -14427,7 +14878,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -14495,10 +14950,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -14506,10 +14957,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "If \"Major depression?\" answered \"Yes\" , Decline. If \"Is the insured taking more than 2 anxiety/depression medications?\" answered \"Yes\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -14523,10 +14970,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -14537,6 +14980,16 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
+     }
+    ],
+    "qualified": true
+   },
+   "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
+    "raw": "Mild/well-controlled = approved. Severe with hospitalization/suicidal history = Decline",
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
      },
      {
       "outcome": "decline",
@@ -14545,17 +14998,33 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
-    "raw": "Mild/well-controlled = approved. Severe with hospitalization/suicidal history = Decline",
-    "rules": null
-   },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Mild/well-controlled = approved. Severe with hospitalization/suicidal history = Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Mild/well-controlled = approved. Severe with hospitalization/suicidal history = Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "May Accept — no bipolar, no hospitalization, no time lost from work",
@@ -14674,10 +15143,6 @@ UW.registerGrid({
      {
       "outcome": "standard",
       "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -14704,11 +15169,20 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF > 25 YEARS OLD, DIAGNOSIS > 1 YEAR AGO, NO HOSPITALIZATIONS OR TIME OFF WORK",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 1,
       "outcome": "decline",
@@ -14734,6 +15208,11 @@ UW.registerGrid({
     "raw": "Y IF NOT MAJOR DEPRESSION, NO MORE THAN 1 MEDICATION  AND NOT CHRONIC",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -14743,6 +15222,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "Y IF NOT MAJOR DEPRESSION, NO MORE THAN 1 MEDICATION  AND NOT CHRONIC",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -14754,6 +15238,11 @@ UW.registerGrid({
     "raw": "Y IF NOT MAJOR DEPRESSION, NO MORE THAN 1 MEDICATION  AND NOT CHRONIC",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -14763,6 +15252,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "Y IF NOT MAJOR DEPRESSION, NO MORE THAN 1 MEDICATION  AND NOT CHRONIC",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -14890,6 +15384,11 @@ UW.registerGrid({
     "raw": "Y IF CONTROLLED",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -14899,6 +15398,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Y IF CONTROLLED",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -14910,6 +15414,11 @@ UW.registerGrid({
     "raw": "Y IF NO HOSPITALIZATIONS WITHIN 3 YEARS, NO MAJOR DEPRESSION,  < 3 MEDICATIONS AND NO HISTORY OF ALCOHOL PROBLEMS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 3,
       "outcome": "standard",
       "conditional": true
@@ -14920,6 +15429,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF NO HOSPITALIZATIONS WITHIN 3 YEARS, NO MAJOR DEPRESSION,  < 3 MEDICATIONS AND NO HISTORY OF ALCOHOL PROBLEMS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 3,
       "outcome": "standard",
@@ -14950,7 +15464,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
@@ -15013,11 +15531,25 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If hospitalization/inpatient treatment within last 5 years, or suicidal thoughts/attempt within 10 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If hospitalization/inpatient treatment within last 5 years, or suicidal thoughts/attempt within 10 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if requiring 2+ meds, hospitalization, or disability",
@@ -15085,6 +15617,11 @@ UW.registerGrid({
     "raw": "Y IF CONTROLLED WITH MEDICATION",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -15094,6 +15631,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Y IF CONTROLLED WITH MEDICATION",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -15114,6 +15656,11 @@ UW.registerGrid({
     "raw": "Y IF NO HOSPITALIZATIONS WITHIN 3 YEARS, < 3 MEDICATIONS AND NO HISTORY OF ALCOHOL PROBLEMS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 3,
       "outcome": "standard",
       "conditional": true
@@ -15124,6 +15671,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF NO HOSPITALIZATIONS WITHIN 3 YEARS, < 3 MEDICATIONS AND NO HISTORY OF ALCOHOL PROBLEMS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 3,
       "outcome": "standard",
@@ -15146,6 +15698,11 @@ UW.registerGrid({
     "raw": "Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -15155,6 +15712,11 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable Senior Choice Graded": {
     "raw": "Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -15182,11 +15744,20 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Y IF NO COMPLICATIONS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -15197,6 +15768,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Plan Right Standard": {
     "raw": "Y IF NO COMPLICATIONS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -15224,6 +15800,11 @@ UW.registerGrid({
     "raw": "Y IF INSULIN > 30 YEARS OF AGE",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -15233,6 +15814,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Y IF INSULIN > 30 YEARS OF AGE",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -15288,7 +15874,8 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "dxAgeBelow": 40
      }
     ],
     "qualified": true
@@ -15298,14 +15885,21 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "dxAgeBelow": 40
      }
     ],
     "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if Type 1 or Type 2 with A1C ≥7 within last year, OR with neuropathy/retinopathy/kidney disease/heart disease/stroke history",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Individual consideration based on A1C,\nage, duration and build with no\ndiabetic complications \n\nhttps://ezbiz.foresters.com/sfdiabetesratings",
@@ -15369,7 +15963,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "Diabetes diagnosed prior to age 60 OR insulin use in last 12 months OR tobacco use in last 24 months OR neuropathy/retinopathy/kidney disease = Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "dxAgeBelow": 60
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "If within 5 years, Simple Term Deluxe",
@@ -15384,6 +15985,16 @@ UW.registerGrid({
     "raw": "Y IF > 60 YEARS OF AGE WHEN DIAGNOSED, NOT OVERWEIGHT,  NO HEART PROBLEMS, NO HISTORY OF ALCOHOL ABUSE OR STROKE, INDIDVIDUAL CONSIDERATION GIVEN FOR SMOKERS",
     "rules": [
      {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 60
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -15393,6 +16004,16 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF > 60 YEARS OF AGE WHEN DIAGNOSED, NOT OVERWEIGHT,  NO HEART PROBLEMS, NO HISTORY OF ALCOHOL ABUSE OR STROKE, INDIDVIDUAL CONSIDERATION GIVEN FOR SMOKERS",
     "rules": [
+     {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 60
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -15414,15 +16035,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "level",
-      "conditional": true
-     },
-     {
       "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "graded",
       "conditional": true
      },
      {
@@ -15441,7 +16054,8 @@ UW.registerGrid({
      },
      {
       "outcome": "modified",
-      "conditional": true
+      "conditional": true,
+      "dxAgeBelow": 49
      }
     ],
     "qualified": true
@@ -15462,36 +16076,18 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "standard",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     },
-     {
       "outcome": "decline",
       "conditional": true
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "dxAgeBelow": 39
      },
      {
       "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "dxAgeBelow": 24
      }
     ],
     "qualified": true
@@ -15508,7 +16104,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -15537,7 +16137,8 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "dxAgeBelow": 9
      },
      {
       "outcome": "standard",
@@ -15560,10 +16161,10 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded",
-      "conditional": true
+      "conditional": false,
+      "dxAgeBelow": 44
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If \"Insulin use?\" answered \"Yes\" , Standard",
@@ -15599,6 +16200,11 @@ UW.registerGrid({
     "raw": "Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -15608,6 +16214,11 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable Senior Choice Graded": {
     "raw": "Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -15635,11 +16246,20 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Y IF NO COMPLICATIONS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -15650,6 +16270,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Plan Right Standard": {
     "raw": "Y IF NO COMPLICATIONS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -15668,6 +16293,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF NO COMPLICATIONS AND NOT OVERWEIGHT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -15695,6 +16325,16 @@ UW.registerGrid({
     "raw": "Y IF > 35 YEARS OLD WHEN DIAGNOSED, NON SMOKER, NO COMPLICATIONS,  NOT OVERWEIGHT AND CONTROLLED WITH ORAL MEDICATIONS (2 or less oral medications)",
     "rules": [
      {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 35
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -15704,6 +16344,16 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "Y IF > 35 YEARS OLD WHEN DIAGNOSED, NON SMOKER, NO COMPLICATIONS,  NOT OVERWEIGHT AND CONTROLLED WITH ORAL MEDICATIONS (2 or less oral medications)",
     "rules": [
+     {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 35
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -15715,6 +16365,16 @@ UW.registerGrid({
     "raw": "Y IF > 35 YEARS OLD WHEN DIAGNOSED, NON SMOKER, NO COMPLICATIONS,  NOT OVERWEIGHT AND CONTROLLED WITH ORAL MEDICATIONS (2 or less oral medications)",
     "rules": [
      {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 35
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -15724,6 +16384,16 @@ UW.registerGrid({
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "Y IF > 35 YEARS OLD WHEN DIAGNOSED, NON SMOKER, NO COMPLICATIONS,  NOT OVERWEIGHT AND CONTROLLED WITH ORAL MEDICATIONS (2 or less oral medications)",
     "rules": [
+     {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 35
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -15759,10 +16429,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -15785,6 +16451,16 @@ UW.registerGrid({
     "raw": "Y IF > AGE 45 WHEN DIAGNOSED, NON SMOKER, NO COMPLICATIONS AND GOOD BUILD",
     "rules": [
      {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -15794,6 +16470,16 @@ UW.registerGrid({
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Y IF > AGE 45 WHEN DIAGNOSED, NON SMOKER, NO COMPLICATIONS AND GOOD BUILD",
     "rules": [
+     {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -15813,6 +16499,16 @@ UW.registerGrid({
     "raw": "Y IF > 30 YEARS OF AGE WHEN DIAGNOSED, NOT OVERWEIGHT,  NO HEART PROBLEMS, NO ALCOHOL ABUSE OR STROKE, INDIDVIDUAL CONSIDERATION GIVEN FOR SMOKERS",
     "rules": [
      {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 30
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -15822,6 +16518,16 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF > 30 YEARS OF AGE WHEN DIAGNOSED, NOT OVERWEIGHT,  NO HEART PROBLEMS, NO ALCOHOL ABUSE OR STROKE, INDIDVIDUAL CONSIDERATION GIVEN FOR SMOKERS",
     "rules": [
+     {
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 30
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -15852,27 +16558,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "level",
-      "conditional": true
-     },
-     {
-      "outcome": "level",
-      "conditional": true
-     },
-     {
       "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "graded",
-      "conditional": true
-     },
-     {
-      "outcome": "graded",
-      "conditional": true
-     },
-     {
-      "outcome": "level",
       "conditional": true
      },
      {
@@ -15912,36 +16598,18 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "standard",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     },
-     {
       "outcome": "decline",
       "conditional": true
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "dxAgeBelow": 39
      },
      {
       "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "dxAgeBelow": 24
      },
      {
       "outcome": "decline",
@@ -15966,7 +16634,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Lafayette Life": {
     "raw": "If treated within 2 years, Graded",
@@ -15995,7 +16667,8 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "dxAgeBelow": 9
      },
      {
       "withinYears": 2,
@@ -16307,10 +16980,6 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "level",
-      "conditional": true
-     },
-     {
       "outcome": "decline",
       "conditional": true
      },
@@ -16390,7 +17059,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -16699,7 +17372,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "PREFERRED",
@@ -16875,6 +17552,11 @@ UW.registerGrid({
     "raw": "Y IF > 6 MONTHS AGO, CHECK UNDERLYING REASON FOR DISABILITY",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 0.5,
       "outcome": "decline",
       "note": "implied by grid",
@@ -16890,6 +17572,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF > 6 MONTHS AGO, CHECK UNDERLYING REASON FOR DISABILITY",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 0.5,
       "outcome": "decline",
@@ -16963,7 +17650,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -17178,7 +17869,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -17363,7 +18058,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -17492,11 +18191,25 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If DUI/DWI within 5 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If DUI/DWI within 5 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline",
@@ -17633,7 +18346,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -17850,11 +18567,20 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF < 3 IN THE LAST 5 YEARS AND NO RECKLESS DRIVING IN LAST 5 YEARS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 5,
       "outcome": "best",
@@ -17869,15 +18595,14 @@ UW.registerGrid({
      {
       "withinYears": 3,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "implied by grid"
      },
      {
       "outcome": "standard",
-      "conditional": true
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "Y IF > 3 YEARS OR < 3 VIOLATIONS",
@@ -17885,15 +18610,14 @@ UW.registerGrid({
      {
       "withinYears": 3,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "implied by grid"
      },
      {
       "outcome": "standard",
-      "conditional": true
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Express Term)": {
     "raw": "Y IF > 3 YEARS OR < 3 VIOLATIONS",
@@ -17901,15 +18625,14 @@ UW.registerGrid({
      {
       "withinYears": 3,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "implied by grid"
      },
      {
       "outcome": "standard",
-      "conditional": true
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "Y IF > 3 YEARS OR < 3 VIOLATIONS",
@@ -17917,15 +18640,14 @@ UW.registerGrid({
      {
       "withinYears": 3,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "implied by grid"
      },
      {
       "outcome": "standard",
-      "conditional": true
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "If within 5 years, Decline",
@@ -17956,11 +18678,23 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if DUI/DWI/Reckless driving within last 5 years",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Y IF < 3 IN THE LAST 5 YEARS AND NO RECKLESS DRIVING IN LAST 5 YEARS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 5,
       "outcome": "standard",
@@ -17973,6 +18707,11 @@ UW.registerGrid({
     "raw": "Y IF < 3 IN THE LAST 5 YEARS AND NO RECKLESS DRIVING IN LAST 5 YEARS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 5,
       "outcome": "standard",
       "conditional": true
@@ -17983,6 +18722,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Y IF < 3 IN THE LAST 5 YEARS AND NO RECKLESS DRIVING IN LAST 5 YEARS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 5,
       "outcome": "standard",
@@ -18045,15 +18789,14 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "implied by grid"
      },
      {
       "outcome": "standard",
-      "conditional": true
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF > 2 YEARS OR < 3 VIOLATIONS",
@@ -18061,19 +18804,31 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "implied by grid"
      },
      {
       "outcome": "standard",
-      "conditional": true
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level: Y IF > 2 YEARS OR < 2 VIOLATIONS | Graded: Accepted",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "graded"
+     },
+     {
+      "outcome": "level"
+     },
+     {
+      "outcome": "level",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
+     }
+    ]
    }
   },
   "drug_abuse": {
@@ -18180,7 +18935,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 2 years, Basic",
@@ -18412,11 +19171,25 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If drug abuse within past 10 years, Decline | If drug use/treatment within past 10 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If drug abuse within past 10 years, Decline | If drug use/treatment within past 10 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if within last 5 years",
@@ -18503,7 +19276,19 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "If drug use/abuse/treatment within 7 years (excluding marijuana), Decline | If within 7 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 7,
+      "outcome": "decline",
+      "conditional": true
+     },
+     {
+      "withinYears": 7,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "If treated within 5 years, Decline | If within 5 years, Decline",
@@ -18596,7 +19381,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -18806,10 +19595,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -18820,10 +19605,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -18831,10 +19612,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "If \"More than 3 moving violations in the past 5 years?\" answered \"Yes\" , Decline. If \"More than 1 dui in the past 5 years?\" answered \"Yes\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -18908,6 +19685,11 @@ UW.registerGrid({
     "raw": "Y IF > 25 YEARS OF AGE",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -18917,6 +19699,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF > 25 YEARS OF AGE",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -18980,7 +19767,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -19190,10 +19981,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -19204,10 +19991,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -19215,10 +19998,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "If \"More than 3 moving violations in the past 5 years?\" answered \"Yes\" , Decline. If \"More than 1 dui in the past 5 years?\" answered \"Yes\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -19422,7 +20201,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -19728,7 +20511,11 @@ UW.registerGrid({
   "encephalitis": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    }
   },
   "seizures": {
@@ -19822,7 +20609,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -19835,6 +20626,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF NO COMPLICATIONS AND > 2 YEARS SINCE LAST SEIZURE",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 2,
       "outcome": "decline",
@@ -19931,6 +20727,11 @@ UW.registerGrid({
     "raw": "Y IF NO MORE THAN 6 SEIZURES IN LAST 2 YEARS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "best",
       "conditional": true
@@ -20000,7 +20801,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "May Accept if diagnosed >5 yrs ago, ≤1 seizure/yr, compliant with meds; Decline if diagnosed within last 5 years",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "standard",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Controlled on meds, no seizures for 2 years,\nno complications = approved",
@@ -20094,6 +20905,11 @@ UW.registerGrid({
     "raw": "Y IF GRAND MAL OR PETIT MAL > 6 MONTHS SINCE LAST ATTACK",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 0.5,
       "outcome": "decline",
       "note": "implied by grid",
@@ -20109,6 +20925,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF GRAND MAL OR PETIT MAL > 6 MONTHS SINCE LAST ATTACK",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 0.5,
       "outcome": "decline",
@@ -20177,7 +20998,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -20247,6 +21072,11 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS SINCE CONVICTION (AWAITING TRIAL = DECLINE)",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
@@ -20263,6 +21093,11 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS SINCE CONVICTION (AWAITING TRIAL = DECLINE)",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
@@ -20278,6 +21113,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 2 YEARS SINCE CONVICTION (AWAITING TRIAL = DECLINE)",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 2,
       "outcome": "decline",
@@ -20427,7 +21267,13 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "History of felony, currently on\nprobation/parole, outstanding fines/\nrestitution, in jail, awaiting trial - Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If within 10 years, Decline",
@@ -20549,7 +21395,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -20562,6 +21412,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF NO DEPRESSION AND WORKING FULL TIME",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -20761,7 +21616,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
@@ -20859,6 +21718,11 @@ UW.registerGrid({
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER)",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -20868,6 +21732,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER)",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -20891,7 +21760,21 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: AIG (SIWL)": {
     "raw": "If within 6 months, Decline. If between 6 months and 2 years ago, SimpliNow Legacy. If paired with tobacco, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 0.5,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 2,
+      "outcome": "graded"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
     "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
@@ -20986,7 +21869,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If within 1 year, Basic. If between 1 and 2 years ago, Standard",
@@ -21128,33 +22015,37 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS AND > AGE 45 AT OCCURRENCE",
     "rules": [
      {
-      "withinYears": 2,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 2,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 1 YEAR AND > AGE 45 AT OCCURRENCE",
     "rules": [
      {
-      "withinYears": 1,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 1,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
@@ -21234,7 +22125,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if within last 5 years, or at any time w/ tobacco/diabetes/stroke",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -21387,7 +22288,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -21634,7 +22539,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Decline",
@@ -21696,7 +22605,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Accepted",
@@ -21752,6 +22665,11 @@ UW.registerGrid({
     "raw": "Accepted if “innocent”, no symptoms, no treatment",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -21762,6 +22680,11 @@ UW.registerGrid({
     "raw": "Accepted if “innocent”, no symptoms, no treatment",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -21771,6 +22694,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Accepted if “innocent”, no symptoms, no treatment",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -21858,7 +22786,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
@@ -21994,6 +22926,11 @@ UW.registerGrid({
     "raw": "Y IF MITRAL VALVE PROLAPSE AND NO MEDICATION PRESCRIBED",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -22003,6 +22940,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF MITRAL VALVE PROLAPSE AND NO MEDICATION PRESCRIBED",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -22127,7 +23069,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If performed within 1 year, Basic. If performed between 1 and 2 years ago, Standard",
@@ -22233,6 +23179,11 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS SINCE TREATMENT, DIAGNOSIS AND PROCEDURE",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
@@ -22248,6 +23199,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Y IF > 18 MONTHS SINCE TREATMENT, DIAGNOSIS AND PROCEDURE",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 1.5,
       "outcome": "decline",
@@ -22351,7 +23307,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if within last 5 years, or at any time w/ tobacco/diabetes/stroke",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -22464,7 +23430,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
@@ -22536,7 +23506,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if valve repair/replacement within last 5 yrs, or at any time w/ tobacco/diabetes/stroke",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -22656,10 +23633,6 @@ UW.registerGrid({
      {
       "outcome": "graded",
       "conditional": true
-     },
-     {
-      "outcome": "graded",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -22747,7 +23720,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If performed within 1 year, Basic. If performed between 1 and 2 years ago, Standard",
@@ -22847,6 +23824,11 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS SINCE TREATMENT, DIAGNOSIS AND PROCEDURE",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
@@ -22862,6 +23844,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Y IF > 18 MONTHS SINCE TREATMENT, DIAGNOSIS AND PROCEDURE",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 1.5,
       "outcome": "decline",
@@ -22900,33 +23887,37 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT AND ONSET > 45 YEARS OF AGE",
     "rules": [
      {
-      "withinYears": 2,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 2,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT AND ONSET > 45 YEARS OF AGE",
     "rules": [
      {
-      "withinYears": 1,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 1,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "If younger than 17, Decline",
@@ -22988,7 +23979,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if within last 5 years, or at any time w/ tobacco/diabetes/stroke",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -23092,7 +24093,11 @@ UW.registerGrid({
   "hepatitis": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "TREATED WITHIN 2 YEARS MODIFIED/OVER 2 YEARS PREFERRED",
@@ -23128,6 +24133,11 @@ UW.registerGrid({
     "raw": "Y IF NOT CHRONIS OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
@@ -23143,6 +24153,11 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable Senior Choice Graded": {
     "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 2,
       "outcome": "decline",
@@ -23201,7 +24216,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -23214,6 +24233,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF RECOVERED",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -23377,6 +24401,11 @@ UW.registerGrid({
     "raw": "Accept if recovered",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -23387,6 +24416,11 @@ UW.registerGrid({
     "raw": "Accept if recovered",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -23396,6 +24430,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Accept if recovered",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -23461,6 +24500,11 @@ UW.registerGrid({
     "raw": "Y IF FULL RECOVERY",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -23470,6 +24514,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF FULL RECOVERY",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -23499,6 +24548,11 @@ UW.registerGrid({
     "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
@@ -23514,6 +24568,11 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable Senior Choice Graded": {
     "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 2,
       "outcome": "decline",
@@ -23586,7 +24645,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -23701,6 +24764,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Easy Solution": {
     "raw": "Y IF NO OTHER MAJOR MEDICAL CONDITIONS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -23933,6 +25001,11 @@ UW.registerGrid({
     "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
@@ -23948,6 +25021,11 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable Senior Choice Graded": {
     "raw": "Y IF NOT CHRONIC OR > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 2,
       "outcome": "decline",
@@ -24024,7 +25102,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -24394,7 +25476,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -24507,15 +25593,51 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "Approved if avg BP within last 12 mo: Age 18-39 ≤155/98, 40-49 ≤160/98, 50-59 ≤165/100, 60 ≤175/100",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
+      "withinYears": 1,
+      "outcome": "standard",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Approved if avg BP within last 12 mo: Age 18-39 ≤150/98, 40-49 ≤160/98, 50-59 ≤165/100, 60+ ≤175/100",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
+      "withinYears": 1,
+      "outcome": "standard",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Approved if avg BP within last 12 mo: Age 18-39 ≤150/98, 40-49 ≤160/98, 50-59 ≤165/100, 60+ ≤175/100",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
+      "withinYears": 1,
+      "outcome": "standard",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Accept",
@@ -24659,7 +25781,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If currently, Decline",
@@ -24733,7 +25859,11 @@ UW.registerGrid({
   "multiple_hospital_stays": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "MORE THAN 5 DAYS OF TOTAL CONFINEMENT IN LAST YEAR\nDECLINE/OTHERWISE LEVEL",
@@ -24763,6 +25893,11 @@ UW.registerGrid({
     "raw": "Y IF NOT CURRENT",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -24773,6 +25908,11 @@ UW.registerGrid({
     "raw": "Y IF NOT CURRENT",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -24782,6 +25922,11 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
     "raw": "Y IF NOT CURRENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -24801,7 +25946,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
@@ -24815,6 +25964,11 @@ UW.registerGrid({
     "raw": "Y IF NOT CURRENT",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -24824,6 +25978,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Y IF NOT CURRENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -24892,7 +26051,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if bipolar/PTSD/schizophrenia requiring hospitalization; case by case otherwise",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     },
+     {
+      "outcome": "refer",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -25011,10 +26180,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -25053,7 +26218,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -25327,7 +26496,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 4 years, Decline",
@@ -25500,7 +26673,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
@@ -25787,7 +26964,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 1 year, Decline. If treated more than 1 year ago, Standard",
@@ -26174,7 +27355,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Decline",
@@ -26253,6 +27438,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 4 YEARS SINCE  DIAGNOSIS AND TREATMENT  AND STAGES 1-3",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 4,
       "outcome": "decline",
@@ -26511,7 +27701,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -26622,7 +27816,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -26733,7 +27931,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -26875,7 +28077,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -27009,6 +28215,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF NOT STAGE 4 OR 5",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -27273,7 +28484,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -27430,7 +28645,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -27613,7 +28832,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Accepted",
@@ -27893,7 +29116,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -28226,6 +29453,11 @@ UW.registerGrid({
     "raw": "Y IF NOT ILLEGAL",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -28236,6 +29468,11 @@ UW.registerGrid({
     "raw": "Y IF NOT ILLEGAL",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -28245,6 +29482,11 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
     "raw": "Y IF NOT ILLEGAL",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -28264,7 +29506,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Accepted",
@@ -28308,7 +29554,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "May Accept — <4 times/week AND ≤4 grams/week; daily use = Decline. Occupation in production/processing/sale of marijuana = Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Accepted, Individual\nconsideration may\nbe given",
@@ -28378,6 +29634,11 @@ UW.registerGrid({
     "raw": "Y IF LEGAL",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -28387,6 +29648,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Y IF LEGAL",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -28410,6 +29676,11 @@ UW.registerGrid({
     "raw": "Y IF OCASSIONAL, NOT DAILY USAGE",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -28419,6 +29690,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF OCASSIONAL, NOT DAILY USAGE",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -28430,7 +29706,11 @@ UW.registerGrid({
   "melanoma": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -28623,7 +29903,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -28845,7 +30129,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
@@ -29043,7 +30331,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    }
   },
   "mitral_stenosis": {
@@ -29057,7 +30349,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    }
   },
   "ms": {
@@ -29152,7 +30448,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -29510,7 +30810,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
@@ -29812,7 +31116,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
@@ -29831,6 +31139,11 @@ UW.registerGrid({
     "raw": "Y IF NOT CURRENT",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -29840,6 +31153,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Plan Right Basic": {
     "raw": "Y IF NOT CURRENT",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -29920,7 +31238,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -29933,6 +31255,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF ONLY OCCASIONAL EPISODES",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -30163,7 +31490,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -30314,7 +31645,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If currently, Decline",
@@ -30537,7 +31872,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If currently, Decline",
@@ -30936,7 +32275,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -31291,7 +32634,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Y IF > 1 YEAR SINCE TREATMENT",
@@ -31643,7 +32990,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If implanted within 1 year, Basic. If implanted between 1 and 2 years ago, Standard",
@@ -31797,33 +33148,37 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS AND AND ONSET > 45 YEARS OF AGE",
     "rules": [
      {
-      "withinYears": 2,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 2,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 1 YEAR AND ONSET > 45 YEARS OF AGE",
     "rules": [
      {
-      "withinYears": 1,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 1,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
@@ -32081,7 +33436,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -32326,10 +33685,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -32393,10 +33748,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -32423,7 +33774,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
@@ -32663,6 +34018,11 @@ UW.registerGrid({
     "raw": "Y IF PERFORMS ACTIVIITES OF DAILY LIVING WITHOUT HELP",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -32672,6 +34032,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF PERFORMS ACTIVIITES OF DAILY LIVING WITHOUT HELP",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -32772,7 +34137,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -32900,11 +34269,14 @@ UW.registerGrid({
     "raw": "Y IF ONSET > AGE 45",
     "rules": [
      {
-      "outcome": "best",
-      "conditional": true
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
@@ -33127,7 +34499,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -33203,27 +34579,32 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND ONSET > 45 YEARS OF AGE",
     "rules": [
      {
-      "withinYears": 2,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 2,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF ONSET > 45 YEARS OF AGE",
     "rules": [
      {
-      "outcome": "best",
-      "conditional": true
+      "outcome": "decline",
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
@@ -33386,7 +34767,11 @@ UW.registerGrid({
   "ptsd": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Not asked (check meds list)",
@@ -33433,11 +34818,25 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If hospitalization/inpatient treatment within last 5 years, or suicidal thoughts/attempt within 10 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If hospitalization/inpatient treatment within last 5 years, or suicidal thoughts/attempt within 10 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if requiring 2+ meds, hospitalization, or disability",
@@ -33559,7 +34958,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -33860,7 +35263,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -34019,7 +35426,11 @@ UW.registerGrid({
   "restless_leg": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Approved",
@@ -34187,7 +35598,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -34242,11 +35657,12 @@ UW.registerGrid({
     "raw": "Approved if minimal or slight impairment. Otherwise, decline",
     "rules": [
      {
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "decline",
+      "outcome": "standard",
       "conditional": true
      }
     ],
@@ -34256,11 +35672,12 @@ UW.registerGrid({
     "raw": "Approved if minimal or slight impairment. Otherwise, decline",
     "rules": [
      {
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "decline",
+      "outcome": "standard",
       "conditional": true
      }
     ],
@@ -34270,11 +35687,12 @@ UW.registerGrid({
     "raw": "Approved if minimal or slight impairment. Otherwise, decline",
     "rules": [
      {
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "decline",
+      "outcome": "standard",
       "conditional": true
      }
     ],
@@ -34284,11 +35702,12 @@ UW.registerGrid({
     "raw": "Approved if minimal or slight impairment. Otherwise, decline",
     "rules": [
      {
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "decline",
+      "outcome": "standard",
       "conditional": true
      }
     ],
@@ -34366,11 +35785,23 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline, if moderate/severe",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Decline, if moderate/severe",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "If treated within 5 years, Decline",
@@ -34403,7 +35834,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Accepted",
@@ -34417,11 +35852,12 @@ UW.registerGrid({
     "raw": "Approved if minimal or slight impairment. Otherwise, decline",
     "rules": [
      {
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "decline",
+      "outcome": "standard",
       "conditional": true
      }
     ],
@@ -34431,11 +35867,12 @@ UW.registerGrid({
     "raw": "Approved if minimal or slight impairment. Otherwise, decline",
     "rules": [
      {
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "decline",
+      "outcome": "standard",
       "conditional": true
      }
     ],
@@ -34445,11 +35882,12 @@ UW.registerGrid({
     "raw": "Approved if minimal or slight impairment. Otherwise, decline",
     "rules": [
      {
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "decline",
+      "outcome": "standard",
       "conditional": true
      }
     ],
@@ -34459,11 +35897,12 @@ UW.registerGrid({
     "raw": "Approved if minimal or slight impairment. Otherwise, decline",
     "rules": [
      {
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "decline",
+      "outcome": "standard",
       "conditional": true
      }
     ],
@@ -34497,6 +35936,11 @@ UW.registerGrid({
     "raw": "Y IF NOT DISABLED",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -34506,6 +35950,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Y IF NOT DISABLED",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -34525,6 +35974,11 @@ UW.registerGrid({
     "raw": "Y IF WORKING FULL TIME, NOT DISABLED DUE TO ARTHRITUS OR USING STEROIDS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -34534,6 +35988,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF WORKING FULL TIME, NOT DISABLED DUE TO ARTHRITUS OR USING STEROIDS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -34563,7 +36022,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
@@ -34681,6 +36144,11 @@ UW.registerGrid({
     "raw": "Y IF WORKING FULL TIME, NOT DISABLED DUE TO ARTHRITUS OR USING STEROIDS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -34690,6 +36158,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF WORKING FULL TIME, NOT DISABLED DUE TO ARTHRITUS OR USING STEROIDS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -34752,7 +36225,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -34879,7 +36356,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -34959,7 +36440,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Accepted",
@@ -35117,7 +36602,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
@@ -35365,7 +36854,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -35434,6 +36927,11 @@ UW.registerGrid({
     "raw": "Y IF > AGE 18",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -35451,6 +36949,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > AGE 18",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -35684,7 +37187,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -35997,7 +37504,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -36211,7 +37722,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "PREFERRED",
@@ -36265,7 +37780,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -36508,7 +38027,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 1 year, Decline",
@@ -36616,7 +38139,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -36916,7 +38443,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If within 1 year, Basic. If between 1 and 2 years ago, Standard",
@@ -37053,6 +38584,11 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS AND > 45 YEARS OLD WHEN PERFORMED",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
@@ -37068,6 +38604,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 1 YEAR AND > 45 YEARS OLD WHEN PERFORMED",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 1,
       "outcome": "decline",
@@ -37367,7 +38908,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 1 year, Basic. If treated between 1 and 2 years ago, Standard",
@@ -37506,33 +39051,37 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS AGO AND ONSET > 45 YEARS OF AGE",
     "rules": [
      {
-      "withinYears": 2,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 2,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 1 YEAR AGO AND ONSET > 45 YEARS OF AGE",
     "rules": [
      {
-      "withinYears": 1,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 1,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Standard",
@@ -37547,11 +39096,14 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 7,
+      "outcome": "decline"
+     },
+     {
       "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "Decline",
@@ -37566,22 +39118,28 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 10,
+      "outcome": "decline"
+     },
+     {
       "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "Within 10 years or current medication, Decline.",
     "rules": [
      {
       "withinYears": 10,
+      "outcome": "decline"
+     },
+     {
       "outcome": "decline",
-      "conditional": true
+      "conditional": true,
+      "note": "other branch of the \"or\" in the note"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "Decline",
@@ -37789,7 +39347,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -38118,7 +39680,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Decline",
@@ -38202,11 +39768,23 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If pending tests/treatment not completed or awaiting results, Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If pending tests/treatment not completed or awaiting results, Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case",
@@ -38425,7 +40003,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If performed within 1 year, Basic. If performed between 1 and 2 years ago, Standard",
@@ -38759,7 +40341,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If performed within 1 year, Decline",
@@ -38844,6 +40430,11 @@ UW.registerGrid({
     "raw": "Y IF COMPLETED AND > 3 YEARS FOR HEART, BRAIN OR CIRCULATORY",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 3,
       "outcome": "decline",
       "note": "implied by grid",
@@ -38859,6 +40450,11 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable Senior Choice Graded": {
     "raw": "Y IF COMPLETED AND > 2 YEARS FOR HEART, BRAIN OR CIRCULATORY",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 2,
       "outcome": "decline",
@@ -38908,10 +40504,6 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
       "outcome": "graded",
       "conditional": true
      }
@@ -38924,17 +40516,17 @@ UW.registerGrid({
      {
       "outcome": "gi",
       "conditional": true
-     },
-     {
-      "outcome": "gi",
-      "conditional": true
      }
     ],
     "qualified": true
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If currently, Decline",
@@ -38950,6 +40542,11 @@ UW.registerGrid({
     "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITIONS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -38960,6 +40557,11 @@ UW.registerGrid({
     "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITIONS",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -38969,6 +40571,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Plan Right Basic": {
     "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITIONS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -39028,6 +40635,11 @@ UW.registerGrid({
     "raw": "Y IF NOT CIRCULATORY OR HEART SURGERY < 2 YEARS AGO",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "withinYears": 2,
       "outcome": "best",
       "conditional": true
@@ -39038,6 +40650,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Y IF NOT CIRCULATORY OR HEART SURGERY < 18 MONTHS AGO",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 1.5,
       "outcome": "best",
@@ -39060,6 +40677,11 @@ UW.registerGrid({
     "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITION",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -39070,6 +40692,11 @@ UW.registerGrid({
     "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITION",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "best",
       "conditional": true
      }
@@ -39079,6 +40706,11 @@ UW.registerGrid({
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITION",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -39139,11 +40771,23 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If pending tests/treatment not completed, Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If pending tests/treatment not completed, Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "If currently, Decline",
@@ -39232,10 +40876,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -39243,6 +40883,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
     "raw": "Y IF > 1 YEAR, CHECK UNDERLYING CONDITIONS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 1,
       "outcome": "decline",
@@ -39259,6 +40904,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Y IF > 1 YEAR, CHECK UNDERLYING CONDITIONS",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "withinYears": 1,
       "outcome": "decline",
@@ -39324,7 +40974,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -39668,7 +41322,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If treated within 1 year, Basic. If treated between 1 and 2 years ago, Standard",
@@ -39786,33 +41444,37 @@ UW.registerGrid({
     "raw": "Y IF > 2 YEARS AND ONSET > AGE 45",
     "rules": [
      {
-      "withinYears": 2,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 2,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
     "raw": "Y IF > 1 YEAR AND ONSET > AGE 45",
     "rules": [
      {
-      "withinYears": 1,
       "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
+      "note": "diagnosed too young",
+      "dxAgeMax": 45
      },
      {
-      "outcome": "best",
-      "conditional": true
+      "withinYears": 1,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "outcome": "best"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Standard",
@@ -40074,7 +41736,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Standard",
@@ -40111,6 +41777,11 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF TREATMENT COMPLETED",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "best",
       "conditional": true
@@ -40347,7 +42018,11 @@ UW.registerGrid({
   "walker": {
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "PREFERRED",
@@ -40401,7 +42076,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -40505,7 +42184,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred",
@@ -40618,7 +42301,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If within 1 year, Decline",
@@ -40805,10 +42492,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -40816,10 +42499,6 @@ UW.registerGrid({
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If \"Due to chronic illness or disease?\" answered \"Yes\" , Decline. If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -40857,7 +42536,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Decline",
@@ -40938,10 +42621,6 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -40988,15 +42667,15 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \"Due to chronic illness or disease?\" answered \"Yes\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -41042,10 +42721,6 @@ UW.registerGrid({
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \"Use required due to fractures or bone/joint surgery?\" answered \"No\" , Decline",
     "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
      {
       "outcome": "decline",
       "conditional": true
@@ -41107,7 +42782,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "gi"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters Plan Right Preferred": {
     "raw": "Decline",
@@ -41390,15 +43069,42 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "Suicidal thoughts in past 6 months OR multiple suicide attempts within 5 years OR hospitalization within 5 years OR disability/missed work 10+ days in last 12 months = Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 0.5,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Mild/well-controlled = approved. Severe with hospitalization/suicidal history = Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Mild/well-controlled = approved. Severe with hospitalization/suicidal history = Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard",
+      "conditional": true
+     },
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "May Accept — mild, controlled, no hospitalization, no time lost from work",
@@ -41664,7 +43370,13 @@ UW.registerGrid({
   "autoimmune": {
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "Lupus/SLE, scleroderma, mixed connective tissue syndrome = Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If Lupus/SLE or scleroderma, Decline. Other autoimmune: see med guide",
@@ -42222,7 +43934,13 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "Benign/simple fatty liver excluded from liver knockout",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case",
@@ -42386,6 +44104,11 @@ UW.registerGrid({
     "raw": "Accepted if no Diabetes",
     "rules": [
      {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
+     {
       "outcome": "standard",
       "conditional": true
      }
@@ -42395,6 +44118,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Accepted if no Diabetes",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -42546,7 +44274,13 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "If lymphoma/Hodgkins, Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Decline",
@@ -43051,6 +44785,11 @@ UW.registerGrid({
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Accepted if not connected to Diabetes",
     "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if the conditions in the note are not met"
+     },
      {
       "outcome": "standard",
       "conditional": true
@@ -44177,10 +45916,6 @@ UW.registerGrid({
      {
       "outcome": "standard",
       "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -44188,10 +45923,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "Not Asked, but 2 or less medications should be ok",
     "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     },
      {
       "outcome": "standard",
       "conditional": true
@@ -44205,10 +45936,6 @@ UW.registerGrid({
      {
       "outcome": "standard",
       "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
      }
     ],
     "qualified": true
@@ -44219,17 +45946,19 @@ UW.registerGrid({
      {
       "outcome": "standard",
       "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
      }
     ],
     "qualified": true
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if chronic opioid/narcotic use",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "non opiods should be accepted",
@@ -44313,7 +46042,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "If frequent/high-dose opioids within 3 years, Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 3,
+      "outcome": "decline",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "mild accepted",

@@ -270,7 +270,9 @@
       "product": "moo-iul-express"
     }
   },
-  "values": {},
+  "values": {
+    "Accepted — Guaranteed Issue (no health questions)": "gi"
+  },
   "tiers": [
     {
       "name": "SimpliNow Legacy Max",

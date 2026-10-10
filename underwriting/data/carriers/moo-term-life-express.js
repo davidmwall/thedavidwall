@@ -1,6 +1,7 @@
 // Mutual of Omaha — transcribed from Brokerage Underwriting Guidelines, form 417212_0521 (May 2021).
 UW.addProduct({
   "id": "moo-term-life-express",
+  "preferGrid": true,
   "carrier": "Mutual of Omaha",
   "product": "Term Life Express (TLE)",
   "type": "term",
@@ -1471,5 +1472,5 @@ UW.addProduct({
     }
   },
   "medications": {},
-  "notes": "Express max rating is Table 4: anything rated worse, or multiple impairments adding up past Table 4, is declined (p. 30). Weights over the guide’s \"Table 2\" column (p. 29) count as a Table 2+ build for multiple-impairment declines (e.g. with diabetes over 50, rateable hypertension, asthma + tobacco, or PVD). Prior United of Omaha offer worse than Table 4, or a decline, does not qualify. Underwriting: MIB, Rx check, MVR (mandatory 18–35), phone interview as needed. Impairment ranges are best-case per the guide. Guide is dated May 2021; confirm against the current guide."
+  "notes": "Agent decision: this 2021 guide is outdated for Express, so your grid wins wherever it has an answer; the guide fills the gaps and is shown under each grid answer. Express max rating is Table 4: anything rated worse, or multiple impairments adding up past Table 4, is declined (p. 30). Weights over the guide’s \"Table 2\" column (p. 29) count as a Table 2+ build for multiple-impairment declines (e.g. with diabetes over 50, rateable hypertension, asthma + tobacco, or PVD). Prior United of Omaha offer worse than Table 4, or a decline, does not qualify. Underwriting: MIB, Rx check, MVR (mandatory 18–35), phone interview as needed. Impairment ranges are best-case per the guide. Guide is dated May 2021; confirm against the current guide."
 });

@@ -18,6 +18,7 @@ The app's accuracy depends entirely on this step. Transcribe the guide; never in
 
 3. **Create or edit** `underwriting/data/carriers/<carrier>-<product>.js` from `_TEMPLATE.js`. One file per product. If one guide covers several products with different rules (e.g. level vs graded plans, or term vs IUL), make separate products.
    - Map each guide item to an ID in `underwriting/data/conditions.js`. If none fits, **add a new ID** there (with aliases) rather than forcing a near match.
+   - **Age and time thresholds are the highest-stakes rules. Double-check every one against the page.** Age at diagnosis: "onset after age 45" → a decline rule with `dxAgeMax: 45`; "diagnosed before age 40" → `dxAgeBelow: 40`. Don't confuse current age ("issue ages", "if younger than 17") with age at diagnosis.
    - Lookbacks: "within 2 years" → `{ withinYears: 2, ... }`. "Ever" or "more than N years" → a final rule with no `withinYears`. If the guide only asks within N years, leave out the fallback (older = not asked).
    - Health questions answered "yes" usually map to: Part A/knockout → `decline`; graded section → `graded`; modified section → `modified`. Accelerated products: items that drop to full underwriting → `refer`.
    - Build chart: one row per inch, with every tier the chart shows. If the chart is by age band or gender, use the most common band and note the difference in `notes`. Never average.

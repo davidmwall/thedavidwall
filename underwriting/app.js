@@ -148,13 +148,13 @@
         (f.gridConflict ? ', disagrees with the guide (guide wins)' : ', agrees') + '</div>';
     }
     var result = f.best ? (f.best === f.worst ? UW.label(f.best) : UW.label(f.best) + ' → ' + UW.label(f.worst))
-      : f.worst ? 'Not asked → ' + UW.label(f.worst)
+      : f.worst ? 'Approved → ' + UW.label(f.worst)
       : (f.verify ? 'Verify' : 'OK');
     return '<li class="factor ' + cls + '"><span class="ic">' + icon + '</span>' +
       '<div><div><strong>' + esc(f.label) + '</strong>: ' + esc(result) +
-      (f.basis === 'grid' ? ' <span class="src grid">grid (backup)</span>' : f.source ? ' <span class="src">' + esc(f.source) + '</span>' : '') + '</div>' +
-      (f.note ? '<div class="note">' + esc(f.note) + (f.timing ? '. Add "yrs ago" to narrow this down' : '') + '</div>' : '') +
-      gridLine + '</div></li>';
+      (f.basis === 'grid' ? ' <span class="src grid">' + (f.backup ? 'grid (backup)' : 'grid') + '</span>' : f.source ? ' <span class="src">' + esc(f.source) + '</span>' : '') + '</div>' +
+      (f.note ? '<div class="note">' + esc(f.note) + (f.timing && !/yrs ago\)/.test(f.label) ? '. Add "yrs ago" to narrow this down' : '') + '</div>' : '') +
+      gridLine + (f.guideSays ? '<div class="gridnote agree">Guide says: ' + esc(f.guideSays) + '</div>' : '') + '</div></li>';
   }
 
   function linkify(text) {
@@ -287,6 +287,60 @@
   }
 
   // ---------------------------------------------------------------------------
+  // Rule check tab: every age/time rule and its plain-English reading
+  // ---------------------------------------------------------------------------
+  var ruleRows = null;
+  function timed(rules) {
+    return (rules || []).some(function (r) { return r.withinYears != null || r.dxAgeMax != null || r.dxAgeBelow != null; });
+  }
+  function collectRules() {
+    var rows = {}, cond = UW.state.conditions, meds = UW.state.medications;
+    var add = function (key, item, raw, rules, where, src) {
+      var r = rows[key] = rows[key] || { item: item, raw: raw, reading: UW.explainRules(rules), where: [], source: src };
+      if (r.where.indexOf(where) === -1) r.where.push(where);
+    };
+    UW.state.products.forEach(function (p) {
+      ['conditions', 'medications'].forEach(function (kind) {
+        var dict = kind === 'conditions' ? cond : meds;
+        Object.keys(p[kind] || {}).forEach(function (id) {
+          var rule = p[kind][id], rules = rule.rules || [{ outcome: rule.outcome }];
+          if (!timed(rules)) return;
+          var name = dict[id] ? dict[id].name : id;
+          add('g|' + p.id + '|' + id, name, '(carrier guide, ' + (rule.source || '') + ')', rules, p.carrier + ' · ' + p.product, 'guide');
+        });
+      });
+    });
+    var g = UW.state.grid;
+    if (g) ['conditions', 'medications'].forEach(function (kind) {
+      var dict = kind === 'conditions' ? cond : meds;
+      Object.keys(g[kind] || {}).forEach(function (id) {
+        Object.keys(g[kind][id]).forEach(function (col) {
+          var cell = g[kind][id][col];
+          if (!timed(cell.rules)) return;
+          var name = dict[id] ? dict[id].name : id;
+          add('c|' + id + '|' + cell.raw, name, cell.raw, cell.rules, col.split(' :: ')[1] || col, 'grid');
+        });
+      });
+    });
+    return Object.keys(rows).map(function (k) { return rows[k]; })
+      .sort(function (a, b) { return a.item.localeCompare(b.item) || a.raw.localeCompare(b.raw); });
+  }
+  function renderRules() {
+    ruleRows = ruleRows || collectRules();
+    var q = ($('#rules-filter').value || '').toLowerCase();
+    var list = ruleRows.filter(function (r) {
+      return !q || (r.item + ' ' + r.raw + ' ' + r.reading + ' ' + r.where.join(' ')).toLowerCase().indexOf(q) !== -1;
+    });
+    $('#rules-count').textContent = list.length + ' of ' + ruleRows.length + ' rules';
+    $('#rules-list').innerHTML = '<div class="table-wrap"><table><thead><tr><th>Condition</th><th>Source wording</th><th>App reads it as</th><th>Where</th></tr></thead><tbody>' +
+      list.slice(0, 400).map(function (r) {
+        return '<tr><td><strong>' + esc(r.item) + '</strong></td><td>' + esc(r.raw) + (r.source === 'grid' ? ' <span class="badge grid">grid</span>' : '') +
+          '</td><td>' + esc(r.reading) + '</td><td class="muted">' + esc(r.where.slice(0, 4).join(', ')) + (r.where.length > 4 ? ' +' + (r.where.length - 4) + ' more' : '') + '</td></tr>';
+      }).join('') + '</tbody></table></div>' + (list.length > 400 ? '<p class="hint">Showing first 400; filter to narrow.</p>' : '');
+  }
+  $('#rules-filter').addEventListener('input', renderRules);
+
+  // ---------------------------------------------------------------------------
   // Init
   // ---------------------------------------------------------------------------
   $('select[name=state]').innerHTML += STATES.map(function (s) { return '<option>' + s + '</option>'; }).join('');
@@ -313,6 +367,7 @@
     t.addEventListener('click', function () {
       $$('.tab').forEach(function (x) { x.classList.toggle('active', x === t); });
       $$('.tab-panel').forEach(function (p) { p.hidden = p.id !== 'tab-' + t.dataset.tab; });
+      if (t.dataset.tab === 'rules') renderRules();
     });
   });
 

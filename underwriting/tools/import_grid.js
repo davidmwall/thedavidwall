@@ -41,7 +41,9 @@ var opt = function (name, dflt) {
   var a = args.filter(function (x) { return x.indexOf('--' + name + '=') === 0; })[0];
   return a ? a.split('=').slice(1).join('=') : dflt;
 };
-if (!input) {
+// Required as a module (tests): expose the cell reader, skip the import.
+var asModule = require.main !== module;
+if (!input && !asModule) {
   console.error('usage: import_grid.js <grid.xlsx|grid.csv> [--mapping=path] [--out=path] [--sample]');
   process.exit(2);
 }
@@ -123,7 +125,18 @@ var FILLER = /\b(if|y|treated|treatment|diagnosed|diagnosis|performed|occurred|o
 // One sentence -> { outcome, within, after, qualified } or null when it
 // doesn't contain exactly one outcome word.
 function parseSegment(seg) {
-  var ageq = false;
+  var ageq = false, dxAccept = null, dxApply = null;
+  // Age at diagnosis. Accept-only-if-older: "> age 45 when diagnosed",
+  // "diagnosed > age 49", "onset > age 45", "age 45 or greater at onset".
+  seg = seg.replace(/(?:>|over|after|older than)\s*(?:age\s*)?(\d{1,2})\s*(?:years?\s*(?:of age|old)\s*)?(?:when|at)\s*(?:diagnosed|diagnosis|onset|occurrence)/g,
+      function (m, n) { dxAccept = { dxAgeMax: Number(n) }; return ' '; })
+    .replace(/(?:diagnosed|diagnosis|dx|onset)\s*(?:>|over|after)\s*(?:age\s*(\d{1,2})|(\d{1,2})\s*years?\s*(?:of age|old))/g,
+      function (m, a, b) { dxAccept = { dxAgeMax: Number(a || b) }; return ' '; })
+    .replace(/(?:age\s*)?(\d{1,2})\s*or (?:greater|older)\s*at\s*(?:onset|occurrence|diagnosis)/g,
+      function (m, n) { dxAccept = { dxAgeBelow: Number(n) }; return ' '; })
+    // Outcome applies only if diagnosed young: "diagnosed before age 40", "prior to age 20".
+    .replace(/(?:diagnosed|diagnosis|dx|onset)\s*(?:before|prior to|under|<)\s*(?:age\s*)?(\d{1,2})/g,
+      function (m, n) { dxApply = { dxAgeBelow: Number(n) }; return ' '; });
   // Client-age conditions ("> 60 years of age", "age 45 or greater") are not timing.
   seg = seg.replace(/(?:>|<|over|under)?\s*\d+\s*(?:years?|yrs?)\s*(?:of age|old)/g, function () { ageq = true; return ' agecond '; })
     .replace(/(?:>|<)?\s*\bage\s*\d+(?:\s*or (?:greater|older|younger))?/g, function () { ageq = true; return ' agecond '; })
@@ -131,18 +144,47 @@ function parseSegment(seg) {
   var outs = outcomesIn(seg);
   if (outs.length !== 1) return null;
   var o = outs[0].outcome;
-  var within = null, after = null, m;
-  if ((m = seg.match(new RegExp('between\\s+(\\d+(?:\\.\\d+)?)\\s+and\\s+(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) within = years(m[2], m[3]);
-  else if ((m = seg.match(new RegExp('(\\d+(?:\\.\\d+)?)\\s*-\\s*(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) within = years(m[2], m[3]);
-  else if ((m = seg.match(new RegExp('(?:>|over|more than|longer than|after|older than)\\s*(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) after = years(m[1], m[2]);
-  else if ((m = seg.match(new RegExp('(?:within|<|less than|under|in the (?:past|last)|past|last)\\s*(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) within = years(m[1], m[2]);
-  else if ((m = seg.match(new RegExp('(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) within = years(m[1], m[2]);
-  else if (/\b(after|longer)\b/.test(seg)) after = 0;
+  // Time windows, most specific first. tAt = where the phrase starts.
+  var within = null, after = null, m, tAt = -1;
+  var N = '(\\d+(?:\\.\\d+)?)\\s*', U = UNIT;
+  var pats = [
+    // "between 6 months and 2 years ago", "between 2 and 3 years ago": upper bound
+    ['within', new RegExp('between\\s+' + N + '(?:' + U + ')?\\s*(?:and|-|to)\\s*' + N + U), function (x) { return years(x[3], x[4]); }],
+    // "1-2 yrs", "2 – 5 years"
+    ['within', new RegExp(N + '(?:-|–|to)\\s*' + N + U), function (x) { return years(x[2], x[3]); }],
+    // "> 2 years", "over 18 months", "more than 5 yrs", "longer than 10 years"
+    ['after', new RegExp('(?:>|over|more than|longer than|after|older than)\\s*' + N + U), function (x) { return years(x[1], x[2]); }],
+    // "within 2 years", "< 1 yr", "in the past 10 years", "last 5 yrs"
+    ['within', new RegExp('(?:within|<|less than|under|in the (?:past|last)|past|last)\\s*' + N + U), function (x) { return years(x[1], x[2]); }],
+    // bare "2 years" next to an outcome ("Graded 2 yrs")
+    ['within', new RegExp(N + U), function (x) { return years(x[1], x[2]); }]
+  ];
+  for (var pi = 0; pi < pats.length; pi++) {
+    if ((m = seg.match(pats[pi][1]))) {
+      if (pats[pi][0] === 'within') within = pats[pi][2](m); else after = pats[pi][2](m);
+      tAt = m.index;
+      break;
+    }
+  }
+  if (tAt < 0 && /\b(after|longer)\b/.test(seg)) after = 0;
 
   var rest = seg.slice(0, outs[0].at) + ' ' + seg.slice(outs[0].at + outs[0].len);
   rest = rest.replace(/\d+(\.\d+)?/g, ' ').replace(/[<>(),:"'—–]/g, ' ').replace(FILLER, ' ')
     .replace(/\b(since diagnosis|diagnosis and treatment)\b/g, ' ').trim();
-  return { outcome: o, within: within, after: after, qualified: ageq || /[a-z]{2,}/.test(rest) };
+  var qualified = ageq || /[a-z]{2,}/.test(rest);
+  // "Within 10 years OR current medication, Decline": the time window alone is
+  // enough (firm); the other branch adds a conditional decline. Only when the
+  // window comes first, i.e. it is about the condition itself, not
+  // "if hospitalization within 5 years".
+  var orBranch = false;
+  if (qualified && tAt >= 0 && /\bor\b/.test(seg.slice(tAt))) {
+    var before = seg.slice(0, tAt).slice(0, outs[0].at < tAt ? undefined : undefined)
+      .replace(/\b(declined|decline|graded|modified|standard|preferred|level|approved|accepted?|if|treated|diagnosed|performed|occurred|or|in|the|past|last|within|y|yes)\b/g, ' ')
+      .replace(/[^a-z]/g, ' ').trim();
+    if (!before) orBranch = true;
+  }
+  return { outcome: o, within: within, after: after, qualified: qualified && !orBranch, orBranch: orBranch,
+    dxAccept: dxAccept, dxApply: dxApply, acceptIf: /^(?:y|yes|approved?|accept(?:ed)?)\s+if\b/.test(seg.trim()) || /\b(?:approved|accepted?)\s+if\b/.test(seg) };
 }
 
 // Cell text -> { rules, qualified } | 'empty' | null (could not interpret).
@@ -161,13 +203,18 @@ function interpret(raw) {
     .replace(/answered\s+question/g, ' answered ')
     .replace(/\(([^)]*)\)/g, ' ');
   // Sentences: periods (not decimals), semicolons, slashes, newlines.
-  var sentences = text.split(/\.(?!\d)|;|\s*\/\s*|\|/).map(function (x) { return x.trim(); }).filter(Boolean);
+  var sentences = text.split(/\.(?!\d)|;|\|/).map(function (x) { return x.trim(); }).filter(Boolean);
   var segs = [];
-  sentences.forEach(function (sent) {
-    // "Decline <1 yr, Graded 1-2 yrs": split on commas only when each part has its own outcome.
-    var parts = sent.split(',').map(function (x) { return x.trim(); }).filter(Boolean);
+  // "Decline <1 yr, Graded 1-2 yrs" / "PREF IF OVER 2 YEARS/MODIFIED IF WITHIN 2 YEARS":
+  // split on commas or slashes only when every part has its own outcome
+  // (so "w/ tobacco/diabetes" and "hospitalization/inpatient" stay whole).
+  var splitIfEach = function (sent, sep) {
+    var parts = sent.split(sep).map(function (x) { return x.trim(); }).filter(Boolean);
     var each = parts.every(function (p) { return outcomesIn(p).length === 1; });
-    if (parts.length > 1 && each) segs = segs.concat(parts); else segs.push(sent);
+    return parts.length > 1 && each ? parts : [sent];
+  };
+  sentences.forEach(function (sent) {
+    splitIfEach(sent, '/').forEach(function (part) { segs = segs.concat(splitIfEach(part, ',')); });
   });
   var parsed = segs.map(parseSegment);
   if (!parsed.length || parsed.some(function (x) { return !x; })) return null;
@@ -184,6 +231,12 @@ function interpret(raw) {
       else if (rule.withinYears != null) timed.push(rule);
       else fallback.push(rule);
     };
+    // Diagnosed too young for this answer: firm decline, checked against age at diagnosis.
+    if (p.dxAccept) timed.unshift(Object.assign({ outcome: 'decline', note: 'diagnosed too young' }, p.dxAccept));
+    if (p.dxApply) { conditional.push(Object.assign({ outcome: p.outcome, conditional: q }, p.dxApply)); return; }
+    // "Y IF <conditions>": accepted when they're met, declined otherwise.
+    if (p.acceptIf && q && p.outcome !== 'decline') conditional.push({ outcome: 'decline', conditional: true, note: 'if the conditions in the note are not met' });
+    if (p.orBranch) conditional.push({ outcome: p.outcome, conditional: true, note: 'other branch of the "or" in the note' });
     if (p.within != null) add({ withinYears: p.within, outcome: p.outcome });
     else if (p.after != null) {
       // "Y IF > 2 YEARS": acceptable after 2 years, implied not acceptable before.
@@ -202,6 +255,15 @@ function interpret(raw) {
   timed.sort(function (a, b) { return a.withinYears - b.withinYears; });
   if (fallback.length > 1) return null;
   for (var j = 1; j < timed.length; j++) if (timed[j].withinYears === timed[j - 1].withinYears) return null;
+  // Drop repeated conditional rules (an explicit "otherwise, decline" plus the
+  // implied one from "approved if ...").
+  var seen = {};
+  conditional = conditional.filter(function (r) {
+    var key = [r.outcome, r.withinYears, r.dxAgeMax, r.dxAgeBelow].join('|');
+    if (seen[key]) return false;
+    seen[key] = true;
+    return true;
+  });
   return { rules: timed.concat(fallback, conditional), qualified: qualified };
 }
 
@@ -242,6 +304,20 @@ function matchRow(name) {
   var md = exactMatch(UW.state.medications, name);
   if (md) return { kind: 'medications', id: md, how: 'auto' };
   return null;
+}
+
+if (asModule) {
+  module.exports = {
+    // interpret('Y IF > 2 YEARS', { column: 'TAB :: Carrier', tiers: [...], values: {...} })
+    interpret: function (raw, opts) {
+      opts = opts || {};
+      mapping.values = opts.values || {};
+      mapping.tiers = opts.tiers || [];
+      activeTiers = tiersFor(opts.column || '');
+      return interpret(raw);
+    }
+  };
+  return;
 }
 
 // --- Main ------------------------------------------------------------------------

@@ -58,6 +58,11 @@ UW.addProduct({
   //   withinYears: N  -> applies if diagnosed/treated less than N years ago
   //   no withinYears  -> fallback ("ever" or "more than N years")
   // If every rule has withinYears, anything older is treated as "not asked" (no impact).
+  //   dxAgeMax: N    -> rule applies if diagnosed at age N or younger ("onset > age 45" = decline, dxAgeMax: 45)
+  //   dxAgeBelow: N  -> rule applies if diagnosed before age N ("diagnosed prior to age 20")
+  //                     Age at diagnosis = client age - years since; unknown -> shown as a range.
+  //   conditional: true -> depends on something the app can't check (severity, meds, an app
+  //                     question); only widens the worst case, never rules a carrier out.
   conditions: {
     heart_attack: {
       rules: [

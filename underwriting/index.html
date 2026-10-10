@@ -14,6 +14,7 @@
         <button class="tab active" data-tab="find" role="tab">Find carriers</button>
         <button class="tab" data-tab="lookup" role="tab">Lookup</button>
         <button class="tab" data-tab="carriers" role="tab">Carriers</button>
+        <button class="tab" data-tab="rules" role="tab">Rule check</button>
       </nav>
     </div>
   </header>
@@ -97,6 +98,17 @@
           <ul class="suggestions" hidden></ul>
         </div>
         <div id="lookup-results"></div>
+      </div>
+    </section>
+
+    <!-- RULE CHECK ---------------------------------------------------------->
+    <section id="tab-rules" class="tab-panel" hidden>
+      <div class="card">
+        <h2>Age &amp; time rules: how each one was read</h2>
+        <p class="hint">Every rule with a time window ("within 2 years", "&gt; 5 years since") or an age at diagnosis ("onset &gt; age 45"), next to how the app reads it. If a reading is wrong, tell Claude which one; fixes are saved for future imports.</p>
+        <input type="text" id="rules-filter" placeholder="Filter by carrier, condition or wording (e.g. diabetes, onset, Omaha)">
+        <p class="hint" id="rules-count"></p>
+        <div id="rules-list"></div>
       </div>
     </section>
 

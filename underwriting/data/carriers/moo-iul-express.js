@@ -1,6 +1,7 @@
 // Mutual of Omaha — transcribed from Brokerage Underwriting Guidelines, form 417212_0521 (May 2021).
 UW.addProduct({
   "id": "moo-iul-express",
+  "preferGrid": true,
   "carrier": "Mutual of Omaha",
   "product": "IUL Express (IULE)",
   "type": "iul",
@@ -1472,5 +1473,5 @@ UW.addProduct({
     }
   },
   "medications": {},
-  "notes": "Same underwriting as Term Life Express: Express max rating is Table 4; worse or multiple impairments past Table 4 are declined (p. 30). Signed illustration required. Guide is dated May 2021; confirm against the current guide."
+  "notes": "Agent decision: your grid wins over this 2021 guide wherever it has an answer. Same underwriting as Term Life Express: Express max rating is Table 4; worse or multiple impairments past Table 4 are declined (p. 30). Signed illustration required. Guide is dated May 2021; confirm against the current guide."
 });

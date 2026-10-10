@@ -157,3 +157,6 @@ th { font-size: 12px; color: var(--muted); font-weight: 600; }
 .pinfo dd { margin: 0; overflow-wrap: anywhere; }
 .pinfo a { color: var(--accent); }
 @media (max-width: 520px) { .pinfo dl { grid-template-columns: 1fr; } .pinfo dd { margin-bottom: 6px; } }
+
+#rules-filter { max-width: 520px; margin-bottom: 4px; }
+#tab-rules td:nth-child(3) { min-width: 220px; }

@@ -248,11 +248,48 @@
 
   // rules: [{ withinYears: 2, outcome: 'decline' }, { withinYears: 5, outcome: 'graded' }, { outcome: 'level' }]
   // "withinYears: 2" matches when yearsSince < 2. A rule without withinYears is the fallback.
-  function evalRules(rules, yearsSince) {
+  // Rules gated on age at diagnosis ("Y IF > AGE 45 WHEN DIAGNOSED"):
+  //   dxAgeMax: N  -> applies when the client was diagnosed at age N or younger
+  //   dxAgeBelow: N -> applies when diagnosed before age N
+  // Age at diagnosis = current age - years since. Known: the rule is firm and
+  // checked first. Unknown: it becomes conditional (widens the range only).
+  function applyDxAge(rules, ctx) {
+    var dx = ctx && !isBlank(ctx.age) && !isBlank(ctx.yearsSince) ? Number(ctx.age) - Number(ctx.yearsSince) : null;
+    var gated = [], rest = [];
+    rules.forEach(function (r) {
+      if (r.dxAgeMax == null && r.dxAgeBelow == null) { rest.push(r); return; }
+      var x = Object.assign({}, r);
+      delete x.dxAgeMax; delete x.dxAgeBelow;
+      var limit = r.dxAgeMax != null ? 'diagnosed at age ' + r.dxAgeMax + ' or younger' : 'diagnosed before age ' + r.dxAgeBelow;
+      if (dx === null) {
+        x.conditional = true;
+        x.note = (x.note ? x.note + '; ' : '') + 'if ' + limit + ' (enter age and years since to check)';
+        rest.push(x);
+        return;
+      }
+      var applies = r.dxAgeMax != null ? dx <= r.dxAgeMax : dx < r.dxAgeBelow;
+      if (ctx.dxChecks) ctx.dxChecks.push('diagnosed at age ' + Math.round(dx) + ': ' +
+        (applies ? label(r.outcome) + ' (' + limit + ')' : 'passes the "' + limit + '" cutoff'));
+      if (applies) {
+        delete x.withinYears;
+        x.note = (x.note ? x.note + '; ' : '') + limit + ' (age ' + Math.round(dx) + ' at diagnosis)';
+        gated.push(x);
+      }
+    });
+    // An applicable gated rule overrides the timing rules, unless it is itself conditional.
+    var firmGated = gated.filter(function (r) { return !r.conditional; });
+    if (firmGated.length) return firmGated.slice(0, 1).concat(gated.filter(function (r) { return r.conditional; }), rest.filter(function (r) { return r.conditional; }));
+    return gated.concat(rest);
+  }
+
+  function evalRules(rules, ctxOrYears) {
+    var ctx = ctxOrYears !== null && typeof ctxOrYears === 'object' ? ctxOrYears : { yearsSince: ctxOrYears };
+    var yearsSince = ctx.yearsSince;
+    rules = applyDxAge(rules, ctx);
     var firm = rules.filter(function (r) { return !r.conditional; });
     var cond = rules.filter(function (r) { return r.conditional; });
     var res = evalFirmRules(firm, yearsSince);
-    // Conditional rules (grid cells like "if diagnosed before age 40, decline")
+    // Conditional rules (grid cells like "if paired with tobacco, decline")
     // depend on facts the app doesn't collect. They can widen the worst case but
     // never set the best case, so they can't rule a carrier out on their own.
     cond.forEach(function (r) {
@@ -293,14 +330,21 @@
     }).join('; ') + (rules[rules.length - 1].withinYears != null ? '; after: not asked' : '');
   }
 
+  function ownRulesFor(p, kind, id) {
+    var rule = ((kind === 'conditions' ? p.conditions : p.medications) || {})[id];
+    if (rule) return rule.rules || [{ outcome: rule.outcome }];
+    if (p.unlisted && p.unlisted.outcome) return [{ outcome: p.unlisted.outcome }];
+    return null;
+  }
+
   // Official answer from the carrier guide: an explicit rule, or the guide's
   // statement about unlisted items. Returns null when the guide is silent.
-  function guideFactor(p, kind, id, yearsSince, lbl) {
+  function guideFactor(p, kind, id, ctx, lbl) {
     var rule = ((kind === 'conditions' ? p.conditions : p.medications) || {})[id];
     if (rule) {
       var rules = rule.rules || [{ outcome: rule.outcome }];
-      var res = evalRules(rules, yearsSince);
-      var note = res.rule ? (res.rule.note || '') : describeRules(rules);
+      var res = evalRules(rules, ctx);
+      var note = res.rule ? (res.rule.note || '') : describeRules(rules.filter(function (r) { return !r.conditional; }).length ? rules.filter(function (r) { return !r.conditional; }) : rules);
       if (rule.note) note = note ? note + ' — ' + rule.note : rule.note;
       return factor(kind === 'conditions' ? 'condition' : 'medication', lbl, res.best, res.worst,
         { note: note, source: rule.source || '', timing: res.timing, basis: 'guide' });
@@ -313,10 +357,34 @@
     return null;
   }
 
-  function evalItem(p, kind, id, yearsSince, lbl) {
+  function summarize(f) {
+    if (!f) return '';
+    return f.best ? (f.best === f.worst ? label(f.best) : label(f.best) + ' → ' + label(f.worst))
+      : f.worst ? 'Not asked → ' + label(f.worst) : 'Not asked';
+  }
+
+  function gridFactor(p, k, cell, ctx, lbl, preferred) {
+    var res = evalRules(resolveRules(cell.rules, p), ctx);
+    return factor(k, lbl, res.best, res.worst, {
+      note: (preferred ? 'From your grid (you chose the grid over this guide for this product): "' : 'From your grid: "') + cell.raw + '"' +
+        (preferred ? '' : '. Not confirmed by a carrier guide') +
+        (cell.qualified ? '. Depends on details the app doesn\'t check, so read the full note' : ''),
+      source: 'grid', timing: res.timing, basis: 'grid', backup: !preferred, verify: !!cell.qualified
+    });
+  }
+
+  function evalItem(p, kind, id, ctx, lbl) {
     var k = kind === 'conditions' ? 'condition' : 'medication';
     var cell = gridCell(p, kind, id);
-    var f = guideFactor(p, kind, id, yearsSince, lbl);
+    var f = guideFactor(p, kind, id, ctx, lbl);
+
+    // Agent chose the grid over this guide (e.g. an outdated guide): grid
+    // answers win where they're readable; the guide's answer is shown under it.
+    if (p.preferGrid && cell && cell.rules) {
+      var g = gridFactor(p, k, cell, ctx, lbl, true);
+      if (f) g.guideSays = summarize(f) + (f.source ? ' (' + f.source + ')' : '');
+      return g;
+    }
 
     if (f) {
       // Guide wins. Show what the grid says alongside it, flagging disagreement.
@@ -326,26 +394,17 @@
           // Compare firm (timing-only) rules: caveats like "if treatment is
           // ongoing" aren't a disagreement. "Not asked" (null) = best class.
           var firm = function (rules) { return rules.filter(function (r) { return !r.conditional; }); };
-          var own = ((kind === 'conditions' ? p.conditions : p.medications) || {})[id];
-          var ownRules = own ? (own.rules || [{ outcome: own.outcome }]) : [{ outcome: p.unlisted.outcome }];
-          var g = evalRules(firm(resolveRules(cell.rules, p)), yearsSince);
-          var o = evalRules(firm(ownRules), yearsSince);
+          var gr = evalRules(firm(applyDxAge(resolveRules(cell.rules, p), ctx)), ctx);
+          var or = evalRules(firm(applyDxAge(ownRulesFor(p, kind, id), ctx)), ctx);
           var n = function (x) { return x || defaultBest(p); };
-          f.gridConflict = n(g.best) !== n(o.best) || n(g.worst) !== n(o.worst);
+          f.gridConflict = n(gr.best) !== n(or.best) || n(gr.worst) !== n(or.worst);
         } else {
           f.gridConflict = true;
         }
       }
       return f;
     }
-    if (cell && cell.rules) {
-      var res = evalRules(resolveRules(cell.rules, p), yearsSince);
-      return factor(k, lbl, res.best, res.worst, {
-        note: 'From your grid: "' + cell.raw + '". Not confirmed by a carrier guide' +
-          (cell.qualified ? '. Depends on details the app doesn\'t check, so read the full note' : ''),
-        source: 'grid', timing: res.timing, basis: 'grid', backup: true, verify: !!cell.qualified
-      });
-    }
+    if (cell && cell.rules) return gridFactor(p, k, cell, ctx, lbl, false);
     if (cell) {
       return factor(k, lbl, null, null, {
         verify: true, basis: 'grid', source: 'grid',
@@ -361,12 +420,17 @@
   function evalCondition(p, cond) {
     var c = state.conditions[cond.id];
     var lbl = (c ? c.name : cond.id) + (!isBlank(cond.yearsSince) ? ' (' + cond.yearsSince + ' yrs ago)' : '');
-    return evalItem(p, 'conditions', cond.id, cond.yearsSince, lbl);
+    var ctx = { yearsSince: cond.yearsSince, age: cond.age, dxChecks: [] };
+    var f = evalItem(p, 'conditions', cond.id, ctx, lbl);
+    // Show the age-at-diagnosis checks that decided (or didn't) this answer.
+    var checks = ctx.dxChecks.filter(function (x, i, all) { return all.indexOf(x) === i; });
+    if (checks.length) f.note = (f.note ? f.note + '. ' : '') + 'Age check: ' + checks.join('; ');
+    return f;
   }
 
   function evalMedication(p, med) {
     var m = state.medications[med.id];
-    var f = evalItem(p, 'medications', med.id, med.yearsSince, 'Rx: ' + (m ? m.name : med.id));
+    var f = evalItem(p, 'medications', med.id, { yearsSince: med.yearsSince, age: med.age }, 'Rx: ' + (m ? m.name : med.id));
     if (f.verify && m && m.commonlyFor && m.commonlyFor.length) {
       var names = m.commonlyFor.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; });
       f.note += '. Often prescribed for: ' + names.join(', ') + ' — add the condition for a better match';
@@ -390,8 +454,10 @@
     if (!isBlank(client.heightIn) && !isBlank(client.weightLb)) {
       factors.push(evalBuild(p, Number(client.heightIn), Number(client.weightLb)));
     }
-    (client.conditions || []).forEach(function (c) { factors.push(evalCondition(p, c)); });
-    (client.medications || []).forEach(function (m) { factors.push(evalMedication(p, m)); });
+    // Client age travels with each condition so "age at diagnosis" rules can be checked.
+    var withAge = function (x) { return Object.assign({}, x, { age: client.age }); };
+    (client.conditions || []).forEach(function (c) { factors.push(evalCondition(p, withAge(c))); });
+    (client.medications || []).forEach(function (m) { factors.push(evalMedication(p, withAge(m))); });
 
     // A product with no stated best class (some grid-only products) takes its
     // class from the answers; with no answers it shows the type's usual class.
@@ -468,7 +534,7 @@
     var out = [];
     if (!state.grid) return out;
     state.products.forEach(function (p) {
-      if (p.gridOnly || !p.gridColumn) return;
+      if (p.gridOnly || !p.gridColumn || p.preferGrid) return;
       ['conditions', 'medications'].forEach(function (kind) {
         Object.keys(state.grid[kind] || {}).forEach(function (id) {
           var f = kind === 'conditions' ? evalCondition(p, { id: id }) : evalMedication(p, { id: id });
@@ -477,6 +543,42 @@
       });
     });
     return out;
+  }
+
+  // Plain-English reading of a rule list, for the Rule check tab:
+  // "Decline if within 2 yrs · Graded from 2 to 4 yrs · after 4 yrs: Level".
+  function fmtYears(y) {
+    if (y < 1 || y % 1) { var m = Math.round(y * 12); return m + ' mo'; }
+    return y + (y === 1 ? ' yr' : ' yrs');
+  }
+  function explainRules(rules) {
+    if (!rules || !rules.length) return '';
+    var lab = function (o) { return o === 'best' ? 'Approved (best class)' : label(o); };
+    var dx = function (r) {
+      return r.dxAgeMax != null ? 'diagnosed at age ' + r.dxAgeMax + ' or younger'
+        : r.dxAgeBelow != null ? 'diagnosed before age ' + r.dxAgeBelow : '';
+    };
+    var parts = [];
+    rules.filter(function (r) { return !r.conditional && dx(r); }).forEach(function (r) {
+      parts.push(lab(r.outcome) + ' if ' + dx(r));
+    });
+    var firm = rules.filter(function (r) { return !r.conditional && !dx(r); });
+    var prev = 0;
+    firm.forEach(function (r) {
+      if (r.withinYears != null) {
+        parts.push(lab(r.outcome) + (prev ? ' from ' + fmtYears(prev) + ' to ' + fmtYears(r.withinYears) : ' if within ' + fmtYears(r.withinYears)));
+        prev = r.withinYears;
+      } else {
+        parts.push((prev ? 'after ' + fmtYears(prev) + ': ' : '') + lab(r.outcome));
+      }
+    });
+    if (firm.length && firm[firm.length - 1].withinYears != null) parts.push('after ' + fmtYears(prev) + ': not asked (best class)');
+    rules.filter(function (r) { return r.conditional; }).forEach(function (r) {
+      parts.push('possibly ' + lab(r.outcome) +
+        (r.withinYears != null ? ' within ' + fmtYears(r.withinYears) : '') +
+        (dx(r) ? ' if ' + dx(r) : '') + (r.note ? ' (' + r.note + ')' : ''));
+    });
+    return parts.join(' · ');
   }
 
   var UW = {
@@ -496,7 +598,8 @@
     searchMedications: searchMedications,
     evaluate: evaluate,
     evaluateProduct: evaluateProduct,
-    lookup: lookup
+    lookup: lookup,
+    explainRules: explainRules
   };
 
   root.UW = UW;
