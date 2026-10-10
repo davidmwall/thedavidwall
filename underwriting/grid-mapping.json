@@ -301,7 +301,11 @@
     },
     "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
       "product": "rnoa-ensured-legacy"
-    }
+    },
+    "WHOLE LIFE :: TransAmerica Easy Solution": "skip",
+    "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": "skip",
+    "WHOLE LIFE :: TransAmerica Immediate Solution Standard": "skip",
+    "WHOLE LIFE :: Transamerica (FEX Solutions)": "skip"
   },
   "values": {
     "Accepted — Guaranteed Issue (no health questions)": "gi"

@@ -668,176 +668,6 @@ UW.registerGrid({
    },
    "product": "rnoa-ensured-legacy"
   },
-  "WHOLE LIFE :: TransAmerica Easy Solution": {
-   "carrier": "TransAmerica Easy Solution",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "GRADED",
-    "Max face amount": "$25,000",
-    "Age range": "18 - 80\nNY only: 50-75",
-    "Build / UW guide": "https://drive.google.com/file/d/1i1yC45ENs8_PbUU3Uwg5iuQN6lR_-1Ex/view?usp=sharing",
-    "Quote tool": "https://mytranswarequote.transamerica.com/Wl3.html?id=WL3IM",
-    "Payment methods": "DIRECT EXPRESS, CREDIT/DEBIT CARD, ACH,"
-   },
-   "bestOutcome": "graded",
-   "issueAges": {
-    "min": 18,
-    "max": 80,
-    "source": "grid: Age range",
-    "note": "outer limits of: 18 - 80 NY only: 50-75"
-   },
-   "faceAmount": {
-    "max": 25000,
-    "source": "grid: Max face amount"
-   }
-  },
-  "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-   "carrier": "TransAmerica Immediate  Solution Preferred",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "LEVEL",
-    "Max face amount": "0–55 $50,000 56–65 $40,000\n66–75 $30,000 76–85 $25,000",
-    "Age range": "0 - 85",
-    "Build / UW guide": "https://drive.google.com/file/d/1i1yC45ENs8_PbUU3Uwg5iuQN6lR_-1Ex/view?usp=sharing",
-    "Quote tool": "https://mytranswarequote.transamerica.com/Wl3.html?id=WL3IM",
-    "Payment methods": "DIRECT EXPRESS, CREDIT/DEBIT CARD, ACH,"
-   },
-   "bestOutcome": "level",
-   "issueAges": {
-    "min": 0,
-    "max": 85,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 50000,
-    "source": "grid: Max face amount",
-    "bands": [
-     {
-      "min": 0,
-      "max": 55,
-      "face": 50000
-     },
-     {
-      "min": 56,
-      "max": 65,
-      "face": 40000
-     },
-     {
-      "min": 66,
-      "max": 75,
-      "face": 30000
-     },
-     {
-      "min": 76,
-      "max": 85,
-      "face": 25000
-     }
-    ],
-    "note": "0–55 $50,000 56–65 $40,000 66–75 $30,000 76–85 $25,000"
-   }
-  },
-  "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-   "carrier": "TransAmerica Immediate Solution Standard",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "LEVEL",
-    "Max face amount": "0–55 $50,000 \n56–65 $40,000\n66–75 $30,000 \n76–85 $25,000",
-    "Age range": "0 - 85",
-    "Build / UW guide": "https://drive.google.com/file/d/1i1yC45ENs8_PbUU3Uwg5iuQN6lR_-1Ex/view?usp=sharing",
-    "Quote tool": "https://mytranswarequote.transamerica.com/Wl3.html?id=WL3IM",
-    "Payment methods": "DIRECT EXPRESS, CREDIT/DEBIT CARD, ACH,"
-   },
-   "bestOutcome": "level",
-   "issueAges": {
-    "min": 0,
-    "max": 85,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 50000,
-    "source": "grid: Max face amount",
-    "bands": [
-     {
-      "min": 0,
-      "max": 55,
-      "face": 50000
-     },
-     {
-      "min": 56,
-      "max": 65,
-      "face": 40000
-     },
-     {
-      "min": 66,
-      "max": 75,
-      "face": 30000
-     },
-     {
-      "min": 76,
-      "max": 85,
-      "face": 25000
-     }
-    ],
-    "note": "0–55 $50,000 56–65 $40,000 66–75 $30,000 76–85 $25,000"
-   }
-  },
-  "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-   "carrier": "Transamerica (FEX Solutions)",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "LEVEL/GRADED",
-    "Max face amount": "Immediate & 10 pay:         0–55: $50,000\n56–65: $40,000\n66–75: $30,000\n76–85: $25,000            Easy Solution: $1,000-$25,000",
-    "Age range": "Immediate & 10 pay: 0–85    Easy solution: 18-80",
-    "Build / UW guide": "https://drive.google.com/file/d/1yiLe5Vn44rUH6NkjGKarIqF2-p6Pm4V-/view?usp=sharing  *Build chart pg 15*",
-    "Quote tool": "https://mytranswarequote.transamerica.com/Wl3.html?id=WL3IM",
-    "Payment methods": "EFT, Credit Card (For initial premium)"
-   },
-   "bestOutcome": "level",
-   "issueAges": {
-    "min": 0,
-    "max": 85,
-    "source": "grid: Age range",
-    "note": "outer limits of: Immediate & 10 pay: 0–85 Easy solution: 18-80"
-   },
-   "faceAmount": {
-    "max": 50000,
-    "source": "grid: Max face amount",
-    "min": 1000,
-    "bands": [
-     {
-      "min": 0,
-      "max": 55,
-      "face": 50000
-     },
-     {
-      "min": 56,
-      "max": 65,
-      "face": 40000
-     },
-     {
-      "min": 66,
-      "max": 75,
-      "face": 30000
-     },
-     {
-      "min": 76,
-      "max": 85,
-      "face": 25000
-     }
-    ],
-    "note": "Immediate & 10 pay: 0–55: $50,000 56–65: $40,000 66–75: $30,000 76–85: $25,000 Easy Solution: $1,000-$25,000"
-   }
-  },
   "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
    "carrier": "AMERICAN AMICABLE HOME CERTAINTY",
    "productName": "Term, UL, IUL (from your grid)",
@@ -1832,15 +1662,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Ethos - TruStage Advantage Whole Life": {
     "raw": "Decline",
     "rules": [
@@ -2008,38 +1829,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -2410,62 +2199,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 2 years, Decline. If treated between 2 and 4 years ago, Graded. If treated between 4 and 10 years ago, Standard. If younger than 17, Decline",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline"
-     },
-     {
-      "withinYears": 4,
-      "outcome": "graded"
-     },
-     {
-      "withinYears": 10,
-      "outcome": "standard"
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 5 years, Decline",
     "rules": [
@@ -2824,38 +2557,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -3175,38 +2876,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -3545,38 +3214,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -4085,14 +3722,6 @@ UW.registerGrid({
       "outcome": "graded"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
    }
   },
   "aneurysm_aaa_corrected": {
@@ -4208,14 +3837,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    }
@@ -4340,14 +3961,6 @@ UW.registerGrid({
       "outcome": "standard"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
    }
   },
   "aneurysm_cerebral_uncorrected": {
@@ -4455,14 +4068,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    }
@@ -4579,14 +4184,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    }
@@ -4803,48 +4400,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF ONSET > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF ONSET > 1 YEAR AGO",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    },
@@ -5209,60 +4764,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS AGO AND AGE 45 OR GREATER AT ONSET",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeBelow": 45
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR AGO AND AGE 45 OR GREATER AT ONSET",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeBelow": 45
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline | Within 7 years or current medication, Decline.",
     "rules": [
@@ -5616,14 +5117,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -5886,16 +5379,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If currently, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
       "conditional": true
      }
     ],
@@ -6165,14 +5648,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If paired with tobacco, Decline. If \"Is the prospect taking any inhaled steroid medications or do they use 3 or more inhalers?\" answered \"Yes\" , Decline",
     "rules": [
@@ -6433,38 +5908,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    },
@@ -6935,51 +6378,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREAMENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 8 years, DECLINE.",
     "rules": [
@@ -7385,16 +6783,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Approved",
     "rules": [
@@ -7618,16 +7006,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If currently, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "bipolar": {
@@ -7760,54 +7138,6 @@ UW.registerGrid({
       "outcome": "standard"
      }
     ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF > AGE 18 (Call UW if client has a history of alcohol/drug abuse)",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > AGE 18 (Call UW if client has a history of alcohol/drug abuse)",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -8594,38 +7924,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -8998,16 +8296,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -9270,14 +8558,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -9745,38 +9025,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -10511,38 +9759,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -10835,38 +10051,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -11336,38 +10520,6 @@ UW.registerGrid({
       "outcome": "gi"
      }
     ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "cirrhosis_advanced": {
@@ -11550,38 +10702,6 @@ UW.registerGrid({
       "outcome": "gi"
      }
     ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "ulcerative_colitis": {
@@ -11732,38 +10852,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -12117,45 +11205,6 @@ UW.registerGrid({
       "outcome": "gi"
      }
     ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF > 45 YEARS OLD AT DIAGNOSIS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -12693,38 +11742,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -12997,14 +12014,6 @@ UW.registerGrid({
       "outcome": "preferred"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Graded",
-    "rules": [
-     {
-      "outcome": "graded"
-     }
-    ]
    }
   },
   "covid19": {
@@ -13209,14 +12218,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -13607,43 +12608,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF ONSET > AGE 26",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 26
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -14202,14 +13166,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -14568,51 +13524,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 45 YEARS OLD WHEN INSTALLED AND > 1 YEAR SINCE INSTALLATION",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -14872,16 +13783,6 @@ UW.registerGrid({
       "outcome": "preferred"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If \"Is the insured taking more than 2 anxiety/depression medications?\" answered \"Yes\" , Decline. If \"Major depression?\" answered \"Yes\" , Decline",
@@ -16080,16 +14981,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "diabetes_oral": {
@@ -16582,16 +15473,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: AIG Guaranteed Issue": {
     "raw": "Accepted",
     "rules": [
@@ -16985,38 +15866,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -17544,38 +16393,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -17951,28 +16768,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 2 years, Decline. If treated between 2 and 4 years ago, Graded. If treated between 4 and 10 years ago, Standard. If younger than 17, Decline",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline"
-     },
-     {
-      "withinYears": 4,
-      "outcome": "graded"
-     },
-     {
-      "withinYears": 10,
-      "outcome": "standard"
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 3 years, Decline",
     "rules": [
@@ -18224,14 +17019,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -18863,62 +17650,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 2 years, Decline. If treated between 2 and 4 years ago, Graded. If treated between 4 and 10 years ago, Standard. If younger than 17, Decline",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline"
-     },
-     {
-      "withinYears": 4,
-      "outcome": "graded"
-     },
-     {
-      "withinYears": 10,
-      "outcome": "standard"
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 4 years, Decline",
     "rules": [
@@ -19253,67 +17984,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 4 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 2 years, Decline. If treated between 2 and 4 years ago, Graded. If treated between 4 and 10 years ago, Standard. If younger than 17, Decline",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline"
-     },
-     {
-      "withinYears": 4,
-      "outcome": "graded"
-     },
-     {
-      "withinYears": 10,
-      "outcome": "standard"
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 3 years, Decline",
     "rules": [
@@ -19638,67 +18308,6 @@ UW.registerGrid({
       "outcome": "preferred"
      }
     ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 4 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 2 years, Decline. If treated between 2 and 4 years ago, Graded. If treated between 4 and 10 years ago, Standard. If younger than 17, Decline",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline"
-     },
-     {
-      "withinYears": 4,
-      "outcome": "graded"
-     },
-     {
-      "withinYears": 10,
-      "outcome": "standard"
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 3 years, Decline",
@@ -20087,38 +18696,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -20480,46 +19057,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF NO MORE THAN 6 SEIZURES IN LAST 2 YEARS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If \"Grand mal seizures?\" answered \"Yes\" , Decline",
     "rules": [
@@ -20841,91 +19378,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF > 2 YEARS SINCE CONVICTION (AWAITING TRIAL = DECLINE)",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE CONVICTION (AWAITING TRIAL = DECLINE)",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 2 YEARS SINCE CONVICTION (AWAITING TRIAL = DECLINE)",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If within 3 years, Decline. If between 3 and 5 years ago, Graded. If between 5 and 10 years ago, Standard. If younger than 17, Decline",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline"
-     },
-     {
-      "withinYears": 5,
-      "outcome": "graded"
-     },
-     {
-      "withinYears": 10,
-      "outcome": "standard"
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If within 5 years, Decline. If \"Has the prospect been on parole or probation within the past 6 months?\" answered \"Yes\" , Decline",
     "rules": [
@@ -21230,14 +19682,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -21734,58 +20178,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS AND > AGE 45 AT OCCURRENCE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR AND > AGE 45 AT OCCURRENCE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline if occurred or treated within past 7 years (bloodthinners included). Longer than 7 years likely approved",
     "rules": [
@@ -22085,14 +20477,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    },
@@ -22911,16 +21295,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated or prescribed medication within 7 years, Decline.",
     "rules": [
@@ -23522,60 +21896,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT AND ONSET > 45 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT AND ONSET > 45 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -23957,40 +22277,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR AGO SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
      }
     ]
    },
@@ -24384,55 +22670,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF NO OTHER MAJOR MEDICAL CONDITIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS AGO SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR AGO SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -24817,43 +23054,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 2 YEARS AGO SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -25130,14 +23330,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -25439,16 +23631,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If currently, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
       "conditional": true
      }
     ],
@@ -25873,38 +24055,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -26302,14 +24452,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Convicted of misdemeanor or felony within 5 yrs- DECLINE; within past 6 months - DECLINE",
     "rules": [
@@ -26647,48 +24789,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 4 YEARS SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -26954,43 +25054,6 @@ UW.registerGrid({
       "outcome": "best"
      }
     ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 4 YEARS SINCE  DIAGNOSIS AND TREATMENT  AND STAGES 1-3",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Declined",
@@ -27298,14 +25361,6 @@ UW.registerGrid({
       "outcome": "graded"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "kidney_disease_stage3": {
@@ -27413,14 +25468,6 @@ UW.registerGrid({
       "outcome": "graded"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "kidney_disease_advanced": {
@@ -27525,14 +25572,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
      }
     ]
    }
@@ -27705,45 +25744,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF NOT STAGE 4 OR 5",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
      }
     ]
    },
@@ -28071,38 +26071,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    }
@@ -28688,43 +26656,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    },
@@ -29429,14 +27360,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -30000,38 +27923,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -30362,40 +28253,6 @@ UW.registerGrid({
       "outcome": "gi"
      }
     ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -30732,14 +28589,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If diagnosed within 2 years, Decline",
     "rules": [
@@ -30975,14 +28824,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
    }
   },
   "skilled_care_advised": {
@@ -31153,40 +28994,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If currently, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "nursing_home": {
@@ -31351,49 +29158,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 1 year, Standard. If currently, Decline",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "standard"
-     },
-     {
-      "outcome": "decline",
       "conditional": true
      }
     ],
@@ -31737,38 +29501,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -32405,58 +30137,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS AND AND ONSET > 45 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR AND ONSET > 45 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -32766,39 +30446,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 2 years, Standard",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "standard"
      }
     ]
    },
@@ -33116,20 +30763,6 @@ UW.registerGrid({
       "outcome": "standard"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline. If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Graded",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "graded",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -33494,43 +31127,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF ONSET > AGE 45",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -33809,53 +31405,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND ONSET > 45 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF ONSET > 45 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    },
@@ -34263,54 +31812,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 2 years, Decline",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline"
      }
     ]
    },
@@ -34887,14 +32388,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    },
@@ -35532,14 +33025,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "sarcoid_pulm_advanced": {
@@ -35664,14 +33149,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "sarcoid_nonpulm": {
@@ -36168,54 +33645,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF > AGE 18",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > AGE 18",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -36481,14 +33910,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -36813,38 +34234,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -37072,14 +34461,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -37330,15 +34711,6 @@ UW.registerGrid({
       "outcome": "gi"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 1 year, Standard",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "spina_bifida": {
@@ -37432,14 +34804,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -37785,64 +35149,6 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS AND > 45 YEARS OLD WHEN PERFORMED",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR AND > 45 YEARS OLD WHEN PERFORMED",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
      }
     ]
    },
@@ -38221,58 +35527,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS AGO AND ONSET > 45 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR AGO AND ONSET > 45 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Within 7 years or current medication, Decline.",
     "rules": [
@@ -38596,59 +35850,6 @@ UW.registerGrid({
       "outcome": "standard"
      }
     ]
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If treated within 2 years, Decline. If younger than 17, Decline",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline"
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Within 7 years, Decline.",
@@ -39266,16 +36467,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If younger than 17, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -39539,14 +36730,6 @@ UW.registerGrid({
       "outcome": "gi"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "recent_surgery_hospitalization": {
@@ -39765,65 +36948,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITION",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITION",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITION",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If within 1 year, Standard. If currently, Decline",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "standard"
-     },
-     {
-      "outcome": "decline",
       "conditional": true
      }
     ],
@@ -40122,14 +37246,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -40495,58 +37611,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS AND ONSET > AGE 45",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Y IF > 1 YEAR AND ONSET > AGE 45",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 45
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 6 months, Decline. If paired with tobacco, Decline",
     "rules": [
@@ -40893,43 +37957,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: TransAmerica Easy Solution": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Standard",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 2 years, Decline",
     "rules": [
@@ -41170,14 +38197,6 @@ UW.registerGrid({
       "outcome": "preferred"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
    }
   },
   "walker_temporary": {
@@ -41272,14 +38291,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -41397,14 +38408,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
-    "raw": "Preferred",
-    "rules": [
-     {
-      "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
     "raw": "Preferred",
     "rules": [
      {
@@ -41641,16 +38644,6 @@ UW.registerGrid({
       "outcome": "gi"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Graded",
-    "rules": [
-     {
-      "outcome": "graded",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "wheelchair_not_confined": {
@@ -41774,16 +38767,6 @@ UW.registerGrid({
       "outcome": "preferred"
      }
     ]
-   },
-   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
-    "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Graded",
-    "rules": [
-     {
-      "outcome": "graded",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "wheelchair": {
