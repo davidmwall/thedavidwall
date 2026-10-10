@@ -23,7 +23,9 @@ Enter as much or as little as you know about a client: just one condition, or a 
 
 ## Results are only as good as the data
 
-The app ships with **4 fictional sample carriers** (the yellow banner). The engine has no carrier knowledge of its own. Every result comes from a carrier file you can read, and every rule cites its page. This is what makes it more reliable than asking a chatbot to "remember" guides.
+The app currently runs on **your condition grid** (52 products from the Whole Life and Term/UL/IUL tabs) as a backup source. No carrier PDFs are loaded yet, so every grid answer is labeled "grid (backup)". As each carrier's PDF is added, its official rules take over and the grid answer is shown next to them, flagged when the two disagree.
+
+The engine has no carrier knowledge of its own. Every result comes from a file you can read, and every rule cites its PDF page or grid cell.
 
 ### Adding a real carrier
 
