@@ -264,12 +264,10 @@
       "product": "moo-childrens-whole-life"
     },
     "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
-      "product": "moo-term-life-express",
-      "keepGuideFace": true
+      "product": "moo-term-life-express"
     },
     "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
-      "product": "moo-iul-express",
-      "keepGuideFace": true
+      "product": "moo-iul-express"
     },
     "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
       "product": "foresters-strong-foundation"

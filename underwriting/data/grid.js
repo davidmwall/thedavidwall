@@ -1166,8 +1166,7 @@ UW.registerGrid({
    },
    "approveOnly": true,
    "bestOutcome": "standard",
-   "product": "moo-term-life-express",
-   "keepGuideFace": true
+   "product": "moo-term-life-express"
   },
   "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
    "carrier": "MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS",
@@ -1214,8 +1213,7 @@ UW.registerGrid({
    },
    "approveOnly": true,
    "bestOutcome": "standard",
-   "product": "moo-iul-express",
-   "keepGuideFace": true
+   "product": "moo-iul-express"
   },
   "TERM, UL, IUL :: Transamerica FFIUL2": {
    "carrier": "Transamerica FFIUL2",

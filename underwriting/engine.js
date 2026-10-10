@@ -219,9 +219,17 @@
     // Age-banded limits: the highest band covering the client's age applies.
     if (f.bands && !isBlank(age)) {
       var at = f.bands.filter(function (b) { return age >= b.min && age <= b.max; });
+      var gap = '';
+      if (!at.length) {
+        // Age within the issue ages but past the listed bands: use the nearest band rather than the overall max.
+        var dist = function (b) { return age < b.min ? b.min - age : age - b.max; };
+        var near = f.bands.slice().sort(function (x, y) { return dist(x) - dist(y); })[0];
+        at = [near];
+        gap = ' (no band listed for age ' + age + '; using the ' + near.min + '–' + near.max + ' band)';
+      }
       if (at.length) {
         var cap = Math.max.apply(null, at.map(function (b) { return b.face; }));
-        f = Object.assign({}, f, { max: cap, note: 'max ' + fmt(cap) + ' at age ' + age + (f.note ? '; ' + f.note : '') });
+        f = Object.assign({}, f, { max: cap, note: 'max ' + fmt(cap) + ' at age ' + age + gap + (f.note ? '; ' + f.note : '') });
       }
     }
     if ((f.min != null && amt < f.min) || (f.max != null && amt > f.max)) {

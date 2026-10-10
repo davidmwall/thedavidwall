@@ -360,6 +360,16 @@ test('build charts by sex: blank sex uses the more lenient chart', function () {
   assert.strictEqual(run('', 245), 'standard');
 });
 
+test('face bands: an age past the listed bands uses the nearest band, not the overall max', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 'f', carrier: 'F', product: 'F', type: 'term', underwriting: 'simplified', bestOutcome: 'standard',
+    issueAges: { min: 18, max: 75 }, faceAmount: { min: 25000, max: 550000, bands: [{ min: 18, max: 50, face: 550000 }, { min: 61, max: 70, face: 350000 }] } });
+  var run = function (age, amt) { return UW.evaluate({ age: age, faceAmount: amt })[0].best; };
+  assert.strictEqual(run(72, 400000), 'decline');
+  assert.strictEqual(run(72, 300000), 'standard');
+  assert.strictEqual(run(40, 500000), 'standard');
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });
