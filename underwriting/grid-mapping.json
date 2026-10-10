@@ -282,6 +282,21 @@
       "product": "foresters-your-term",
       "approveOnly": false,
       "bestOutcome": "preferred_plus"
+    },
+    "WHOLE LIFE :: Foresters (Plan Right)": {
+      "product": "foresters-planright"
+    },
+    "WHOLE LIFE :: Foresters Plan Right Preferred": {
+      "absorbInto": "WHOLE LIFE :: Foresters (Plan Right)",
+      "as": "preferred"
+    },
+    "WHOLE LIFE :: Foresters Plan Right Standard": {
+      "absorbInto": "WHOLE LIFE :: Foresters (Plan Right)",
+      "as": "standard"
+    },
+    "WHOLE LIFE :: Foresters Plan Right Basic": {
+      "absorbInto": "WHOLE LIFE :: Foresters (Plan Right)",
+      "as": "graded"
     }
   },
   "values": {

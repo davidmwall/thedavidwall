@@ -120,7 +120,7 @@ var UNIT = '(years?|yrs?|y|months?|mos?)\\b';
 // Words that only describe timing or are filler. Anything else left over means
 // the cell has a condition the app can't check (age, severity, meds, tobacco…),
 // so the result is kept but flagged "verify".
-var FILLER = /\b(if|y|treated|treatment|diagnosed|diagnosis|performed|occurred|or|and|since|ago|the|past|last|in|a|of|has|been|it|for|then|otherwise|likely|within|between|over|after|more|than|longer|under|less|years?|yrs?|months?|mos?|onset|any|is|was|on|at|time|=|-)\b/g;
+var FILLER = /\b(if|y|treated|treatment|diagnosed|diagnosis|performed|occurred|implanted|placed|inserted|placement|death|benefit|or|and|since|ago|the|past|last|in|a|of|has|been|it|for|then|otherwise|likely|within|between|over|after|more|than|longer|under|less|years?|yrs?|months?|mos?|onset|any|is|was|on|at|time|=|-)\b/g;
 
 // One sentence -> { outcome, within, after, qualified } or null when it
 // doesn't contain exactly one outcome word.
@@ -447,24 +447,27 @@ function planRules(cell, plan) {
     return r.outcome === 'best' ? Object.assign({}, r, { outcome: plan }) : r;
   });
 }
-// Merge the two plans' timelines: at each point in time the client gets
-// Level if the Level plan accepts, else whatever the Graded plan gives.
+// Merge per-plan timelines (best plan first): at each point in time the client
+// gets the best plan that accepts them; Decline only if every plan declines.
 // Cells that only have conditions the app can't check stay "verify" (null).
-function combinePlans(L, G) {
-  var lr = L ? planRules(L, 'level') : null, gr = G ? planRules(G, 'graded') : null;
-  if ((L && !lr) || (G && !gr)) return null;
-  var firm = function (rs) { return rs ? rs.filter(function (r) { return !r.conditional; }) : null; };
-  var lf = firm(lr), gf = firm(gr);
-  if ((lr && lr.length && !lf.length) || (gr && gr.length && !gf.length)) return null;
+function combinePlans(plans) {
+  var lists = plans.map(function (pl) { return pl.cell ? planRules(pl.cell, pl.as) : null; });
+  if (plans.some(function (pl, i) { return pl.cell && !lists[i]; })) return null;
+  var firms = lists.map(function (rs) { return rs ? rs.filter(function (r) { return !r.conditional; }) : null; });
+  if (lists.some(function (rs, i) { return rs && rs.length && !firms[i].length; })) return null;
   var at = function (rs, plan, t) {
     for (var i = 0; i < rs.length; i++) if (rs[i].withinYears == null || t < rs[i].withinYears) return rs[i].outcome;
     return plan; // past every lookback: not asked
   };
   var outcomeAt = function (t) {
-    var lo = lf ? at(lf, 'level', t) : 'decline';
-    return lo !== 'decline' ? lo : (gf ? at(gf, 'graded', t) : 'decline');
+    for (var i = 0; i < plans.length; i++) {
+      if (!firms[i]) continue;
+      var o = at(firms[i], plans[i].as, t);
+      if (o !== 'decline') return o;
+    }
+    return 'decline';
   };
-  var bps = (lf || []).concat(gf || []).map(function (r) { return r.withinYears; })
+  var bps = [].concat.apply([], firms.filter(Boolean)).map(function (r) { return r.withinYears; })
     .filter(function (y) { return y != null; }).sort(function (a, b) { return a - b; })
     .filter(function (y, i, all) { return i === 0 || y !== all[i - 1]; });
   var out = [];
@@ -476,7 +479,7 @@ function combinePlans(L, G) {
   var fb = outcomeAt(1e6);
   if (out.length && out[out.length - 1].outcome === fb) out.pop();
   out.push({ outcome: fb });
-  var conds = (lr || []).concat(gr || []).filter(function (r) { return r.conditional; });
+  var conds = [].concat.apply([], lists.filter(Boolean)).filter(function (r) { return r.conditional; });
   return out.concat(conds);
 }
 
@@ -493,11 +496,12 @@ Object.keys(targets).forEach(function (target) {
     Object.keys(grid[kind]).forEach(function (id) {
       var row = grid[kind][id];
       if (row[target]) return;
-      var L = plans.level && row[plans.level], G = plans.graded && row[plans.graded];
-      if (!L && !G) return;
-      var raw = [L ? 'Level: ' + L.raw : '', G ? 'Graded: ' + G.raw : ''].filter(Boolean).join(' | ');
-      var rules = combinePlans(L, G);
-      var qualified = !!((L && L.qualified) || (G && G.qualified));
+      var order = Object.keys(plans).sort(function (a, b) { return UW.rank(a) - UW.rank(b); });
+      var cells = order.map(function (as) { return { as: as, cell: row[plans[as]] }; });
+      if (!cells.some(function (x) { return x.cell; })) return;
+      var raw = cells.filter(function (x) { return x.cell; }).map(function (x) { return UW.label(x.as) + ': ' + x.cell.raw; }).join(' | ');
+      var rules = combinePlans(cells);
+      var qualified = cells.some(function (x) { return x.cell && x.cell.qualified; });
       row[target] = rules ? Object.assign({ raw: raw, rules: rules }, qualified ? { qualified: true } : {}) : { raw: raw, rules: null };
     });
   });

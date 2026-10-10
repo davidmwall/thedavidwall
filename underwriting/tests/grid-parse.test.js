@@ -53,6 +53,8 @@ var CASES = [
   ['Decline <1 yr, Graded 1-2 yrs', '<1y decline, <2y graded'],
   ['PREF IF OVER 2 YEARS/MODIFIED IF WITHIN 2 YEARS', '<2y modified, preferred'],
   ['Decline <2 yrs, graded after', '<2y decline, graded'],
+  ['If implanted within 1 year, Decline. If implanted between 1 and 2 years ago, Standard', '<1y decline, <2y standard'],
+  ['If performed within 2 years, Graded. If performed between 2 and 10 years ago, Standard', '<2y graded, <10y standard'],
   // Age at diagnosis (client age minus years since)
   ['Y IF ONSET > AGE 45', 'dx<=45 decline, best'],
   ['Y IF ONSET > 45 YEARS OF AGE', 'dx<=45 decline, best'],
@@ -96,6 +98,8 @@ test('carrier tier names read per column', function () {
   assert.strictEqual(short('SimpliNow Legacy Max', aig), 'level');
   var foresters = { column: 'WHOLE LIFE :: Foresters (Plan Right)', tiers: [{ name: 'Basic', outcome: 'graded', columns: 'Foresters' }] };
   assert.strictEqual(short('If within 1 year, Basic. If between 1 and 2 years ago, Standard', foresters), '<1y graded, <2y standard');
+  assert.strictEqual(short('If implanted within 1 year, Basic. If implanted between 1 and 2 years ago, Standard', foresters), '<1y graded, <2y standard');
+  assert.strictEqual(short('If diagnosis or treatment within 3 years – Basic Death Benefit', foresters), '<3y graded');
   // Tier names don't leak into other carriers' columns
   assert.strictEqual(short('Basic', { column: 'WHOLE LIFE :: Other', tiers: foresters.tiers }), null);
 });

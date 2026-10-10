@@ -294,73 +294,8 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": "outer limits of: 50-85 Basic: 50-80"
-   }
-  },
-  "WHOLE LIFE :: Foresters Plan Right Preferred": {
-   "carrier": "Foresters Plan Right Preferred",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "LEVEL",
-    "Max face amount": "50-80 $35,000\n81-86 $15,000",
-    "Age range": "50 - 85",
-    "Build / UW guide": "https://drive.google.com/file/d/1LzNJmnRvSynCGoEOETRNocLdYVrQKZVE/view?usp=sharing",
-    "Sales tool": "https://myezbiz.foresters.com/my.policy",
-    "Quote tool": "https://www.forestersmobile.com/login",
-    "Payment methods": "ACH, DIRECT BILLING (Quarterly, Semi Annually, or Annually)"
    },
-   "bestOutcome": "level",
-   "issueAges": {
-    "min": 50,
-    "max": 85,
-    "source": "grid: Age range",
-    "note": ""
-   }
-  },
-  "WHOLE LIFE :: Foresters Plan Right Standard": {
-   "carrier": "Foresters Plan Right Standard",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "LEVEL",
-    "Max face amount": "50-80 $20,000\n81-85 $10,000",
-    "Age range": "50 - 85",
-    "Build / UW guide": "https://drive.google.com/file/d/1LzNJmnRvSynCGoEOETRNocLdYVrQKZVE/view?usp=sharing",
-    "Sales tool": "https://myezbiz.foresters.com/my.policy",
-    "Quote tool": "https://www.forestersmobile.com/login",
-    "Payment methods": "ACH, DIRECT BILLING (Quarterly, Semi Annually, or Annually)"
-   },
-   "bestOutcome": "level",
-   "issueAges": {
-    "min": 50,
-    "max": 85,
-    "source": "grid: Age range",
-    "note": ""
-   }
-  },
-  "WHOLE LIFE :: Foresters Plan Right Basic": {
-   "carrier": "Foresters Plan Right Basic",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "GRADED",
-    "Max face amount": "$15,000",
-    "Age range": "50 - 80",
-    "Build / UW guide": "https://drive.google.com/file/d/1LzNJmnRvSynCGoEOETRNocLdYVrQKZVE/view?usp=sharing",
-    "Sales tool": "https://myezbiz.foresters.com/my.policy",
-    "Quote tool": "https://www.forestersmobile.com/login",
-    "Payment methods": "ACH, DIRECT BILLING (Quarterly, Semi Annually, or Annually)"
-   },
-   "bestOutcome": "graded",
-   "issueAges": {
-    "min": 50,
-    "max": 80,
-    "source": "grid: Age range",
-    "note": ""
-   }
+   "product": "foresters-planright"
   },
   "WHOLE LIFE :: Foresters Advantage Plus II": {
    "carrier": "Foresters Advantage Plus II",
@@ -1205,30 +1140,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
@@ -1384,30 +1295,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
     "raw": "Decline",
     "rules": [
      {
@@ -1788,40 +1675,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -2252,30 +2105,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -2633,30 +2462,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
     "raw": "Decline",
     "rules": [
      {
@@ -3026,30 +2831,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -3370,44 +3151,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Declined",
     "rules": [
@@ -3589,6 +3332,10 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
+   },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT | Standard: Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
+    "rules": null
    }
   },
   "aneurysm_aaa_uncorrected": {
@@ -4329,40 +4076,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Declined",
     "rules": [
@@ -4770,40 +4483,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Declined",
     "rules": [
@@ -5152,16 +4831,9 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "withinYears": 5,
-      "outcome": "decline",
-      "conditional": true
+      "outcome": "decline"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
     "raw": "Decline",
@@ -8219,30 +7891,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -8541,40 +8189,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -9094,30 +8708,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -9332,8 +8922,16 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Decline | Standard: Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Decline | Graded: Decline",
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -9433,30 +9031,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
     "raw": "Decline",
     "rules": [
      {
@@ -9818,52 +9392,9 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 3,
-      "outcome": "graded",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
+      "outcome": "graded"
      }
     ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Y IF NOT CURRENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF > 10 YEARS SINCE DIAGNOSIS AND TREATMENT",
@@ -10124,7 +9655,7 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
+    "raw": "Level (day-1 coverage): Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
      {
       "withinYears": 2,
@@ -10247,30 +9778,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
     "raw": "Decline",
     "rules": [
      {
@@ -11108,30 +10615,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -11343,30 +10826,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -11949,30 +11408,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -12538,30 +11973,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -13022,44 +12433,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -13862,30 +13235,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
@@ -14062,8 +13411,16 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Decline | Standard: Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Decline | Graded: Decline",
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -14145,30 +13502,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -14458,16 +13791,13 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "modified",
-      "conditional": true
+      "outcome": "modified"
      },
      {
       "withinYears": 3,
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "Decline",
@@ -14482,16 +13812,13 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "decline",
-      "conditional": true
+      "outcome": "decline"
      },
      {
       "withinYears": 3,
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Cica Life (Superior Choice)": {
     "raw": "Standard",
@@ -14514,43 +13841,11 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      },
      {
       "withinYears": 2,
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS AGO",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
+      "outcome": "standard"
      }
     ]
    },
@@ -14567,11 +13862,9 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
@@ -14594,15 +13887,12 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "decline",
-      "conditional": true
+      "outcome": "decline"
      },
      {
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS",
@@ -15754,44 +15044,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF NO COMPLICATIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF NO COMPLICATIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -16025,8 +15277,12 @@ UW.registerGrid({
     ],
     "qualified": true
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Y IF NO COMPLICATIONS | Standard: Y IF NO COMPLICATIONS | Graded: Accepted",
+    "rules": null
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
+    "raw": "Level (day-1 coverage): Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
     "rules": null
    }
   },
@@ -16253,44 +15509,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF NO COMPLICATIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF NO COMPLICATIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -16539,8 +15757,12 @@ UW.registerGrid({
     ],
     "qualified": true
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Y IF NO COMPLICATIONS | Standard: Y IF NO COMPLICATIONS | Graded: Accepted",
+    "rules": null
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
+    "raw": "Level (day-1 coverage): Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
     "rules": null
    }
   },
@@ -16770,30 +15992,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -17074,22 +16272,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -18818,7 +18000,7 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Y IF > 2 YEARS OR < 2 VIOLATIONS | Graded: Accepted",
+    "raw": "Level (day-1 coverage): Y IF > 2 YEARS OR < 2 VIOLATIONS | Graded: Accepted",
     "rules": [
      {
       "withinYears": 2,
@@ -18951,40 +18133,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -20216,30 +19364,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -21626,18 +20750,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
-    "rules": null
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
-    "rules": null
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
-    "rules": null
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
     "rules": null
@@ -21748,8 +20860,12 @@ UW.registerGrid({
     ],
     "qualified": true
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN | Standard: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN | Graded: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
+    "rules": null
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2 | Graded: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
+    "raw": "Level (day-1 coverage): Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2 | Graded: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
     "rules": null
    }
   },
@@ -21889,40 +21005,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF  > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -22549,30 +21631,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -22581,8 +21639,16 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Decline | Standard: Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
+    "raw": "Level (day-1 coverage): Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
      {
       "withinYears": 1,
@@ -23089,40 +22155,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF  > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -23740,40 +22772,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF  > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -24663,30 +23661,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -25117,30 +24091,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -26149,7 +25099,7 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
+    "raw": "Level (day-1 coverage): Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
     "rules": [
      {
       "withinYears": 2,
@@ -26986,45 +25936,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 1 YEAR",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 1 YEAR",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Y IF > 1 YEAR",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -27365,30 +26276,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline | Declined",
     "rules": [
@@ -27648,7 +26535,7 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
+    "raw": "Level (day-1 coverage): Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
     "rules": [
      {
       "withinYears": 4,
@@ -28095,30 +26982,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -28495,30 +27358,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
     "raw": "Decline",
     "rules": [
      {
@@ -29015,7 +27854,7 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Accepted | Graded: Accepted",
+    "raw": "Level (day-1 coverage): Accepted | Graded: Accepted",
     "rules": [
      {
       "outcome": "level"
@@ -29131,30 +27970,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -31126,49 +29941,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF NOT CURRENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Y IF NOT CURRENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF > 10 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
@@ -31182,8 +29954,12 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT | Standard: Y IF NOT CURRENT | Graded: Y IF NOT CURRENT",
+    "rules": null
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Decline | Graded: Decline",
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -31665,30 +30441,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
@@ -31891,30 +30643,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
@@ -32293,30 +31021,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Declined",
     "rules": [
@@ -32644,45 +31348,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 1 YEAR SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 1 YEAR SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Y IF > 1 YEAR SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -32868,8 +31533,20 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Y IF > 1 YEAR SINCE TREATMENT | Standard: Y IF > 1 YEAR SINCE TREATMENT | Graded: Y IF > 1 YEAR SINCE TREATMENT",
+    "rules": [
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "preferred"
+     }
+    ]
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Decline | Graded: Decline",
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -32891,11 +31568,9 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
     "raw": "Y IF > 3 YEARS",
@@ -32936,43 +31611,35 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "modified",
-      "conditional": true
+      "outcome": "modified"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "If implanted within 1 year, Modified. If implanted between 1 and 2 years ago, Standard",
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "modified",
-      "conditional": true
+      "outcome": "modified"
      },
      {
       "withinYears": 2,
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "standard"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Baltimore Life": {
     "raw": "If implanted within 1 year, Decline. If implanted between 1 and 3 years ago, Special",
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "decline",
-      "conditional": true
+      "outcome": "decline"
      },
      {
       "withinYears": 3,
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Cica Life (Superior Choice)": {
     "raw": "Standard",
@@ -33005,48 +31672,11 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      },
      {
       "withinYears": 2,
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 1 YEAR",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
+      "outcome": "standard"
      }
     ]
    },
@@ -33063,22 +31693,18 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If implanted within 2 years, Modified",
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "modified",
-      "conditional": true
+      "outcome": "modified"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Children's Whole Life)": {
     "raw": "Decline",
@@ -33093,15 +31719,12 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "decline",
-      "conditional": true
+      "outcome": "decline"
      },
      {
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS",
@@ -33129,16 +31752,13 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "graded",
-      "conditional": true
+      "outcome": "graded"
      },
      {
       "withinYears": 10,
-      "outcome": "standard",
-      "conditional": true
+      "outcome": "standard"
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: TransAmerica Easy Solution": {
     "raw": "Accepted",
@@ -34152,30 +32772,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -36587,7 +35183,7 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Decline | Graded: Accepted",
+    "raw": "Level (day-1 coverage): Decline | Graded: Accepted",
     "rules": [
      {
       "outcome": "graded"
@@ -36757,7 +35353,7 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Decline | Graded: Accepted",
+    "raw": "Level (day-1 coverage): Decline | Graded: Accepted",
     "rules": [
      {
       "outcome": "graded"
@@ -38466,35 +37062,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -38928,40 +37495,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -39690,30 +38223,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -39897,8 +38406,16 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Decline | Standard: Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Decline | Graded: Decline",
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -40023,30 +38540,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -40537,51 +39030,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Y IF COMPLETED, CHECK UNDERLYING CONDITIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
       "conditional": true
      }
     ],
@@ -41345,40 +39793,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Decline",
     "rules": [
@@ -41751,30 +40165,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -42792,30 +41182,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Foresters Plan Right Preferred": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Standard": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Foresters Plan Right Basic": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
@@ -43021,8 +41387,16 @@ UW.registerGrid({
      }
     ]
    },
+   "WHOLE LIFE :: Foresters (Plan Right)": {
+    "raw": "Preferred: Decline | Standard: Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Level: Decline | Graded: Decline",
+    "raw": "Level (day-1 coverage): Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"

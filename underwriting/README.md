@@ -111,6 +111,8 @@ node underwriting/tools/validate.js        # check carrier data
 node --test underwriting/tests/*.test.js   # engine tests
 ```
 
+Medication charts: the Foresters PlanRight guide's 40-page medication reference chart was extracted by table position (`pdfplumber`) into per-drug rules; drug names the app didn't know are generated into `data/medications-extra.js`. Grid columns split by plan (Living Promise Level/Graded, PlanRight Preferred/Standard/Basic) are merged into one product with `absorbInto`: at each point in time the client gets the best plan that accepts them.
+
 Files:
 - `engine.js`: matching and ranking logic, shared by the browser and Node.
 - `data/conditions.js`: condition and medication vocabulary and aliases.

@@ -15,6 +15,7 @@ var path = require('path');
 var ROOT = path.join(__dirname, '..');
 var UW = require(path.join(ROOT, 'engine.js'));
 require(path.join(ROOT, 'data', 'conditions.js'));
+if (fs.existsSync(path.join(ROOT, 'data', 'medications-extra.js'))) require(path.join(ROOT, 'data', 'medications-extra.js'));
 
 var html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 var referenced = [];
