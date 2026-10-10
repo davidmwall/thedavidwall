@@ -305,6 +305,27 @@ test('class limits: tobacco age limit and chained fallbacks (level -> graded -> 
   assert.strictEqual(run({ faceAmount: 20000, conditions: [{ id: 'hiv_aids' }] }), 'gi');
 });
 
+test('per-rule tobacco keeps its place in the timeline; condition combos apply only when entered', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 'a', carrier: 'A', product: 'A', type: 'final_expense', underwriting: 'instant', bestOutcome: 'level',
+    conditions: {
+      heart_attack: { rules: [{ withinYears: 0.5, outcome: 'gi' }, { withinYears: 2, outcome: 'graded', tobacco: 'yes' }, { withinYears: 2, outcome: 'level' }] },
+      copd: { rules: [{ outcome: 'gi', tobacco: 'yes' }, { outcome: 'graded' }] },
+      diabetes_oral: { rules: [{ outcome: 'gi', withConditions: ['stroke', 'cad'] }, { outcome: 'level' }] },
+      stroke: { rules: [{ withinYears: 1, outcome: 'gi' }] } } });
+  var run = function (c) { var r = UW.evaluate(c)[0]; return r.best + '/' + r.worst; };
+  var mi = function (y, tob) { return run({ tobacco: tob, conditions: [{ id: 'heart_attack', yearsSince: y }] }); };
+  assert.strictEqual(mi(1, 'no'), 'level/level');
+  assert.strictEqual(mi(1, 'yes'), 'graded/graded');
+  assert.strictEqual(mi(1, ''), 'level/graded');
+  assert.strictEqual(mi(0.3, 'yes'), 'gi/gi');      // the 6-month rule still wins for smokers
+  assert.strictEqual(mi(3, 'yes'), 'level/level');  // past the lookback
+  assert.strictEqual(run({ tobacco: 'yes', conditions: [{ id: 'copd' }] }), 'gi/gi');
+  assert.strictEqual(run({ tobacco: 'no', conditions: [{ id: 'copd' }] }), 'graded/graded');
+  assert.strictEqual(run({ conditions: [{ id: 'diabetes_oral' }] }), 'level/level');
+  assert.strictEqual(run({ conditions: [{ id: 'diabetes_oral' }, { id: 'stroke', yearsSince: 5 }] }), 'gi/gi');
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });

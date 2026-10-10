@@ -296,6 +296,36 @@
     return rest;
   }
 
+  // Rules tied to other facts the client entered:
+  //   tobacco: 'yes' | 'no' -> applies only to that tobacco answer and keeps its place in the
+  //     timeline ("within 24 months: Level non-tobacco, Graded tobacco"). Unknown answer: conditional.
+  //   withConditions: [ids] -> applies only when the client also has one of these conditions
+  //     ("diabetes with stroke or coronary disease"); without a time window it decides the answer.
+  function applyFacts(rules, ctx) {
+    var t = ctx && ctx.tobacco, others = (ctx && ctx.others) || [];
+    var out = [], combos = [];
+    var add = function (x, s) { x.note = (x.note ? x.note + '; ' : '') + s; };
+    rules.forEach(function (r) {
+      var x = r;
+      if (r.tobacco) {
+        x = Object.assign({}, x); delete x.tobacco;
+        var want = r.tobacco === 'yes' ? 'tobacco user' : 'non-tobacco';
+        if (t === 'yes' || t === 'no') { if (t !== r.tobacco) return; add(x, want); }
+        else { x.conditional = true; add(x, 'if ' + want); }
+      }
+      if (r.withConditions) {
+        x = Object.assign({}, x); delete x.withConditions;
+        var hit = others.filter(function (id) { return r.withConditions.indexOf(id) !== -1; });
+        if (!hit.length) return;
+        add(x, 'with ' + hit.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; }).join(', '));
+        if (!x.conditional && x.withinYears == null) { combos.push(x); return; }
+      }
+      out.push(x);
+    });
+    if (combos.length) return combos.slice(0, 1).concat(out.filter(function (r) { return r.conditional; }));
+    return out;
+  }
+
   function applyDxAge(rules, ctx) {
     var dx = ctx && !isBlank(ctx.age) && !isBlank(ctx.yearsSince) ? Number(ctx.age) - Number(ctx.yearsSince) : null;
     var gated = [], rest = [];
@@ -328,7 +358,7 @@
   function evalRules(rules, ctxOrYears) {
     var ctx = ctxOrYears !== null && typeof ctxOrYears === 'object' ? ctxOrYears : { yearsSince: ctxOrYears };
     var yearsSince = ctx.yearsSince;
-    rules = applyDxAge(applyTobacco(rules, ctx), ctx);
+    rules = applyDxAge(applyTobacco(applyFacts(rules, ctx), ctx), ctx);
     var firm = rules.filter(function (r) { return !r.conditional; });
     var cond = rules.filter(function (r) { return r.conditional; });
     var res = evalFirmRules(firm, yearsSince);
@@ -356,7 +386,10 @@
     // Timing unknown: report the full range across all rules. With no fallback
     // rule, "long enough ago" means the guide doesn't ask, so best case is no impact.
     var best = null, worst = null;
-    var hasFallback = rules.some(function (r) { return r.withinYears == null; });
+    // Rules after the first fallback can never apply.
+    var cut = rules.findIndex(function (r) { return r.withinYears == null; });
+    if (cut !== -1) rules = rules.slice(0, cut + 1);
+    var hasFallback = cut !== -1;
     rules.forEach(function (r) {
       if (best === null || rank(r.outcome) < rank(best)) best = r.outcome;
       if (worst === null || rank(r.outcome) > rank(worst)) worst = r.outcome;
@@ -368,6 +401,8 @@
   function describeRules(rules) {
     // A single unconditional rule is already shown as the result; don't repeat it.
     if (rules.length === 1 && rules[0].withinYears == null) return rules[0].note || '';
+    // Rules tied to tobacco or other conditions read better in plain English.
+    if (rules.some(function (r) { return r.tobacco || r.withConditions; })) return explainRules(rules);
     return rules.map(function (r) {
       return (r.withinYears != null ? '< ' + r.withinYears + ' yrs: ' : (rules.length > 1 ? 'after: ' : '')) + label(r.outcome) + (r.note ? ' (' + r.note + ')' : '');
     }).join('; ') + (rules[rules.length - 1].withinYears != null ? '; after: not asked' : '');
@@ -473,7 +508,7 @@
   function evalCondition(p, cond) {
     var c = state.conditions[cond.id];
     var lbl = (c ? c.name : cond.id) + (!isBlank(cond.yearsSince) ? ' (' + cond.yearsSince + ' yrs ago)' : '');
-    var ctx = { yearsSince: cond.yearsSince, age: cond.age, tobacco: cond.tobacco, dxChecks: [] };
+    var ctx = { yearsSince: cond.yearsSince, age: cond.age, tobacco: cond.tobacco, others: cond.others, dxChecks: [] };
     var f = evalItem(p, 'conditions', cond.id, ctx, lbl);
     // Show the age-at-diagnosis checks that decided (or didn't) this answer.
     var checks = ctx.dxChecks.filter(function (x, i, all) { return all.indexOf(x) === i; });
@@ -483,7 +518,7 @@
 
   function evalMedication(p, med) {
     var m = state.medications[med.id];
-    var f = evalItem(p, 'medications', med.id, { yearsSince: med.yearsSince, age: med.age }, 'Rx: ' + (m ? m.name : med.id));
+    var f = evalItem(p, 'medications', med.id, { yearsSince: med.yearsSince, age: med.age, tobacco: med.tobacco, others: med.others }, 'Rx: ' + (m ? m.name : med.id));
     if (f.verify && m && m.commonlyFor && m.commonlyFor.length) {
       var names = m.commonlyFor.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; });
       f.note += '. Often prescribed for: ' + names.join(', ') + ' — add the condition for a better match';
@@ -530,7 +565,8 @@
       factors.push(evalBuild(p, Number(client.heightIn), Number(client.weightLb)));
     }
     // Client age travels with each condition so "age at diagnosis" rules can be checked.
-    var withAge = function (x) { return Object.assign({}, x, { age: client.age, tobacco: client.tobacco }); };
+    var condIds = (client.conditions || []).map(function (c) { return c.id; });
+    var withAge = function (x) { return Object.assign({}, x, { age: client.age, tobacco: client.tobacco, others: condIds.filter(function (id) { return id !== x.id; }) }); };
     (client.conditions || []).forEach(function (c) { factors.push(evalCondition(p, withAge(c))); });
     (client.medications || []).forEach(function (m) { factors.push(evalMedication(p, withAge(m))); });
 
@@ -649,7 +685,7 @@
     rules.filter(function (r) { return !r.conditional && dx(r); }).forEach(function (r) {
       parts.push(lab(r.outcome) + ' if ' + dx(r));
     });
-    var firm = rules.filter(function (r) { return !r.conditional && !dx(r); });
+    var firm = rules.filter(function (r) { return !r.conditional && !dx(r) && !r.tobacco && !r.withConditions; });
     var prev = 0;
     firm.forEach(function (r) {
       if (r.withinYears != null) {
@@ -660,6 +696,11 @@
       }
     });
     if (firm.length && firm[firm.length - 1].withinYears != null) parts.push('after ' + fmtYears(prev) + ': not asked (best class)');
+    rules.filter(function (r) { return !r.conditional && (r.tobacco || r.withConditions); }).forEach(function (r) {
+      parts.push(lab(r.outcome) + ' if ' + (r.tobacco ? (r.tobacco === 'yes' ? 'tobacco user' : 'non-tobacco') : '') +
+        (r.withConditions ? (r.tobacco ? ' and ' : '') + 'also ' + r.withConditions.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; }).join(' / ') : '') +
+        (r.withinYears != null ? ' within ' + fmtYears(r.withinYears) : ''));
+    });
     rules.filter(function (r) { return r.conditional; }).forEach(function (r) {
       parts.push('possibly ' + lab(r.outcome) +
         (r.withinYears != null ? ' within ' + fmtYears(r.withinYears) : '') +

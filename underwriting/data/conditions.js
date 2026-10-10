@@ -50,7 +50,7 @@ UW.registerConditions([
   { id: 'cystic_fibrosis', category: 'Lung', name: 'Cystic fibrosis', aliases: ['cf'] },
 
   // --- Cancer ---------------------------------------------------------------
-  { id: 'cancer', category: 'Cancer', name: 'Cancer — one type, non-recurring, history (not basal skin)', aliases: ['cancer', 'tumor history', 'malignancy', 'carcinoma', 'leukemia', 'lymphoma', 'cancer history'] },
+  { id: 'cancer', category: 'Cancer', name: 'Cancer — one type, non-recurring, history (not basal skin)', aliases: ['cancer', 'tumor history', 'malignancy', 'carcinoma', 'cancer history'] },
   { id: 'cancer_metastatic', category: 'Cancer', name: 'Cancer — recurring, more than one type, or metastatic', aliases: ['metastasized', 'stage 4', 'recurrence', 'recurring cancer', 'spread'] },
   { id: 'skin_cancer_basal', category: 'Cancer', name: 'Basal / squamous cell skin cancer', aliases: ['basal cell', 'squamous cell', 'skin cancer'] },
 
@@ -269,6 +269,23 @@ UW.registerConditions([
   { id: 'wernicke_korsakoff', category: 'Neuro', name: 'Wernicke-Korsakoff syndrome', aliases: [] },
   { id: 'heart_attacks_multiple', category: 'Heart', name: 'Heart attacks — more than one', aliases: ['multiple heart attacks'] },
   { id: 'tia_multiple', category: 'Circulatory', name: 'TIA — more than one episode', aliases: ['multiple tias'] },
+  { id: 'cancer_bone', category: 'Cancer', name: 'Bone cancer (history)', aliases: ['bone cancer'], parent: 'cancer' },
+  { id: 'cancer_brain', category: 'Cancer', name: 'Brain cancer (history)', aliases: ['brain cancer', 'glioma', 'glioblastoma'], parent: 'cancer' },
+  { id: 'cancer_carcinoid', category: 'Cancer', name: 'Carcinoid / neuroendocrine tumor', aliases: ['carcinoid', 'neuroendocrine tumor'], parent: 'cancer' },
+  { id: 'cancer_endometrial', category: 'Cancer', name: 'Endometrial (uterine) cancer (history)', aliases: ['uterine cancer', 'endometrial cancer'], parent: 'cancer' },
+  { id: 'cancer_esophageal', category: 'Cancer', name: 'Esophageal cancer (history)', aliases: ['esophageal cancer'], parent: 'cancer' },
+  { id: 'cancer_head_neck', category: 'Cancer', name: 'Head or neck cancer (history)', aliases: ['throat cancer', 'oral cancer', 'mouth cancer', 'laryngeal cancer'], parent: 'cancer' },
+  { id: 'cancer_leukemia', category: 'Cancer', name: 'Leukemia (history)', aliases: ['leukemia', 'cll', 'aml', 'cml'], parent: 'cancer' },
+  { id: 'cancer_liver', category: 'Cancer', name: 'Liver cancer (history)', aliases: ['liver cancer', 'hepatocellular carcinoma'], parent: 'cancer' },
+  { id: 'cancer_lung', category: 'Cancer', name: 'Lung cancer (history)', aliases: ['lung cancer'], parent: 'cancer' },
+  { id: 'cancer_lymphoma', category: 'Cancer', name: 'Lymphoma, non-Hodgkin (history)', aliases: ['lymphoma', 'non-hodgkin lymphoma', 'nhl'], parent: 'cancer' },
+  { id: 'cancer_myeloma', category: 'Cancer', name: 'Multiple myeloma', aliases: ['myeloma'], parent: 'cancer' },
+  { id: 'cancer_ovarian', category: 'Cancer', name: 'Ovarian cancer (history)', aliases: ['ovarian cancer'], parent: 'cancer' },
+  { id: 'cancer_pancreas', category: 'Cancer', name: 'Pancreatic cancer (history)', aliases: ['pancreatic cancer'], parent: 'cancer' },
+  { id: 'cancer_sarcoma', category: 'Cancer', name: 'Sarcoma (history)', aliases: ['sarcoma'], parent: 'cancer' },
+  { id: 'cancer_small_intestine', category: 'Cancer', name: 'Small intestine cancer (history)', aliases: ['small bowel cancer'], parent: 'cancer' },
+  { id: 'cancer_stomach', category: 'Cancer', name: 'Stomach (gastric) cancer (history)', aliases: ['stomach cancer', 'gastric cancer'], parent: 'cancer' },
+  { id: 'dermatomyositis', category: 'Immune', name: 'Dermatomyositis', aliases: [] },
   { id: 'rare_genetic', category: 'Other', name: 'Rare genetic / metabolic disease (Gaucher, Hunter, Pompe, Wilson…)', aliases: ['gaucher', 'hunter syndrome', 'pompe', 'wilson disease', 'niemann pick', 'wiskott aldrich', 'ehlers danlos', 'hereditary angioedema'] }
 ]);
 
