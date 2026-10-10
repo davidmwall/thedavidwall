@@ -568,7 +568,7 @@
   }
   function applyAgentRule(p, id, f) {
     var ar = state.agentRules && state.agentRules[id];
-    if (!ar || ar.outcome !== 'gi-only') return f;
+    if (!ar || ar.outcome !== 'gi-only' || (ar.except || []).indexOf(p.id) !== -1) return f;
     var o = offersGI(p) ? 'gi' : 'decline';
     return factor('condition', f.label, o, o, { note: ar.note + (o === 'gi' ? '' : ' (this product has no GI plan)'), source: 'agent rule', basis: 'agent',
       guideSays: f.basis !== 'none' && f.best ? summarize(f) + (f.source ? ' (' + f.source + ')' : '') : undefined });
