@@ -310,6 +310,14 @@
       "product": "aig-siwl",
       "declineAs": "gi",
       "keepGuideFace": true
+    },
+    "WHOLE LIFE :: Royal Neighbors Level": {
+      "absorbInto": "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)",
+      "as": "standard"
+    },
+    "WHOLE LIFE :: Royal Neighbors Graded": {
+      "absorbInto": "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)",
+      "as": "graded"
     }
   },
   "values": {

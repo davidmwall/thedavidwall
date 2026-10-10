@@ -594,56 +594,6 @@ UW.registerGrid({
    },
    "product": "moo-living-promise"
   },
-  "WHOLE LIFE :: Royal Neighbors Level": {
-   "carrier": "Royal Neighbors Level",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "LEVEL",
-    "Max face amount": "$30,000",
-    "Age range": "50 - 75",
-    "Build / UW guide": "NO BUILD CHART / build chart does not require Height or Weight for standard siwl\nhttps://drive.google.com/file/d/1JDk2_ZXuVrOz2SPFoAtwXkVNCN3h5OVy/view?usp=sharing",
-    "Sales tool": "https://agent.royalneighbors.org/",
-    "Payment methods": "ACH"
-   },
-   "bestOutcome": "level",
-   "issueAges": {
-    "min": 50,
-    "max": 75,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 30000,
-    "source": "grid: Max face amount"
-   }
-  },
-  "WHOLE LIFE :: Royal Neighbors Graded": {
-   "carrier": "Royal Neighbors Graded",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "GRADED",
-    "Max face amount": "$10,000",
-    "Age range": "50 - 75",
-    "Build / UW guide": "NO BUILD CHART / build chart does not require Height or Weight for standard siwl\nhttps://drive.google.com/file/d/1JDk2_ZXuVrOz2SPFoAtwXkVNCN3h5OVy/view?usp=sharing",
-    "Sales tool": "https://agent.royalneighbors.org/",
-    "Payment methods": "ACH"
-   },
-   "bestOutcome": "graded",
-   "issueAges": {
-    "min": 50,
-    "max": 75,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 10000,
-    "source": "grid: Max face amount"
-   }
-  },
   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
    "carrier": "Royal Neighbors (Ensured Legacy FEX)",
    "productName": "Whole Life (from your grid)",
@@ -1811,22 +1761,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Graded",
     "rules": [
@@ -2160,32 +2094,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 18 MONTHS SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 18 MONTHS SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -2526,32 +2434,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Guaranteed Issue",
     "rules": [
@@ -2851,22 +2733,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -3196,22 +3062,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Graded",
     "rules": [
@@ -3456,32 +3306,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 18 MONTHS SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 18 MONTHS SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -3621,6 +3445,18 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT | Standard: Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
     "rules": null
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Y IF > 18 MONTHS SINCE TREATMENT | Graded: Y IF > 18 MONTHS SINCE TREATMENT",
+    "rules": [
+     {
+      "withinYears": 1.5,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "standard"
+     }
+    ]
    }
   },
   "aneurysm_aaa_uncorrected": {
@@ -4367,32 +4203,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 18 MONTHS SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 18 MONTHS SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If diagnosed within 2 years, Graded. If diagnosed between 2 and 10 years ago, Standard",
     "rules": [
@@ -4730,27 +4540,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -8166,27 +7955,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: AIG (SIWL)": {
     "raw": "If performed within 2 years, SimpliNow Legacy",
     "rules": [
@@ -8654,32 +8422,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -8865,6 +8607,18 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 2 YEARS",
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "standard"
+     }
+    ]
    }
   },
   "cancer_active": {
@@ -9000,22 +8754,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -9321,32 +9059,6 @@ UW.registerGrid({
     "raw": "2 – 5 years  -Indiv. Consideration",
     "rules": null
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 8 years, Decline. If \"Has the prospect ever had cancer more than once?\" answered \"Yes\" , Decline",
     "rules": [
@@ -9565,6 +9277,18 @@ UW.registerGrid({
       "outcome": "level"
      }
     ]
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "standard"
+     }
+    ]
    }
   },
   "cardiomyopathy": {
@@ -9720,32 +9444,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 18 MONTHS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 18 MONTHS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -10490,32 +10188,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Guaranteed Issue",
     "rules": [
@@ -10669,32 +10341,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -11178,22 +10824,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -11714,27 +11344,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If paired with tobacco, Graded",
     "rules": [
@@ -12095,36 +11704,6 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 30 DAYS SINCE SYMPTOMS, QUARANTINE, POSITIVE TEST RESULTS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 30 DAYS SINCE SYMPTOMS, QUARANTINE, POSITIVE TEST RESULTS",
     "rules": [
      {
       "outcome": "decline",
@@ -12851,22 +12430,6 @@ UW.registerGrid({
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -13033,6 +12596,14 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -13495,27 +13066,6 @@ UW.registerGrid({
      },
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -14601,36 +14151,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF INSULIN > 30 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF INSULIN > 30 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -14832,6 +14352,10 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
+    "rules": null
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Y IF INSULIN > 30 YEARS OF AGE | Graded: Y IF INSULIN > 30 YEARS OF AGE",
     "rules": null
    }
   },
@@ -15066,22 +14590,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Y IF > 35 YEARS OLD WHEN DIAGNOSED, NON SMOKER, NO COMPLICATIONS,  NOT OVERWEIGHT AND CONTROLLED WITH ORAL MEDICATIONS (2 or less oral medications)",
     "rules": [
@@ -15303,6 +14811,14 @@ UW.registerGrid({
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
     "rules": null
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Accepted | Graded: Accepted",
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    }
   },
   "diabetes_complications": {
@@ -15840,22 +15356,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -17614,32 +17114,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 18 MONTHS",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 18 MONTHS",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If treated within 3 years, Graded. If treated between 3 and 10 years ago, Standard",
     "rules": [
@@ -18668,27 +18142,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 24 MONTHS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If paired with tobacco, Graded",
     "rules": [
@@ -19028,27 +18481,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 24 MONTHS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -19846,22 +19278,6 @@ UW.registerGrid({
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
     "rules": null
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Call Underwriting",
-    "rules": [
-     {
-      "outcome": "refer"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Call Underwriting",
-    "rules": [
-     {
-      "outcome": "refer"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
     "rules": null
@@ -19959,6 +19375,14 @@ UW.registerGrid({
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2 | Graded: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
     "rules": null
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Call Underwriting | Graded: Call Underwriting",
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    }
   },
   "heart_attack": {
@@ -20144,27 +19568,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -21243,48 +20646,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT, DIAGNOSIS AND PROCEDURE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 18 MONTHS SINCE TREATMENT, DIAGNOSIS AND PROCEDURE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If performed within 2 years, Graded. If performed between 2 and 10 years ago, Standard",
     "rules": [
@@ -21844,48 +21205,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT, DIAGNOSIS AND PROCEDURE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 18 MONTHS SINCE TREATMENT, DIAGNOSIS AND PROCEDURE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If performed within 2 years, Graded. If performed between 2 and 10 years ago, Standard",
     "rules": [
@@ -22246,32 +21565,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -22638,32 +21931,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If treated within 10 years, Standard",
     "rules": [
@@ -23019,32 +22286,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -23744,36 +22985,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF NOT CURRENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF NOT CURRENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -23939,6 +23150,10 @@ UW.registerGrid({
       "outcome": "level"
      }
     ]
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Y IF NOT CURRENT | Graded: Y IF NOT CURRENT",
+    "rules": null
    }
   },
   "huntingtons": {
@@ -24768,22 +23983,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Guaranteed Issue",
     "rules": [
@@ -25032,32 +24231,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Declined",
     "rules": [
@@ -25254,6 +24427,18 @@ UW.registerGrid({
      },
      {
       "outcome": "level"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "standard"
      }
     ]
    }
@@ -25711,32 +24896,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If diagnosed within 1 year, Guaranteed Issue. If diagnosed between 1 and 10 years ago, Graded",
     "rules": [
@@ -26046,22 +25205,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -26630,27 +25773,6 @@ UW.registerGrid({
      {
       "withinYears": 4,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -27896,27 +27018,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2  YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If treated within 10 years, Standard",
     "rules": [
@@ -28227,27 +27328,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Guaranteed Issue",
@@ -28972,22 +28052,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Guaranteed Issue",
     "rules": [
@@ -29139,22 +28203,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If currently, Guaranteed Issue",
@@ -29474,22 +28522,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If within 2 years, Guaranteed Issue. If between 2 and 5 years ago, Graded. If between 5 and 10 years ago, Standard",
     "rules": [
@@ -29736,22 +28768,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -29932,6 +28948,14 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    }
   },
   "pacemaker": {
@@ -30103,27 +29127,6 @@ UW.registerGrid({
      },
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -31097,27 +30100,6 @@ UW.registerGrid({
      {
       "withinYears": 4,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -35116,32 +34098,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If within 2 years, Graded. If between 2 and 10 years ago, Standard",
     "rules": [
@@ -35493,27 +34449,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -36080,22 +35015,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -36270,6 +35189,14 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    }
   },
   "circulatory_surgery": {
@@ -36428,32 +35355,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF > 18 MONTHS",
-    "rules": [
-     {
-      "withinYears": 1.5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -36909,38 +35810,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF NOT CIRCULATORY OR HEART SURGERY < 2 YEARS AGO",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 2,
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Y IF NOT CIRCULATORY OR HEART SURGERY < 18 MONTHS AGO",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 1.5,
-      "outcome": "best",
       "conditional": true
      }
     ],
@@ -37930,27 +36799,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If treated within 10 years, Standard",
     "rules": [
@@ -38817,22 +37665,6 @@ UW.registerGrid({
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
    },
-   "WHOLE LIFE :: Royal Neighbors Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Royal Neighbors Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If currently, Decline",
     "rules": [
@@ -39028,6 +37860,14 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
+    "raw": "Standard: Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
