@@ -1282,5 +1282,5 @@ UW.addProduct({
     }
   },
   "medications": {},
-  "notes": "From UHL plan-availability guide (Best Whole Life Plan / Best Term Plan per condition). Final decision by UHL underwriting. Availability may vary by state. Questions: UHL Life Contact Center 1-800-428-3001. Premier = Preferred, Deluxe = Standard, EIWL = Graded, CGWL = Guaranteed issue. Unlike other carriers, some conditions are not accepted even on CGWL. Provider plan not included in this guide."
+  "notes": "From UHL plan-availability guide (Best Whole Life Plan / Best Term Plan per condition). Final decision by UHL underwriting. Availability may vary by state. Questions: UHL Life Contact Center 1-800-428-3001. Premier = Preferred, Deluxe = Standard, EIWL = Graded, CGWL = Guaranteed issue. Unlike other carriers, some conditions are not accepted even on CGWL. UHL Provider is a separate whole life product with its own rules; it is not covered by this guide or this entry."
 });
