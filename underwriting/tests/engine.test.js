@@ -210,7 +210,7 @@ test('importer reads all xlsx tabs, skips UHL, parses timed cells', function () 
   assert.strictEqual(res.status, 0, res.stderr);
   assert.match(res.stdout, /UHL \(skipped\)/);
   assert.match(res.stdout, /Gout/);         // unmatched row reported, not guessed
-  assert.match(res.stdout, /"See notes"/);  // unreadable cell reported
+  assert.match(res.stdout, /"Ask Bob"/);    // unreadable cell reported
   var captured;
   var saved = UW.registerGrid;
   UW.registerGrid = function (g) { captured = g; };

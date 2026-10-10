@@ -145,7 +145,7 @@ UW.registerGrid({
     ]
    },
    "Whole Life :: Sample Carrier E": {
-    "raw": "See notes",
+    "raw": "Ask Bob",
     "rules": null
    }
   }

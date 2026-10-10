@@ -69,52 +69,126 @@ function parseCSV(text) {
 }
 
 // --- Cell interpretation -------------------------------------------------------
+// Cells that carry no information: treated as empty (the app then says "verify").
+var NOT_SPECIFIED = /(does not specify|do not specify|not specified|^n\/?a$|^none$|^-+$|^see\b|not on (the )?underwriting guide|check med list)/i;
+
 var KEYWORDS = [
-  [/\b(decline|declined|dec|ko|knock ?out|uninsurable|not eligible|ineligible)\b|^(no|n|x|✗|✘)$/, 'decline'],
-  [/\b(ic|individual consideration|refer|call|underwriter|uw review|case by case)\b/, 'refer'],
-  [/\b(gi|guaranteed)\b/, 'gi'],
-  [/\b(modified|mod|rop|return of premium)\b/, 'modified'],
+  [/\b(declined|decline|dec|knock ?out|ko|uninsurable|not eligible|ineligible)\b|^(no|n|x|✗|✘)$/, 'decline'],
+  [/\b(ic|individual consideration|refer|call (uw|underwriting|underwriter)|underwriter review|uw review|case by case)\b/, 'refer'],
+  [/\b(guaranteed issue|guaranteed|guarantee|gi)\b/, 'gi'],
+  [/\b(return of premium|modified|mod|rop)\b/, 'modified'],
   [/\b(graded|grade|gr|grd)\b/, 'graded'],
   [/\b(table|rated|substandard)\b/, 'table'],
-  [/\b(preferred plus|pref plus|pp)\b/, 'preferred_plus'],
+  [/\b(preferred plus|pref plus)\b/, 'preferred_plus'],
   [/\b(preferred|pref)\b/, 'preferred'],
   [/\b(standard plus|std plus)\b/, 'standard_plus'],
   [/\b(standard|std)\b/, 'standard'],
-  [/\b(level|lvl|immediate|day 1|full)\b/, 'level'],
-  [/\b(yes|y|ok|accept|acceptable|approved|approve|eligible)\b|^(✓|✔|√)$/, 'best']
+  [/\b(level|lvl|immediate|day 1)\b/, 'level'],
+  [/\b(not asked|acceptable|accepted|accept|approved|approve|eligible|yes|ok|y)\b|^(✓|✔|√)$/, 'best']
 ];
 
-function outcomeOf(seg) {
-  for (var i = 0; i < KEYWORDS.length; i++) if (KEYWORDS[i][0].test(seg)) return KEYWORDS[i][1];
-  return null;
+function outcomesIn(seg) {
+  var found = [];
+  KEYWORDS.forEach(function (k) {
+    var re = new RegExp(k[0].source, 'g'), m;
+    while ((m = re.exec(seg))) found.push({ outcome: k[1], at: m.index, len: m[0].length });
+  });
+  // Drop matches nested inside a longer match ("guaranteed issue" vs "issue").
+  return found.sort(function (a, b) { return a.at - b.at || b.len - a.len; })
+    .filter(function (f, i, all) { return !all.some(function (g, j) { return j < i && f.at < g.at + g.len; }); });
 }
 
-// "Decline <2 yrs, graded 2-3 yrs, level after" -> rules; null if unsure.
+function years(n, unit) { return /^m/.test(unit) ? Number(n) / 12 : Number(n); }
+var UNIT = '(years?|yrs?|y|months?|mos?)\\b';
+
+// Words that only describe timing or are filler. Anything else left over means
+// the cell has a condition the app can't check (age, severity, meds, tobacco…),
+// so the result is kept but flagged "verify".
+var FILLER = /\b(if|y|treated|treatment|diagnosed|diagnosis|performed|occurred|or|and|since|ago|the|past|last|in|a|of|has|been|it|for|then|otherwise|likely|within|between|over|after|more|than|longer|under|less|years?|yrs?|months?|mos?|onset|any|is|was|on|at|time|=|-)\b/g;
+
+// One sentence -> { outcome, within, after, qualified } or null when it
+// doesn't contain exactly one outcome word.
+function parseSegment(seg) {
+  var ageq = false;
+  // Client-age conditions ("> 60 years of age", "age 45 or greater") are not timing.
+  seg = seg.replace(/(?:>|<|over|under)?\s*\d+\s*(?:years?|yrs?)\s*(?:of age|old)/g, function () { ageq = true; return ' agecond '; })
+    .replace(/(?:>|<)?\s*\bage\s*\d+(?:\s*or (?:greater|older|younger))?/g, function () { ageq = true; return ' agecond '; })
+    .replace(/\d+\s*or (?:greater|older|younger)/g, function () { ageq = true; return ' agecond '; });
+  var outs = outcomesIn(seg);
+  if (outs.length !== 1) return null;
+  var o = outs[0].outcome;
+  var within = null, after = null, m;
+  if ((m = seg.match(new RegExp('between\\s+(\\d+(?:\\.\\d+)?)\\s+and\\s+(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) within = years(m[2], m[3]);
+  else if ((m = seg.match(new RegExp('(\\d+(?:\\.\\d+)?)\\s*-\\s*(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) within = years(m[2], m[3]);
+  else if ((m = seg.match(new RegExp('(?:>|over|more than|longer than|after|older than)\\s*(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) after = years(m[1], m[2]);
+  else if ((m = seg.match(new RegExp('(?:within|<|less than|under|in the (?:past|last)|past|last)\\s*(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) within = years(m[1], m[2]);
+  else if ((m = seg.match(new RegExp('(\\d+(?:\\.\\d+)?)\\s*' + UNIT)))) within = years(m[1], m[2]);
+  else if (/\b(after|longer)\b/.test(seg)) after = 0;
+
+  var rest = seg.slice(0, outs[0].at) + ' ' + seg.slice(outs[0].at + outs[0].len);
+  rest = rest.replace(/\d+(\.\d+)?/g, ' ').replace(/[<>(),:"'—–]/g, ' ').replace(FILLER, ' ')
+    .replace(/\b(since diagnosis|diagnosis and treatment)\b/g, ' ').trim();
+  return { outcome: o, within: within, after: after, qualified: ageq || /[a-z]{2,}/.test(rest) };
+}
+
+// Cell text -> { rules, qualified } | 'empty' | null (could not interpret).
 function interpret(raw) {
   var exact = mapping.values[raw.trim()];
-  if (exact !== undefined) return typeof exact === 'string' ? [{ outcome: exact }] : exact;
-  var text = raw.toLowerCase().replace(/\s+/g, ' ').trim();
-  var segs = text.split(/[,;\/\n]| then | otherwise /).map(function (x) { return x.trim(); }).filter(Boolean);
-  var rules = [];
-  for (var i = 0; i < segs.length; i++) {
-    var seg = segs[i];
-    var o = outcomeOf(seg);
-    if (!o) return null;
-    var after = /\b(after|over|more than|beyond|older than)\b|>|\+/.test(seg);
-    var range = seg.match(/(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*(y|yr|yrs|year|years)\b/);
-    var yrs = seg.match(/(\d+(?:\.\d+)?)\s*(y|yr|yrs|year|years)\b/);
-    var mos = seg.match(/(\d+)\s*(m|mo|mos|month|months)\b/);
-    var n = range ? Number(range[2]) : yrs ? Number(yrs[1]) : mos ? Number(mos[1]) / 12 : null;
-    if (n !== null && !after) rules.push({ withinYears: n, outcome: o });
-    else rules.push({ outcome: o });
+  if (exact !== undefined) {
+    if (exact === 'empty') return 'empty';
+    return { rules: typeof exact === 'string' ? [{ outcome: exact }] : exact, qualified: false };
   }
-  if (!rules.length) return null;
-  // Timed rules ascending, single fallback last; anything else is ambiguous.
-  var timed = rules.filter(function (r) { return r.withinYears != null; }).sort(function (a, b) { return a.withinYears - b.withinYears; });
-  var fallback = rules.filter(function (r) { return r.withinYears == null; });
+  var text = raw.toLowerCase().replace(/\s+/g, ' ').trim();
+  if (NOT_SPECIFIED.test(text)) return 'empty';
+  // Quoted application questions and parenthetical asides: keep as a qualifier
+  // word, but don't let a quoted "Yes" read as an outcome.
+  var asked = false;
+  text = text.replace(/"[^"]*"|“[^”]*”/g, function () { asked = true; return ' question '; })
+    .replace(/answered\s+question/g, ' answered ')
+    .replace(/\(([^)]*)\)/g, ' ');
+  // Sentences: periods (not decimals), semicolons, slashes, newlines.
+  var sentences = text.split(/\.(?!\d)|;|\s*\/\s*|\|/).map(function (x) { return x.trim(); }).filter(Boolean);
+  var segs = [];
+  sentences.forEach(function (sent) {
+    // "Decline <1 yr, Graded 1-2 yrs": split on commas only when each part has its own outcome.
+    var parts = sent.split(',').map(function (x) { return x.trim(); }).filter(Boolean);
+    var each = parts.every(function (p) { return outcomesIn(p).length === 1; });
+    if (parts.length > 1 && each) segs = segs.concat(parts); else segs.push(sent);
+  });
+  var parsed = segs.map(parseSegment);
+  if (!parsed.length || parsed.some(function (x) { return !x; })) return null;
+
+  // Firm rules depend only on timing. Conditional rules depend on something the
+  // app can't check (age at diagnosis, severity, tobacco, an app question), so
+  // the engine only lets them widen the range — they never rule a carrier out.
+  var timed = [], fallback = [], conditional = [], qualified = asked;
+  parsed.forEach(function (p) {
+    var q = p.qualified || asked;
+    qualified = qualified || q;
+    var add = function (rule) {
+      if (q) conditional.push(Object.assign(rule, { conditional: true }));
+      else if (rule.withinYears != null) timed.push(rule);
+      else fallback.push(rule);
+    };
+    if (p.within != null) add({ withinYears: p.within, outcome: p.outcome });
+    else if (p.after != null) {
+      // "Y IF > 2 YEARS": acceptable after 2 years, implied not acceptable before.
+      if (p.after > 0 && !parsed.some(function (x) { return x.within != null; })) {
+        add({ withinYears: p.after, outcome: 'decline', note: 'implied by grid' });
+      }
+      add({ outcome: p.outcome });
+    } else add({ outcome: p.outcome });
+  });
+  // "Approved if mild. Otherwise, decline": the fallback only applies when the
+  // qualifier fails, so it is conditional too.
+  if (conditional.length && fallback.length) {
+    fallback.forEach(function (r) { conditional.push(Object.assign(r, { conditional: true })); });
+    fallback = [];
+  }
+  timed.sort(function (a, b) { return a.withinYears - b.withinYears; });
   if (fallback.length > 1) return null;
   for (var j = 1; j < timed.length; j++) if (timed[j].withinYears === timed[j - 1].withinYears) return null;
-  return timed.concat(fallback);
+  return { rules: timed.concat(fallback, conditional), qualified: qualified };
 }
 
 // --- Row / column matching -----------------------------------------------------
@@ -157,7 +231,7 @@ function loadSheets(file) {
 var sheets = loadSheets(input);
 var columns = {};
 var grid = { conditions: {}, medications: {} };
-var report = { tabs: [], rowsMatched: 0, rowsUnmatched: {}, rowsSkipped: 0, gridOnly: [], cells: 0, unparsed: {} };
+var report = { tabs: [], notSpecified: 0, rowsMatched: 0, rowsUnmatched: {}, rowsSkipped: 0, gridOnly: [], cells: 0, unparsed: {} };
 
 Object.keys(sheets).forEach(function (tab) {
   var tabCfg = mapping.tabs[tab];
@@ -194,12 +268,15 @@ Object.keys(sheets).forEach(function (tab) {
     for (var i = 1; i < r.length; i++) {
       var col = colKeys[i], raw = String(r[i] || '').trim();
       if (!col || !raw) continue;
-      var rules = interpret(raw);
-      if (!rules) report.unparsed[raw] = (report.unparsed[raw] || 0) + 1;
-      // Two rows mapping to the same condition (e.g. "MI" and "Heart attack"): keep both texts.
+      var res = interpret(raw);
+      if (res === 'empty') { report.notSpecified++; continue; }
+      if (!res) report.unparsed[raw] = (report.unparsed[raw] || 0) + 1;
+      var cell = { raw: raw, rules: res ? res.rules : null };
+      if (res && res.qualified) cell.qualified = true;
+      // Two rows mapping to the same condition: keep both texts, needs a human look.
       target[col] = target[col] && target[col].raw !== raw
         ? { raw: target[col].raw + ' | ' + raw, rules: null }
-        : { raw: raw, rules: rules };
+        : cell;
       report.cells++;
     }
   });
@@ -224,7 +301,7 @@ var unmatched = Object.keys(report.rowsUnmatched);
 console.log('Tabs: ' + report.tabs.join(', '));
 console.log('Rows: ' + report.rowsMatched + ' matched, ' + report.rowsSkipped + ' skipped, ' + unmatched.length + ' unmatched');
 console.log('Columns: ' + Object.keys(columns).length + ' (' + report.gridOnly.length + ' grid-only: no carrier file mapped)');
-console.log('Cells: ' + report.cells + ' imported, ' + unparsed.length + ' distinct values not understood');
+console.log('Cells: ' + report.cells + ' imported, ' + report.notSpecified + ' "does not specify" treated as blank, ' + unparsed.length + ' distinct values not understood');
 if (unmatched.length) {
   console.log('\nUNMATCHED ROWS: add to grid-mapping.json "rows" as "condition:<id>", "medication:<id>" or "skip":');
   unmatched.forEach(function (n) { console.log('  ' + n + '  [' + report.rowsUnmatched[n].join(', ') + ']'); });

@@ -232,6 +232,23 @@
   // rules: [{ withinYears: 2, outcome: 'decline' }, { withinYears: 5, outcome: 'graded' }, { outcome: 'level' }]
   // "withinYears: 2" matches when yearsSince < 2. A rule without withinYears is the fallback.
   function evalRules(rules, yearsSince) {
+    var firm = rules.filter(function (r) { return !r.conditional; });
+    var cond = rules.filter(function (r) { return r.conditional; });
+    var res = evalFirmRules(firm, yearsSince);
+    // Conditional rules (grid cells like "if diagnosed before age 40, decline")
+    // depend on facts the app doesn't collect. They can widen the worst case but
+    // never set the best case, so they can't rule a carrier out on their own.
+    cond.forEach(function (r) {
+      if (!isBlank(yearsSince) && r.withinYears != null && yearsSince >= r.withinYears) return;
+      res.worst = res.worst === null ? r.outcome : worse(res.worst, r.outcome);
+      res.conditional = true;
+    });
+    if (res.conditional && res.best === null && res.worst !== null) res.timing = true;
+    return res;
+  }
+
+  function evalFirmRules(rules, yearsSince) {
+    if (!rules.length) return { best: null, worst: null, rule: null, timing: false };
     if (!isBlank(yearsSince)) {
       for (var i = 0; i < rules.length; i++) {
         var r = rules[i];
@@ -300,8 +317,9 @@
     if (cell && cell.rules) {
       var res = evalRules(resolveRules(cell.rules, p), yearsSince);
       return factor(k, lbl, res.best, res.worst, {
-        note: 'From your grid: "' + cell.raw + '". Not confirmed by a carrier guide',
-        source: 'grid', timing: res.timing, basis: 'grid', backup: true
+        note: 'From your grid: "' + cell.raw + '". Not confirmed by a carrier guide' +
+          (cell.qualified ? '. Depends on details the app doesn\'t check, so read the full note' : ''),
+        source: 'grid', timing: res.timing, basis: 'grid', backup: true, verify: !!cell.qualified
       });
     }
     if (cell) {
