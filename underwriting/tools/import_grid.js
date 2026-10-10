@@ -306,8 +306,67 @@ function matchRow(name) {
   return null;
 }
 
+// Face amount text -> { min, max, bands: [{ min, max, face }], note }.
+// Age bands ("18-55 $500,000", "$500,000 (20-45)", "Ages 50-80: $35,000") give
+// the limit at a given age; with several plans listed, the highest applies.
+function parseAmount(numStr, unit, hadDollar) {
+  var v = Number(numStr.replace(/,/g, ''));
+  if (/k/i.test(unit || '')) v *= 1000;
+  if (/m/i.test(unit || '')) v *= 1e6;
+  return (hadDollar || unit || v >= 1000) ? v : null;
+}
+var AMT = '(\\$)?\\s*(\\d{1,3}(?:,\\d{3})+|\\d+(?:\\.\\d+)?)\\s*([KkMm](?![a-z]))?';
+function parseFace(text) {
+  if (!text || NOT_SPECIFIED.test(text.toLowerCase())) return null;
+  // "(50 to 85): $20,000" -> "50 to 85: $20,000"
+  var t = text.replace(/\s+/g, ' ').replace(/\((\d{1,2}\s*(?:-|–|to)\s*\d{1,3})\)\s*:/g, '$1:');
+  var bands = [], used = [];
+  var mark = function (m) { used.push([m.index, m.index + m[0].length]); };
+  // "18-55 $500,000", "Ages 50-80: $35,000", "20-50: $100K-$2M", "50 to 85): $20,000", "18-40: the lesser of $1M or…"
+  // A ")" after the range must be followed by ":" ("(50 to 85): $20,000"); "(20-45) $375,000" is the
+  // previous amount's band, handled by reB.
+  var reA = new RegExp('(?<![\\d(])(\\d{1,2})\\s*(?:-|–|to)\\s*(\\d{1,3})\\s*(?:\\)\\s*:|:)?\\s*(?:up to|the lesser of)?\\s*' + AMT + '(?:\\s*(?:-|–)\\s*' + AMT + ')?', 'g');
+  var m;
+  while ((m = reA.exec(t))) {
+    var a1 = parseAmount(m[4], m[5], m[3]), a2 = m[7] ? parseAmount(m[7], m[8], m[6]) : null;
+    if (a1 === null || Number(m[1]) > Number(m[2]) || Number(m[2]) > 120) continue;
+    bands.push({ min: Number(m[1]), max: Number(m[2]), face: a2 || a1 }); mark(m);
+  }
+  // "$500,000 (20-45)"
+  var reB = new RegExp(AMT + '\\s*\\((\\d{1,2})\\s*(?:-|–)\\s*(\\d{1,3})\\)', 'g');
+  while ((m = reB.exec(t))) {
+    var a = parseAmount(m[2], m[3], m[1]);
+    if (a !== null) { bands.push({ min: Number(m[4]), max: Number(m[5]), face: a }); mark(m); }
+  }
+  // Minimum: "MIN $2,500", "Min: $50,000", or the low end of "$5,000 – $25,000".
+  var min = null, mm = new RegExp('\\bmin\\w*\\s*:?\\s*' + AMT, 'i').exec(t);
+  if (mm) { min = parseAmount(mm[2], mm[3], mm[1]); mark(mm); }
+  // Amounts not tied to an age band apply at every age (outer limit).
+  var free = [], overall = [], reC = new RegExp(AMT + '(?:\\s*(?:-|–)\\s*' + AMT + ')?', 'g');
+  while ((m = reC.exec(t))) {
+    var at = m.index;
+    if (used.some(function (u) { return at >= u[0] && at < u[1]; })) continue;
+    var lo = parseAmount(m[2], m[3], m[1]), hi = m[5] ? parseAmount(m[5], m[6], m[4]) : null;
+    if (lo === null) continue;
+    if (/^\s*(?:x|%|year|yr|day|pay)/i.test(t.slice(m.index + m[0].length, m.index + m[0].length + 5))) continue;
+    // An overall range ("$25,000 - $2,000,000") is the product's span, not an all-ages
+    // limit that overrides age bands; a lone amount next to bands is a plan with no bands.
+    if (hi !== null) { overall.push(hi); if (min === null || lo < min) min = min === null ? lo : Math.min(min, lo); }
+    else free.push(lo);
+  }
+  if (!bands.length && !free.length && !overall.length) return null;
+  if (free.length && bands.length) bands.push({ min: 0, max: 120, face: Math.max.apply(null, free) });
+  var all = bands.map(function (b) { return b.face; }).concat(free, bands.length ? [] : overall);
+  var out = { max: Math.max.apply(null, all), source: 'grid: Max face amount' };
+  if (min !== null && min < out.max) out.min = min;
+  if (bands.length) out.bands = bands;
+  if (bands.length || free.length > 1) out.note = t.trim();
+  return out;
+}
+
 if (asModule) {
   module.exports = {
+    parseFace: parseFace,
     // interpret('Y IF > 2 YEARS', { column: 'TAB :: Carrier', tiers: [...], values: {...} })
     interpret: function (raw, opts) {
       opts = opts || {};
@@ -431,6 +490,9 @@ Object.keys(columns).forEach(function (key) {
       note: banded ? 'outer limits of: ' + ageText.replace(/\s+/g, ' ').trim() : ''
     };
   }
+  // Face amounts (agent: the grid is the source for ages and face).
+  var face = parseFace(info['Max face amount'] || '');
+  if (face) c.faceAmount = face;
   // No-exam term, mortgage protection, UL and IUL products are simply approved
   // (Standard) or declined — no preferred classes.
   if (['term', 'mortgage_protection', 'iul', 'universal_life'].indexOf(c.type) !== -1) { c.approveOnly = true; c.bestOutcome = 'standard'; }

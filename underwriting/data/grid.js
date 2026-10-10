@@ -30,6 +30,11 @@ UW.registerGrid({
     "max": 80,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 25000,
+    "source": "grid: Max face amount",
+    "min": 5000
    }
   },
   "WHOLE LIFE :: AIG (SIWL)": {
@@ -52,6 +57,11 @@ UW.registerGrid({
     "max": 80,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 35000,
+    "source": "grid: Max face amount",
+    "min": 5000
    }
   },
   "WHOLE LIFE :: American Amicable Senior Choice Immediate": {
@@ -72,6 +82,23 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 35000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 50,
+      "max": 75,
+      "face": 35000
+     },
+     {
+      "min": 76,
+      "max": 85,
+      "face": 20000
+     }
+    ],
+    "note": "50–75 $35,000 76 - 85 $20,000"
    }
   },
   "WHOLE LIFE :: American Amicable Senior Choice Graded": {
@@ -92,6 +119,10 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 20000,
+    "source": "grid: Max face amount"
    }
   },
   "WHOLE LIFE :: American Amicable Senior Choice Return of Premium": {
@@ -112,6 +143,10 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 20000,
+    "source": "grid: Max face amount"
    }
   },
   "WHOLE LIFE :: American Amicable (Senior Choice)": {
@@ -133,6 +168,39 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 35000,
+    "source": "grid: Max face amount",
+    "min": 2500,
+    "bands": [
+     {
+      "min": 50,
+      "max": 75,
+      "face": 35000
+     },
+     {
+      "min": 76,
+      "max": 85,
+      "face": 20000
+     },
+     {
+      "min": 50,
+      "max": 85,
+      "face": 20000
+     },
+     {
+      "min": 50,
+      "max": 85,
+      "face": 20000
+     },
+     {
+      "min": 0,
+      "max": 120,
+      "face": 5000
+     }
+    ],
+    "note": "MIN $2,500 ($5,000 in WA) Max 50 to 75: $35,000 76 to 85: $20,000 Graded Death Benefit 50 to 85: $20,000 ROP Death Benefit 50 to 85: $20,000"
    }
   },
   "WHOLE LIFE :: American Home Life (Patriot Series)": {
@@ -155,6 +223,38 @@ UW.registerGrid({
     "max": 89,
     "source": "grid: Age range",
     "note": "outer limits of: Level 40-89 Modified 40-75"
+   },
+   "faceAmount": {
+    "max": 50000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 40,
+      "max": 55,
+      "face": 50000
+     },
+     {
+      "min": 56,
+      "max": 65,
+      "face": 40000
+     },
+     {
+      "min": 66,
+      "max": 75,
+      "face": 30000
+     },
+     {
+      "min": 76,
+      "max": 89,
+      "face": 25000
+     },
+     {
+      "min": 40,
+      "max": 75,
+      "face": 25000
+     }
+    ],
+    "note": "Level: 40-55 $50,000 56-65 $40,000 66-75 $30,000 76-89 $25,000 Graded: 40-75 $25,000"
    }
   },
   "WHOLE LIFE :: Baltimore Life": {
@@ -176,6 +276,10 @@ UW.registerGrid({
     "max": 80,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 150000,
+    "source": "grid: Max face amount"
    }
   },
   "WHOLE LIFE :: Cica Life (Superior Choice)": {
@@ -195,6 +299,10 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 35000,
+    "source": "grid: Max face amount"
    }
   },
   "WHOLE LIFE :: Ethos - TruStage Advantage Whole Life": {
@@ -216,6 +324,28 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 100000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 18,
+      "max": 70,
+      "face": 100000
+     },
+     {
+      "min": 71,
+      "max": 75,
+      "face": 50000
+     },
+     {
+      "min": 76,
+      "max": 85,
+      "face": 25000
+     }
+    ],
+    "note": "18-70: $5,000-$100,000 71-75: $5,000-$50,000 76-85: $5,000-$25,000"
    }
   },
   "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
@@ -243,6 +373,11 @@ UW.registerGrid({
     "max": 80,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 25000,
+    "source": "grid: Max face amount",
+    "min": 2000
    }
   },
   "WHOLE LIFE :: Ethos - Banner Life Simplified Issue Whole Life": {
@@ -295,6 +430,38 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: 50-85 Basic: 50-80"
    },
+   "faceAmount": {
+    "max": 35000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 50,
+      "max": 80,
+      "face": 35000
+     },
+     {
+      "min": 81,
+      "max": 85,
+      "face": 15000
+     },
+     {
+      "min": 50,
+      "max": 80,
+      "face": 20000
+     },
+     {
+      "min": 81,
+      "max": 85,
+      "face": 10000
+     },
+     {
+      "min": 50,
+      "max": 80,
+      "face": 15000
+     }
+    ],
+    "note": "(Preferred) Ages 50-80: $35,000 Ages 81-85: $15,000 (Standard) Ages 50-80: $20,000 Ages 81-85: $10,000 (Basic) Ages 50-80: $15,000"
+   },
    "product": "foresters-planright"
   },
   "WHOLE LIFE :: Foresters Advantage Plus II": {
@@ -317,6 +484,28 @@ UW.registerGrid({
     "max": 75,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 400000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 0,
+      "max": 15,
+      "face": 150000
+     },
+     {
+      "min": 16,
+      "max": 55,
+      "face": 400000
+     },
+     {
+      "min": 56,
+      "max": 75,
+      "face": 150000
+     }
+    ],
+    "note": "0 - 15 $150,000 16 - 55 $400,000 56 - 75 $150,000"
    },
    "product": "foresters-advantage-plus-ii"
   },
@@ -345,6 +534,11 @@ UW.registerGrid({
     "max": 80,
     "source": "grid: Age range",
     "note": "outer limits of: Preferred or Standard: 18-80 Modified: 40-80"
+   },
+   "faceAmount": {
+    "max": 40000,
+    "source": "grid: Max face amount",
+    "min": 1000
    }
   },
   "WHOLE LIFE :: Mutual of Omaha (Children's Whole Life)": {
@@ -362,6 +556,11 @@ UW.registerGrid({
     "Payment methods": "ACH, Direct Billing (Quarterly, Semi -Annual, Annually)"
    },
    "bestOutcome": "level",
+   "faceAmount": {
+    "max": 50000,
+    "source": "grid: Max face amount",
+    "min": 5000
+   },
    "product": "moo-childrens-whole-life"
   },
   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
@@ -385,6 +584,11 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: Level Benefit Plan: 45-85 Graded Benefit Plan: 45-80"
    },
+   "faceAmount": {
+    "max": 50000,
+    "source": "grid: Max face amount",
+    "min": 2000
+   },
    "product": "moo-living-promise"
   },
   "WHOLE LIFE :: Royal Neighbors Level": {
@@ -406,6 +610,10 @@ UW.registerGrid({
     "max": 75,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 30000,
+    "source": "grid: Max face amount"
    }
   },
   "WHOLE LIFE :: Royal Neighbors Graded": {
@@ -427,6 +635,10 @@ UW.registerGrid({
     "max": 75,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 10000,
+    "source": "grid: Max face amount"
    }
   },
   "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
@@ -448,6 +660,11 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": "outer limits of: SIWL: 50 - 85 (Standard) and 50 - 75 (Preferred) Graded:50 - 85 Guaranteed Issue : 50 - 80"
+   },
+   "faceAmount": {
+    "max": 40000,
+    "source": "grid: Max face amount",
+    "min": 3000
    }
   },
   "WHOLE LIFE :: TransAmerica Easy Solution": {
@@ -469,6 +686,10 @@ UW.registerGrid({
     "max": 80,
     "source": "grid: Age range",
     "note": "outer limits of: 18 - 80 NY only: 50-75"
+   },
+   "faceAmount": {
+    "max": 25000,
+    "source": "grid: Max face amount"
    }
   },
   "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": {
@@ -490,6 +711,33 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 50000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 0,
+      "max": 55,
+      "face": 50000
+     },
+     {
+      "min": 56,
+      "max": 65,
+      "face": 40000
+     },
+     {
+      "min": 66,
+      "max": 75,
+      "face": 30000
+     },
+     {
+      "min": 76,
+      "max": 85,
+      "face": 25000
+     }
+    ],
+    "note": "0–55 $50,000 56–65 $40,000 66–75 $30,000 76–85 $25,000"
    }
   },
   "WHOLE LIFE :: TransAmerica Immediate Solution Standard": {
@@ -511,6 +759,33 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 50000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 0,
+      "max": 55,
+      "face": 50000
+     },
+     {
+      "min": 56,
+      "max": 65,
+      "face": 40000
+     },
+     {
+      "min": 66,
+      "max": 75,
+      "face": 30000
+     },
+     {
+      "min": 76,
+      "max": 85,
+      "face": 25000
+     }
+    ],
+    "note": "0–55 $50,000 56–65 $40,000 66–75 $30,000 76–85 $25,000"
    }
   },
   "WHOLE LIFE :: Transamerica (FEX Solutions)": {
@@ -532,6 +807,34 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": "outer limits of: Immediate & 10 pay: 0–85 Easy solution: 18-80"
+   },
+   "faceAmount": {
+    "max": 50000,
+    "source": "grid: Max face amount",
+    "min": 1000,
+    "bands": [
+     {
+      "min": 0,
+      "max": 55,
+      "face": 50000
+     },
+     {
+      "min": 56,
+      "max": 65,
+      "face": 40000
+     },
+     {
+      "min": 66,
+      "max": 75,
+      "face": 30000
+     },
+     {
+      "min": 76,
+      "max": 85,
+      "face": 25000
+     }
+    ],
+    "note": "Immediate & 10 pay: 0–55: $50,000 56–65: $40,000 66–75: $30,000 76–85: $25,000 Easy Solution: $1,000-$25,000"
    }
   },
   "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
@@ -554,6 +857,23 @@ UW.registerGrid({
     "max": 75,
     "source": "grid: Age range",
     "note": "outer limits of: 10-Year Level Premium 20-75 15-Year Level Premium 20-65 20-Year Level Premium 20-60 25-Year Level Premium 20-55 30-Year Level Premium 20-50"
+   },
+   "faceAmount": {
+    "max": 500000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 18,
+      "max": 45,
+      "face": 500000
+     },
+     {
+      "min": 46,
+      "max": 75,
+      "face": 300000
+     }
+    ],
+    "note": "18-45 $500,000 46-75 $300,000"
    },
    "approveOnly": true,
    "bestOutcome": "standard"
@@ -579,6 +899,10 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: 30 year 20-50"
    },
+   "faceAmount": {
+    "max": 300000,
+    "source": "grid: Max face amount"
+   },
    "approveOnly": true,
    "bestOutcome": "standard"
   },
@@ -602,6 +926,23 @@ UW.registerGrid({
     "max": 75,
     "source": "grid: Age range",
     "note": "outer limits of: 10-Year Level Premium 18-75 20-Year Level Premium 18-65 25-Year Level Premium 18-60 30-Year Level Premium 18-55"
+   },
+   "faceAmount": {
+    "max": 500000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 18,
+      "max": 45,
+      "face": 500000
+     },
+     {
+      "min": 46,
+      "max": 75,
+      "face": 300000
+     }
+    ],
+    "note": "18-45 $500,000 46-75 $300,000"
    },
    "approveOnly": true,
    "bestOutcome": "standard"
@@ -627,6 +968,10 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: 10 year lvl premium:18 – 75 15 year lvl premium:18 – 70 20 year lvl premium:18 – 65 30 year lvl premium:18 - 55"
    },
+   "faceAmount": {
+    "max": 500000,
+    "source": "grid: Max face amount"
+   },
    "approveOnly": true,
    "bestOutcome": "standard"
   },
@@ -650,6 +995,29 @@ UW.registerGrid({
     "max": 65,
     "source": "grid: Age range",
     "note": "outer limits of: 18-65 (age last)"
+   },
+   "faceAmount": {
+    "max": 2000000,
+    "source": "grid: Max face amount",
+    "min": 25000,
+    "bands": [
+     {
+      "min": 18,
+      "max": 50,
+      "face": 2000000
+     },
+     {
+      "min": 51,
+      "max": 60,
+      "face": 1000000
+     },
+     {
+      "min": 61,
+      "max": 65,
+      "face": 250000
+     }
+    ],
+    "note": "$25,000 - $2,000,000 18-50: up to $2M 51-60: up to $1M 61-65: up to $250K Financial: multiple of household income (30x age 18-30, 25x 31-40, 20x 41-50, 15x 51-60, 10x 61-65)"
    },
    "approveOnly": true,
    "bestOutcome": "standard"
@@ -675,6 +1043,28 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: 20-65 (age nearest)"
    },
+   "faceAmount": {
+    "max": 2000000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 20,
+      "max": 50,
+      "face": 2000000
+     },
+     {
+      "min": 51,
+      "max": 60,
+      "face": 1000000
+     },
+     {
+      "min": 61,
+      "max": 65,
+      "face": 500000
+     }
+    ],
+    "note": "20-50: $100K-$2M 51-60: $100K-$1M 61-65: $100K-$500K Financial: multiple of household income (40x age<30, 35x age 30-39, 25x age 40-49, 20x age 50-59, 10x age 60-65)"
+   },
    "approveOnly": true,
    "bestOutcome": "standard"
   },
@@ -699,6 +1089,28 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: 20-65 (age nearest)"
    },
+   "faceAmount": {
+    "max": 1000000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 20,
+      "max": 50,
+      "face": 1000000
+     },
+     {
+      "min": 51,
+      "max": 60,
+      "face": 500000
+     },
+     {
+      "min": 61,
+      "max": 65,
+      "face": 350000
+     }
+    ],
+    "note": "20-50: $50K-$1M 51-60: $50K-$500K 61-65: $50K-$350K Financial: multiple of household income (same as Prime)"
+   },
    "approveOnly": true,
    "bestOutcome": "standard"
   },
@@ -722,6 +1134,11 @@ UW.registerGrid({
     "max": 69,
     "source": "grid: Age range",
     "note": "outer limits of: 20-69 (age last)"
+   },
+   "faceAmount": {
+    "max": 300000,
+    "source": "grid: Max face amount",
+    "min": 15000
    },
    "approveOnly": true,
    "bestOutcome": "standard"
@@ -748,6 +1165,24 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: Ages 0–60"
    },
+   "faceAmount": {
+    "max": 1000000,
+    "source": "grid: Max face amount",
+    "min": 50000,
+    "bands": [
+     {
+      "min": 0,
+      "max": 17,
+      "face": 500000
+     },
+     {
+      "min": 18,
+      "max": 60,
+      "face": 1000000
+     }
+    ],
+    "note": "Ages 0–17: $500,000 Ages 18–60: $1,000,000 Min: $50,000"
+   },
    "approveOnly": true,
    "bestOutcome": "standard"
   },
@@ -772,6 +1207,23 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: 10-Year Level Premium 18-80 15-Year Level Premium 18-70 20-Year Level Premium 18-65 25-Year Level Premium 18-55 30-Year Level Premium 18-50"
    },
+   "faceAmount": {
+    "max": 500000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 18,
+      "max": 55,
+      "face": 500000
+     },
+     {
+      "min": 56,
+      "max": 80,
+      "face": 250000
+     }
+    ],
+    "note": "18-55 $500,000 56-80 $250,000"
+   },
    "approveOnly": true,
    "bestOutcome": "standard",
    "product": "foresters-strong-foundation"
@@ -795,6 +1247,23 @@ UW.registerGrid({
     "max": 80,
     "source": "grid: Age range",
     "note": "outer limits of: 10-Year Level Premium 18-80 15-Year Level Premium 18-70 20-Year Level Premium 18-65 25-Year Level Premium 18-55 30-Year Level Premium 18-50"
+   },
+   "faceAmount": {
+    "max": 400000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 18,
+      "max": 55,
+      "face": 400000
+     },
+     {
+      "min": 56,
+      "max": 80,
+      "face": 150000
+     }
+    ],
+    "note": "18-55 $400,000 56-80 $150,000"
    },
    "approveOnly": false,
    "bestOutcome": "preferred_plus",
@@ -821,6 +1290,28 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": ""
    },
+   "faceAmount": {
+    "max": 400000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 0,
+      "max": 15,
+      "face": 150000
+     },
+     {
+      "min": 16,
+      "max": 55,
+      "face": 400000
+     },
+     {
+      "min": 56,
+      "max": 75,
+      "face": 150000
+     }
+    ],
+    "note": "0-15 $150,000 16-55 $400,000 56-75 $150,000"
+   },
    "approveOnly": true,
    "bestOutcome": "standard",
    "product": "foresters-smart-ul"
@@ -844,6 +1335,28 @@ UW.registerGrid({
     "max": 70,
     "source": "grid: Age range",
     "note": "outer limits of: Signature Term Express 10: 18-70 Signature Term Express 15: 18-65 Signature Term Express 20: 18-60 Signature Term Express 30: 18-50 (Age at last birthday)"
+   },
+   "faceAmount": {
+    "max": 300000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 18,
+      "max": 65,
+      "face": 300000
+     },
+     {
+      "min": 66,
+      "max": 70,
+      "face": 150000
+     },
+     {
+      "min": 0,
+      "max": 120,
+      "face": 300000
+     }
+    ],
+    "note": "Signature Term Express 10 Issue Ages 18-65: $300,000 Issue Ages 66-70: $150,000 Signature Term Express 15, 20 and 30 $300,000"
    },
    "approveOnly": true,
    "bestOutcome": "standard"
@@ -869,6 +1382,33 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": ""
    },
+   "faceAmount": {
+    "max": 1000000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 18,
+      "max": 40,
+      "face": 1000000
+     },
+     {
+      "min": 41,
+      "max": 50,
+      "face": 1000000
+     },
+     {
+      "min": 51,
+      "max": 60,
+      "face": 500000
+     },
+     {
+      "min": 61,
+      "max": 65,
+      "face": 500000
+     }
+    ],
+    "note": "18-40: the lesser of $1M or 20 x Income 41-50: the lesser of $1M or 15 x Income 51-60: the lesser of $500,000 or 10 x Income 61-65: the lesser of $500,000 or 10 x Income"
+   },
    "approveOnly": true,
    "bestOutcome": "standard"
   },
@@ -891,6 +1431,11 @@ UW.registerGrid({
     "max": 75,
     "source": "grid: Age range",
     "note": "outer limits of: Term 10: 20-75 all classes Term 15: 20-75 all classes Term 20: 20-70 non-tobacco classes 20-65 tobacco classes Term 25: 20-60 non-tobacco classes 20-55 tobacco classes Term 30: 20-55 non-tobacco classes 20-50 tobacco classes Term 35: 20-50 non-tobacco classes 20-45 tobacco classes Term 40: 20-45 non-tobacco classes 20-40 tobacco classes *An APS is always required for applicants over age 60*"
+   },
+   "faceAmount": {
+    "max": 2000000,
+    "source": "grid: Max face amount",
+    "min": 100000
    },
    "approveOnly": true,
    "bestOutcome": "standard"
@@ -915,6 +1460,28 @@ UW.registerGrid({
     "max": 75,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 550000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 18,
+      "max": 50,
+      "face": 550000
+     },
+     {
+      "min": 51,
+      "max": 60,
+      "face": 450000
+     },
+     {
+      "min": 61,
+      "max": 70,
+      "face": 350000
+     }
+    ],
+    "note": "18 - 50 $550,000 51 - 60 $450,000 61 - 70 $350,000"
    },
    "approveOnly": true,
    "bestOutcome": "standard",
@@ -941,6 +1508,28 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": ""
    },
+   "faceAmount": {
+    "max": 550000,
+    "source": "grid: Max face amount",
+    "bands": [
+     {
+      "min": 18,
+      "max": 50,
+      "face": 550000
+     },
+     {
+      "min": 51,
+      "max": 60,
+      "face": 450000
+     },
+     {
+      "min": 61,
+      "max": 70,
+      "face": 350000
+     }
+    ],
+    "note": "18 - 50 $550,000 51 - 60 $450,000 61 - 70 $350,000"
+   },
    "approveOnly": true,
    "bestOutcome": "standard",
    "product": "moo-iul-express"
@@ -966,6 +1555,29 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: 18-70 Select Nontobacco/Tobacco 0-17 Juvenile (age last birthday)"
    },
+   "faceAmount": {
+    "max": 500000,
+    "source": "grid: Max face amount",
+    "min": 50000,
+    "bands": [
+     {
+      "min": 18,
+      "max": 60,
+      "face": 500000
+     },
+     {
+      "min": 61,
+      "max": 70,
+      "face": 300000
+     },
+     {
+      "min": 0,
+      "max": 17,
+      "face": 250000
+     }
+    ],
+    "note": "18-60: $500,000 61-70: $300,000 0-17: $250,000 Min: $50,000"
+   },
    "approveOnly": true,
    "bestOutcome": "standard"
   },
@@ -987,6 +1599,29 @@ UW.registerGrid({
     "max": 60,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 500000,
+    "source": "grid: Max face amount",
+    "min": 25000,
+    "bands": [
+     {
+      "min": 20,
+      "max": 45,
+      "face": 500000
+     },
+     {
+      "min": 46,
+      "max": 55,
+      "face": 375000
+     },
+     {
+      "min": 56,
+      "max": 60,
+      "face": 250000
+     }
+    ],
+    "note": "Min: $25,000 Max: $500,000 (20-45) $375,000 (46-55) $250,000 (56-60)"
    },
    "approveOnly": false,
    "bestOutcome": "preferred",
@@ -1012,6 +1647,10 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": ""
    },
+   "faceAmount": {
+    "max": 450000,
+    "source": "grid: Max face amount"
+   },
    "approveOnly": true,
    "bestOutcome": "standard"
   },
@@ -1034,6 +1673,10 @@ UW.registerGrid({
     "max": 60,
     "source": "grid: Age range",
     "note": ""
+   },
+   "faceAmount": {
+    "max": 400000,
+    "source": "grid: Max face amount"
    },
    "approveOnly": true,
    "bestOutcome": "standard"

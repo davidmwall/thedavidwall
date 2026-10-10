@@ -78,8 +78,14 @@
         if (p) {
           p.gridColumn = col;
           p.gridInfo = c.info || null;
-          // Guides without issue ages fall back to the grid's (labeled as grid).
-          if (!p.issueAges && c.issueAges) p.issueAges = c.issueAges;
+          // Agent rule: the grid is the source for issue ages and face amounts;
+          // the carrier guide stays the source for medical rules.
+          if (c.issueAges) { if (p.issueAges) p.guideIssueAges = p.issueAges; p.issueAges = c.issueAges; }
+          if (c.faceAmount) {
+            if (p.faceAmount) p.guideFaceAmount = p.faceAmount;
+            // Keep the guide's minimum when the grid only states a maximum.
+            p.faceAmount = Object.assign({}, c.faceAmount.min == null && p.guideFaceAmount && p.guideFaceAmount.min ? { min: p.guideFaceAmount.min } : {}, c.faceAmount);
+          }
         }
         return;
       }
@@ -94,6 +100,7 @@
         gridOnly: true,
         gridColumn: col,
         issueAges: c.issueAges,
+        faceAmount: c.faceAmount,
         gridInfo: c.info || null,
         unlisted: c.unlisted,
         sample: grid.sample || false,
@@ -185,7 +192,7 @@
     }
     // Banded ages: inside the outer limits, but check which plan/term fits.
     return factor('age', 'Age ' + age, null, null,
-      { note: 'Within issue ages ' + a.min + '–' + a.max + extra, verify: !!a.note, source: a.source || '' });
+      { note: 'Within issue ages ' + a.min + '–' + a.max + extra, source: a.source || '' });
   }
 
   function evalState(p, st) {
@@ -202,10 +209,18 @@
     return factor('state', 'State ' + st, null);
   }
 
-  function evalFace(p, amt) {
+  function evalFace(p, amt, age) {
     var fmt = function (n) { return '$' + Number(n).toLocaleString('en-US'); };
     if (!p.faceAmount) return factor('face', 'Face ' + fmt(amt), null, null, { verify: true, note: 'Face limits not loaded' });
     var f = p.faceAmount;
+    // Age-banded limits: the highest band covering the client's age applies.
+    if (f.bands && !isBlank(age)) {
+      var at = f.bands.filter(function (b) { return age >= b.min && age <= b.max; });
+      if (at.length) {
+        var cap = Math.max.apply(null, at.map(function (b) { return b.face; }));
+        f = Object.assign({}, f, { max: cap, note: 'max ' + fmt(cap) + ' at age ' + age + (f.note ? '; ' + f.note : '') });
+      }
+    }
     if ((f.min != null && amt < f.min) || (f.max != null && amt > f.max)) {
       return factor('face', 'Face ' + fmt(amt), 'decline', 'decline',
         { note: 'Face range ' + fmt(f.min) + '–' + fmt(f.max) + (f.note ? ' (' + f.note + ')' : ''), source: f.source || '' });
@@ -449,7 +464,7 @@
     var factors = [];
     if (!isBlank(client.age)) factors.push(evalAge(p, Number(client.age)));
     if (!isBlank(client.state)) factors.push(evalState(p, client.state));
-    if (!isBlank(client.faceAmount)) factors.push(evalFace(p, Number(client.faceAmount)));
+    if (!isBlank(client.faceAmount)) factors.push(evalFace(p, Number(client.faceAmount), isBlank(client.age) ? null : Number(client.age)));
     var t = evalTobacco(p, client.tobacco);
     if (t) factors.push(t);
     if (!isBlank(client.heightIn) && !isBlank(client.weightLb)) {

@@ -224,6 +224,21 @@ test('importer reads all xlsx tabs, skips UHL, parses timed cells', function () 
   assert.strictEqual(captured.columns['Term-IUL :: Sample Carrier B'].type, 'term');
 });
 
+test('grid face bands follow the client age; grid overrides guide ages/face, keeps guide minimum', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 'f', carrier: 'F', product: 'F', type: 'term', underwriting: 'simplified', bestOutcome: 'standard',
+    issueAges: { min: 18, max: 70 }, faceAmount: { min: 25000, max: 300000 } });
+  UW.registerGrid({ columns: { 'T :: F': { product: 'f', issueAges: { min: 18, max: 75 },
+    faceAmount: { max: 500000, bands: [{ min: 18, max: 55, face: 500000 }, { min: 56, max: 80, face: 250000 }] } } },
+    conditions: {}, medications: {} });
+  var run = function (age, face) { return UW.evaluate({ age: age, faceAmount: face })[0]; };
+  assert.strictEqual(run(50, 400000).status, 'fit');         // grid band: $500k at 50 (guide said $300k)
+  assert.strictEqual(run(60, 400000).status, 'ineligible');  // grid band: $250k at 60
+  assert.strictEqual(run(60, 200000).status, 'fit');
+  assert.strictEqual(run(72, 100000).status, 'fit');         // grid ages 18-75 override guide 18-70
+  assert.strictEqual(run(50, 10000).status, 'ineligible');   // guide minimum $25k kept
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });

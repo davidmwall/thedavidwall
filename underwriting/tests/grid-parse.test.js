@@ -132,3 +132,16 @@ test('preferGrid: grid answer wins, guide shown underneath', function () {
   assert.match(r.factors[0].guideSays, /Standard/);
   assert.strictEqual(r.factors[0].backup, false);
 });
+
+test('face amounts: ranges, age bands, plan sections, shorthand', function () {
+  var f = function (t) { var r = grid.parseFace(t); return r && { min: r.min, max: r.max, bands: (r.bands || []).map(function (b) { return b.min + '-' + b.max + ':' + b.face; }) }; };
+  assert.deepStrictEqual(f('$5,000 – $25,000'), { min: 5000, max: 25000, bands: [] });
+  assert.deepStrictEqual(f('300000.0'), { min: undefined, max: 300000, bands: [] });
+  assert.deepStrictEqual(f('18-55 $500,000\n56-80 $250,000').bands, ['18-55:500000', '56-80:250000']);
+  assert.deepStrictEqual(f('Min: $25,000 Max: $500,000 (20-45) $375,000 (46-55) $250,000 (56-60)').bands, ['20-45:500000', '46-55:375000', '56-60:250000']);
+  assert.deepStrictEqual(f('20-50: $100K-$2M\n51-60: $100K-$1M').bands, ['20-50:2000000', '51-60:1000000']);
+  // An overall range doesn't override the age bands
+  assert.deepStrictEqual(f('$25,000 - $2,000,000\n18-50: up to $2M\n61-65: up to $250K').bands, ['18-50:2000000', '61-65:250000']);
+  // "(50 to 85): $20,000" is a band, not "0 to 85"
+  assert.ok(f('Graded Death Benefit (50 to 85): $20,000').bands.indexOf('50-85:20000') !== -1);
+});

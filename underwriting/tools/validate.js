@@ -79,10 +79,10 @@ function checkProduct(src, p) {
   if (p.underwriting && !UW.UW_TYPES[p.underwriting]) err(w, 'unknown underwriting "' + p.underwriting + '"');
   if (p.bestOutcome && !isOutcome(p.bestOutcome)) err(w, 'unknown bestOutcome "' + p.bestOutcome + '"');
 
-  if (!p.issueAges) warn(w, 'no issueAges in this guide — age shows "verify" unless the grid supplies them');
+  if (!p.issueAges) { /* checked after the grid loads: the grid is the source for ages */ }
   else if (p.issueAges.min == null || p.issueAges.max == null) err(w, 'issueAges needs {min, max}');
   else if (p.issueAges.min > p.issueAges.max) err(w, 'issueAges min > max');
-  if (!p.faceAmount) warn(w, 'no faceAmount — face amount shows "verify" for this product');
+  if (!p.faceAmount) { /* checked after the grid loads */ }
   else if (p.faceAmount.min > p.faceAmount.max) err(w, 'faceAmount min > max');
   (p.statesNotAvailable || []).concat(p.statesAvailable || []).forEach(function (s) {
     if (!/^[A-Z]{2}$/.test(s)) err(w, 'state "' + s + '" must be a 2-letter uppercase code');
@@ -146,6 +146,10 @@ if (gridRef && fs.existsSync(path.join(ROOT, 'data', 'grid.js'))) {
     Object.keys(g[kind] || {}).forEach(function (id) {
       if (!(kind === 'conditions' ? UW.state.conditions : UW.state.medications)[id]) err('data/grid.js', 'unknown ' + kind + ' ID "' + id + '" — re-run the import');
     });
+  });
+  UW.state.products.filter(function (p) { return !p.gridOnly; }).forEach(function (p) {
+    if (!p.issueAges) warn(p.id, 'no issue ages in the guide or the grid — age shows "verify"');
+    if (!p.faceAmount) warn(p.id, 'no face amounts in the guide or the grid — face shows "verify"');
   });
   var conflicts = UW.gridConflicts();
   console.log('Grid: ' + Object.keys(g.columns || {}).length + ' columns, ' + (UW.state.products.length - before) + ' grid-only products, ' + conflicts.length + ' disagreement(s) with carrier guides');
