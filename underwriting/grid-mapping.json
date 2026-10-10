@@ -318,6 +318,21 @@
     "WHOLE LIFE :: Royal Neighbors Graded": {
       "absorbInto": "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)",
       "as": "graded"
+    },
+    "WHOLE LIFE :: Ethos - TruStage Advantage Whole Life": {
+      "product": "ethos-trustage-advantage-wl"
+    },
+    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
+      "product": "ethos-trustage-ga-wl"
+    },
+    "TERM, UL, IUL :: Ethos Term Life - Prime": {
+      "product": "ethos-term-prime"
+    },
+    "TERM, UL, IUL :: Ethos Term Life - Choice": {
+      "product": "ethos-term-choice"
+    },
+    "TERM, UL, IUL :: Ethos Trustage Term": {
+      "product": "ethos-trustage-term"
     }
   },
   "values": {

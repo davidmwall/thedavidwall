@@ -349,7 +349,8 @@ UW.registerGrid({
      }
     ],
     "note": "18-70: $5,000-$100,000 71-75: $5,000-$50,000 76-85: $5,000-$25,000"
-   }
+   },
+   "product": "ethos-trustage-advantage-wl"
   },
   "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
    "carrier": "Ethos - TruStage Guaranteed Acceptance Whole Life",
@@ -381,7 +382,8 @@ UW.registerGrid({
     "max": 25000,
     "source": "grid: Max face amount",
     "min": 2000
-   }
+   },
+   "product": "ethos-trustage-ga-wl"
   },
   "WHOLE LIFE :: Ethos - Banner Life Simplified Issue Whole Life": {
    "carrier": "Ethos - Banner Life Simplified Issue Whole Life",
@@ -850,7 +852,8 @@ UW.registerGrid({
     "note": "20-50: $100K-$2M 51-60: $100K-$1M 61-65: $100K-$500K Financial: multiple of household income (40x age<30, 35x age 30-39, 25x age 40-49, 20x age 50-59, 10x age 60-65)"
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "ethos-term-prime"
   },
   "TERM, UL, IUL :: Ethos Term Life - Choice": {
    "carrier": "Ethos Term Life - Choice",
@@ -896,7 +899,8 @@ UW.registerGrid({
     "note": "20-50: $50K-$1M 51-60: $50K-$500K 61-65: $50K-$350K Financial: multiple of household income (same as Prime)"
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "ethos-term-choice"
   },
   "TERM, UL, IUL :: Ethos Trustage Term": {
    "carrier": "Ethos Trustage Term",
@@ -925,7 +929,8 @@ UW.registerGrid({
     "min": 15000
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "ethos-trustage-term"
   },
   "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
    "carrier": "Fidelity & Guaranty Quantum IUL",
