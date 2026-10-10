@@ -237,7 +237,7 @@
       { note: t.note || 'Tobacco rates apply', source: t.source || '' });
   }
 
-  function evalBuild(p, heightIn, weightLb) {
+  function evalBuild(p, heightIn, weightLb, age) {
     var lbl = Math.floor(heightIn / 12) + "'" + (heightIn % 12) + '" / ' + weightLb + ' lb';
     var b = p.build;
     if (b === 'none') return factor('build', lbl, null, null, { note: 'No build requirement' });
@@ -245,6 +245,8 @@
     var row = null;
     for (var i = 0; i < b.rows.length; i++) if (b.rows[i].h === heightIn) row = b.rows[i];
     if (!row) return factor('build', lbl, null, null, { verify: true, note: 'Height not on build chart', source: b.source || '' });
+    // Age-dependent minimum (e.g. BMI 16 under 60, BMI 18 from 60): { minFromAge: { age: 60, min: 81 } }
+    if (row.minFromAge && !isBlank(age) && Number(age) >= row.minFromAge.age) row = Object.assign({}, row, { min: row.minFromAge.min });
     if (row.min != null && weightLb < row.min) {
       // Underweight tiers: the best tier whose minimum the client still meets.
       if (row.under) {
@@ -562,7 +564,7 @@
     var t = evalTobacco(p, client.tobacco);
     if (t) factors.push(t);
     if (!isBlank(client.heightIn) && !isBlank(client.weightLb)) {
-      factors.push(evalBuild(p, Number(client.heightIn), Number(client.weightLb)));
+      factors.push(evalBuild(p, Number(client.heightIn), Number(client.weightLb), client.age));
     }
     // Client age travels with each condition so "age at diagnosis" rules can be checked.
     var condIds = (client.conditions || []).map(function (c) { return c.id; });

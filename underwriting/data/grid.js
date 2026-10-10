@@ -1286,7 +1286,8 @@ UW.registerGrid({
     "note": "18-60: $500,000 61-70: $300,000 0-17: $250,000 Min: $50,000"
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "transamerica-ffiul2-express"
   },
   "TERM, UL, IUL :: UHL (Simple Term)": {
    "carrier": "UHL (Simple Term)",

@@ -121,6 +121,7 @@ function checkProduct(src, p) {
         if (r.max[tiers[i]] < r.max[tiers[i - 1]]) err(where, 'max weight for ' + tiers[i] + ' is lower than for better class ' + tiers[i - 1]);
       }
       if (r.min != null && tiers.length && r.min > r.max[tiers[0]]) err(where, 'min weight is above max weight');
+      if (r.minFromAge && (typeof r.minFromAge.age !== 'number' || typeof r.minFromAge.min !== 'number')) err(where, 'minFromAge needs {age, min} numbers');
       Object.keys(r.under || {}).forEach(function (o) {
         if (!isOutcome(o)) err(where, 'unknown outcome "' + o + '" in under');
         if (r.min != null && r.under[o] > r.min) err(where, 'underweight minimum for ' + o + ' is above the best-tier minimum');

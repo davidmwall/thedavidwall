@@ -351,6 +351,9 @@
     },
     "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
       "product": "amam-term-made-simple"
+    },
+    "TERM, UL, IUL :: Transamerica FFIUL2": {
+      "product": "transamerica-ffiul2-express"
     }
   },
   "values": {

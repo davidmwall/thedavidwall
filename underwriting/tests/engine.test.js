@@ -326,6 +326,17 @@ test('per-rule tobacco keeps its place in the timeline; condition combos apply o
   assert.strictEqual(run({ conditions: [{ id: 'diabetes_oral' }, { id: 'stroke', yearsSince: 5 }] }), 'gi/gi');
 });
 
+test('build minimum can change with age (minFromAge)', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 'b', carrier: 'B', product: 'B', type: 'iul', underwriting: 'instant', bestOutcome: 'standard',
+    build: { rows: [{ h: 66, min: 100, max: { standard: 241 }, minFromAge: { age: 60, min: 112 } }] } });
+  var run = function (age, lb) { return UW.evaluate({ age: age, heightIn: 66, weightLb: lb })[0].best; };
+  assert.strictEqual(run(40, 105), 'standard');
+  assert.strictEqual(run(65, 105), 'decline');
+  assert.strictEqual(run('', 105), 'standard');   // age unknown: never rules out
+  assert.strictEqual(run(65, 112), 'standard');
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });
