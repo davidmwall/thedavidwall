@@ -665,7 +665,8 @@ UW.registerGrid({
     "max": 40000,
     "source": "grid: Max face amount",
     "min": 3000
-   }
+   },
+   "product": "rnoa-ensured-legacy"
   },
   "WHOLE LIFE :: TransAmerica Easy Solution": {
    "carrier": "TransAmerica Easy Solution",
