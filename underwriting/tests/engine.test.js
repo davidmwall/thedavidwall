@@ -251,6 +251,47 @@ test('tobacco-gated rules use the tobacco answer', function () {
   assert.strictEqual(run('').worst, 'graded');
 });
 
+test('underweight tiers: best tier whose minimum the client meets', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 'u', carrier: 'U', product: 'U', type: 'final_expense', underwriting: 'instant', bestOutcome: 'preferred',
+    build: { rows: [{ h: 66, min: 115, max: { preferred: 260, standard: 285, graded: 297 }, under: { standard: 103, graded: 93 } }] } });
+  var run = function (lb) { return UW.evaluate({ heightIn: 66, weightLb: lb })[0].best; };
+  assert.strictEqual(run(115), 'preferred');
+  assert.strictEqual(run(110), 'standard');
+  assert.strictEqual(run(100), 'graded');
+  assert.strictEqual(run(92), 'decline');
+  assert.strictEqual(run(290), 'graded');
+  assert.strictEqual(run(298), 'decline');
+});
+
+test('a condition sub-type uses the parent rule when the carrier has no specific one', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 'g', carrier: 'G', product: 'General', type: 'final_expense', underwriting: 'simplified', bestOutcome: 'level',
+    conditions: { cancer: { rules: [{ withinYears: 2, outcome: 'decline' }, { outcome: 'level' }] } } });
+  UW.addProduct({ id: 's', carrier: 'S', product: 'Specific', type: 'final_expense', underwriting: 'simplified', bestOutcome: 'level',
+    conditions: { cancer: { rules: [{ outcome: 'decline' }] }, cancer_breast: { rules: [{ withinYears: 2, outcome: 'graded' }, { outcome: 'level' }] } } });
+  var r = UW.evaluate({ conditions: [{ id: 'cancer_breast', yearsSince: 1 }] });
+  assert.strictEqual(find(r, 'g').best, 'decline');   // general cancer rule
+  assert.strictEqual(find(r, 's').best, 'graded');    // its own breast-cancer rule wins
+});
+
+test('class limits: a class the client cannot get drops to the next one', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 'ta', carrier: 'T', product: 'T', type: 'final_expense', underwriting: 'instant', bestOutcome: 'preferred',
+    issueAges: { min: 18, max: 85 }, faceAmount: { min: 5000, max: 100000 },
+    tierLimits: { preferred: { faceMin: 10000, statesNot: ['CA'], fallback: 'standard' },
+                  graded: { ageMax: 80, faceMax: 25000, fallback: 'decline' } },
+    conditions: { cirrhosis: { rules: [{ outcome: 'graded' }] } } });
+  var run = function (c) { return UW.evaluate(c)[0]; };
+  assert.strictEqual(run({ age: 60 }).best, 'preferred');
+  assert.strictEqual(run({ state: 'CA' }).best, 'standard');
+  assert.strictEqual(run({ faceAmount: 8000 }).best, 'standard');
+  assert.strictEqual(run({ age: 80, conditions: [{ id: 'cirrhosis' }] }).best, 'graded');
+  assert.strictEqual(run({ age: 81, conditions: [{ id: 'cirrhosis' }] }).best, 'decline');
+  assert.strictEqual(run({ age: 81, conditions: [{ id: 'cirrhosis' }] }).status, 'ineligible');
+  assert.strictEqual(run({ faceAmount: 30000, conditions: [{ id: 'cirrhosis' }] }).best, 'decline');
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });

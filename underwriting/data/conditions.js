@@ -159,7 +159,7 @@ UW.registerConditions([
   { id: 'covid19', category: 'Lung', name: 'COVID-19', aliases: ['covid', 'coronavirus'] },
 
   { id: 'cancer_active', category: 'Cancer', name: 'Cancer — active (not basal skin)', aliases: ['active cancer', 'current cancer', 'in treatment', 'chemo', 'chemotherapy', 'radiation'] },
-  { id: 'melanoma', category: 'Cancer', name: 'Melanoma', aliases: [] },
+  { id: 'melanoma', category: 'Cancer', name: 'Melanoma', aliases: [], parent: 'cancer' },
   { id: 'mds', category: 'Cancer', name: 'Myelodysplastic syndrome (MDS)', aliases: ['bone marrow cancer'] },
   { id: 'hodgkins', category: 'Cancer', name: "Hodgkin's disease", aliases: ['hodgkin lymphoma'] },
   { id: 'tumor', category: 'Cancer', name: 'Tumor (cancerous or not)', aliases: ['tumor', 'growth', 'mass'] },
@@ -209,7 +209,7 @@ UW.registerConditions([
   { id: 'ulcerative_colitis', category: 'Digestive', name: 'Ulcerative colitis', aliases: ['colitis', 'uc'] },
   { id: 'gout', category: 'Other', name: 'Gout', aliases: [] },
   { id: 'cellulitis', category: 'Other', name: 'Cellulitis', aliases: [] },
-  { id: 'bone_disorder', category: 'Other', name: 'Bone disease or disorder', aliases: ['osteoporosis'] },
+  { id: 'bone_disorder', category: 'Other', name: 'Bone disease or disorder', aliases: [] },
   { id: 'unexplained_weight_loss', category: 'Other', name: 'Unexplained weight loss over 10 lb', aliases: ['weight loss'] },
   { id: 'pregnant', category: 'Other', name: 'Pregnant', aliases: ['pregnancy'] },
 
@@ -227,7 +227,49 @@ UW.registerConditions([
   { id: 'cancer_untreated', category: 'Cancer', name: 'Cancer — diagnosed, no treatment / watchful waiting', aliases: ['watchful waiting', 'untreated cancer'] },
   { id: 'circulatory_disorder', category: 'Circulatory', name: 'Circulatory disorder (not varicose veins)', aliases: ['circulation disorder', 'vascular disorder'] },
   { id: 'prior_decline', category: 'Non-medical', name: 'Declined or postponed for life insurance', aliases: ['previously declined', 'postponed'] },
-  { id: 'felony_charges_pending', category: 'Non-medical', name: 'Felony charges pending', aliases: ['pending charges', 'awaiting trial'] }
+  { id: 'felony_charges_pending', category: 'Non-medical', name: 'Felony charges pending', aliases: ['pending charges', 'awaiting trial'] },
+
+  // --- Cancer by type: carriers with only a general cancer rule use it (parent) --------
+  { id: 'cancer_breast', category: 'Cancer', name: 'Breast cancer (history)', aliases: ['breast cancer'], parent: 'cancer' },
+  { id: 'cancer_testicular', category: 'Cancer', name: 'Testicular cancer (history)', aliases: ['testicular cancer'], parent: 'cancer' },
+  { id: 'cancer_cervical', category: 'Cancer', name: 'Cervical cancer (history)', aliases: ['cervical cancer'], parent: 'cancer' },
+  { id: 'cancer_prostate', category: 'Cancer', name: 'Prostate cancer (history)', aliases: ['prostate cancer'], parent: 'cancer' },
+  { id: 'cancer_thyroid', category: 'Cancer', name: 'Thyroid cancer (history)', aliases: ['thyroid cancer'], parent: 'cancer' },
+  { id: 'cancer_bladder', category: 'Cancer', name: 'Bladder cancer (history)', aliases: ['bladder cancer'], parent: 'cancer' },
+  { id: 'cancer_kidney', category: 'Cancer', name: 'Kidney cancer (history)', aliases: ['kidney cancer', 'renal cell carcinoma'], parent: 'cancer' },
+  { id: 'cancer_colorectal', category: 'Cancer', name: 'Colorectal cancer (history)', aliases: ['colon cancer', 'rectal cancer', 'colorectal cancer'], parent: 'cancer' },
+
+  // --- More conditions from the Transamerica FE Express chart ------------------------
+  { id: 'amyloidosis', category: 'Other', name: 'Amyloidosis', aliases: [] },
+  { id: 'bells_palsy', category: 'Neuro', name: "Bell's palsy", aliases: ['bells palsy'] },
+  { id: 'blindness', category: 'Other', name: 'Blindness', aliases: ['blind', 'legally blind'] },
+  { id: 'chest_pain', category: 'Heart', name: 'Chest pain', aliases: [] },
+  { id: 'esophageal_varices', category: 'Liver', name: 'Esophageal varices', aliases: ['varices'] },
+  { id: 'gestational_diabetes', category: 'Diabetes', name: 'Gestational diabetes', aliases: [] },
+  { id: 'myasthenia_gravis', category: 'Neuro', name: 'Myasthenia gravis', aliases: [] },
+  { id: 'mctd', category: 'Immune', name: 'Mixed connective tissue disease (MCTD)', aliases: ['mctd', 'connective tissue disease'] },
+  { id: 'monoclonal_gammopathy', category: 'Blood', name: 'Monoclonal gammopathy (MGUS)', aliases: ['mgus'] },
+  { id: 'myeloproliferative', category: 'Blood', name: 'Myeloproliferative disorder', aliases: ['polycythemia vera', 'essential thrombocythemia', 'myelofibrosis'] },
+  { id: 'neurofibromatosis', category: 'Neuro', name: 'Neurofibromatosis', aliases: [] },
+  { id: 'optic_neuritis', category: 'Neuro', name: 'Optic neuritis', aliases: [] },
+  { id: 'osteoporosis', category: 'Other', name: 'Osteoporosis', aliases: [] },
+  { id: 'pituitary_adenoma', category: 'Endocrine', name: 'Pituitary adenoma', aliases: ['pituitary tumor'] },
+  { id: 'polio', category: 'Neuro', name: 'Polio (poliomyelitis)', aliases: ['poliomyelitis'] },
+  { id: 'polycystic_kidney', category: 'Kidney', name: 'Polycystic kidney disease', aliases: ['pkd'] },
+  { id: 'polymyositis', category: 'Immune', name: 'Polymyositis', aliases: [] },
+  { id: 'pulmonary_hypertension', category: 'Lung', name: 'Pulmonary hypertension', aliases: ['ph', 'pah'] },
+  { id: 'tracheostomy', category: 'Lung', name: 'Tracheostomy', aliases: [] },
+  { id: 'eating_disorder', category: 'Mental health', name: 'Eating disorder', aliases: ['anorexia', 'bulimia'] },
+  { id: 'developmental_disability', category: 'Neuro', name: 'Developmental disability', aliases: [] },
+  { id: 'memory_loss', category: 'Neuro', name: 'Memory loss / mild cognitive impairment', aliases: ['mci', 'forgetfulness'] },
+  { id: 'liver_failure', category: 'Liver', name: 'Liver failure', aliases: [] },
+  { id: 'marfan', category: 'Other', name: 'Marfan syndrome', aliases: ['marfans'] },
+  { id: 'hydrocephalus', category: 'Neuro', name: 'Hydrocephalus', aliases: [] },
+  { id: 'wasting_syndrome', category: 'Other', name: 'Wasting syndrome', aliases: ['cachexia'] },
+  { id: 'wernicke_korsakoff', category: 'Neuro', name: 'Wernicke-Korsakoff syndrome', aliases: [] },
+  { id: 'heart_attacks_multiple', category: 'Heart', name: 'Heart attacks — more than one', aliases: ['multiple heart attacks'] },
+  { id: 'tia_multiple', category: 'Circulatory', name: 'TIA — more than one episode', aliases: ['multiple tias'] },
+  { id: 'rare_genetic', category: 'Other', name: 'Rare genetic / metabolic disease (Gaucher, Hunter, Pompe, Wilson…)', aliases: ['gaucher', 'hunter syndrome', 'pompe', 'wilson disease', 'niemann pick', 'wiskott aldrich', 'ehlers danlos', 'hereditary angioedema'] }
 ]);
 
 UW.registerMedications([

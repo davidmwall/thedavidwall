@@ -14,15 +14,18 @@ var path = require('path');
 
 var ROOT = path.join(__dirname, '..');
 var UW = require(path.join(ROOT, 'engine.js'));
-require(path.join(ROOT, 'data', 'conditions.js'));
-if (fs.existsSync(path.join(ROOT, 'data', 'medications-extra.js'))) require(path.join(ROOT, 'data', 'medications-extra.js'));
-
 var html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+var errors = [], warnings = [];
+require(path.join(ROOT, 'data', 'conditions.js'));
+fs.readdirSync(path.join(ROOT, 'data')).filter(function (f) { return /^medications-extra.*\.js$/.test(f); }).forEach(function (f) {
+  require(path.join(ROOT, 'data', f));
+  if (html.indexOf('src="data/' + f + '"') === -1) errors.push('index.html: data/' + f + ' is not loaded');
+});
+
 var referenced = [];
 html.replace(/<script src="(data\/carriers\/[^"]+)"/g, function (_, src) { referenced.push(src); });
 var gridRef = /<script src="data\/grid\.js"/.test(html);
 
-var errors = [], warnings = [];
 function err(where, msg) { errors.push(where + ': ' + msg); }
 function warn(where, msg) { warnings.push(where + ': ' + msg); }
 
@@ -92,6 +95,12 @@ function checkProduct(src, p) {
   if (p.tobacco && p.tobacco.outcome && !isOutcome(p.tobacco.outcome)) err(w, 'tobacco.outcome unknown "' + p.tobacco.outcome + '"');
   if (p.build && p.build.overweight && !isOutcome(p.build.overweight)) err(w, 'build.overweight unknown "' + p.build.overweight + '"');
   if (p.build && p.build.underweight && !isOutcome(p.build.underweight)) err(w, 'build.underweight unknown "' + p.build.underweight + '"');
+  Object.keys(p.tierLimits || {}).forEach(function (o) {
+    if (o === 'source') return;
+    if (!isOutcome(o)) err(w, 'tierLimits has unknown outcome "' + o + '"');
+    if (!isOutcome(p.tierLimits[o].fallback)) err(w, 'tierLimits.' + o + '.fallback must be an outcome');
+    else if (UW.rank(p.tierLimits[o].fallback) <= UW.rank(o)) err(w, 'tierLimits.' + o + '.fallback must be a worse class');
+  });
   if (p.unlisted && !isOutcome(p.unlisted.outcome)) err(w, 'unlisted.outcome unknown "' + p.unlisted.outcome + '"');
 
   if (p.build === undefined) warn(w, "no build chart — set build: 'none' if the product has no build requirement");
@@ -110,6 +119,10 @@ function checkProduct(src, p) {
         if (r.max[tiers[i]] < r.max[tiers[i - 1]]) err(where, 'max weight for ' + tiers[i] + ' is lower than for better class ' + tiers[i - 1]);
       }
       if (r.min != null && tiers.length && r.min > r.max[tiers[0]]) err(where, 'min weight is above max weight');
+      Object.keys(r.under || {}).forEach(function (o) {
+        if (!isOutcome(o)) err(where, 'unknown outcome "' + o + '" in under');
+        if (r.min != null && r.under[o] > r.min) err(where, 'underweight minimum for ' + o + ' is above the best-tier minimum');
+      });
     });
     for (var h = Math.min.apply(null, heights); h <= Math.max.apply(null, heights); h++) {
       if (heights.indexOf(h) === -1) warn(w, 'build chart missing height ' + h + ' in — clients at that height will show "verify"');

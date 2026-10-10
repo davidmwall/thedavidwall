@@ -246,8 +246,18 @@
     for (var i = 0; i < b.rows.length; i++) if (b.rows[i].h === heightIn) row = b.rows[i];
     if (!row) return factor('build', lbl, null, null, { verify: true, note: 'Height not on build chart', source: b.source || '' });
     if (row.min != null && weightLb < row.min) {
+      // Underweight tiers: the best tier whose minimum the client still meets.
+      if (row.under) {
+        var ut = Object.keys(row.under).sort(function (x, y) { return rank(x) - rank(y); });
+        for (var u = 0; u < ut.length; u++) {
+          if (weightLb >= row.under[ut[u]]) {
+            return factor('build', lbl, ut[u], ut[u], { note: 'Under ' + row.min + ' lb (best-tier minimum): ' + label(ut[u]) + ' down to ' + row.under[ut[u]] + ' lb', source: b.source || '' });
+          }
+        }
+      }
+      var low = row.under ? Math.min.apply(null, Object.keys(row.under).map(function (k) { return row.under[k]; })) : row.min;
       return factor('build', lbl, b.underweight || 'decline', b.underweight || 'decline',
-        { note: 'Below minimum weight ' + row.min + ' lb', source: b.source || '' });
+        { note: 'Below minimum weight ' + low + ' lb', source: b.source || '' });
     }
     // row.max = { level: 230, graded: 260 } — pick the best tier the weight fits.
     var tiers = Object.keys(row.max || {}).sort(function (x, y) { return rank(x) - rank(y); });
@@ -410,6 +420,16 @@
     var k = kind === 'conditions' ? 'condition' : 'medication';
     var cell = gridCell(p, kind, id);
     var f = guideFactor(p, kind, id, ctx, lbl);
+    // Sub-types (e.g. breast cancer) fall back to the parent condition's rule
+    // when this product has nothing specific for them.
+    var parent = kind === 'conditions' && state.conditions[id] && state.conditions[id].parent;
+    if (!f && !cell && parent) {
+      var pf = evalItem(p, kind, parent, ctx, lbl);
+      if (pf.basis !== 'none') {
+        pf.note = 'Uses this carrier\'s ' + (state.conditions[parent] ? state.conditions[parent].name : parent) + ' rule. ' + pf.note;
+        return pf;
+      }
+    }
 
     // Agent chose the grid over this guide (e.g. an outdated guide): grid
     // answers win where they're readable; the guide's answer is shown under it.
@@ -472,6 +492,26 @@
   }
 
   // ---------------------------------------------------------------------------
+  // tierLimits: { graded: { ageMax: 80, faceMax: 25000, fallback: 'decline', name: 'Graded FE Express' },
+  //               preferred: { faceMin: 10000, statesNot: ['CA'], fallback: 'standard' } }
+  function capTier(p, client, o, why) {
+    for (var n = 0; n < 6 && o && p.tierLimits[o]; n++) {
+      var t = p.tierLimits[o], r = [];
+      var age = isBlank(client.age) ? null : Number(client.age);
+      var face = isBlank(client.faceAmount) ? null : Number(client.faceAmount);
+      var st = isBlank(client.state) ? null : String(client.state).toUpperCase();
+      if (age !== null && t.ageMax != null && age > t.ageMax) r.push('issued to age ' + t.ageMax);
+      if (age !== null && t.ageMin != null && age < t.ageMin) r.push('issued from age ' + t.ageMin);
+      if (face !== null && t.faceMax != null && face > t.faceMax) r.push('max $' + t.faceMax.toLocaleString('en-US'));
+      if (face !== null && t.faceMin != null && face < t.faceMin) r.push('min $' + t.faceMin.toLocaleString('en-US'));
+      if (st && t.statesNot && t.statesNot.indexOf(st) !== -1) r.push('not available in ' + st);
+      if (!r.length) break;
+      why.push((t.name || label(o)) + ' ' + r.join(', ') + ' → ' + label(t.fallback));
+      o = t.fallback;
+    }
+    return o;
+  }
+
   // Main entry point
   // ---------------------------------------------------------------------------
   // client: { age, state, heightIn, weightLb, tobacco: 'yes'|'no'|'',
@@ -502,6 +542,18 @@
     });
     if (best === null) best = defaultBest(p);
     if (worst === null || rank(worst) < rank(best)) worst = worse(best, worst || best);
+
+    // Class-specific limits (e.g. a graded plan issued only to age 80): a class the
+    // client's age, face or state rules out drops to the product's next class.
+    if (p.tierLimits) {
+      var why = [];
+      var nb = capTier(p, client, best, why), nw = capTier(p, client, worst, []);
+      if (nb !== best || nw !== worst) {
+        factors.push(factor('tier', 'Class limits', nb !== best ? nb : null, nw !== worst ? nw : null,
+          { note: why.join('; ') || 'A lower class is limited by age, face or state', source: p.tierLimits.source || '' }));
+        best = nb; worst = worse(nw, nb);
+      }
+    }
 
     var verifyCount = factors.filter(function (f) { return f.verify; }).length;
     var timingCount = factors.filter(function (f) { return f.timing; }).length;
