@@ -425,7 +425,8 @@ UW.registerGrid({
     "Quote tool": "https://www3.mutualofomaha.com/mobile-quotes/#/home",
     "Payment methods": "ACH, Direct Billing (Quarterly, Semi -Annual, Annually)"
    },
-   "bestOutcome": "level"
+   "bestOutcome": "level",
+   "product": "moo-childrens-whole-life"
   },
   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
    "carrier": "Mutual of Omaha (Living Promise)",
@@ -447,51 +448,8 @@ UW.registerGrid({
     "max": 85,
     "source": "grid: Age range",
     "note": "outer limits of: Level Benefit Plan: 45-85 Graded Benefit Plan: 45-80"
-   }
-  },
-  "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-   "carrier": "Mutual of Omaha Living Promise Level",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "LEVEL",
-    "Max face amount": "$40,000",
-    "Age range": "45 - 85",
-    "Build / UW guide": "https://drive.google.com/file/d/1cGRhnOVDt2-bncG_DuvhiGDUYiQn6yZM/view?usp=sharing",
-    "Sales tool": "https://accounts.mutualofomaha.com/",
-    "Quote tool": "https://www3.mutualofomaha.com/mobile-quotes/#/home",
-    "Payment methods": "ACH, CREDIT CARD (FOR INITIAL PREMIUM), DIRECT BILLING (Quarterly, Semi -Annual, Annually)"
    },
-   "bestOutcome": "level",
-   "issueAges": {
-    "min": 45,
-    "max": 85,
-    "source": "grid: Age range",
-    "note": ""
-   }
-  },
-  "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-   "carrier": "Mutual of Omaha Living Promise Graded",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified",
-   "info": {
-    "Coverage type": "GRADED",
-    "Max face amount": "$20,000",
-    "Age range": "45 - 80",
-    "Build / UW guide": "https://drive.google.com/file/d/1cGRhnOVDt2-bncG_DuvhiGDUYiQn6yZM/view?usp=sharing",
-    "Sales tool": "https://accounts.mutualofomaha.com/",
-    "Quote tool": "https://www3.mutualofomaha.com/mobile-quotes/#/home",
-    "Payment methods": "ACH, CREDIT CARD (FOR INITIAL PREMIUM), DIRECT BILLING (Quarterly, Semi -Annual, Annually)"
-   },
-   "bestOutcome": "graded",
-   "issueAges": {
-    "min": 45,
-    "max": 80,
-    "source": "grid: Age range",
-    "note": ""
-   }
+   "product": "moo-living-promise"
   },
   "WHOLE LIFE :: Royal Neighbors Level": {
    "carrier": "Royal Neighbors Level",
@@ -1020,7 +978,8 @@ UW.registerGrid({
     "note": ""
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "moo-term-life-express"
   },
   "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
    "carrier": "MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS",
@@ -1044,7 +1003,8 @@ UW.registerGrid({
     "note": ""
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "moo-iul-express"
   },
   "TERM, UL, IUL :: Transamerica FFIUL2": {
    "carrier": "Transamerica FFIUL2",
@@ -1300,22 +1260,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Guaranteed Issue",
     "rules": [
@@ -1492,22 +1436,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -1929,27 +1857,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 18 MONTHS SINCE TREATMENT",
     "rules": [
@@ -2368,22 +2275,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
     "rules": [
@@ -2761,22 +2652,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -3185,22 +3060,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
@@ -4914,27 +4773,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -7401,18 +7239,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": null
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If diagnosed within 1 year, Graded. If diagnosed between 1 and 10 years ago, Standard",
     "rules": [
@@ -8240,22 +8066,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If paired with tobacco, Graded",
     "rules": [
@@ -8566,32 +8376,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS",
@@ -9105,22 +8889,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
@@ -9316,6 +9084,14 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Decline | Graded: Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    }
   },
   "cancer_active": {
@@ -9475,22 +9251,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -9878,32 +9638,6 @@ UW.registerGrid({
     "raw": "2 – 5 years  -Indiv. Consideration",
     "rules": null
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
@@ -10132,6 +9866,22 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 4,
+      "outcome": "graded"
+     },
+     {
+      "outcome": "level"
+     }
+    ]
    }
   },
   "cardiomyopathy": {
@@ -10307,27 +10057,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -11159,22 +10888,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
     "rules": [
@@ -11402,22 +11115,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -12013,22 +11710,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
     "rules": [
@@ -12593,22 +12274,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
@@ -12924,27 +12589,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 1 year",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -13804,22 +13448,6 @@ UW.registerGrid({
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
     "rules": [
@@ -13986,6 +13614,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -14517,32 +14153,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS",
@@ -15610,26 +15220,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF Diagnosed > AGE 49 AND no Complications",
-    "rules": [
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF NO COMPLICATIONS",
-    "rules": [
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF INSULIN > 30 YEARS OF AGE",
     "rules": [
@@ -15809,6 +15399,10 @@ UW.registerGrid({
      }
     ],
     "qualified": true
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
+    "rules": null
    }
   },
   "diabetes_uncomplicated": {
@@ -16081,26 +15675,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF Diagnosed > AGE 49 AND no Complications",
-    "rules": [
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF NO COMPLICATIONS",
-    "rules": [
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Accepted",
     "rules": [
@@ -16254,6 +15828,10 @@ UW.registerGrid({
      }
     ],
     "qualified": true
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
+    "rules": null
    }
   },
   "diabetes_complications": {
@@ -16555,22 +16133,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -16890,22 +16452,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -17461,22 +17007,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -18333,30 +17863,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS OR < 2 VIOLATIONS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Y IF > 3 YEARS OR < 3 VIOLATIONS",
     "rules": [
@@ -18564,6 +18070,10 @@ UW.registerGrid({
      }
     ],
     "qualified": true
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Y IF > 2 YEARS OR < 2 VIOLATIONS | Graded: Accepted",
+    "rules": null
    }
   },
   "drug_abuse": {
@@ -18755,27 +18265,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -19170,22 +18659,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Preferred",
     "rules": [
@@ -19569,27 +19042,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Preferred",
@@ -20045,22 +19497,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -20799,33 +20235,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS, awaiting trial = decline",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Guaranteed Issue",
     "rules": [
@@ -21370,14 +20779,6 @@ UW.registerGrid({
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
     "rules": null
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
-    "rules": null
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
-    "rules": null
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Call Underwriting",
     "rules": [
@@ -21473,6 +20874,10 @@ UW.registerGrid({
      }
     ],
     "qualified": true
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2 | Graded: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
+    "rules": null
    }
   },
   "heart_attack": {
@@ -21674,32 +21079,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -22060,32 +21439,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If diagnosed within 2 years, Graded. If diagnosed between 2 and 10 years ago, Standard",
     "rules": [
@@ -22315,29 +21668,19 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
+      "outcome": "decline"
      },
      {
-      "outcome": "best"
+      "withinYears": 2,
+      "outcome": "graded"
+     },
+     {
+      "outcome": "level"
      }
     ]
    }
@@ -22883,32 +22226,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -23523,32 +22840,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -24810,22 +24101,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
@@ -25536,27 +24811,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF NOT CURRENT",
     "rules": [
@@ -25720,6 +24974,18 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "graded"
+     },
+     {
+      "outcome": "level"
+     }
+    ]
    }
   },
   "huntingtons": {
@@ -25824,22 +25090,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -26632,22 +25882,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
     "rules": [
@@ -26974,27 +26208,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
@@ -27237,6 +26450,18 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
+    "rules": [
+     {
+      "withinYears": 4,
+      "outcome": "graded"
+     },
+     {
+      "outcome": "level"
      }
     ]
    }
@@ -27726,22 +26951,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
     "rules": [
@@ -28138,22 +27347,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
     "rules": [
@@ -28446,22 +27639,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
     "rules": [
@@ -28607,6 +27784,14 @@ UW.registerGrid({
      },
      {
       "outcome": "standard"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Accepted | Graded: Accepted",
+    "rules": [
+     {
+      "outcome": "level"
      }
     ]
    }
@@ -28783,27 +27968,6 @@ UW.registerGrid({
      {
       "withinYears": 4,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -30042,27 +29206,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2  YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
@@ -30717,16 +29860,8 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -31257,22 +30392,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
     "rules": [
@@ -31494,22 +30613,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
@@ -31908,22 +31011,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
     "rules": [
@@ -32253,22 +31340,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
     "rules": [
@@ -32440,6 +31511,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -32668,32 +31747,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 1 YEAR SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
    },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS",
@@ -33432,22 +32485,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Standard",
     "rules": [
@@ -33813,27 +32850,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE TREATMENT AND DIAGNOSIS",
     "rules": [
@@ -34159,22 +33175,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -35969,22 +34969,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Not asked",
     "rules": [
@@ -36112,6 +35096,14 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Decline | Graded: Accepted",
+    "rules": [
+     {
+      "outcome": "graded"
+     }
+    ]
    }
   },
   "sarcoid_pulm": {
@@ -36132,22 +35124,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -36284,6 +35260,14 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Decline | Graded: Accepted",
+    "rules": [
+     {
+      "outcome": "graded"
      }
     ]
    }
@@ -36430,27 +35414,6 @@ UW.registerGrid({
      {
       "withinYears": 4,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -36762,27 +35725,6 @@ UW.registerGrid({
      {
       "withinYears": 4,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 4,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -37100,22 +36042,6 @@ UW.registerGrid({
     ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
     "raw": "Decline",
     "rules": [
      {
@@ -38076,32 +37002,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF > 1 YEARS",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
     "rules": [
@@ -38557,27 +37457,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -39273,22 +38152,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
     "rules": [
@@ -39446,6 +38309,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -40148,26 +39019,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF COMPLETED, CHECK PROCEDURE TYPES",
-    "rules": [
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Y IF COMPLETED, CHECK PROCEDURE TYPES",
-    "rules": [
-     {
-      "outcome": "best",
       "conditional": true
      }
     ],
@@ -40910,27 +39761,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 2 years",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If treated within 1 year, Graded. If treated between 1 and 10 years ago, Standard",
     "rules": [
@@ -41320,24 +40150,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF NOT CHRONIC",
-    "rules": [
-     {
-      "outcome": "best",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
      }
     ]
    },
@@ -41858,27 +40670,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Y IF > 1 YEAR",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "best"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Preferred",
     "rules": [
@@ -42346,22 +41137,6 @@ UW.registerGrid({
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
    },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Royal Neighbors Level": {
     "raw": "Decline",
     "rules": [
@@ -42557,6 +41332,14 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
+   },
+   "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+    "raw": "Level: Decline | Graded: Decline",
     "rules": [
      {
       "outcome": "decline"

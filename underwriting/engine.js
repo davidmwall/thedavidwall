@@ -241,7 +241,8 @@
       }
     }
     var top = tiers.length ? row.max[tiers[tiers.length - 1]] : null;
-    return factor('build', lbl, 'decline', 'decline',
+    var over = b.overweight || 'decline';
+    return factor('build', lbl, over, over,
       { note: 'Over maximum weight' + (top ? ' (' + top + ' lb)' : ''), source: b.source || '' });
   }
 

@@ -248,6 +248,26 @@
       "product": "uhl-simple-term",
       "approveOnly": false,
       "bestOutcome": "preferred"
+    },
+    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
+      "product": "moo-living-promise"
+    },
+    "WHOLE LIFE :: Mutual of Omaha Living Promise Level": {
+      "absorbInto": "WHOLE LIFE :: Mutual of Omaha (Living Promise)",
+      "as": "level"
+    },
+    "WHOLE LIFE :: Mutual of Omaha Living Promise Graded": {
+      "absorbInto": "WHOLE LIFE :: Mutual of Omaha (Living Promise)",
+      "as": "graded"
+    },
+    "WHOLE LIFE :: Mutual of Omaha (Children's Whole Life)": {
+      "product": "moo-childrens-whole-life"
+    },
+    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
+      "product": "moo-term-life-express"
+    },
+    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
+      "product": "moo-iul-express"
     }
   },
   "values": {},

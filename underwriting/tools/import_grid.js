@@ -282,7 +282,7 @@ Object.keys(sheets).forEach(function (tab) {
     delete cfg.skip;
     columns[key] = cfg;
     explicit[key] = m || {};
-    if (!(m && m.product)) report.gridOnly.push(key);
+    if (!(m && (m.product || m.absorbInto))) report.gridOnly.push(key);
   });
 
   rows.slice(1).forEach(function (r) {
@@ -359,6 +359,78 @@ Object.keys(columns).forEach(function (key) {
   // (Standard) or declined — no preferred classes.
   if (['term', 'mortgage_protection', 'iul', 'universal_life'].indexOf(c.type) !== -1) { c.approveOnly = true; c.bestOutcome = 'standard'; }
   Object.assign(c, explicit[key]);
+});
+
+// Per-plan columns ("Living Promise Level" / "… Graded") folded into one
+// product column: fills only cells the target column leaves blank.
+//   "<Level column>":  { "absorbInto": "<target column>", "as": "level" }
+//   "<Graded column>": { "absorbInto": "<target column>", "as": "graded" }
+function planRules(cell, plan) {
+  if (!cell || !cell.rules) return null;
+  return cell.rules.map(function (r) {
+    return r.outcome === 'best' ? Object.assign({}, r, { outcome: plan }) : r;
+  });
+}
+// Merge the two plans' timelines: at each point in time the client gets
+// Level if the Level plan accepts, else whatever the Graded plan gives.
+// Cells that only have conditions the app can't check stay "verify" (null).
+function combinePlans(L, G) {
+  var lr = L ? planRules(L, 'level') : null, gr = G ? planRules(G, 'graded') : null;
+  if ((L && !lr) || (G && !gr)) return null;
+  var firm = function (rs) { return rs ? rs.filter(function (r) { return !r.conditional; }) : null; };
+  var lf = firm(lr), gf = firm(gr);
+  if ((lr && lr.length && !lf.length) || (gr && gr.length && !gf.length)) return null;
+  var at = function (rs, plan, t) {
+    for (var i = 0; i < rs.length; i++) if (rs[i].withinYears == null || t < rs[i].withinYears) return rs[i].outcome;
+    return plan; // past every lookback: not asked
+  };
+  var outcomeAt = function (t) {
+    var lo = lf ? at(lf, 'level', t) : 'decline';
+    return lo !== 'decline' ? lo : (gf ? at(gf, 'graded', t) : 'decline');
+  };
+  var bps = (lf || []).concat(gf || []).map(function (r) { return r.withinYears; })
+    .filter(function (y) { return y != null; }).sort(function (a, b) { return a - b; })
+    .filter(function (y, i, all) { return i === 0 || y !== all[i - 1]; });
+  var out = [];
+  bps.forEach(function (bp) {
+    var o = outcomeAt(bp - 1e-6);
+    if (out.length && out[out.length - 1].outcome === o) out[out.length - 1].withinYears = bp;
+    else out.push({ withinYears: bp, outcome: o });
+  });
+  var fb = outcomeAt(1e6);
+  if (out.length && out[out.length - 1].outcome === fb) out.pop();
+  out.push({ outcome: fb });
+  var conds = (lr || []).concat(gr || []).filter(function (r) { return r.conditional; });
+  return out.concat(conds);
+}
+
+var absorbed = Object.keys(columns).filter(function (k) { return columns[k].absorbInto; });
+var targets = {};
+absorbed.forEach(function (k) {
+  var c = columns[k];
+  if (!columns[c.absorbInto]) { console.error('absorbInto target not found: ' + c.absorbInto); process.exit(1); }
+  (targets[c.absorbInto] = targets[c.absorbInto] || {})[c.as] = k;
+});
+Object.keys(targets).forEach(function (target) {
+  var plans = targets[target];
+  ['conditions', 'medications'].forEach(function (kind) {
+    Object.keys(grid[kind]).forEach(function (id) {
+      var row = grid[kind][id];
+      if (row[target]) return;
+      var L = plans.level && row[plans.level], G = plans.graded && row[plans.graded];
+      if (!L && !G) return;
+      var raw = [L ? 'Level: ' + L.raw : '', G ? 'Graded: ' + G.raw : ''].filter(Boolean).join(' | ');
+      var rules = combinePlans(L, G);
+      var qualified = !!((L && L.qualified) || (G && G.qualified));
+      row[target] = rules ? Object.assign({ raw: raw, rules: rules }, qualified ? { qualified: true } : {}) : { raw: raw, rules: null };
+    });
+  });
+});
+absorbed.forEach(function (k) {
+  delete columns[k];
+  ['conditions', 'medications'].forEach(function (kind) {
+    Object.keys(grid[kind]).forEach(function (id) { delete grid[kind][id][k]; });
+  });
 });
 
 ['conditions', 'medications'].forEach(function (kind) {

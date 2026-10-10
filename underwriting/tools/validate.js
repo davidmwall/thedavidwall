@@ -89,6 +89,8 @@ function checkProduct(src, p) {
   if (!p.guide || !p.guide.revision) warn(w, 'no guide.revision — you will not know when the data goes stale');
   if (!p.guide || !p.guide.lastReviewed) warn(w, 'no guide.lastReviewed date');
   if (p.tobacco && p.tobacco.outcome && !isOutcome(p.tobacco.outcome)) err(w, 'tobacco.outcome unknown "' + p.tobacco.outcome + '"');
+  if (p.build && p.build.overweight && !isOutcome(p.build.overweight)) err(w, 'build.overweight unknown "' + p.build.overweight + '"');
+  if (p.build && p.build.underweight && !isOutcome(p.build.underweight)) err(w, 'build.underweight unknown "' + p.build.underweight + '"');
   if (p.unlisted && !isOutcome(p.unlisted.outcome)) err(w, 'unlisted.outcome unknown "' + p.unlisted.outcome + '"');
 
   if (p.build === undefined) warn(w, "no build chart — set build: 'none' if the product has no build requirement");
