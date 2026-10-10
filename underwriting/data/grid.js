@@ -174,7 +174,8 @@ UW.registerGrid({
      }
     ],
     "note": "Level: 40-55 $50,000 56-65 $40,000 66-75 $30,000 76-89 $25,000 Graded: 40-75 $25,000"
-   }
+   },
+   "product": "ahl-patriot-series"
   },
   "WHOLE LIFE :: Baltimore Life": {
    "carrier": "Baltimore Life",
