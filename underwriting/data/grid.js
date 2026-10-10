@@ -201,7 +201,8 @@ UW.registerGrid({
    "faceAmount": {
     "max": 150000,
     "source": "grid: Max face amount"
-   }
+   },
+   "product": "baltimore-life-iprovide"
   },
   "WHOLE LIFE :: Cica Life (Superior Choice)": {
    "carrier": "Cica Life (Superior Choice)",

@@ -247,6 +247,11 @@
     if (!row) return factor('build', lbl, null, null, { verify: true, note: 'Height not on build chart', source: b.source || '' });
     // Age-dependent minimum (e.g. BMI 16 under 60, BMI 18 from 60): { minFromAge: { age: 60, min: 81 } }
     if (row.minFromAge && !isBlank(age) && Number(age) >= row.minFromAge.age) row = Object.assign({}, row, { min: row.minFromAge.min });
+    // Age-banded limits: forAges: [{ min: 45, max: 69, max: {...} }] override the row when the age is known
+    // (the base row holds the most lenient limits, so a blank age never rules a client out).
+    (row.forAges || []).forEach(function (fa) {
+      if (!isBlank(age) && Number(age) >= fa.ageMin && Number(age) <= fa.ageMax) row = Object.assign({}, row, fa.row);
+    });
     if (row.min != null && weightLb < row.min) {
       // Underweight tiers: the best tier whose minimum the client still meets.
       if (row.under) {
@@ -446,7 +451,7 @@
   function gridFactor(p, k, cell, ctx, lbl, preferred) {
     var res = evalRules(resolveRules(cell.rules, p), ctx);
     return factor(k, lbl, res.best, res.worst, {
-      note: (preferred ? 'From your grid (you chose the grid over this guide for this product): "' : 'From your grid: "') + cell.raw + '"' +
+      note: (preferred === 'item' ? 'From your grid (the guide only gives a range here): "' : preferred ? 'From your grid (you chose the grid over this guide for this product): "' : 'From your grid: "') + cell.raw + '"' +
         (preferred ? '' : '. Not confirmed by a carrier guide') +
         (cell.qualified ? '. Depends on details the app doesn\'t check, so read the full note' : ''),
       source: 'grid', timing: res.timing, basis: 'grid', backup: !preferred, verify: !!cell.qualified
@@ -470,8 +475,10 @@
 
     // Agent chose the grid over this guide (e.g. an outdated guide): grid
     // answers win where they're readable; the guide's answer is shown under it.
-    if (p.preferGrid && cell && cell.rules) {
-      var g = gridFactor(p, k, cell, ctx, lbl, true);
+    // Per item too: a guide entry with preferGrid (the guide only gives a range, the grid has specifics).
+    var own = ((kind === 'conditions' ? p.conditions : p.medications) || {})[id];
+    if ((p.preferGrid || (own && own.preferGrid)) && cell && cell.rules) {
+      var g = gridFactor(p, k, cell, ctx, lbl, p.preferGrid ? true : 'item');
       if (f) g.guideSays = summarize(f) + (f.source ? ' (' + f.source + ')' : '');
       return g;
     }
@@ -663,7 +670,8 @@
       ['conditions', 'medications'].forEach(function (kind) {
         Object.keys(state.grid[kind] || {}).forEach(function (id) {
           var f = kind === 'conditions' ? evalCondition(p, { id: id }) : evalMedication(p, { id: id });
-          if (f.gridConflict) out.push({ product: p, kind: kind, id: id, factor: f });
+          var own = ((kind === 'conditions' ? p.conditions : p.medications) || {})[id];
+          if (f.gridConflict && !(own && own.preferGrid)) out.push({ product: p, kind: kind, id: id, factor: f });
         });
       });
     });

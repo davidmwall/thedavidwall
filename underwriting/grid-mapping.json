@@ -360,6 +360,9 @@
     },
     "WHOLE LIFE :: AIG Guaranteed Issue": {
       "product": "aig-giwl"
+    },
+    "WHOLE LIFE :: Baltimore Life": {
+      "product": "baltimore-life-iprovide"
     }
   },
   "values": {
