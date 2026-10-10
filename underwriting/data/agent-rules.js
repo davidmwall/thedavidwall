@@ -8,6 +8,6 @@ UW.registerAgentRules({
 
 // Product limits that override carrier guides and the grid.
 UW.registerAgentLimits([
-  { products: /^ethos-/, except: ['ethos-trustage-ga-wl'], issueAgeMin: 18, note: 'Agent rule: Ethos issues from age 18' },
+  { products: /^ethos-/, except: ['ethos-trustage-ga-wl', 'ethos-term-prime', 'ethos-term-choice', 'ethos-trustage-term'], issueAgeMin: 18, note: 'Agent rule: Ethos issues from age 18 (term stays at 20)' },
   { products: ['ethos-trustage-ga-wl'], issueAgeMin: 45, note: 'Agent rule: Ethos GI from age 45' }
 ]);
