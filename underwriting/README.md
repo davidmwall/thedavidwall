@@ -101,6 +101,8 @@ The **Rule check** tab lists every rule with a time window or an age at diagnosi
 | "Diabetes with stroke or coronary disease = decline" | `{ outcome: 'gi', withConditions: ['stroke', 'cad', …] }`: applies only when the client also has one of them |
 | Cancer by type | conditions such as `cancer_breast` have `parent: 'cancer'`: carriers without a breast-cancer rule use their general cancer rule |
 
+Agent-wide rules: `data/agent-rules.js` overrides every carrier for a condition. Today: **HIV = guaranteed issue only** (GI on products with a GI plan, decline everywhere else).
+
 Per-product: `preferGrid: true` makes your grid win over an outdated guide (the guide's answer is shown under each grid answer). Used for Mutual of Omaha Term Life Express and IUL Express.
 
 Outcomes from best to worst: `preferred_plus, preferred, standard_plus, standard, level, table, graded, modified, gi, refer, decline`. A product's overall result is the **worst** outcome across everything entered.

@@ -370,6 +370,19 @@ test('face bands: an age past the listed bands uses the nearest band, not the ov
   assert.strictEqual(run(40, 500000), 'standard');
 });
 
+test('agent rule gi-only: GI where the product has a GI plan, decline elsewhere, overriding the guide', function () {
+  UW.state.products = []; UW.state.grid = null; var saved = UW.state.agentRules;
+  UW.registerAgentRules({ hiv_aids: { outcome: 'gi-only', note: 'Agent rule' } });
+  UW.addProduct({ id: 'term', carrier: 'T', product: 'T', type: 'term', underwriting: 'accelerated', bestOutcome: 'standard', conditions: { hiv_aids: { rules: [{ outcome: 'refer' }] } } });
+  UW.addProduct({ id: 'fe', carrier: 'F', product: 'F', type: 'final_expense', underwriting: 'simplified', bestOutcome: 'level', conditions: { chf: { rules: [{ outcome: 'gi' }] } } });
+  UW.addProduct({ id: 'giwl', carrier: 'G', product: 'G', type: 'final_expense', underwriting: 'guaranteed', bestOutcome: 'gi' });
+  var r = UW.evaluate({ conditions: [{ id: 'hiv_aids' }] });
+  assert.strictEqual(find(r, 'term').best, 'decline');
+  assert.strictEqual(find(r, 'fe').best, 'gi');
+  assert.strictEqual(find(r, 'giwl').best, 'gi');
+  UW.state.agentRules = saved;
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });

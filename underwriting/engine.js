@@ -553,6 +553,27 @@
     });
   }
 
+  // Agent-wide rules (data/agent-rules.js) override carrier guides and the grid.
+  function registerAgentRules(rules) { state.agentRules = Object.assign(state.agentRules || {}, rules); }
+  function offersGI(p) {
+    if (p._offersGI != null) return p._offersGI;
+    var gi = p.underwriting === 'guaranteed' || p.bestOutcome === 'gi' || (p.unlisted && p.unlisted.outcome === 'gi') ||
+      ['conditions', 'medications'].some(function (k) {
+        return Object.keys(p[k] || {}).some(function (id) {
+          var e = p[k][id]; return e.outcome === 'gi' || (e.rules || []).some(function (r) { return r.outcome === 'gi'; });
+        });
+      }) || !!(p.tierLimits && p.tierLimits.gi) || !!(p.build && (p.build.overweight === 'gi' || p.build.underweight === 'gi'));
+    p._offersGI = gi;
+    return gi;
+  }
+  function applyAgentRule(p, id, f) {
+    var ar = state.agentRules && state.agentRules[id];
+    if (!ar || ar.outcome !== 'gi-only') return f;
+    var o = offersGI(p) ? 'gi' : 'decline';
+    return factor('condition', f.label, o, o, { note: ar.note + (o === 'gi' ? '' : ' (this product has no GI plan)'), source: 'agent rule', basis: 'agent',
+      guideSays: f.basis !== 'none' && f.best ? summarize(f) + (f.source ? ' (' + f.source + ')' : '') : undefined });
+  }
+
   function evalCondition(p, cond) {
     var c = state.conditions[cond.id];
     var lbl = (c ? c.name : cond.id) + (!isBlank(cond.yearsSince) ? ' (' + cond.yearsSince + ' yrs ago)' : '');
@@ -561,7 +582,7 @@
     // Show the age-at-diagnosis checks that decided (or didn't) this answer.
     var checks = ctx.dxChecks.filter(function (x, i, all) { return all.indexOf(x) === i; });
     if (checks.length) f.note = (f.note ? f.note + '. ' : '') + 'Age check: ' + checks.join('; ');
-    return f;
+    return applyAgentRule(p, cond.id, f);
   }
 
   function evalMedication(p, med) {
@@ -767,6 +788,7 @@
     UW_TYPES: UW_TYPES,
     state: state,
     registerConditions: registerConditions,
+    registerAgentRules: registerAgentRules,
     registerMedications: registerMedications,
     addProduct: addProduct,
     registerGrid: registerGrid,

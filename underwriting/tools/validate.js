@@ -17,6 +17,11 @@ var UW = require(path.join(ROOT, 'engine.js'));
 var html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 var errors = [], warnings = [];
 require(path.join(ROOT, 'data', 'conditions.js'));
+if (fs.existsSync(path.join(ROOT, 'data', 'agent-rules.js'))) {
+  require(path.join(ROOT, 'data', 'agent-rules.js'));
+  if (html.indexOf('src="data/agent-rules.js"') === -1) errors.push('index.html: data/agent-rules.js is not loaded');
+  Object.keys(UW.state.agentRules || {}).forEach(function (id) { if (!UW.state.conditions[id]) errors.push('agent-rules.js: unknown condition "' + id + '"'); });
+}
 fs.readdirSync(path.join(ROOT, 'data')).filter(function (f) { return /^medications-extra.*\.js$/.test(f); }).forEach(function (f) {
   require(path.join(ROOT, 'data', f));
   if (html.indexOf('src="data/' + f + '"') === -1) errors.push('index.html: data/' + f + ' is not loaded');
