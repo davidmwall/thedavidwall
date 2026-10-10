@@ -1,4 +1,4 @@
-// Mutual of Omaha — transcribed from Brokerage Underwriting Guidelines, form 417212_0521 (May 2021).
+// Mutual of Omaha — transcribed from Brokerage Underwriting Guidelines, form 417212_0521 (May 2021); drugs, build and limits from the Simplified Issue guide updated April 2026.
 UW.addProduct({
   "id": "moo-childrens-whole-life",
   "carrier": "Mutual of Omaha",
@@ -7,9 +7,9 @@ UW.addProduct({
   "underwriting": "simplified",
   "bestOutcome": "standard",
   "guide": {
-    "document": "Mutual of Omaha Brokerage Underwriting Guidelines — Life",
-    "revision": "Form 417212_0521 (as of May 2021)",
-    "effective": "2021-05",
+    "document": "Mutual of Omaha Brokerage Underwriting Guidelines — Life (conditions) + Simplified Issue guide (drugs, build, limits)",
+    "revision": "Form 417212_0521 (May 2021) + SI guide updated April 2026",
+    "effective": "2026-04",
     "lastReviewed": "2026-10-10"
   },
   "issueAges": {
