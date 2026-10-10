@@ -377,6 +377,9 @@
     "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": "skip",
     "TERM, UL, IUL :: Kansas City Life": {
       "official": true
+    },
+    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
+      "product": "fg-quantum-iul"
     }
   },
   "values": {

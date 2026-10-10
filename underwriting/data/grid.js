@@ -859,7 +859,8 @@ UW.registerGrid({
     "note": "Ages 0–17: $500,000 Ages 18–60: $1,000,000 Min: $50,000"
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "fg-quantum-iul"
   },
   "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
    "carrier": "FORESTERS STRONG FOUNDATION",
