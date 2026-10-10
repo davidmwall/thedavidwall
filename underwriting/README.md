@@ -8,6 +8,13 @@ Enter as much or as little as you know about a client: just one condition, or a 
 
 **Open it:** double-click `underwriting/index.html`. It's a static page with no server, login, or install. To use it on your phone, host it (see below).
 
+**Live search tab** (opens first)
+- Type the client in plain words: `67 yo male, 5'10 230, smoker, TX, $25k, heart attack 2 yrs ago, afib on eliquis, diabetes dx at 45`.
+- Each recognized item becomes a chip. Anything not recognized shows in red with "did you mean" suggestions.
+- Every product is a tile that re-colors as you type: dark green Preferred, green Standard/Level, yellow Graded/Modified/Table, orange GI only/Refer, red Declined. Two colors = the answer depends on details the box doesn't have (left = best case, right = worst).
+- "Only show approvals" hides declined products. Click a tile to see why.
+- Time frames: `2 yrs ago`, `18 months`, `in 2019`, `last year`, `dx at 45` (needs the age). `x2` / `multiple` picks the multiple-episode condition.
+
 **Find carriers tab**
 - Every field is optional. **A blank field never rules a carrier out.**
 - Type a condition or medication. Search understands abbreviations and brand names (`afib`, `MI`, `CABG`, `Ozempic`, `Coumadin`, …).

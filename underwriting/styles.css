@@ -160,3 +160,69 @@ th { font-size: 12px; color: var(--muted); font-weight: 600; }
 
 #rules-filter { max-width: 520px; margin-bottom: 4px; }
 #tab-rules td:nth-child(3) { min-width: 220px; }
+
+/* ---- Live search ------------------------------------------------------ */
+:root {
+  --t-pref: #0f6b3c; --t-pref-fg: #ffffff;
+  --t-std: #c9ecd6;  --t-std-fg: #0f4d2c;
+  --t-mid: #fbe3a1;  --t-mid-fg: #6b4700;
+  --t-gi: #f9c79a;   --t-gi-fg: #7a3500;
+  --t-bad: #f6c9c4;  --t-bad-fg: #8f1d14;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --t-pref: #1f9d5c; --t-pref-fg: #ffffff;
+    --t-std: #1d4a32;  --t-std-fg: #b9f0d0;
+    --t-mid: #4d3a0c;  --t-mid-fg: #ffd98a;
+    --t-gi: #57300f;   --t-gi-fg: #ffc28f;
+    --t-bad: #4a1a17;  --t-bad-fg: #ffb3ab;
+  }
+}
+.live-input { padding: 14px; margin-top: 14px; }
+#qt { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); resize: vertical; }
+#qt:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.qt-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 4px; min-height: 4px; }
+.qchip { font-size: 13px; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--text); }
+.qchip em { font-style: normal; color: var(--muted); }
+.qchip.k-condition { background: var(--mid-bg); }
+.qchip.k-medication { background: var(--warn-bg); }
+.qchip.k-info { background: transparent; border: 1px dashed var(--line); color: var(--muted); }
+.qchip.unknown { background: var(--bad-bg); color: var(--bad); }
+.qchip .sugg { color: var(--muted); }
+.live-bar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-top: 8px; }
+.switch { display: inline-flex; gap: 6px; align-items: center; font-weight: 600; cursor: pointer; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 10px; font-size: 12px; }
+.lg { padding: 2px 8px; border-radius: 6px; }
+.lg.pref { background: var(--t-pref); color: var(--t-pref-fg); }
+.lg.std { background: var(--t-std); color: var(--t-std-fg); }
+.lg.mid { background: var(--t-mid); color: var(--t-mid-fg); }
+.lg.gi { background: var(--t-gi); color: var(--t-gi-fg); }
+.lg.bad { background: var(--t-bad); color: var(--t-bad-fg); }
+.lg.split { background: linear-gradient(90deg, var(--t-std) 0 78%, var(--t-bad) 78% 100%); color: var(--t-std-fg); padding-right: 28px; }
+.counts { color: var(--muted); margin-left: auto; }
+.board { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; margin: 14px 0; }
+.tile {
+  --c: var(--t-std); --fg: var(--t-std-fg); --w: var(--c);
+  display: flex; flex-direction: column; gap: 3px; text-align: left; font: inherit; cursor: pointer;
+  border: 1px solid rgba(0,0,0,.06); border-radius: 10px; padding: 10px 12px 9px; min-height: 120px;
+  background: var(--c); color: var(--fg);
+  transition: background-color .25s ease, color .25s ease, transform .1s ease;
+}
+.tile:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.tile.open { outline: 3px solid var(--accent); outline-offset: 1px; }
+.tile.g-pref { --c: var(--t-pref); --fg: var(--t-pref-fg); }
+.tile.g-std  { --c: var(--t-std);  --fg: var(--t-std-fg); }
+.tile.g-mid  { --c: var(--t-mid);  --fg: var(--t-mid-fg); }
+.tile.g-gi   { --c: var(--t-gi);   --fg: var(--t-gi-fg); }
+.tile.g-bad  { --c: var(--t-bad);  --fg: var(--t-bad-fg); opacity: .8; }
+.tile.w-std { --w: var(--t-std); } .tile.w-mid { --w: var(--t-mid); } .tile.w-gi { --w: var(--t-gi); } .tile.w-bad { --w: var(--t-bad); }
+.tile.split { background: linear-gradient(90deg, var(--c) 0 78%, var(--w) 78% 100%); padding-right: calc(22% + 8px); }
+.t-class { font-weight: 700; font-size: 15px; }
+.t-carrier { font-weight: 600; font-size: 13px; }
+.t-product { font-size: 12px; opacity: .85; }
+.t-why { font-size: 12px; opacity: .9; margin-top: 2px; }
+.t-foot { margin-top: auto; display: flex; gap: 6px; flex-wrap: wrap; font-size: 11px; opacity: .8; }
+.tflag { border: 1px solid currentColor; border-radius: 4px; padding: 0 4px; }
+.tile-detail { margin-bottom: 20px; }
+.td-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+@media (max-width: 600px) { .board { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); } .counts { margin-left: 0; } }

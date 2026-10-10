@@ -11,7 +11,8 @@
     <div class="wrap topbar-inner">
       <h1>Underwriting Finder</h1>
       <nav class="tabs" role="tablist">
-        <button class="tab active" data-tab="find" role="tab">Find carriers</button>
+        <button class="tab active" data-tab="live" role="tab">Live search</button>
+        <button class="tab" data-tab="find" role="tab">Find carriers</button>
         <button class="tab" data-tab="lookup" role="tab">Lookup</button>
         <button class="tab" data-tab="carriers" role="tab">Carriers</button>
         <button class="tab" data-tab="rules" role="tab">Rule check</button>
@@ -24,8 +25,29 @@
   </div>
 
   <main class="wrap">
+    <!-- LIVE SEARCH -------------------------------------------------------->
+    <section id="tab-live" class="tab-panel">
+      <div class="card live-input">
+        <textarea id="qt" rows="2" spellcheck="false" autocomplete="off"
+          placeholder="Type anything: 67 yo male, 5'10 230, smoker, TX, $25k, heart attack 2 yrs ago, afib on eliquis, diabetes dx at 45"></textarea>
+        <div id="qt-chips" class="qt-chips"></div>
+        <div class="live-bar">
+          <label class="switch"><input type="checkbox" id="only-approve"><span>Only show approvals</span></label>
+          <div class="toggles" id="live-types"></div>
+          <button type="button" id="qt-clear" class="link-btn">Clear</button>
+        </div>
+        <div class="legend">
+          <span class="lg pref">Preferred</span><span class="lg std">Standard / Level</span><span class="lg mid">Graded · Modified · Table</span>
+          <span class="lg gi">GI only · Refer</span><span class="lg bad">Declined</span><span class="lg split">Two colors = depends on details</span>
+          <span id="live-counts" class="counts"></span>
+        </div>
+      </div>
+      <div id="board" class="board" aria-live="polite"></div>
+      <div id="tile-detail" class="tile-detail" hidden></div>
+    </section>
+
     <!-- FIND ---------------------------------------------------------------->
-    <section id="tab-find" class="tab-panel">
+    <section id="tab-find" class="tab-panel" hidden>
       <div class="layout">
         <form id="client-form" class="card form" autocomplete="off" onsubmit="return false">
           <div class="form-head">
@@ -140,6 +162,7 @@
 
   <!-- Engine + vocabulary -->
   <script src="engine.js"></script>
+  <script src="parse.js"></script>
   <script src="data/conditions.js"></script>
   <script src="data/medications-extra.js"></script>
   <script src="data/agent-rules.js"></script>
@@ -190,5 +213,6 @@
   <script src="data/grid.js"></script>
 
   <script src="app.js"></script>
+  <script src="live.js"></script>
 </body>
 </html>

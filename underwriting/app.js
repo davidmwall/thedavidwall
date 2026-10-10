@@ -375,4 +375,6 @@
   $('#sample-banner').hidden = !UW.state.products.some(function (p) { return p.sample; });
   renderCarriers();
   run();
+  // Shared with live.js
+  window.UWApp = { card: card, esc: esc };
 })();
