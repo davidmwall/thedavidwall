@@ -49,15 +49,20 @@ function isOutcome(o) { return Object.prototype.hasOwnProperty.call(UW.OUTCOMES,
 
 function checkRules(where, rules) {
   if (!Array.isArray(rules) || !rules.length) return err(where, 'rules must be a non-empty array');
-  var last = -Infinity;
   rules.forEach(function (r, i) {
     if (!isOutcome(r.outcome)) err(where, 'rule ' + (i + 1) + ' has unknown outcome "' + r.outcome + '"');
+  });
+  // Conditional rules (facts the app can't check) may sit anywhere; ordering
+  // applies to the firm, timing-only rules.
+  var firm = rules.filter(function (r) { return !r.conditional; });
+  var last = -Infinity;
+  firm.forEach(function (r, i) {
     if (r.withinYears != null) {
       if (typeof r.withinYears !== 'number' || r.withinYears <= 0) err(where, 'withinYears must be a positive number');
       if (r.withinYears <= last) err(where, 'withinYears must increase from rule to rule');
       last = r.withinYears;
-    } else if (i !== rules.length - 1) {
-      err(where, 'a rule without withinYears must be the last rule (it is the fallback)');
+    } else if (i !== firm.length - 1) {
+      err(where, 'a rule without withinYears must be the last firm rule (it is the fallback)');
     }
   });
 }
@@ -73,9 +78,10 @@ function checkProduct(src, p) {
   if (p.underwriting && !UW.UW_TYPES[p.underwriting]) err(w, 'unknown underwriting "' + p.underwriting + '"');
   if (p.bestOutcome && !isOutcome(p.bestOutcome)) err(w, 'unknown bestOutcome "' + p.bestOutcome + '"');
 
-  if (!p.issueAges || p.issueAges.min == null || p.issueAges.max == null) err(w, 'issueAges {min, max} required');
+  if (!p.issueAges) warn(w, 'no issueAges in this guide — age shows "verify" unless the grid supplies them');
+  else if (p.issueAges.min == null || p.issueAges.max == null) err(w, 'issueAges needs {min, max}');
   else if (p.issueAges.min > p.issueAges.max) err(w, 'issueAges min > max');
-  if (!p.faceAmount) warn(w, 'no faceAmount — face amount input will be ignored for this product');
+  if (!p.faceAmount) warn(w, 'no faceAmount — face amount shows "verify" for this product');
   else if (p.faceAmount.min > p.faceAmount.max) err(w, 'faceAmount min > max');
   (p.statesNotAvailable || []).concat(p.statesAvailable || []).forEach(function (s) {
     if (!/^[A-Z]{2}$/.test(s)) err(w, 'state "' + s + '" must be a 2-letter uppercase code');
@@ -86,7 +92,7 @@ function checkProduct(src, p) {
   if (p.unlisted && !isOutcome(p.unlisted.outcome)) err(w, 'unlisted.outcome unknown "' + p.unlisted.outcome + '"');
 
   if (p.build === undefined) warn(w, "no build chart — set build: 'none' if the product has no build requirement");
-  else if (p.build !== 'none') {
+  else if (p.build !== 'none' && p.build !== null) {
     var rows = p.build.rows || [];
     if (!rows.length) err(w, "build.rows is empty — fill it in or use build: 'none'");
     var heights = rows.map(function (r) { return r.h; });

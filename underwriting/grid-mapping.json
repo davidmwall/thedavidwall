@@ -243,7 +243,13 @@
     "Pregnant": "condition:pregnant",
     "Smoker / Nicotine Use": "condition:tobacco_use"
   },
-  "columns": {},
+  "columns": {
+    "TERM, UL, IUL :: UHL (Simple Term)": {
+      "product": "uhl-simple-term",
+      "approveOnly": false,
+      "bestOutcome": "preferred"
+    }
+  },
   "values": {},
   "tiers": [
     {
@@ -285,6 +291,11 @@
       "name": "Preferred Level",
       "outcome": "preferred",
       "columns": "Liberty Bankers"
+    },
+    {
+      "name": "Simple Term",
+      "outcome": "preferred",
+      "columns": "UHL"
     }
   ]
 }

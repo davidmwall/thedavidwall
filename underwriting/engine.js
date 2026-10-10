@@ -74,7 +74,12 @@
       var c = grid.columns[col];
       if (c.product) {
         var p = state.products.filter(function (x) { return x.id === c.product; })[0];
-        if (p) { p.gridColumn = col; p.gridInfo = c.info || null; }
+        if (p) {
+          p.gridColumn = col;
+          p.gridInfo = c.info || null;
+          // Guides without issue ages fall back to the grid's (labeled as grid).
+          if (!p.issueAges && c.issueAges) p.issueAges = c.issueAges;
+        }
         return;
       }
       state.products.push({
@@ -317,8 +322,15 @@
       if (cell) {
         f.grid = cell.raw;
         if (cell.rules) {
-          var g = evalRules(resolveRules(cell.rules, p), yearsSince);
-          f.gridConflict = g.best !== f.best || g.worst !== f.worst;
+          // Compare firm (timing-only) rules: caveats like "if treatment is
+          // ongoing" aren't a disagreement. "Not asked" (null) = best class.
+          var firm = function (rules) { return rules.filter(function (r) { return !r.conditional; }); };
+          var own = ((kind === 'conditions' ? p.conditions : p.medications) || {})[id];
+          var ownRules = own ? (own.rules || [{ outcome: own.outcome }]) : [{ outcome: p.unlisted.outcome }];
+          var g = evalRules(firm(resolveRules(cell.rules, p)), yearsSince);
+          var o = evalRules(firm(ownRules), yearsSince);
+          var n = function (x) { return x || defaultBest(p); };
+          f.gridConflict = n(g.best) !== n(o.best) || n(g.worst) !== n(o.worst);
         } else {
           f.gridConflict = true;
         }

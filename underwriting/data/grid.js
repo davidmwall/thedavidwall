@@ -1089,8 +1089,9 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": ""
    },
-   "approveOnly": true,
-   "bestOutcome": "standard"
+   "approveOnly": false,
+   "bestOutcome": "preferred",
+   "product": "uhl-simple-term"
   },
   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
    "carrier": "AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)",
@@ -7157,7 +7158,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "bedridden": {
@@ -10980,7 +10985,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "cirrhosis_early": {
@@ -11821,7 +11830,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
     "raw": "Decline",
@@ -13695,7 +13708,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
     "raw": "Decline",
@@ -17764,7 +17781,7 @@ UW.registerGrid({
     "raw": "Not asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    }
@@ -21305,7 +21322,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "foreign_national": {
@@ -25291,7 +25312,7 @@ UW.registerGrid({
     "raw": "Accepted",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -29217,7 +29238,7 @@ UW.registerGrid({
     "raw": "Not asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -29816,7 +29837,7 @@ UW.registerGrid({
     "raw": "Not asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -30956,7 +30977,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "nebulizer": {
@@ -33210,7 +33235,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
     "raw": "Decline",
@@ -34471,7 +34500,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "probation_parole": {
@@ -35104,7 +35137,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "rheumatoid_arthritis": {
@@ -36915,7 +36952,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "sickle_cell": {
@@ -37480,7 +37521,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "sleep_apnea_oxygen": {
@@ -41955,7 +42000,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "wheelchair_confined": {
@@ -43179,7 +43228,7 @@ UW.registerGrid({
     "raw": "Not asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    }
@@ -43572,7 +43621,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "hodgkins": {
@@ -43978,7 +44031,7 @@ UW.registerGrid({
     "raw": "Not asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    }
@@ -44677,7 +44730,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "psoriatic_arthritis": {
@@ -44787,7 +44844,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     }
+    ]
    }
   },
   "quadriplegia": {
@@ -45475,7 +45536,7 @@ UW.registerGrid({
     "raw": "mild accepted",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],

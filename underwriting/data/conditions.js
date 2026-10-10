@@ -223,7 +223,11 @@ UW.registerConditions([
   { id: 'probation_parole', category: 'Non-medical', name: 'Probation or parole', aliases: ['probation', 'parole'] },
   { id: 'foreign_national', category: 'Non-medical', name: 'Foreign national / no Social Security number', aliases: ['non us citizen', 'visa', 'green card', 'no ssn'] },
   { id: 'military', category: 'Non-medical', name: 'Military', aliases: ['active duty', 'deployed'] },
-  { id: 'pilot', category: 'Non-medical', name: 'Pilot or student pilot', aliases: ['private pilot', 'aviation', 'student pilot'] }
+  { id: 'pilot', category: 'Non-medical', name: 'Pilot or student pilot', aliases: ['private pilot', 'aviation', 'student pilot'] },
+  { id: 'cancer_untreated', category: 'Cancer', name: 'Cancer — diagnosed, no treatment / watchful waiting', aliases: ['watchful waiting', 'untreated cancer'] },
+  { id: 'circulatory_disorder', category: 'Circulatory', name: 'Circulatory disorder (not varicose veins)', aliases: ['circulation disorder', 'vascular disorder'] },
+  { id: 'prior_decline', category: 'Non-medical', name: 'Declined or postponed for life insurance', aliases: ['previously declined', 'postponed'] },
+  { id: 'felony_charges_pending', category: 'Non-medical', name: 'Felony charges pending', aliases: ['pending charges', 'awaiting trial'] }
 ]);
 
 UW.registerMedications([
