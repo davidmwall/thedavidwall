@@ -337,6 +337,29 @@ test('build minimum can change with age (minFromAge)', function () {
   assert.strictEqual(run(65, 112), 'standard');
 });
 
+test('rules by current age (ageRange): firm when age is known, possible when blank', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 'c', carrier: 'C', product: 'C', type: 'term', underwriting: 'full', bestOutcome: 'preferred_plus',
+    conditions: { cad: { rules: [{ ageRange: [0, 39], outcome: 'decline' }, { ageRange: [40, 59], outcome: 'table' }, { outcome: 'standard' }] } } });
+  var run = function (age) { var r = UW.evaluate({ age: age, conditions: [{ id: 'cad' }] })[0]; return r.best + '/' + r.worst; };
+  assert.strictEqual(run(35), 'decline/decline');
+  assert.strictEqual(run(50), 'table/table');
+  assert.strictEqual(run(65), 'standard/standard');
+  assert.strictEqual(run(''), 'standard/decline');
+});
+
+test('build charts by sex: blank sex uses the more lenient chart', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 's', carrier: 'S', product: 'S', type: 'term', underwriting: 'full', bestOutcome: 'preferred_plus',
+    build: { overweight: 'table', rowsBySex: { male: [{ h: 70, max: { preferred_plus: 195, standard: 250 } }], female: [{ h: 70, max: { preferred_plus: 180, standard: 240 } }] } } });
+  var run = function (sex, lb) { return UW.evaluate({ sex: sex, heightIn: 70, weightLb: lb })[0].best; };
+  assert.strictEqual(run('male', 190), 'preferred_plus');
+  assert.strictEqual(run('female', 190), 'standard');
+  assert.strictEqual(run('', 190), 'preferred_plus');
+  assert.strictEqual(run('female', 245), 'table');
+  assert.strictEqual(run('', 245), 'standard');
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });

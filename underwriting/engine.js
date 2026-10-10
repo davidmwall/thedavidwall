@@ -239,10 +239,31 @@
       { note: t.note || 'Tobacco rates apply', source: t.source || '' });
   }
 
-  function evalBuild(p, heightIn, weightLb, age) {
+  // Charts split by sex: build.rowsBySex = { male: [...], female: [...] }. With sex unknown,
+  // use the more lenient value of the two at each height so a blank never rules anyone out.
+  function rowsFor(b, sex) {
+    if (!b.rowsBySex) return b.rows;
+    if (sex === 'male' || sex === 'female') return b.rowsBySex[sex];
+    var m = b.rowsBySex.male, f = b.rowsBySex.female;
+    var lenient = function (a, c) {
+      if (!a) return c; if (!c) return a;
+      var max = {};
+      Object.keys(Object.assign({}, a.max, c.max)).forEach(function (k) { max[k] = Math.max(a.max[k] || 0, c.max[k] || 0); });
+      var r = Object.assign({}, a, { max: max });
+      if (a.min != null || c.min != null) r.min = Math.min(a.min == null ? Infinity : a.min, c.min == null ? Infinity : c.min);
+      if (a.forAges || c.forAges) r.forAges = (a.forAges || []).map(function (fa, i) {
+        var cb = (c.forAges || [])[i]; return cb ? { ageMin: fa.ageMin, ageMax: fa.ageMax, row: lenient(fa.row, cb.row) } : fa;
+      });
+      return r;
+    };
+    return m.map(function (r) { return lenient(r, f.filter(function (x) { return x.h === r.h; })[0]); });
+  }
+
+  function evalBuild(p, heightIn, weightLb, age, sex) {
     var lbl = Math.floor(heightIn / 12) + "'" + (heightIn % 12) + '" / ' + weightLb + ' lb';
     var b = p.build;
     if (b === 'none') return factor('build', lbl, null, null, { note: 'No build requirement' });
+    if (b && b.rowsBySex) b = Object.assign({}, b, { rows: rowsFor(b, sex) });
     if (!b || !b.rows) return factor('build', lbl, null, null, { verify: true, note: 'No build chart entered for this product' });
     var row = null;
     for (var i = 0; i < b.rows.length; i++) if (b.rows[i].h === heightIn) row = b.rows[i];
@@ -321,6 +342,14 @@
         var want = r.tobacco === 'yes' ? 'tobacco user' : 'non-tobacco';
         if (t === 'yes' || t === 'no') { if (t !== r.tobacco) return; add(x, want); }
         else { x.conditional = true; add(x, 'if ' + want); }
+      }
+      if (r.ageRange) {
+        x = Object.assign({}, x); delete x.ageRange;
+        var lo = r.ageRange[0], hi = r.ageRange[1], ageTxt = hi >= 120 ? 'age ' + lo + '+' : 'age ' + lo + '–' + hi;
+        var a = ctx && !isBlank(ctx.age) ? Number(ctx.age) : null;
+        if (a === null) { x.conditional = true; add(x, 'if ' + ageTxt); }
+        else if (a < lo || a > hi) return;
+        else add(x, ageTxt);
       }
       if (r.withConditions) {
         x = Object.assign({}, x); delete x.withConditions;
@@ -411,7 +440,7 @@
     // A single unconditional rule is already shown as the result; don't repeat it.
     if (rules.length === 1 && rules[0].withinYears == null) return rules[0].note || '';
     // Rules tied to tobacco or other conditions read better in plain English.
-    if (rules.some(function (r) { return r.tobacco || r.withConditions; })) return explainRules(rules);
+    if (rules.some(function (r) { return r.tobacco || r.withConditions || r.ageRange; })) return explainRules(rules);
     return rules.map(function (r) {
       return (r.withinYears != null ? '< ' + r.withinYears + ' yrs: ' : (rules.length > 1 ? 'after: ' : '')) + label(r.outcome) + (r.note ? ' (' + r.note + ')' : '');
     }).join('; ') + (rules[rules.length - 1].withinYears != null ? '; after: not asked' : '');
@@ -573,7 +602,9 @@
     var t = evalTobacco(p, client.tobacco);
     if (t) factors.push(t);
     if (!isBlank(client.heightIn) && !isBlank(client.weightLb)) {
-      factors.push(evalBuild(p, Number(client.heightIn), Number(client.weightLb), client.age));
+      var bf = evalBuild(p, Number(client.heightIn), Number(client.weightLb), client.age, client.sex);
+      if (p.build && p.build.rowsBySex && client.sex !== 'male' && client.sex !== 'female') bf.note += ' (sex not entered: using the more lenient chart)';
+      factors.push(bf);
     }
     // Client age travels with each condition so "age at diagnosis" rules can be checked.
     var condIds = (client.conditions || []).map(function (c) { return c.id; });
@@ -697,7 +728,7 @@
     rules.filter(function (r) { return !r.conditional && dx(r); }).forEach(function (r) {
       parts.push(lab(r.outcome) + ' if ' + dx(r));
     });
-    var firm = rules.filter(function (r) { return !r.conditional && !dx(r) && !r.tobacco && !r.withConditions; });
+    var firm = rules.filter(function (r) { return !r.conditional && !dx(r) && !r.tobacco && !r.withConditions && !r.ageRange; });
     var prev = 0;
     firm.forEach(function (r) {
       if (r.withinYears != null) {
@@ -708,8 +739,9 @@
       }
     });
     if (firm.length && firm[firm.length - 1].withinYears != null) parts.push('after ' + fmtYears(prev) + ': not asked (best class)');
-    rules.filter(function (r) { return !r.conditional && (r.tobacco || r.withConditions); }).forEach(function (r) {
-      parts.push(lab(r.outcome) + ' if ' + (r.tobacco ? (r.tobacco === 'yes' ? 'tobacco user' : 'non-tobacco') : '') +
+    rules.filter(function (r) { return !r.conditional && (r.tobacco || r.withConditions || r.ageRange); }).forEach(function (r) {
+      parts.push(lab(r.outcome) + ' if ' + (r.ageRange ? (r.ageRange[1] >= 120 ? 'age ' + r.ageRange[0] + '+' : 'age ' + r.ageRange[0] + '–' + r.ageRange[1]) + (r.tobacco || r.withConditions ? ', ' : '') : '') +
+        (r.tobacco ? (r.tobacco === 'yes' ? 'tobacco user' : 'non-tobacco') : '') +
         (r.withConditions ? (r.tobacco ? ' and ' : '') + 'also ' + r.withConditions.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; }).join(' / ') : '') +
         (r.withinYears != null ? ' within ' + fmtYears(r.withinYears) : ''));
     });

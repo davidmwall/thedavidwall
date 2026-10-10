@@ -55,12 +55,13 @@ function checkRules(where, rules) {
   if (!Array.isArray(rules) || !rules.length) return err(where, 'rules must be a non-empty array');
   rules.forEach(function (r, i) {
     if (!isOutcome(r.outcome)) err(where, 'rule ' + (i + 1) + ' has unknown outcome "' + r.outcome + '"');
+    if (r.ageRange && !(Array.isArray(r.ageRange) && r.ageRange.length === 2 && r.ageRange[0] <= r.ageRange[1])) err(where, 'rule ' + (i + 1) + ' ageRange must be [min, max]');
     if (r.tobacco && r.tobacco !== 'yes' && r.tobacco !== 'no') err(where, 'rule ' + (i + 1) + ' tobacco must be "yes" or "no"');
     (r.withConditions || []).forEach(function (id) { if (!UW.state.conditions[id]) err(where, 'rule ' + (i + 1) + ' withConditions has unknown condition "' + id + '"'); });
   });
   // Conditional rules (facts the app can't check) may sit anywhere; ordering
   // applies to the firm, timing-only rules.
-  var firm = rules.filter(function (r) { return !r.conditional && !r.ifTobacco && !r.tobacco && !r.withConditions && r.dxAgeMax == null && r.dxAgeBelow == null; });
+  var firm = rules.filter(function (r) { return !r.conditional && !r.ifTobacco && !r.tobacco && !r.withConditions && !r.ageRange && r.dxAgeMax == null && r.dxAgeBelow == null; });
   var last = -Infinity;
   firm.forEach(function (r, i) {
     if (r.withinYears != null) {
@@ -107,7 +108,8 @@ function checkProduct(src, p) {
 
   if (p.build === undefined) warn(w, "no build chart — set build: 'none' if the product has no build requirement");
   else if (p.build !== 'none' && p.build !== null) {
-    var rows = p.build.rows || [];
+    if (p.build.rowsBySex && (!p.build.rowsBySex.male || !p.build.rowsBySex.female)) err(w, 'build.rowsBySex needs male and female rows');
+    var rows = p.build.rows || (p.build.rowsBySex ? p.build.rowsBySex.male.concat(p.build.rowsBySex.female) : []);
     if (!rows.length) err(w, "build.rows is empty — fill it in or use build: 'none'");
     var heights = rows.map(function (r) { return r.h; });
     rows.forEach(function (r) {

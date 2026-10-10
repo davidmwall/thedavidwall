@@ -43,6 +43,7 @@
       heightIn: heightIn,
       weightLb: fd.get('weightLb'),
       tobacco: fd.get('tobacco'),
+      sex: fd.get('sex') || '',
       productTypes: $$('#product-toggles input:checked').map(function (i) { return i.value; }),
       uwTypes: $$('#uw-toggles input:checked').map(function (i) { return i.value; }),
       conditions: picked.condition.slice(),
@@ -206,7 +207,7 @@
   }
 
   function hasInput(c) {
-    return ['age', 'state', 'faceAmount', 'heightIn', 'weightLb', 'tobacco'].some(function (k) { return c[k] !== '' && c[k] != null; }) ||
+    return ['age', 'state', 'faceAmount', 'heightIn', 'weightLb', 'tobacco', 'sex'].some(function (k) { return c[k] !== '' && c[k] != null; }) ||
       c.conditions.length || c.medications.length;
   }
 
