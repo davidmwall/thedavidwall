@@ -403,12 +403,6 @@ UW.registerGrid({
    },
    "product": "foresters-advantage-plus-ii"
   },
-  "WHOLE LIFE :: Lafayette Life": {
-   "carrier": "Lafayette Life",
-   "productName": "Whole Life (from your grid)",
-   "type": "final_expense",
-   "underwriting": "simplified"
-  },
   "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
    "carrier": "Liberty Bankers  (Simple Preferred, Standard, or Modified)",
    "productName": "Whole Life (from your grid)",
@@ -1041,86 +1035,8 @@ UW.registerGrid({
     "note": "Signature Term Express 10 Issue Ages 18-65: $300,000 Issue Ages 66-70: $150,000 Signature Term Express 15, 20 and 30 $300,000"
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
-  },
-  "TERM, UL, IUL :: Quility SBLI": {
-   "carrier": "Quility SBLI",
-   "productName": "Term, UL, IUL (from your grid)",
-   "type": "term",
-   "underwriting": "accelerated",
-   "info": {
-    "Sales app walkthrough": "https://vimeo.com/883392437/8eba09a1bd?ts=0&share=copy",
-    "Age range": "18 - 65",
-    "Max face amount": "18-40: the lesser of $1M or 20 x Income\n41-50: the lesser of $1M or 15 x Income\n51-60: the lesser of $500,000 or 10 x Income\n61-65: the lesser of $500,000 or 10 x Income",
-    "Product type": "TERM",
-    "Build / UW guide": "https://www.sblibrokerage.com/wp-content/uploads/2023/11/23-1056-Quility-Agent-Guide-Final.pdf",
-    "Living benefits": "50% Terminal Illness",
-    "Quote tool": "https://agentportal.afficiency.com/",
-    "Payment methods": "EFT, CC Mastercard & Visa (Quarterly, Semi -Annual, Monthly)"
-   },
-   "issueAges": {
-    "min": 18,
-    "max": 65,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 1000000,
-    "source": "grid: Max face amount",
-    "bands": [
-     {
-      "min": 18,
-      "max": 40,
-      "face": 1000000
-     },
-     {
-      "min": 41,
-      "max": 50,
-      "face": 1000000
-     },
-     {
-      "min": 51,
-      "max": 60,
-      "face": 500000
-     },
-     {
-      "min": 61,
-      "max": 65,
-      "face": 500000
-     }
-    ],
-    "note": "18-40: the lesser of $1M or 20 x Income 41-50: the lesser of $1M or 15 x Income 51-60: the lesser of $500,000 or 10 x Income 61-65: the lesser of $500,000 or 10 x Income"
-   },
-   "approveOnly": true,
-   "bestOutcome": "standard"
-  },
-  "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-   "carrier": "LGA/Banner Life (Banner Beyond)",
-   "productName": "Term, UL, IUL (from your grid)",
-   "type": "term",
-   "underwriting": "accelerated",
-   "info": {
-    "Age range": "Term 10: 20-75 all classes\nTerm 15: 20-75 all classes\nTerm 20: 20-70 non-tobacco classes\n20-65 tobacco classes\nTerm 25: 20-60 non-tobacco classes\n20-55 tobacco classes\nTerm 30: 20-55 non-tobacco classes\n20-50 tobacco classes\nTerm 35: 20-50 non-tobacco classes\n20-45 tobacco classes\nTerm 40: 20-45 non-tobacco classes\n20-40 tobacco classes                        *An APS is always required for applicants over age 60*",
-    "Max face amount": "$100,000 - $2,000,000",
-    "Product type": "TERM",
-    "Build / UW guide": "https://www.lgamerica.com/docs/default-source/advisor/products/quility/quility-term-plus_underwriting-guide.pdf?sfvrsn=25620979_1",
-    "Living benefits": "90% Terminal, Critical, Chronic Ilness",
-    "Sales tool": "https://login.lgamerica.com/login?signin=8d59600af6e2982031315c202a96ad07",
-    "Payment methods": "EFT"
-   },
-   "issueAges": {
-    "min": 20,
-    "max": 75,
-    "source": "grid: Age range",
-    "note": "outer limits of: Term 10: 20-75 all classes Term 15: 20-75 all classes Term 20: 20-70 non-tobacco classes 20-65 tobacco classes Term 25: 20-60 non-tobacco classes 20-55 tobacco classes Term 30: 20-55 non-tobacco classes 20-50 tobacco classes Term 35: 20-50 non-tobacco classes 20-45 tobacco classes Term 40: 20-45 non-tobacco classes 20-40 tobacco classes *An APS is always required for applicants over age 60*"
-   },
-   "faceAmount": {
-    "max": 2000000,
-    "source": "grid: Max face amount",
-    "min": 100000
-   },
-   "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "official": true
   },
   "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
    "carrier": "MUTUAL OF OMAHA TERM LIFE EXPRESS",
@@ -1446,14 +1362,6 @@ UW.registerGrid({
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 1 year, Decline",
     "rules": [
@@ -1579,14 +1487,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Graded",
-    "rules": [
-     {
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -1708,22 +1608,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -1875,15 +1759,6 @@ UW.registerGrid({
      },
      {
       "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -2039,23 +1914,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "If within 10 years - Decline",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If treated within 10 years, Decline",
     "rules": [
@@ -2194,14 +2052,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Graded",
-    "rules": [
-     {
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -2331,22 +2181,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -2476,14 +2310,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -2613,22 +2439,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -2766,14 +2576,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Graded",
-    "rules": [
-     {
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \"Is the prospect confined to a wheelchair or motorized mobility device?\" answered \"Yes\" , Modified",
     "rules": [
@@ -2895,22 +2697,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -3088,22 +2874,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -3248,14 +3018,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Modified",
     "rules": [
@@ -3356,14 +3118,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -3480,14 +3234,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -3595,14 +3341,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Modified",
     "rules": [
@@ -3703,14 +3441,6 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -3857,14 +3587,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -3993,22 +3715,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -4159,15 +3865,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If performed within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -4383,29 +4080,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline | Decline if within past 5 years",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "withinYears": 5,
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -4518,15 +4192,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -4671,19 +4336,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Atrial Fibrillation episode or treatment\nwithin 2 years, any procedure other\nthan ablation or alcohol induced",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -4786,15 +4438,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If within 6 months, Graded",
-    "rules": [
-     {
-      "withinYears": 0.5,
-      "outcome": "graded"
-     }
-    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 1 year, Decline",
@@ -4944,22 +4587,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If within 1 year, Decline",
     "rules": [
@@ -5046,14 +4673,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -5198,20 +4817,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Asthma (not including seasonal allergies) that required any\nhospital, emergency room or immediate care center visits",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "- No ER or hospitalizations\n- No impact to daily activities (time off work)\n- Up to 1 medication\n- No need for steroids in past year",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -5310,14 +4915,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -5477,10 +5074,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Asthma (not including seasonal allergies) that required any\nhospital, emergency room or immediate care center visits - Decline",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If \"Is the prospect taking any inhaled steroid medications or do they use 3 or more inhalers?\" answered \"Yes\" , Decline",
     "rules": [
@@ -5627,22 +5220,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -5779,15 +5356,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -5934,18 +5502,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• No occurrence in past 2 years\n• No treatment required\n• All testing and procedures are complete\n• No procedure other than ablation",
-    "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
@@ -6101,24 +5657,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Mild accepted",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "Decline",
     "rules": [
@@ -6190,14 +5728,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -6307,24 +5837,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Mild accepted",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -6410,14 +5922,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 1 year, Decline",
@@ -6539,14 +6043,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -6681,22 +6177,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -6866,18 +6346,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• Any history of aneurysm\n• Any history of Hemophilia, Factor V\nLeiden with a history of blood clot, or\ncurrent anticoagulation treatment or\nunder age 40\n• Any history of sickle cell trait with\nsymptoms, hospitalizations or\ntransfusions\n• Idiopathic Thrombocytopenic Purpura\n(ITP)",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -6989,22 +6457,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -7152,22 +6604,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -7287,15 +6723,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -7431,24 +6858,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "With O2 or recent hospitalization- Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
@@ -7614,15 +7023,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If performed within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Mutual of Omaha (Children's Whole Life)": {
     "raw": "Decline",
     "rules": [
@@ -7759,25 +7159,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Gastric <6 months - Decline",
-    "rules": [
-     {
-      "withinYears": 0.5,
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -7883,14 +7264,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -8092,23 +7465,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 10 years",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -8270,14 +7626,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Graded",
-    "rules": [
-     {
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "WITHIN 2 YEARS - MODIFIED,",
     "rules": [
@@ -8408,22 +7756,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -8716,19 +8048,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 10 years",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Any cancer in the last 10 years, current\ntreatment or history of recurrence or\nmetastasis (ever)\n*Exception non-melanoma",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -8887,15 +8206,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -9038,22 +8348,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -9188,15 +8482,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -9298,22 +8583,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
      }
     ]
    },
@@ -9469,26 +8738,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Accepted as long as not on disability",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Accepted as long as not on disability",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Approved",
     "rules": [
@@ -9590,15 +8839,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -9712,15 +8952,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -9839,14 +9070,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Preferred",
@@ -9994,28 +9217,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline | Decline if with a history of hospitalization or\nrequired any visits to a hospital, emergency room or\nimmediate care center within the last two years",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• No surgery\n• No hospitalizations in last 2 years\n• Diagnosed more than 6 months ago\n• No complications or medication needed, very infrequent flare ups",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Approved | Decline",
     "rules": [
@@ -10143,15 +9344,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -10287,22 +9479,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -10479,22 +9655,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -10619,15 +9779,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -10768,24 +9919,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "COPD with more than minimal/\noccasional symptoms, requiring\noxygen, disabled, hospitalization\nor tobacco use - Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -10901,14 +10034,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Preferred",
     "rules": [
@@ -11021,14 +10146,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -11253,22 +10370,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Decline",
     "rules": [
@@ -11413,14 +10514,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Preferred",
@@ -11581,18 +10674,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Crohn’s disease, with a history of hospitalization or\nrequired any visits to a hospital, emergency room or\nimmediate care center within the last two years = Decline",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline (unless treatment is\nnot needed for at least 2 years, normal\ncolonoscopy within 2 years, stable\nweight and no complications)",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Approved",
     "rules": [
@@ -11748,22 +10829,6 @@ UW.registerGrid({
     "rules": null
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -11937,15 +11002,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -12078,22 +11134,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -12239,15 +11279,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If implanted within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -12380,22 +11411,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -12499,14 +11514,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -12709,14 +11716,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Major depression or mood disorders requiring 3 meds or\nled to loss of work or seeing a psychiatrist. Bipolar depression, suicidal ideation or\nsuicide attempt withi 5 years.",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• No treatment with anti-psychotic medications\n• No hospitalization needed\n• Up to 1 medication\n• No other mental nervous condition\n• No substance abuse\n• No suicide attempts",
-    "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If \"Is the insured taking more than 2 anxiety/depression medications?\" answered \"Yes\" , Decline",
@@ -12966,20 +11965,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "2 meds or less accepted",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• No history of hospitalization, suicide attempts or substance abuse\n• Up to 1 medication\n• Well controlled for at least 6 months",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Y IF CONTROLLED",
     "rules": [
@@ -13193,26 +12178,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "2 meds or less accepted",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "If Severe- Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Y IF CONTROLLED WITH MEDICATION",
     "rules": [
@@ -13423,22 +12388,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -13623,16 +12572,6 @@ UW.registerGrid({
       "outcome": "preferred"
      }
     ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If \"Insulin use?\" answered \"Yes\" , Graded",
-    "rules": [
-     {
-      "outcome": "graded",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If \"Uncontrolled diabetes in the past 2 years?\" answered \"Yes\" , Decline. If diagnosed prior to age 9, Decline. If \"Insulin use?\" answered \"Yes\" , Standard",
@@ -13836,20 +12775,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "If age nearest <40 OR age\nnearest of 40+ with A1C>7 - Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• Non-insulin treatments (Oral meds/diet control)\n• Good control of blood sugar (A1c less than 8)\n• No complications\n• Diagnosed over age 40\n• Diagnosed more than 6 months ago and less than 5 years\n• Has followed up with doctor in past 2 years",
-    "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Y IF > AGE 45 WHEN DIAGNOSED, NON SMOKER, NO COMPLICATIONS AND GOOD BUILD",
@@ -14060,15 +12985,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified. If \"Insulin use?\" answered \"Yes\" , Preferred. If \"Uncontrolled diabetes in the past 2 years?\" answered \"Yes\" , Decline. If diagnosed prior to age 9, Decline | If treated within 2 years, Modified",
     "rules": [
@@ -14259,22 +13175,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -14419,15 +13319,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 2 years, Decline",
     "rules": [
@@ -14552,22 +13443,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -14765,22 +13640,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Any disability check in the previous 12 months will be declined",
     "rules": [
@@ -14946,15 +13805,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -15052,22 +13902,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -15219,14 +14053,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "DUI/DWI, reckless driving conviction or license suspended/\nrevoked (last 5 years",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "No license revocation or suspension in past 3 years",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
     "rules": null
@@ -15311,14 +14137,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -15483,18 +14301,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "DUI/DWI, reckless driving conviction or license suspended/\nrevoked (last 5 years",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
     "rules": null
@@ -15577,14 +14383,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -15732,14 +14530,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "DUI/DWI, reckless driving conviction or license suspended/\nrevoked (last 5 years",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "No license revocation or suspension in past 3 years",
-    "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
@@ -15958,18 +14748,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "DUI/DWI, reckless driving conviction or license suspended/\nrevoked (last 5 years",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
     "rules": null
@@ -16136,15 +14914,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Graded",
     "rules": [
@@ -16298,26 +15067,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Used a narcotic, barbiturate, amphetamine, hallucinogen,\nheroin, cocaine, other illegal drug (excluding marijuana),\nor prescription medication that was not prescribed by a\nlicensed medical professional\n° Had a licensed medical professional recommend\ncounseling or treatment for alcohol or drug use\n(last 7 years) | Had a licensed medical professional recommend\ncounseling or treatment for alcohol or drug use\n(last 7 years)",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "within past 10 years - Decline | Within past 10 years, excludes Marijuana- Decline",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "withinYears": 10,
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If treated within 10 years, Decline",
     "rules": [
@@ -16467,14 +15216,6 @@ UW.registerGrid({
      },
      {
       "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -16629,23 +15370,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Within 5 years - Decline",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If within 5 years, Decline",
     "rules": [
@@ -16792,14 +15516,6 @@ UW.registerGrid({
      },
      {
       "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -16950,23 +15666,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Within 5 years - Decline",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -17129,15 +15828,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If paired with tobacco, Modified",
     "rules": [
@@ -17268,22 +15958,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
      }
     ]
    },
@@ -17444,15 +16118,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Standard | STANDARD",
     "rules": [
@@ -17592,18 +16257,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• No seizures in 5 years\n• No hospitalization in past 5 years\n• Diagnosed more than 3 months ago with evaluation completed\n• No medications needed",
-    "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Approved",
@@ -17759,14 +16412,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 2 years, Modified. If \"Currently on parole or probation?\" answered \"Yes\" , Modified",
     "rules": [
@@ -17914,20 +16559,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Convicted of a felony, currently have felony charges\npending or are currently on parole (last 10 years)",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "History of felony, currently on\nprobation/parole, outstanding fines/\nrestitution, in jail, awaiting trial - Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If within 10 years, Decline",
@@ -18078,14 +16709,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Preferred",
     "rules": [
@@ -18198,22 +16821,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Accepted",
     "rules": [
@@ -18306,10 +16913,6 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "To be considered for coverage, these are the acceptable types of visas (fully underwritten product rules\nmay vary).\n• Permanent residency visa\n• H1B or L1 visa\no Individual must have been residing in the U.S. for a minimum of one year.\no For foreign travel, contact Underwriting with questions.\no A copy of the proposed insured’s visa, I-94 Form and/or I-797A, Notice of Action form will\nbe required.",
-    "rules": null
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Only US citizens or a permanent resident or work visa holder5",
     "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
@@ -18484,15 +17087,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 2 years, Modified",
     "rules": [
@@ -18650,23 +17244,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -18788,15 +17365,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -18927,23 +17495,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -19171,25 +17722,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Heart murmurs - Decline - unless no antibiotics\nor other treatment is needed, and no\nfollow-up advised",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -19322,23 +17854,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -19519,15 +18034,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If performed within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If performed within 2 years, Modified. If \"Was the surgery to implant a defibrillator?\" answered \"Yes\" , Decline",
     "rules": [
@@ -19681,23 +18187,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -19884,23 +18373,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -20050,15 +18522,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If performed within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If performed within 2 years, Modified",
     "rules": [
@@ -20189,23 +18652,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -20368,14 +18814,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If \"Did treatment last 6 months or more prior to the hepatitis being cured?\" answered \"Yes\" , Modified",
     "rules": [
@@ -20510,23 +18948,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Case by Case",
-    "rules": [
-     {
-      "outcome": "refer"
      }
     ]
    },
@@ -20680,15 +19101,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -20819,23 +19231,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -20988,15 +19383,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -21134,23 +19520,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -21272,14 +19641,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -21442,18 +19803,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• 2 or less medications\n• No hospitalizations\n• Normal blood pressure in past 2 years",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Yes, if non-smoker",
     "rules": [
@@ -21561,16 +19910,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If currently, Graded",
-    "rules": [
-     {
-      "outcome": "graded",
       "conditional": true
      }
     ],
@@ -21779,22 +20118,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -21921,15 +20244,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -22063,22 +20377,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -22264,18 +20562,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Any substance abuse or treatment\nin the last 10 years. Any history of\npolysubstance abuse or relapse (ever), Decline",
-    "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If treated within 10 years, Decline",
@@ -22476,20 +20762,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Convicted of a felony, currently have felony charges\npending or are currently on parole (last 10 years) -Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "History of felony, currently on\nprobation/parole, outstanding fines/\nrestitution, in jail, awaiting trial",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "DECLINE",
     "rules": [
@@ -22615,15 +20887,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -22757,22 +21020,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -22996,22 +21243,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -23155,14 +21386,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -23262,14 +21485,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Graded",
-    "rules": [
-     {
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -23366,15 +21581,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -23488,15 +21694,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -23642,22 +21839,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -23782,14 +21963,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Graded",
-    "rules": [
-     {
-      "outcome": "graded"
      }
     ]
    },
@@ -23931,22 +22104,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -24125,24 +22282,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Discoid Lupus if age 20 or less or if there as been progression - Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Accepted",
     "rules": [
@@ -24295,15 +22434,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -24410,18 +22540,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Discoid Lupus if age 20 or less or if\nthere has been progression. Or any Systemic - Decline | Decline",
-    "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Systemic decline | Decline",
@@ -24646,20 +22764,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Marijuana usage > 4x per week or > 16x per month = Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• Non-tobacco rates\n• Rate class based on frequency and type (such as CBD, synthetic, oilbased\nvs. dry vaping etc.)\n• No recent synthetic marijuana use",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Y IF LEGAL",
     "rules": [
@@ -24842,22 +22946,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -24953,14 +23041,6 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Decline",
     "rules": [
      {
       "outcome": "decline"
@@ -25088,22 +23168,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -25272,22 +23336,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Not asked",
     "rules": [
      {
@@ -25467,15 +23515,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -25591,18 +23630,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• No mobility issues (no need for crutches or wheelchair)\n• Relapsing/remitting with less than 3 episodes per year\n• Diagnosed ages 35 or less\n• Current age under 40 or over 60\n• No Tysabri (Natalizumab) use",
-    "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
@@ -25749,15 +23776,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -25858,22 +23876,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -26070,14 +24072,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Preferred",
     "rules": [
@@ -26200,22 +24194,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Not asked",
     "rules": [
@@ -26296,14 +24274,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -26428,16 +24398,6 @@ UW.registerGrid({
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If currently, Graded",
-    "rules": [
-     {
-      "outcome": "graded",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 1 year, Decline",
     "rules": [
@@ -26556,15 +24516,6 @@ UW.registerGrid({
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
     "rules": null
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 6 months, Graded",
-    "rules": [
-     {
-      "withinYears": 0.5,
-      "outcome": "graded"
-     }
-    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 1 year, Decline",
@@ -26693,22 +24644,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -26855,15 +24790,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -27002,22 +24928,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Declined | Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -27199,22 +25109,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -27408,15 +25302,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If implanted within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If implanted within 2 years, Modified",
     "rules": [
@@ -27555,22 +25440,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -27695,14 +25564,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -27802,22 +25663,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Not asked",
     "rules": [
      {
@@ -27973,15 +25818,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified. If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
     "rules": [
@@ -28120,22 +25956,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -28291,15 +26111,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -28432,22 +26243,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -28568,14 +26363,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -28700,22 +26487,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Considered if not in combination with diabetes",
     "rules": null
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
@@ -28875,14 +26646,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Major depression or mood disorders requiring 3 meds or\nled to loss of work or seeing a psychiatrist",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• No hospitalization, employed/no time off work\n• Up to 1 medication (past or present)\n• No history of self harm or suicide attempt\n• No alcohol use",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Check meds list",
     "rules": null
@@ -28980,14 +26743,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -29115,21 +26870,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Current or within 10 years = Decline",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "History of felony, currently on\nprobation/parole, outstanding fines/\nrestitution, in jail, awaiting trial",
-    "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "If it occured within 10 years, Approved. If \"Due to a conviction for a felony?\" answered \"Yes\" , Decline",
@@ -29328,22 +27068,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -29469,22 +27193,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Accepted",
     "rules": [
@@ -29564,15 +27272,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -29718,18 +27417,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• No impact to mobility (crutches or wheelchair)\n• Minimal symptoms\n• No need for steroids, Methotrexate or Immunosuppressive medications\n(Plaquenil, Hydroxychloroquine)\n• Is older than age 30",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline, if moderate/severe",
     "rules": [
@@ -29868,14 +27555,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -30055,14 +27734,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -30186,15 +27857,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If paired with tobacco, Modified",
     "rules": [
@@ -30306,15 +27968,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -30454,22 +28107,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    },
@@ -30627,22 +28264,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -30770,14 +28391,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -30916,22 +28529,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -31047,15 +28644,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -31200,22 +28788,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -31333,15 +28905,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Modified",
     "rules": [
@@ -31412,22 +28975,6 @@ UW.registerGrid({
     "rules": null
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -31569,14 +29116,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Preferred",
     "rules": [
@@ -31699,18 +29238,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• No daily symptoms of sleepiness, complaint with treatment or no\ntreatment required\n• No use of oxygen\n• No use of medication due to symptoms",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Accepted",
     "rules": [
@@ -31809,15 +29336,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 1 year, Graded",
-    "rules": [
-     {
-      "withinYears": 1,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 1 year, Decline",
     "rules": [
@@ -31908,15 +29426,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -32048,22 +29557,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -32183,15 +29676,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -32323,23 +29807,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -32501,15 +29968,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -32678,23 +30136,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -32828,15 +30269,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -32978,22 +30410,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -33171,22 +30587,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -33357,15 +30757,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If performed within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If performed within 2 years, Modified",
     "rules": [
@@ -33502,23 +30893,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -33628,14 +31002,6 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -33750,21 +31116,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If within 6 months, Graded. If \"Has the prospect been a patient in a hospital for 2 or more days within the past 6 months?\" answered \"Yes\" , Graded",
-    "rules": [
-     {
-      "withinYears": 0.5,
-      "outcome": "graded",
-      "conditional": true
-     },
-     {
-      "outcome": "graded",
       "conditional": true
      }
     ],
@@ -33906,23 +31257,6 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
      }
     ]
    },
@@ -34069,14 +31403,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Decline",
     "rules": [
@@ -34206,22 +31532,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -34385,15 +31695,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If treated within 2 years, Graded",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "graded"
      }
     ]
    },
@@ -34569,19 +31870,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline if within 5 years",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "TIA consideration after 4 years",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -34718,14 +32006,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If paired with tobacco, Modified",
     "rules": [
@@ -34844,22 +32124,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -34961,14 +32225,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If \"Due to chronic illness or disease?\" answered \"Yes\" , Modified",
     "rules": [
@@ -35058,14 +32314,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
      }
     ]
    },
@@ -35179,14 +32427,6 @@ UW.registerGrid({
      }
     ]
    },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
-   },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "Preferred",
     "rules": [
@@ -35281,22 +32521,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 1,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -35396,16 +32620,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Graded",
-    "rules": [
-     {
-      "outcome": "graded",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Preferred. If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \"Due to chronic illness or disease?\" answered \"Yes\" , Modified",
@@ -35519,14 +32733,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "WHOLE LIFE :: Lafayette Life": {
-    "raw": "Level",
-    "rules": [
-     {
-      "outcome": "level"
-     }
-    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 2 years, Preferred. If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline. If \"Due to chronic illness or disease?\" answered \"Yes\" , Modified",
@@ -35705,22 +32911,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -35973,18 +33163,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "No history of hospitalization, suicide attempts or substance abuse\n• Up to 1 medication\n• Well controlled for at least 6 months",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "STANDARD",
     "rules": [
@@ -36113,22 +33291,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Case by Case",
-    "rules": [
-     {
-      "outcome": "refer"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -36184,24 +33346,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Any autoimmune disorder requiring\ncurrent use of walker or wheelchair, Decline",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Decline",
@@ -36278,22 +33422,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -36392,22 +33520,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Decline",
     "rules": [
@@ -36483,22 +33595,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Not asked",
     "rules": [
      {
@@ -36613,22 +33709,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -36769,22 +33849,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "NA (fatty liver disease excluded from liver knockout)",
     "rules": null
@@ -36865,22 +33929,6 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "not asked",
     "rules": [
      {
       "outcome": "standard"
@@ -37020,22 +34068,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -37183,22 +34215,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -37301,24 +34317,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline. If in the reserve or national guard, cannot approve\nif they are under alert for, received orders to or\ncurrently serving in a war zone or area of conflict\nor political instability",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "• Military reserves only with no call up orders received or anticipated\n• No special forces (such as Army Rangers, Navy Seal etc.)\n• Active Duty is considered on an individual basis (duties, rank etc.)",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Not allowed",
     "rules": null
@@ -37406,22 +34404,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -37584,24 +34566,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Declined",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "No combination with Diabetes - ok",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Yes, if not combined with diabetes",
     "rules": [
@@ -37745,22 +34709,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -37895,20 +34843,6 @@ UW.registerGrid({
     "raw": "Considered based on commercial pilot or private with enough hours. case by case review",
     "rules": null
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Commericial pilot accepted",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Accepts\n- Pilots of major airlines flying in the US and Canada\n- Or with an aviation rider",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Not allowed",
     "rules": null
@@ -38009,18 +34943,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Current pregnancy with complications such as history of pre-eclampsia or gestational diabetes = decline. Standard pregnancy = Approved",
-    "rules": null
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Accepted",
     "rules": [
@@ -38113,22 +35035,6 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Not asked",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Approved",
     "rules": [
      {
       "outcome": "standard"
@@ -38258,22 +35164,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
     "raw": "Decline",
     "rules": [
      {
@@ -38413,22 +35303,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -38529,14 +35403,6 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "12 month or less = smoker",
-    "rules": null
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "within 12 months",
-    "rules": null
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "within 12 months",
     "rules": null
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
@@ -38653,22 +35519,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
     "rules": [
@@ -38779,26 +35629,6 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Mild usage ok",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: Quility SBLI": {
-    "raw": "Acceptable as long as not on disability",
-    "rules": [
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": {
-    "raw": "Acceptable as long as not on disability",
     "rules": [
      {
       "outcome": "standard",

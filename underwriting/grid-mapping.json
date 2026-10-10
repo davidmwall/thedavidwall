@@ -371,6 +371,12 @@
     "WHOLE LIFE :: Ethos - Banner Life Guaranteed Issue Whole Life": "skip",
     "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
       "product": "ethos-accumulation-iul"
+    },
+    "WHOLE LIFE :: Lafayette Life": "skip",
+    "TERM, UL, IUL :: Quility SBLI": "skip",
+    "TERM, UL, IUL :: LGA/Banner Life (Banner Beyond)": "skip",
+    "TERM, UL, IUL :: Kansas City Life": {
+      "official": true
     }
   },
   "values": {
