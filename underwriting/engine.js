@@ -99,13 +99,15 @@
         // Unknown best class: let the grid's own answers set the class.
         bestOutcome: c.bestOutcome || null,
         gridOnly: true,
+        // official: the carrier publishes no guide, so the grid IS the source (not a backup).
+        gridOfficial: !!c.official,
         gridColumn: col,
         issueAges: c.issueAges,
         faceAmount: c.faceAmount,
         gridInfo: c.info || null,
         unlisted: c.unlisted,
         sample: grid.sample || false,
-        guide: { document: (grid.source && grid.source.document) || 'Condition grid', revision: 'grid only — no carrier guide loaded', lastReviewed: grid.source && grid.source.imported },
+        guide: { document: (grid.source && grid.source.document) || 'Condition grid', revision: c.official ? 'your grid (carrier has no published guide)' : 'grid only — no carrier guide loaded', lastReviewed: grid.source && grid.source.imported },
         conditions: {},
         medications: {}
       });
@@ -454,7 +456,7 @@
       note: (preferred === 'item' ? 'From your grid (the guide only gives a range here): "' : preferred ? 'From your grid (you chose the grid over this guide for this product): "' : 'From your grid: "') + cell.raw + '"' +
         (preferred ? '' : '. Not confirmed by a carrier guide') +
         (cell.qualified ? '. Depends on details the app doesn\'t check, so read the full note' : ''),
-      source: 'grid', timing: res.timing, basis: 'grid', backup: !preferred, verify: !!cell.qualified
+      source: 'grid', timing: res.timing, basis: 'grid', backup: !preferred && !p.gridOfficial, verify: !!cell.qualified
     });
   }
 
@@ -642,7 +644,7 @@
       return out(a) - out(b) ||
         rank(a.best) - rank(b.best) ||
         rank(a.worst) - rank(b.worst) ||
-        (a.product.gridOnly ? 1 : 0) - (b.product.gridOnly ? 1 : 0) ||
+        (a.product.gridOnly && !a.product.gridOfficial ? 1 : 0) - (b.product.gridOnly && !b.product.gridOfficial ? 1 : 0) ||
         (a.status === 'fit' ? 0 : 1) - (b.status === 'fit' ? 0 : 1) ||
         a.verifyCount - b.verifyCount ||
         a.backupCount - b.backupCount ||

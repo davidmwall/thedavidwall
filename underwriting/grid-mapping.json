@@ -363,6 +363,9 @@
     },
     "WHOLE LIFE :: Baltimore Life": {
       "product": "baltimore-life-iprovide"
+    },
+    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
+      "official": true
     }
   },
   "values": {

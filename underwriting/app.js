@@ -184,7 +184,7 @@
       '<summary>' +
         '<div class="r-main"><div class="r-title">' + esc(p.carrier) + ' <span class="muted">· ' + esc(p.product) + '</span></div>' +
         '<div class="badges"><span class="badge">' + esc(UW.PRODUCT_TYPES[p.type] || p.type) + '</span><span class="badge">' + esc(UW.UW_TYPES[p.underwriting] || p.underwriting) + '</span>' +
-        (p.gridOnly ? '<span class="badge grid">grid only, no guide loaded</span>' : '') +
+        (p.gridOfficial ? '<span class="badge">from your grid (no carrier guide exists)</span>' : p.gridOnly ? '<span class="badge grid">grid only, no guide loaded</span>' : '') +
         (flags.length ? '<span class="badge warn">' + esc(flags.join(' · ')) + '</span>' : '') + '</div></div>' +
         '<div class="r-outcome">' + (r.status === 'ineligible' ? pill('decline') : outcomeRange(r)) + '</div>' +
       '</summary>' +
@@ -251,7 +251,7 @@
           (f.best ? (f.best === f.worst ? pill(f.best) : pill(f.best) + ' → ' + pill(f.worst)) : (f.worst ? '<span class="pill good">Not asked</span> → ' + pill(f.worst) : '<span class="pill good">OK</span>'));
         if (f.basis === 'grid' && !f.verify) res += ' <span class="badge grid">grid</span>';
         var details = esc(f.note) + (f.grid ? '<div class="gridnote ' + (f.gridConflict ? 'conflict' : 'agree') + '">Grid: "' + esc(f.grid) + '"' + (f.gridConflict ? ', disagrees' : ', agrees') + '</div>' : '');
-        return '<tr><td><strong>' + esc(p.carrier) + '</strong>' + (p.gridOnly ? ' <span class="badge grid">grid only</span>' : '') + '<br><span class="muted">' + esc(p.product) + '</span></td><td>' + res +
+        return '<tr><td><strong>' + esc(p.carrier) + '</strong>' + (p.gridOfficial ? ' <span class="badge">grid (official)</span>' : p.gridOnly ? ' <span class="badge grid">grid only</span>' : '') + '<br><span class="muted">' + esc(p.product) + '</span></td><td>' + res +
           '</td><td>' + details + '</td><td class="src">' + esc(f.basis === 'grid' ? 'grid' : f.source) + '</td></tr>';
       }).join('') + '</tbody></table></div>';
   }
@@ -267,7 +267,7 @@
         var stale = !g.lastReviewed || (now - Date.parse(g.lastReviewed)) / 864e5 > STALE_DAYS;
         var a = p.issueAges || {}, f = p.faceAmount || {};
         var money = function (n) { return n == null ? '?' : '$' + Number(n).toLocaleString('en-US'); };
-        return '<tr><td><strong>' + esc(p.carrier) + '</strong>' + (p.sample ? ' <span class="badge">sample</span>' : '') + (p.gridOnly ? ' <span class="badge grid">grid only</span>' : p.gridColumn ? ' <span class="badge">+ grid backup</span>' : '') + '<br><span class="muted">' + esc(p.product) + '</span></td>' +
+        return '<tr><td><strong>' + esc(p.carrier) + '</strong>' + (p.sample ? ' <span class="badge">sample</span>' : '') + (p.gridOfficial ? ' <span class="badge">grid (official, no carrier guide)</span>' : p.gridOnly ? ' <span class="badge grid">grid only</span>' : p.gridColumn ? ' <span class="badge">+ grid backup</span>' : '') + '<br><span class="muted">' + esc(p.product) + '</span></td>' +
           '<td>' + esc(UW.PRODUCT_TYPES[p.type]) + '<br><span class="muted">' + esc(UW.UW_TYPES[p.underwriting]) + '</span></td>' +
           '<td>' + (p.issueAges ? a.min + '–' + a.max : '?') + '</td><td>' + (p.faceAmount ? money(f.min) + '–' + money(f.max) : '?') + '</td>' +
           '<td>' + Object.keys(p.conditions || {}).length + ' conditions<br>' + Object.keys(p.medications || {}).length + ' meds</td>' +

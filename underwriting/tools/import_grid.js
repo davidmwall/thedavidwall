@@ -17,7 +17,8 @@
  *              "Term/IUL :: Carrier Z":   { "underwriting": "accelerated" }, <- grid-only
  *              "Whole Life :: Comments":  "skip" }
  *            column options: product, absorbInto, approveOnly, bestOutcome, keepGuideFace,
- *            declineAs ("gi": the column's declines become that outcome)
+ *            declineAs ("gi": the column's declines become that outcome),
+ *            official (true: the carrier has no published guide, so the grid is its source)
  * Column keys are "<tab> :: <column header>" so the same carrier in two tabs
  * stays two products.
  *   values:  { "IC": "refer", "2yr GR": [{ "withinYears": 2, "outcome": "graded" }, { "outcome": "best" }] }

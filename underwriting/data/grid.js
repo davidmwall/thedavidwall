@@ -463,7 +463,8 @@ UW.registerGrid({
     "max": 40000,
     "source": "grid: Max face amount",
     "min": 1000
-   }
+   },
+   "official": true
   },
   "WHOLE LIFE :: Mutual of Omaha (Children's Whole Life)": {
    "carrier": "Mutual of Omaha (Children's Whole Life)",
