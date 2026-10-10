@@ -344,7 +344,7 @@ UW.addProduct({
         }
       ],
       "source": "p. 6",
-      "note": "Guide: \"any insulin treatment <2 years / 2–5 / >5 years\""
+      "note": "Years = time since last insulin treatment (confirmed by agent)"
     },
     "diabetes_uncomplicated": {
       "rules": [
