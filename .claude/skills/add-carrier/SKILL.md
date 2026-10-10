@@ -26,13 +26,16 @@ The app's accuracy depends entirely on this step. Transcribe the guide; never in
    - Set `guide.revision`, `guide.effective`, and `guide.lastReviewed` (today).
    - Anything that doesn't fit the schema goes in `notes` or a rule `note`. Don't drop it.
 
-4. **Wire it up.** Add `<script src="data/carriers/<file>.js"></script>` to `underwriting/index.html` in the "Carrier data" block.
+4. **Wire it up.** Add `<script src="data/carriers/<file>.js"></script>` to `underwriting/index.html` in the "Carrier data" block (before `data/grid.js`).
+   - If the carrier has a column in the user's condition grid, link it in `underwriting/grid-mapping.json` (`"<Tab> :: <Column>": { "product": "<id>" }`). Then re-run `node underwriting/tools/import_grid.js underwriting/guides/<grid>.xlsx` so the grid backs up this carrier instead of showing a separate grid-only product.
 
 5. **Verify.**
    - `node underwriting/tools/validate.js` must report 0 errors. Fix the warnings too.
    - `node --test underwriting/tests/*.test.js` must pass.
    - Spot-check 3 rules against the PDF by page number, and list them for the user so they can confirm.
 
-6. **Report back** with a list of ambiguous items you couldn't map cleanly, each with its page number, so the user can decide. Don't silently pick an interpretation.
+6. **Review grid disagreements.** The validator prints `INFO grid disagrees: ...` lines. For each one, re-read the cited guide page. If the PDF rule is right, the grid is stale, so tell the user. If you misread the PDF, fix the rule. The PDF is the official source.
 
-7. Once the user has real carriers loaded, offer to delete the `sample-*.js` files and their script tags.
+7. **Report back** with a list of ambiguous items you couldn't map cleanly, each with its page number, so the user can decide. Don't silently pick an interpretation.
+
+8. Once the user has real carriers loaded, offer to delete the `sample-*.js` files and their script tags.

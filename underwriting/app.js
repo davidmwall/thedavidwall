@@ -142,14 +142,19 @@
     else if (f.timing) { icon = '◐'; cls = 'warn'; }
     else if (f.best) { icon = '•'; cls = tone(f.best); }
     else { icon = '✓'; cls = 'good'; }
+    var gridLine = '';
+    if (f.grid) {
+      gridLine = '<div class="gridnote ' + (f.gridConflict ? 'conflict' : 'agree') + '">Grid: "' + esc(f.grid) + '"' +
+        (f.gridConflict ? ', disagrees with the guide (guide wins)' : ', agrees') + '</div>';
+    }
     var result = f.best ? (f.best === f.worst ? UW.label(f.best) : UW.label(f.best) + ' → ' + UW.label(f.worst))
       : f.worst ? 'Not asked → ' + UW.label(f.worst)
       : (f.verify ? 'Verify' : 'OK');
     return '<li class="factor ' + cls + '"><span class="ic">' + icon + '</span>' +
       '<div><div><strong>' + esc(f.label) + '</strong>: ' + esc(result) +
-      (f.source ? ' <span class="src">' + esc(f.source) + '</span>' : '') + '</div>' +
+      (f.basis === 'grid' ? ' <span class="src grid">grid (backup)</span>' : f.source ? ' <span class="src">' + esc(f.source) + '</span>' : '') + '</div>' +
       (f.note ? '<div class="note">' + esc(f.note) + (f.timing ? '. Add "yrs ago" to narrow this down' : '') + '</div>' : '') +
-      '</div></li>';
+      gridLine + '</div></li>';
   }
 
   function card(r, open) {
@@ -157,11 +162,14 @@
     var flags = [];
     if (r.verifyCount) flags.push(r.verifyCount + ' to verify');
     if (r.timingCount) flags.push(r.timingCount + ' depends on timing');
+    if (r.backupCount) flags.push(r.backupCount + ' from grid');
+    if (r.conflictCount) flags.push(r.conflictCount + ' grid disagrees');
     var g = p.guide || {};
     return '<details class="result ' + r.status + '"' + (open ? ' open' : '') + '>' +
       '<summary>' +
         '<div class="r-main"><div class="r-title">' + esc(p.carrier) + ' <span class="muted">· ' + esc(p.product) + '</span></div>' +
         '<div class="badges"><span class="badge">' + esc(UW.PRODUCT_TYPES[p.type] || p.type) + '</span><span class="badge">' + esc(UW.UW_TYPES[p.underwriting] || p.underwriting) + '</span>' +
+        (p.gridOnly ? '<span class="badge grid">grid only, no guide loaded</span>' : '') +
         (flags.length ? '<span class="badge warn">' + esc(flags.join(' · ')) + '</span>' : '') + '</div></div>' +
         '<div class="r-outcome">' + (r.status === 'ineligible' ? pill('decline') : outcomeRange(r)) + '</div>' +
       '</summary>' +
@@ -225,8 +233,10 @@
         var f = r.factor, p = r.product;
         var res = f.verify ? '<span class="pill warn">Not in guide</span>' :
           (f.best ? (f.best === f.worst ? pill(f.best) : pill(f.best) + ' → ' + pill(f.worst)) : (f.worst ? '<span class="pill good">Not asked</span> → ' + pill(f.worst) : '<span class="pill good">OK</span>'));
-        return '<tr><td><strong>' + esc(p.carrier) + '</strong><br><span class="muted">' + esc(p.product) + '</span></td><td>' + res +
-          '</td><td>' + esc(f.note) + '</td><td class="src">' + esc(f.source) + '</td></tr>';
+        if (f.basis === 'grid' && !f.verify) res += ' <span class="badge grid">grid</span>';
+        var details = esc(f.note) + (f.grid ? '<div class="gridnote ' + (f.gridConflict ? 'conflict' : 'agree') + '">Grid: "' + esc(f.grid) + '"' + (f.gridConflict ? ', disagrees' : ', agrees') + '</div>' : '');
+        return '<tr><td><strong>' + esc(p.carrier) + '</strong>' + (p.gridOnly ? ' <span class="badge grid">grid only</span>' : '') + '<br><span class="muted">' + esc(p.product) + '</span></td><td>' + res +
+          '</td><td>' + details + '</td><td class="src">' + esc(f.basis === 'grid' ? 'grid' : f.source) + '</td></tr>';
       }).join('') + '</tbody></table></div>';
   }
 
@@ -241,11 +251,22 @@
         var stale = !g.lastReviewed || (now - Date.parse(g.lastReviewed)) / 864e5 > STALE_DAYS;
         var a = p.issueAges || {}, f = p.faceAmount || {};
         var money = function (n) { return n == null ? '?' : '$' + Number(n).toLocaleString('en-US'); };
-        return '<tr><td><strong>' + esc(p.carrier) + '</strong>' + (p.sample ? ' <span class="badge">sample</span>' : '') + '<br><span class="muted">' + esc(p.product) + '</span></td>' +
+        return '<tr><td><strong>' + esc(p.carrier) + '</strong>' + (p.sample ? ' <span class="badge">sample</span>' : '') + (p.gridOnly ? ' <span class="badge grid">grid only</span>' : p.gridColumn ? ' <span class="badge">+ grid backup</span>' : '') + '<br><span class="muted">' + esc(p.product) + '</span></td>' +
           '<td>' + esc(UW.PRODUCT_TYPES[p.type]) + '<br><span class="muted">' + esc(UW.UW_TYPES[p.underwriting]) + '</span></td>' +
-          '<td>' + a.min + '–' + a.max + '</td><td>' + money(f.min) + '–' + money(f.max) + '</td>' +
+          '<td>' + (p.issueAges ? a.min + '–' + a.max : '?') + '</td><td>' + (p.faceAmount ? money(f.min) + '–' + money(f.max) : '?') + '</td>' +
           '<td>' + Object.keys(p.conditions || {}).length + ' conditions<br>' + Object.keys(p.medications || {}).length + ' meds</td>' +
           '<td>' + esc(g.revision || '—') + '<br><span class="' + (stale ? 'stale' : 'muted') + '">reviewed ' + esc(g.lastReviewed || 'never') + (stale ? ' ⚠' : '') + '</span></td></tr>';
+      }).join('') + '</tbody></table></div>';
+
+    var conflicts = UW.gridConflicts();
+    $('#conflicts-card').hidden = !conflicts.length;
+    $('#conflict-list').innerHTML = '<div class="table-wrap"><table><thead><tr><th>Carrier / product</th><th>Item</th><th>Guide says</th><th>Grid says</th></tr></thead><tbody>' +
+      conflicts.map(function (c) {
+        var dict = c.kind === 'conditions' ? UW.state.conditions : UW.state.medications;
+        var f = c.factor;
+        var guide = f.best ? (f.best === f.worst ? UW.label(f.best) : UW.label(f.best) + ' → ' + UW.label(f.worst)) : (f.worst ? 'Not asked → ' + UW.label(f.worst) : 'OK');
+        return '<tr><td><strong>' + esc(c.product.carrier) + '</strong><br><span class="muted">' + esc(c.product.product) + '</span></td>' +
+          '<td>' + esc(dict[c.id] ? dict[c.id].name : c.id) + '</td><td>' + esc(guide) + ' <span class="src">' + esc(f.source) + '</span></td><td>' + esc(f.grid) + '</td></tr>';
       }).join('') + '</tbody></table></div>';
   }
 

@@ -117,6 +117,11 @@ input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -1
 .badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 .badge { font-size: 11px; padding: 2px 7px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); color: var(--muted); }
 .badge.warn { background: var(--mid-bg); color: var(--mid); border-color: transparent; }
+.badge.grid, .src.grid { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.gridnote { font-size: 12px; margin-top: 2px; }
+.gridnote.agree { color: var(--muted); }
+.gridnote.conflict { color: var(--warn); font-weight: 600; }
+#conflicts-card { margin-top: 16px; }
 .pill { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
 .pill.good { background: var(--good-bg); color: var(--good); }
 .pill.mid { background: var(--mid-bg); color: var(--mid); }

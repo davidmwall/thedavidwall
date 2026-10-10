@@ -1,0 +1,23 @@
+{
+  "tabs": {
+    "Whole Life": {
+      "type": "final_expense",
+      "underwriting": "simplified"
+    },
+    "Term-IUL": {
+      "type": "term",
+      "underwriting": "accelerated"
+    },
+    "UHL": "skip"
+  },
+  "rows": {},
+  "columns": {
+    "Whole Life :: Sample Carrier A": {
+      "product": "sample-fe-instant"
+    },
+    "Term-IUL :: Sample Carrier B": {
+      "product": "sample-term-accelerated"
+    }
+  },
+  "values": {}
+}

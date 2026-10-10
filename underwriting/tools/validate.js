@@ -19,6 +19,7 @@ require(path.join(ROOT, 'data', 'conditions.js'));
 var html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 var referenced = [];
 html.replace(/<script src="(data\/carriers\/[^"]+)"/g, function (_, src) { referenced.push(src); });
+var gridRef = /<script src="data\/grid\.js"/.test(html);
 
 var errors = [], warnings = [];
 function err(where, msg) { errors.push(where + ': ' + msg); }
@@ -121,6 +122,29 @@ function checkProduct(src, p) {
     else if (!isOutcome(m.outcome)) err(where, 'needs outcome or rules');
     if (!m.source) warn(where, 'no source page');
   });
+}
+
+// Backup grid: loads after carriers; every mapped column must point at a real product.
+if (gridRef && fs.existsSync(path.join(ROOT, 'data', 'grid.js'))) {
+  var before = UW.state.products.length;
+  try { require(path.join(ROOT, 'data', 'grid.js')); } catch (e) { err('data/grid.js', 'JavaScript error: ' + e.message); }
+  var g = UW.state.grid || {};
+  Object.keys(g.columns || {}).forEach(function (col) {
+    var c = g.columns[col];
+    if (c.product && !seenIds[c.product]) err('grid-mapping.json', 'column "' + col + '" maps to unknown product "' + c.product + '"');
+  });
+  ['conditions', 'medications'].forEach(function (kind) {
+    Object.keys(g[kind] || {}).forEach(function (id) {
+      if (!(kind === 'conditions' ? UW.state.conditions : UW.state.medications)[id]) err('data/grid.js', 'unknown ' + kind + ' ID "' + id + '" — re-run the import');
+    });
+  });
+  var conflicts = UW.gridConflicts();
+  console.log('Grid: ' + Object.keys(g.columns || {}).length + ' columns, ' + (UW.state.products.length - before) + ' grid-only products, ' + conflicts.length + ' disagreement(s) with carrier guides');
+  conflicts.forEach(function (c) {
+    console.log('INFO  grid disagrees: ' + c.product.id + ' ' + c.id + ' — guide ' + c.factor.best + '/' + c.factor.worst + ' (' + c.factor.source + '), grid "' + c.factor.grid + '"');
+  });
+} else if (fs.existsSync(path.join(ROOT, 'data', 'grid.js'))) {
+  err('index.html', 'data/grid.js exists but is not loaded — add <script src="data/grid.js"></script> after the carrier scripts');
 }
 
 // Vocabulary sanity: duplicate aliases across different conditions confuse search.

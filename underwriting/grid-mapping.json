@@ -1,0 +1,17 @@
+{
+  "_readme": "Decisions for importing your condition spreadsheet. Format is documented at the top of tools/import_grid.js. Re-imports keep everything here. Tab names must match the workbook exactly.",
+  "tabs": {
+    "Whole Life": {
+      "type": "final_expense",
+      "underwriting": "simplified"
+    },
+    "Term-IUL": {
+      "type": "term",
+      "underwriting": "accelerated"
+    },
+    "UHL": "skip"
+  },
+  "rows": {},
+  "columns": {},
+  "values": {}
+}
