@@ -1267,7 +1267,8 @@ UW.registerGrid({
    },
    "approveOnly": false,
    "bestOutcome": "preferred_plus",
-   "product": "foresters-your-term"
+   "product": "foresters-your-term",
+   "keepGuideFace": true
   },
   "TERM, UL, IUL :: FORESTERS SMART UL": {
    "carrier": "FORESTERS SMART UL",

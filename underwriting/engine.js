@@ -81,7 +81,8 @@
           // Agent rule: the grid is the source for issue ages and face amounts;
           // the carrier guide stays the source for medical rules.
           if (c.issueAges) { if (p.issueAges) p.guideIssueAges = p.issueAges; p.issueAges = c.issueAges; }
-          if (c.faceAmount) {
+          // keepGuideFace: agent chose the guide's face limits for this product.
+          if (c.faceAmount && !c.keepGuideFace) {
             if (p.faceAmount) p.guideFaceAmount = p.faceAmount;
             // Keep the guide's minimum when the grid only states a maximum.
             p.faceAmount = Object.assign({}, c.faceAmount.min == null && p.guideFaceAmount && p.guideFaceAmount.min ? { min: p.guideFaceAmount.min } : {}, c.faceAmount);

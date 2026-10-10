@@ -281,7 +281,8 @@
     "TERM, UL, IUL :: FORESTERS YOUR TERM": {
       "product": "foresters-your-term",
       "approveOnly": false,
-      "bestOutcome": "preferred_plus"
+      "bestOutcome": "preferred_plus",
+      "keepGuideFace": true
     },
     "WHOLE LIFE :: Foresters (Plan Right)": {
       "product": "foresters-planright"

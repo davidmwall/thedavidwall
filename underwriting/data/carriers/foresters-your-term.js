@@ -14,8 +14,7 @@ UW.addProduct({
   },
   "faceAmount": {
     "min": 100000,
-    "max": 5000000,
-    "note": "Age & amount chart starts at $100,000; vitals/blood at every amount, paramed at most",
+    "note": "Age & amount chart starts at $100,000 and runs to $3,000,000+ (no maximum stated); vitals/blood at every amount, paramed at most",
     "source": "p. 13"
   },
   "tobacco": {
