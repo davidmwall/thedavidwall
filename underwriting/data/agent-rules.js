@@ -5,3 +5,9 @@ UW.registerAgentRules({
   hiv_aids: { outcome: 'gi-only', note: 'Agent rule: HIV is guaranteed issue only, across every carrier',
              except: ['rnoa-ensured-legacy'] }   // Royal Neighbors' guide: HIV virus only = GDB (graded)
 });
+
+// Product limits that override carrier guides and the grid.
+UW.registerAgentLimits([
+  { products: /^ethos-/, except: ['ethos-trustage-ga-wl'], issueAgeMin: 18, note: 'Agent rule: Ethos issues from age 18' },
+  { products: ['ethos-trustage-ga-wl'], issueAgeMin: 45, note: 'Agent rule: Ethos GI from age 45' }
+]);

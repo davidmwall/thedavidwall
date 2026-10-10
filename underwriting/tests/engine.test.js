@@ -383,6 +383,18 @@ test('agent rule gi-only: GI where the product has a GI plan, decline elsewhere,
   UW.state.agentRules = saved;
 });
 
+test('agent product limits override guide and grid issue ages', function () {
+  UW.state.products = []; UW.state.grid = null; var saved = UW.state.agentLimits; UW.state.agentLimits = [];
+  UW.registerAgentLimits([{ products: /^acme-/, except: ['acme-gi'], issueAgeMin: 18 }, { products: ['acme-gi'], issueAgeMin: 45 }]);
+  UW.addProduct({ id: 'acme-term', carrier: 'A', product: 'T', type: 'term', underwriting: 'accelerated', bestOutcome: 'standard', issueAges: { min: 20, max: 65 } });
+  UW.addProduct({ id: 'acme-gi', carrier: 'A', product: 'G', type: 'final_expense', underwriting: 'guaranteed', bestOutcome: 'gi', issueAges: { min: 50, max: 80 } });
+  var r = UW.evaluate({ age: 18 }), r2 = UW.evaluate({ age: 46 });
+  assert.strictEqual(find(r, 'acme-term').best, 'standard');
+  assert.strictEqual(find(r2, 'acme-gi').best, 'gi');
+  assert.strictEqual(find(UW.evaluate({ age: 66 }), 'acme-term').best, 'decline');   // max unchanged
+  UW.state.agentLimits = saved;
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });

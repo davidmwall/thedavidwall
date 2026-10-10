@@ -185,9 +185,26 @@
     return f;
   }
 
+  // Agent-wide product limits (data/agent-rules.js): your numbers win over guides and the grid.
+  // { products: /^ethos-/, except: ['ethos-trustage-ga-wl'], issueAgeMin: 18 }
+  function registerAgentLimits(list) { state.agentLimits = (state.agentLimits || []).concat(list); }
+  function agentAges(p) {
+    var a = p.issueAges ? Object.assign({}, p.issueAges) : null;
+    (state.agentLimits || []).forEach(function (l) {
+      var hit = l.products instanceof RegExp ? l.products.test(p.id) : (l.products || []).indexOf(p.id) !== -1;
+      if (!hit || (l.except || []).indexOf(p.id) !== -1) return;
+      a = a || {};
+      if (l.issueAgeMin != null) a.min = l.issueAgeMin;
+      if (l.issueAgeMax != null) a.max = l.issueAgeMax;
+      a.note = (l.note || 'agent rule') + (a.note ? '; ' + a.note : '');
+      a.source = 'agent rule';
+    });
+    return a;
+  }
+
   function evalAge(p, age) {
-    if (!p.issueAges) return factor('age', 'Age ' + age, null, null, { verify: true, note: 'Issue ages not loaded (no carrier guide yet)' });
-    var a = p.issueAges;
+    var a = agentAges(p);
+    if (!a) return factor('age', 'Age ' + age, null, null, { verify: true, note: 'Issue ages not loaded (no carrier guide yet)' });
     var extra = a.note ? ' (' + a.note + ')' : '';
     if ((a.min != null && age < a.min) || (a.max != null && age > a.max)) {
       return factor('age', 'Age ' + age, 'decline', 'decline',
@@ -789,6 +806,8 @@
     state: state,
     registerConditions: registerConditions,
     registerAgentRules: registerAgentRules,
+    registerAgentLimits: registerAgentLimits,
+    agentAges: agentAges,
     registerMedications: registerMedications,
     addProduct: addProduct,
     registerGrid: registerGrid,

@@ -266,11 +266,11 @@
       UW.state.products.map(function (p) {
         var g = p.guide || {};
         var stale = !g.lastReviewed || (now - Date.parse(g.lastReviewed)) / 864e5 > STALE_DAYS;
-        var a = p.issueAges || {}, f = p.faceAmount || {};
+        var a = UW.agentAges(p) || {}, f = p.faceAmount || {};
         var money = function (n) { return n == null ? '?' : '$' + Number(n).toLocaleString('en-US'); };
         return '<tr><td><strong>' + esc(p.carrier) + '</strong>' + (p.sample ? ' <span class="badge">sample</span>' : '') + (p.gridOfficial ? ' <span class="badge">grid (official, no carrier guide)</span>' : p.gridOnly ? ' <span class="badge grid">grid only</span>' : p.gridColumn ? ' <span class="badge">+ grid backup</span>' : '') + '<br><span class="muted">' + esc(p.product) + '</span></td>' +
           '<td>' + esc(UW.PRODUCT_TYPES[p.type]) + '<br><span class="muted">' + esc(UW.UW_TYPES[p.underwriting]) + '</span></td>' +
-          '<td>' + (p.issueAges ? a.min + '–' + a.max : '?') + '</td><td>' + (p.faceAmount ? money(f.min) + '–' + money(f.max) : '?') + '</td>' +
+          '<td>' + (a.min != null ? a.min + '–' + a.max : '?') + '</td><td>' + (p.faceAmount ? money(f.min) + '–' + money(f.max) : '?') + '</td>' +
           '<td>' + Object.keys(p.conditions || {}).length + ' conditions<br>' + Object.keys(p.medications || {}).length + ' meds</td>' +
           '<td>' + esc(g.revision || '—') + '<br><span class="' + (stale ? 'stale' : 'muted') + '">reviewed ' + esc(g.lastReviewed || 'never') + (stale ? ' ⚠' : '') + '</span></td></tr>';
       }).join('') + '</tbody></table></div>';
