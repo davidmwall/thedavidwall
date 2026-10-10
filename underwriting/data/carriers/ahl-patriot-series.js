@@ -21,11 +21,12 @@ UW.addProduct({
    "fallback": "decline"
   }
  },
+ "build": "none",
  "tobacco": {
   "note": "Smoker rates for any nicotine or tobacco in 12 months (including occasional pipe/cigar)",
   "source": "p. 5"
  },
- "notes": "The disease guide gives medical rules only: ages, face amounts and build come from your grid (Level 40–89, Modified 40–75 up to $25k). Wheelchair or scooter currently in use = Decline (as written, whether or not due to disease). Unrepaired heart defect = Decline.",
+ "notes": "The disease guide gives medical rules only: ages and face amounts come from your grid (Level 40–89, Modified 40–75 up to $25k). No build chart (per agent). Wheelchair or scooter currently in use = Decline (as written, whether or not due to disease). Unrepaired heart defect = Decline.",
  "conditions": {
   "adl_assistance": {
    "rules": [
