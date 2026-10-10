@@ -1,0 +1,353 @@
+/*
+ * Underwriting matching engine.
+ *
+ * Runs in the browser (exposes window.UW) and in Node (module.exports) so the
+ * same logic powers the app, the data validator, and the tests.
+ *
+ * Core principle: a blank input never eliminates a carrier. Only information
+ * you actually enter can produce a decline. A condition or medication a
+ * carrier's guide does not address is reported as "verify", never assumed OK.
+ */
+(function (root) {
+  'use strict';
+
+  // Ordered best -> worst. `rank` drives sorting and "worst factor wins".
+  var OUTCOMES = {
+    preferred_plus: { rank: 0, label: 'Preferred Plus' },
+    preferred:      { rank: 1, label: 'Preferred' },
+    standard_plus:  { rank: 2, label: 'Standard Plus' },
+    standard:       { rank: 3, label: 'Standard' },
+    level:          { rank: 3, label: 'Level (day-1 coverage)' },
+    table:          { rank: 4, label: 'Table rated' },
+    graded:         { rank: 5, label: 'Graded' },
+    modified:       { rank: 6, label: 'Modified / ROP' },
+    gi:             { rank: 7, label: 'Guaranteed issue only' },
+    refer:          { rank: 8, label: 'Review / kicks to full UW' },
+    decline:        { rank: 9, label: 'Decline' }
+  };
+
+  var PRODUCT_TYPES = {
+    final_expense: 'Final Expense',
+    term: 'Term',
+    mortgage_protection: 'Mortgage Protection',
+    iul: 'IUL',
+    whole_life: 'Whole Life'
+  };
+
+  var UW_TYPES = {
+    instant: 'Instant decision',
+    accelerated: 'Accelerated (no exam)',
+    simplified: 'Simplified issue',
+    guaranteed: 'Guaranteed issue'
+  };
+
+  var state = {
+    conditions: {},   // id -> { id, name, category, aliases[] }
+    medications: {},  // id -> { id, name, aliases[], commonlyFor[] }
+    products: []
+  };
+
+  function registerConditions(list) {
+    list.forEach(function (c) { state.conditions[c.id] = c; });
+  }
+  function registerMedications(list) {
+    list.forEach(function (m) { state.medications[m.id] = m; });
+  }
+  function addProduct(p) { state.products.push(p); }
+  function reset() {
+    state.conditions = {}; state.medications = {}; state.products = [];
+  }
+
+  function rank(o) { return OUTCOMES[o] ? OUTCOMES[o].rank : -1; }
+  function worse(a, b) { return rank(a) >= rank(b) ? a : b; }
+  function label(o) { return OUTCOMES[o] ? OUTCOMES[o].label : o; }
+
+  function isBlank(v) {
+    return v === undefined || v === null || v === '' || (typeof v === 'number' && isNaN(v));
+  }
+
+  // ---------------------------------------------------------------------------
+  // Search helpers (aliases, abbreviations, brand/generic names)
+  // ---------------------------------------------------------------------------
+  function norm(s) {
+    return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  }
+
+  function scoreTerm(query, entry) {
+    var q = norm(query);
+    if (!q) return 0;
+    var names = [entry.name].concat(entry.aliases || []).map(norm);
+    var best = 0;
+    names.forEach(function (n) {
+      var s = 0;
+      if (n === q) s = 100;
+      else if (n.indexOf(q) === 0) s = 80;
+      else if ((' ' + n).indexOf(' ' + q) !== -1) s = 60;
+      else if (n.indexOf(q) !== -1) s = 40;
+      if (s > best) best = s;
+    });
+    return best;
+  }
+
+  function searchIn(dict, query, limit) {
+    return Object.keys(dict)
+      .map(function (id) { return { item: dict[id], score: scoreTerm(query, dict[id]) }; })
+      .filter(function (r) { return r.score > 0; })
+      .sort(function (a, b) { return b.score - a.score || a.item.name.localeCompare(b.item.name); })
+      .slice(0, limit || 10)
+      .map(function (r) { return r.item; });
+  }
+
+  function searchConditions(q, limit) { return searchIn(state.conditions, q, limit); }
+  function searchMedications(q, limit) { return searchIn(state.medications, q, limit); }
+
+  // ---------------------------------------------------------------------------
+  // Factor evaluation. Each returns a factor object:
+  //   { kind, label, best, worst, verify, note, source }
+  // best/worst are outcome keys ('decline' means knocked out), or null when the
+  // factor has no impact on class. verify=true means "guide is silent/unclear".
+  // ---------------------------------------------------------------------------
+  function factor(kind, lbl, best, worst, extra) {
+    var f = { kind: kind, label: lbl, best: best, worst: worst || best, verify: false, note: '', source: '' };
+    if (extra) for (var k in extra) f[k] = extra[k];
+    return f;
+  }
+
+  function evalAge(p, age) {
+    var a = p.issueAges || {};
+    if ((a.min != null && age < a.min) || (a.max != null && age > a.max)) {
+      return factor('age', 'Age ' + age, 'decline', 'decline',
+        { note: 'Issue ages ' + a.min + '–' + a.max, source: a.source || '' });
+    }
+    // Optional age-banded caps, e.g. term length or class limits by age.
+    return factor('age', 'Age ' + age, null, null, { note: 'Within issue ages ' + a.min + '–' + a.max });
+  }
+
+  function evalState(p, st) {
+    st = String(st).toUpperCase();
+    if ((p.statesNotAvailable || []).indexOf(st) !== -1) {
+      return factor('state', 'State ' + st, 'decline', 'decline', { note: 'Not available in ' + st });
+    }
+    if (p.statesAvailable && p.statesAvailable.indexOf(st) === -1) {
+      return factor('state', 'State ' + st, 'decline', 'decline', { note: 'Not on approved state list' });
+    }
+    return factor('state', 'State ' + st, null);
+  }
+
+  function evalFace(p, amt) {
+    var f = p.faceAmount || {};
+    var fmt = function (n) { return '$' + Number(n).toLocaleString('en-US'); };
+    if ((f.min != null && amt < f.min) || (f.max != null && amt > f.max)) {
+      return factor('face', 'Face ' + fmt(amt), 'decline', 'decline',
+        { note: 'Face range ' + fmt(f.min) + '–' + fmt(f.max) + (f.note ? ' (' + f.note + ')' : ''), source: f.source || '' });
+    }
+    return factor('face', 'Face ' + fmt(amt), null);
+  }
+
+  function evalTobacco(p, tobacco) {
+    if (tobacco !== 'yes') return null;
+    var t = p.tobacco;
+    if (!t) return factor('tobacco', 'Tobacco/nicotine', null, null, { verify: true, note: 'Tobacco treatment not entered for this product' });
+    return factor('tobacco', 'Tobacco/nicotine', t.outcome || null, t.outcome || null,
+      { note: t.note || 'Tobacco rates apply', source: t.source || '' });
+  }
+
+  function evalBuild(p, heightIn, weightLb) {
+    var lbl = Math.floor(heightIn / 12) + "'" + (heightIn % 12) + '" / ' + weightLb + ' lb';
+    var b = p.build;
+    if (b === 'none') return factor('build', lbl, null, null, { note: 'No build requirement' });
+    if (!b || !b.rows) return factor('build', lbl, null, null, { verify: true, note: 'No build chart entered for this product' });
+    var row = null;
+    for (var i = 0; i < b.rows.length; i++) if (b.rows[i].h === heightIn) row = b.rows[i];
+    if (!row) return factor('build', lbl, null, null, { verify: true, note: 'Height not on build chart', source: b.source || '' });
+    if (row.min != null && weightLb < row.min) {
+      return factor('build', lbl, b.underweight || 'decline', b.underweight || 'decline',
+        { note: 'Below minimum weight ' + row.min + ' lb', source: b.source || '' });
+    }
+    // row.max = { level: 230, graded: 260 } — pick the best tier the weight fits.
+    var tiers = Object.keys(row.max || {}).sort(function (x, y) { return rank(x) - rank(y); });
+    for (var j = 0; j < tiers.length; j++) {
+      if (weightLb <= row.max[tiers[j]]) {
+        return factor('build', lbl, tiers[j], tiers[j],
+          { note: 'Max ' + row.max[tiers[j]] + ' lb for ' + label(tiers[j]), source: b.source || '' });
+      }
+    }
+    var top = tiers.length ? row.max[tiers[tiers.length - 1]] : null;
+    return factor('build', lbl, 'decline', 'decline',
+      { note: 'Over maximum weight' + (top ? ' (' + top + ' lb)' : ''), source: b.source || '' });
+  }
+
+  // rules: [{ withinYears: 2, outcome: 'decline' }, { withinYears: 5, outcome: 'graded' }, { outcome: 'level' }]
+  // "withinYears: 2" matches when yearsSince < 2. A rule without withinYears is the fallback.
+  function evalRules(rules, yearsSince) {
+    if (!isBlank(yearsSince)) {
+      for (var i = 0; i < rules.length; i++) {
+        var r = rules[i];
+        if (r.withinYears == null || yearsSince < r.withinYears) return { best: r.outcome, worst: r.outcome, rule: r, timing: false };
+      }
+      return { best: null, worst: null, rule: null, timing: false };
+    }
+    // Timing unknown: report the full range across all rules. With no fallback
+    // rule, "long enough ago" means the guide doesn't ask, so best case is no impact.
+    var best = null, worst = null;
+    var hasFallback = rules.some(function (r) { return r.withinYears == null; });
+    rules.forEach(function (r) {
+      if (best === null || rank(r.outcome) < rank(best)) best = r.outcome;
+      if (worst === null || rank(r.outcome) > rank(worst)) worst = r.outcome;
+    });
+    if (!hasFallback) best = null;
+    return { best: best, worst: worst, rule: null, timing: best !== worst };
+  }
+
+  function describeRules(rules) {
+    // A single unconditional rule is already shown as the result; don't repeat it.
+    if (rules.length === 1 && rules[0].withinYears == null) return rules[0].note || '';
+    return rules.map(function (r) {
+      return (r.withinYears != null ? '< ' + r.withinYears + ' yrs: ' : (rules.length > 1 ? 'after: ' : '')) + label(r.outcome) + (r.note ? ' (' + r.note + ')' : '');
+    }).join('; ') + (rules[rules.length - 1].withinYears != null ? '; after: not asked' : '');
+  }
+
+  function unlistedFactor(p, kind, lbl) {
+    var u = p.unlisted;
+    if (u && u.outcome) {
+      return factor(kind, lbl, u.outcome, u.outcome,
+        { note: 'Not listed in guide — ' + (u.note || 'guide says unlisted items are acceptable'), source: u.source || '' });
+    }
+    return factor(kind, lbl, null, null, { verify: true, note: 'Not addressed in this guide — verify with carrier/underwriting' });
+  }
+
+  function evalCondition(p, cond) {
+    var c = state.conditions[cond.id];
+    var lbl = (c ? c.name : cond.id) + (!isBlank(cond.yearsSince) ? ' (' + cond.yearsSince + ' yrs ago)' : '');
+    var rule = (p.conditions || {})[cond.id];
+    if (!rule) return unlistedFactor(p, 'condition', lbl);
+    var res = evalRules(rule.rules, cond.yearsSince);
+    var note = res.rule ? (res.rule.note || '') : describeRules(rule.rules);
+    if (rule.note) note = note ? note + ' — ' + rule.note : rule.note;
+    return factor('condition', lbl, res.best, res.worst, {
+      note: note,
+      source: rule.source || '',
+      timing: res.timing
+    });
+  }
+
+  function evalMedication(p, med) {
+    var m = state.medications[med.id];
+    var lbl = 'Rx: ' + (m ? m.name : med.id);
+    var rule = (p.medications || {})[med.id];
+    if (!rule) {
+      var f = unlistedFactor(p, 'medication', lbl);
+      if (m && m.commonlyFor && m.commonlyFor.length) {
+        var names = m.commonlyFor.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; });
+        f.note += '. Often prescribed for: ' + names.join(', ') + ' — add the condition for a better match';
+      }
+      return f;
+    }
+    var rules = rule.rules || [{ outcome: rule.outcome }];
+    var res = evalRules(rules, med.yearsSince);
+    var note = res.rule ? (res.rule.note || '') : describeRules(rules);
+    if (rule.note) note = note ? note + ' — ' + rule.note : rule.note;
+    return factor('medication', lbl, res.best, res.worst, { note: note, source: rule.source || '', timing: res.timing });
+  }
+
+  // ---------------------------------------------------------------------------
+  // Main entry point
+  // ---------------------------------------------------------------------------
+  // client: { age, state, heightIn, weightLb, tobacco: 'yes'|'no'|'',
+  //           faceAmount, productTypes: [], uwTypes: [],
+  //           conditions: [{id, yearsSince}], medications: [{id, yearsSince}] }
+  function evaluateProduct(p, client) {
+    var factors = [];
+    if (!isBlank(client.age)) factors.push(evalAge(p, Number(client.age)));
+    if (!isBlank(client.state)) factors.push(evalState(p, client.state));
+    if (!isBlank(client.faceAmount)) factors.push(evalFace(p, Number(client.faceAmount)));
+    var t = evalTobacco(p, client.tobacco);
+    if (t) factors.push(t);
+    if (!isBlank(client.heightIn) && !isBlank(client.weightLb)) {
+      factors.push(evalBuild(p, Number(client.heightIn), Number(client.weightLb)));
+    }
+    (client.conditions || []).forEach(function (c) { factors.push(evalCondition(p, c)); });
+    (client.medications || []).forEach(function (m) { factors.push(evalMedication(p, m)); });
+
+    var best = p.bestOutcome || 'standard';
+    var worst = best;
+    factors.forEach(function (f) {
+      if (f.best) best = worse(best, f.best);
+      if (f.worst) worst = worse(worst, f.worst);
+    });
+
+    var verifyCount = factors.filter(function (f) { return f.verify; }).length;
+    var timingCount = factors.filter(function (f) { return f.timing; }).length;
+    var status;
+    if (best === 'decline') status = 'ineligible';
+    else if (verifyCount === 0 && worst !== 'decline' && timingCount === 0) status = 'fit';
+    else status = 'verify';
+
+    return {
+      product: p,
+      status: status,
+      best: best,
+      worst: worst,
+      verifyCount: verifyCount,
+      timingCount: timingCount,
+      factors: factors,
+      knockouts: factors.filter(function (f) { return f.best === 'decline'; })
+    };
+  }
+
+  function matches(p, client) {
+    if (client.productTypes && client.productTypes.length && client.productTypes.indexOf(p.type) === -1) return false;
+    if (client.uwTypes && client.uwTypes.length && client.uwTypes.indexOf(p.underwriting) === -1) return false;
+    return true;
+  }
+
+  function evaluate(client, products) {
+    var list = (products || state.products).filter(function (p) { return matches(p, client || {}); });
+    var results = list.map(function (p) { return evaluateProduct(p, client || {}); });
+    // Eligible products rank by best achievable class, then worst case, then
+    // how much is left to verify. A clean GI fallback should not outrank a
+    // product that may still offer level/day-1 coverage.
+    var out = function (r) { return r.status === 'ineligible' ? 1 : 0; };
+    results.sort(function (a, b) {
+      return out(a) - out(b) ||
+        rank(a.best) - rank(b.best) ||
+        rank(a.worst) - rank(b.worst) ||
+        (a.status === 'fit' ? 0 : 1) - (b.status === 'fit' ? 0 : 1) ||
+        a.verifyCount - b.verifyCount ||
+        (a.product.carrier + a.product.product).localeCompare(b.product.carrier + b.product.product);
+    });
+    return results;
+  }
+
+  // How every product treats a single condition or medication (Lookup tab).
+  function lookup(kind, id) {
+    return state.products.map(function (p) {
+      var f = kind === 'medication' ? evalMedication(p, { id: id }) : evalCondition(p, { id: id });
+      return { product: p, factor: f };
+    }).sort(function (a, b) {
+      var av = a.factor.verify ? 1 : 0, bv = b.factor.verify ? 1 : 0;
+      return av - bv || rank(a.factor.best) - rank(b.factor.best);
+    });
+  }
+
+  var UW = {
+    OUTCOMES: OUTCOMES,
+    PRODUCT_TYPES: PRODUCT_TYPES,
+    UW_TYPES: UW_TYPES,
+    state: state,
+    registerConditions: registerConditions,
+    registerMedications: registerMedications,
+    addProduct: addProduct,
+    reset: reset,
+    rank: rank,
+    label: label,
+    searchConditions: searchConditions,
+    searchMedications: searchMedications,
+    evaluate: evaluate,
+    evaluateProduct: evaluateProduct,
+    lookup: lookup
+  };
+
+  root.UW = UW;
+  if (typeof module !== 'undefined' && module.exports) module.exports = UW;
+})(typeof globalThis !== 'undefined' ? globalThis : this);

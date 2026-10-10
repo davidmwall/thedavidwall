@@ -1,0 +1,93 @@
+// SAMPLE DATA — fictional carrier for demonstration only. Replace with real guides.
+UW.addProduct({
+  id: 'sample-fe-instant',
+  sample: true,
+  carrier: 'Sample Carrier A',
+  product: 'Final Expense Level/Graded',
+  type: 'final_expense',
+  underwriting: 'instant',
+  bestOutcome: 'level',
+  guide: { document: 'Sample FE guide', revision: 'demo', effective: '2026-01-01', lastReviewed: '2026-10-10' },
+
+  issueAges: { min: 45, max: 85, source: 'p. 2' },
+  faceAmount: { min: 2000, max: 40000, source: 'p. 2' },
+  statesNotAvailable: ['NY'],
+  tobacco: { note: 'Tobacco rates apply, class unchanged', source: 'p. 2' },
+
+  build: {
+    source: 'p. 3',
+    rows: [
+      { h: 58, min: 77, max: { level: 191, graded: 215 } },
+      { h: 59, min: 79, max: { level: 198, graded: 223 } },
+      { h: 60, min: 82, max: { level: 205, graded: 230 } },
+      { h: 61, min: 85, max: { level: 212, graded: 238 } },
+      { h: 62, min: 87, max: { level: 219, graded: 246 } },
+      { h: 63, min: 90, max: { level: 226, graded: 254 } },
+      { h: 64, min: 93, max: { level: 233, graded: 262 } },
+      { h: 65, min: 96, max: { level: 240, graded: 270 } },
+      { h: 66, min: 99, max: { level: 248, graded: 279 } },
+      { h: 67, min: 102, max: { level: 255, graded: 287 } },
+      { h: 68, min: 105, max: { level: 263, graded: 296 } },
+      { h: 69, min: 108, max: { level: 271, graded: 305 } },
+      { h: 70, min: 112, max: { level: 279, graded: 314 } },
+      { h: 71, min: 115, max: { level: 287, graded: 323 } },
+      { h: 72, min: 118, max: { level: 295, graded: 332 } },
+      { h: 73, min: 121, max: { level: 303, graded: 341 } },
+      { h: 74, min: 125, max: { level: 312, graded: 351 } },
+      { h: 75, min: 128, max: { level: 320, graded: 360 } },
+      { h: 76, min: 131, max: { level: 329, graded: 370 } },
+      { h: 77, min: 135, max: { level: 337, graded: 380 } },
+      { h: 78, min: 138, max: { level: 346, graded: 389 } }
+    ]
+  },
+
+  conditions: {
+    hospitalized_now: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q1' },
+    nursing_home: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q1' },
+    terminal_illness: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q1' },
+    adl_assistance: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q1' },
+    oxygen: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q2' },
+    dialysis: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q2' },
+    hiv_aids: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q2' },
+    alzheimers_dementia: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q2' },
+    als: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q2' },
+    organ_transplant_pending: { rules: [{ outcome: 'decline' }], source: 'p. 4 Q2' },
+    chf: { rules: [{ withinYears: 2, outcome: 'decline' }, { outcome: 'graded' }], source: 'p. 5 Q3 / p. 6 Q6' },
+    cancer: { rules: [{ withinYears: 2, outcome: 'decline' }, { withinYears: 4, outcome: 'graded' }], source: 'p. 5 Q4 / p. 6 Q7' },
+    cancer_metastatic: { rules: [{ outcome: 'decline' }], source: 'p. 5 Q4' },
+    skin_cancer_basal: { rules: [{ outcome: 'level' }], note: 'Not considered cancer for this product', source: 'p. 5' },
+    heart_attack: { rules: [{ withinYears: 1, outcome: 'decline' }, { withinYears: 2, outcome: 'graded' }], source: 'p. 6 Q6' },
+    heart_stent: { rules: [{ withinYears: 2, outcome: 'graded' }], source: 'p. 6 Q6' },
+    heart_bypass: { rules: [{ withinYears: 2, outcome: 'graded' }], source: 'p. 6 Q6' },
+    stroke: { rules: [{ withinYears: 1, outcome: 'decline' }, { withinYears: 2, outcome: 'graded' }], source: 'p. 6 Q6' },
+    tia: { rules: [{ withinYears: 2, outcome: 'graded' }], source: 'p. 6 Q6' },
+    afib: { rules: [{ outcome: 'level' }], note: 'Level if controlled; not asked', source: 'p. 7' },
+    copd: { rules: [{ outcome: 'graded' }], note: 'Decline if oxygen used', source: 'p. 6 Q6' },
+    kidney_disease: { rules: [{ outcome: 'graded' }], source: 'p. 6 Q6' },
+    cirrhosis: { rules: [{ outcome: 'decline' }], source: 'p. 5 Q3' },
+    diabetes_oral: { rules: [{ outcome: 'level' }], source: 'p. 7' },
+    diabetes_insulin: { rules: [{ outcome: 'level' }], note: 'Graded if insulin started before age 50', source: 'p. 7' },
+    diabetes_complications: { rules: [{ outcome: 'graded' }], source: 'p. 6 Q6' },
+    high_blood_pressure: { rules: [{ outcome: 'level' }], source: 'p. 7' },
+    high_cholesterol: { rules: [{ outcome: 'level' }], source: 'p. 7' },
+    depression_anxiety: { rules: [{ outcome: 'level' }], source: 'p. 7' },
+    bipolar: { rules: [{ outcome: 'graded' }], source: 'p. 6 Q6' },
+    schizophrenia: { rules: [{ outcome: 'decline' }], source: 'p. 5 Q3' },
+    alcohol_abuse: { rules: [{ withinYears: 2, outcome: 'graded' }], source: 'p. 6 Q8' },
+    drug_abuse: { rules: [{ withinYears: 2, outcome: 'graded' }], source: 'p. 6 Q8' },
+    sleep_apnea: { rules: [{ outcome: 'level' }], source: 'p. 7' },
+    asthma: { rules: [{ outcome: 'level' }], source: 'p. 7' }
+  },
+
+  medications: {
+    insulin: { outcome: 'level', note: 'See diabetes — insulin', source: 'p. 8' },
+    donepezil: { outcome: 'decline', note: 'Indicates dementia', source: 'p. 8' },
+    oxygen_rx: { outcome: 'decline', source: 'p. 8' },
+    hiv_meds: { outcome: 'decline', source: 'p. 8' },
+    eliquis: { outcome: 'level', note: 'Level for AFib; graded if for clots within 2 yrs', source: 'p. 8' },
+    plavix: { rules: [{ withinYears: 2, outcome: 'graded' }], source: 'p. 8' },
+    antipsychotic: { outcome: 'graded', source: 'p. 8' }
+  },
+
+  notes: 'E-app with instant decision. Phone interview may be triggered by Rx check.'
+});

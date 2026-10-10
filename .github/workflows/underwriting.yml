@@ -1,0 +1,18 @@
+name: Underwriting data check
+
+on:
+  push:
+    paths: ['underwriting/**']
+  pull_request:
+    paths: ['underwriting/**']
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node underwriting/tools/validate.js
+      - run: node --test underwriting/tests/*.test.js

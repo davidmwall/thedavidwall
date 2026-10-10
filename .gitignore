@@ -1,0 +1,3 @@
+# Carrier guide PDFs and extracted text are often "for agent use only" — keep them out of git.
+underwriting/guides/
+*.pdf
