@@ -382,7 +382,8 @@ UW.registerGrid({
     "max": 75,
     "source": "grid: Age range",
     "note": ""
-   }
+   },
+   "product": "foresters-advantage-plus-ii"
   },
   "WHOLE LIFE :: Lafayette Life": {
    "carrier": "Lafayette Life",
@@ -837,7 +838,8 @@ UW.registerGrid({
     "note": "outer limits of: 10-Year Level Premium 18-80 15-Year Level Premium 18-70 20-Year Level Premium 18-65 25-Year Level Premium 18-55 30-Year Level Premium 18-50"
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "foresters-strong-foundation"
   },
   "TERM, UL, IUL :: FORESTERS YOUR TERM": {
    "carrier": "FORESTERS YOUR TERM",
@@ -859,8 +861,9 @@ UW.registerGrid({
     "source": "grid: Age range",
     "note": "outer limits of: 10-Year Level Premium 18-80 15-Year Level Premium 18-70 20-Year Level Premium 18-65 25-Year Level Premium 18-55 30-Year Level Premium 18-50"
    },
-   "approveOnly": true,
-   "bestOutcome": "standard"
+   "approveOnly": false,
+   "bestOutcome": "preferred_plus",
+   "product": "foresters-your-term"
   },
   "TERM, UL, IUL :: FORESTERS SMART UL": {
    "carrier": "FORESTERS SMART UL",
@@ -884,7 +887,8 @@ UW.registerGrid({
     "note": ""
    },
    "approveOnly": true,
-   "bestOutcome": "standard"
+   "bestOutcome": "standard",
+   "product": "foresters-smart-ul"
   },
   "TERM, UL, IUL :: Kansas City Life": {
    "carrier": "Kansas City Life",
@@ -5920,7 +5924,7 @@ UW.registerGrid({
     "raw": "Mild/moderate = approved. severe/hospitalization = declined",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
@@ -6231,7 +6235,7 @@ UW.registerGrid({
     "raw": "Mild/moderate = approved. severe/hospitalization = declined",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
@@ -10027,7 +10031,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
@@ -10934,7 +10938,7 @@ UW.registerGrid({
     "raw": "Approved",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -11745,11 +11749,11 @@ UW.registerGrid({
     "raw": "Mild or moderate approved | Accept",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -13354,11 +13358,11 @@ UW.registerGrid({
       "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -13721,7 +13725,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -15066,7 +15070,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
@@ -15328,7 +15332,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
@@ -17957,7 +17961,7 @@ UW.registerGrid({
     "raw": "Not asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -18498,7 +18502,7 @@ UW.registerGrid({
     "raw": "Not asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -18713,7 +18717,7 @@ UW.registerGrid({
      },
      {
       "withinYears": 5,
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -20829,7 +20833,7 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 2,
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -21528,7 +21532,7 @@ UW.registerGrid({
     "raw": "Approved, no depression, working full-time",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -22685,7 +22689,7 @@ UW.registerGrid({
       "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -24421,7 +24425,7 @@ UW.registerGrid({
       "note": "if the conditions in the note are not met"
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -25651,7 +25655,7 @@ UW.registerGrid({
     "raw": "Accept",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -26390,7 +26394,7 @@ UW.registerGrid({
     "raw": "Not asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -28922,7 +28926,7 @@ UW.registerGrid({
     "raw": "Accept",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -29588,7 +29592,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -31381,7 +31385,7 @@ UW.registerGrid({
     "raw": "Approved, if occasional episodes",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -34860,7 +34864,7 @@ UW.registerGrid({
     "raw": "Not asked (check meds list)",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -35494,7 +35498,7 @@ UW.registerGrid({
     "raw": "Approved",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -35739,7 +35743,7 @@ UW.registerGrid({
     "raw": "Mild = approved, severe = declined",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
@@ -36506,7 +36510,7 @@ UW.registerGrid({
     "raw": "approved",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -37912,7 +37916,7 @@ UW.registerGrid({
     "raw": "Approved",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -41949,7 +41953,7 @@ UW.registerGrid({
     "raw": "If treatment completed, accepted",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -43146,7 +43150,7 @@ UW.registerGrid({
       "conditional": true
      },
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
@@ -43683,7 +43687,7 @@ UW.registerGrid({
     "raw": "Not Asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -43962,7 +43966,7 @@ UW.registerGrid({
     "raw": "Not asked",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -44064,7 +44068,7 @@ UW.registerGrid({
     "raw": "Approved",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -44766,7 +44770,7 @@ UW.registerGrid({
     "raw": "Approved, unless related to diabetes",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],
@@ -45202,7 +45206,7 @@ UW.registerGrid({
     "raw": "Approved",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -45312,7 +45316,7 @@ UW.registerGrid({
     "raw": "Approved",
     "rules": [
      {
-      "outcome": "standard"
+      "outcome": "best"
      }
     ]
    },
@@ -45594,7 +45598,7 @@ UW.registerGrid({
     "raw": "Non pulmonary = approved, pulmonary = declined",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      },
      {
@@ -45974,7 +45978,7 @@ UW.registerGrid({
     "raw": "non opiods should be accepted",
     "rules": [
      {
-      "outcome": "standard",
+      "outcome": "best",
       "conditional": true
      }
     ],

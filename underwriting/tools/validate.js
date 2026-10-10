@@ -149,7 +149,7 @@ if (gridRef && fs.existsSync(path.join(ROOT, 'data', 'grid.js'))) {
   var conflicts = UW.gridConflicts();
   console.log('Grid: ' + Object.keys(g.columns || {}).length + ' columns, ' + (UW.state.products.length - before) + ' grid-only products, ' + conflicts.length + ' disagreement(s) with carrier guides');
   conflicts.forEach(function (c) {
-    console.log('INFO  grid disagrees: ' + c.product.id + ' ' + c.id + ' — guide ' + c.factor.best + '/' + c.factor.worst + ' (' + c.factor.source + '), grid "' + c.factor.grid + '"');
+    console.log('INFO  grid disagrees: ' + c.product.id + ' ' + c.id + ' — guide ' + c.factor.best + '/' + c.factor.worst + ' (' + c.factor.source + '), grid "' + String(c.factor.grid).replace(/\s+/g, ' ') + '"');
   });
 } else if (fs.existsSync(path.join(ROOT, 'data', 'grid.js'))) {
   err('index.html', 'data/grid.js exists but is not loaded — add <script src="data/grid.js"></script> after the carrier scripts');

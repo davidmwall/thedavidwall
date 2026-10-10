@@ -235,9 +235,9 @@ UW.registerMedications([
   { id: 'eliquis', name: 'Eliquis (apixaban)', aliases: ['apixaban'], commonlyFor: ['afib', 'blood_clots', 'stroke'] },
   { id: 'xarelto', name: 'Xarelto (rivaroxaban)', aliases: ['rivaroxaban'], commonlyFor: ['afib', 'blood_clots'] },
   { id: 'warfarin', name: 'Warfarin / Coumadin', aliases: ['coumadin', 'jantoven'], commonlyFor: ['afib', 'blood_clots', 'heart_valve'] },
-  { id: 'plavix', name: 'Plavix (clopidogrel)', aliases: ['clopidogrel'], commonlyFor: ['heart_stent', 'heart_attack', 'stroke', 'pvd'] },
+  { id: 'plavix', name: 'Plavix / Effient / Pletal (antiplatelets)', aliases: ['clopidogrel', 'effient', 'prasugrel', 'pletal', 'cilostazol'], commonlyFor: ['heart_stent', 'heart_attack', 'stroke', 'pvd'] },
   { id: 'brilinta', name: 'Brilinta (ticagrelor)', aliases: ['ticagrelor'], commonlyFor: ['heart_attack', 'heart_stent'] },
-  { id: 'nitroglycerin', name: 'Nitroglycerin', aliases: ['nitro', 'nitrostat', 'isosorbide', 'imdur'], commonlyFor: ['angina', 'cad'] },
+  { id: 'nitroglycerin', name: 'Nitroglycerin / Ranexa (angina meds)', aliases: ['nitro', 'nitrostat', 'isosorbide', 'imdur', 'ranexa', 'ranolazine'], commonlyFor: ['angina', 'cad'] },
   { id: 'digoxin', name: 'Digoxin', aliases: ['lanoxin'], commonlyFor: ['chf', 'afib'] },
   { id: 'entresto', name: 'Entresto', aliases: ['sacubitril'], commonlyFor: ['chf'] },
   { id: 'furosemide', name: 'Furosemide (Lasix)', aliases: ['lasix', 'bumetanide', 'bumex', 'torsemide'], commonlyFor: ['chf', 'high_blood_pressure', 'kidney_disease'] },
@@ -254,7 +254,8 @@ UW.registerMedications([
 
   // Lung
   { id: 'spiriva', name: 'Spiriva (tiotropium)', aliases: ['tiotropium'], commonlyFor: ['copd'] },
-  { id: 'advair_symbicort', name: 'Advair / Symbicort / Breo / Trelegy', aliases: ['advair', 'symbicort', 'breo', 'trelegy', 'anoro', 'wixela'], commonlyFor: ['copd', 'asthma'] },
+  { id: 'advair_symbicort', name: 'Advair / Symbicort / Breo', aliases: ['advair', 'symbicort', 'breo', 'wixela'], commonlyFor: ['copd', 'asthma'] },
+  { id: 'serious_copd_inhalers', name: 'Serious-COPD inhalers (Trelegy, Anoro, Stiolto, Daliresp…)', aliases: ['trelegy', 'trelegy ellipta', 'anoro', 'anoro ellipta', 'stiolto', 'stiolto respimat', 'bevespi', 'bevespi aerosphere', 'utibron', 'utibron neohaler', 'daliresp', 'roflumilast'], commonlyFor: ['copd'] },
   { id: 'albuterol', name: 'Albuterol (rescue inhaler)', aliases: ['proair', 'ventolin', 'proventil'], commonlyFor: ['asthma', 'copd'] },
 
   // Neuro / psych
@@ -273,5 +274,12 @@ UW.registerMedications([
   { id: 'chemo', name: 'Chemo / oral cancer meds (tamoxifen, letrozole…)', aliases: ['tamoxifen', 'letrozole', 'anastrozole', 'arimidex', 'chemotherapy', 'keytruda', 'ibrance'], commonlyFor: ['cancer'] },
   { id: 'immunosuppressant', name: 'Immunosuppressants / biologics (Humira, methotrexate…)', aliases: ['humira', 'methotrexate', 'enbrel', 'prednisone', 'plaquenil', 'hydroxychloroquine', 'stelara', 'remicade'], commonlyFor: ['rheumatoid_arthritis', 'lupus', 'crohns_colitis'] },
   { id: 'oxygen_rx', name: 'Oxygen (prescribed)', aliases: ['home oxygen'], commonlyFor: ['copd', 'chf', 'oxygen'] },
-  { id: 'kidney_binders', name: 'Phosphate binders (Renvela, PhosLo)', aliases: ['renvela', 'sevelamer', 'phoslo', 'calcium acetate'], commonlyFor: ['kidney_disease', 'dialysis'] }
+  { id: 'kidney_binders', name: 'Phosphate binders (Renvela, PhosLo)', aliases: ['renvela', 'sevelamer', 'phoslo', 'calcium acetate'], commonlyFor: ['kidney_disease', 'dialysis'] },
+  { id: 'chf_meds', name: 'CHF meds (BiDil, Inspra)', aliases: ['bidil', 'inspra', 'eplerenone'], commonlyFor: ['chf'] },
+  { id: 'severe_htn_meds', name: 'Severe hypertension meds (hydralazine, methyldopa)', aliases: ['hydralazine', 'methyldopa'], commonlyFor: ['high_blood_pressure'] },
+  { id: 'kidney_failure_meds', name: 'Kidney disease meds (calcitriol, Sensipar, Zemplar)', aliases: ['calcitriol', 'sensipar', 'cinacalcet', 'zemplar', 'paricalcitol'], commonlyFor: ['kidney_disease', 'kidney_failure'] },
+  { id: 'hepatitis_meds', name: 'Hepatitis meds (Pegasys, ribavirin)', aliases: ['pegasys', 'ribavirin', 'interferon'], commonlyFor: ['hepatitis_b', 'hepatitis_c'] },
+  { id: 'lupus_meds', name: 'Benlysta (lupus)', aliases: ['benlysta', 'belimumab'], commonlyFor: ['lupus'] },
+  { id: 'als_meds', name: 'Rilutek (ALS)', aliases: ['rilutek', 'riluzole'], commonlyFor: ['als'] },
+  { id: 'antabuse', name: 'Antabuse (disulfiram)', aliases: ['disulfiram'], commonlyFor: ['alcohol_abuse'] }
 ]);

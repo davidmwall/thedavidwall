@@ -39,7 +39,8 @@
     instant: 'Instant decision',
     accelerated: 'Accelerated (no exam)',
     simplified: 'Simplified issue',
-    guaranteed: 'Guaranteed issue'
+    guaranteed: 'Guaranteed issue',
+    full: 'Fully underwritten (exam)'
   };
 
   var state = {
