@@ -271,6 +271,21 @@
   //   dxAgeBelow: N -> applies when diagnosed before age N
   // Age at diagnosis = current age - years since. Known: the rule is firm and
   // checked first. Unknown: it becomes conditional (widens the range only).
+  // Rules that apply only to tobacco users ({ ifTobacco: true }): firm when the
+  // client's tobacco answer is known, a conditional range when it's blank.
+  function applyTobacco(rules, ctx) {
+    var t = ctx && ctx.tobacco, applied = [], rest = [];
+    rules.forEach(function (r) {
+      if (!r.ifTobacco) { rest.push(r); return; }
+      var x = Object.assign({}, r); delete x.ifTobacco;
+      if (t === 'yes') { delete x.conditional; applied.push(x); }
+      else if (t !== 'no') { x.conditional = true; x.note = (x.note ? x.note + '; ' : '') + 'if tobacco user'; rest.push(x); }
+    });
+    // A tobacco rule that applies decides the answer (other caveats still widen it).
+    if (applied.length) return applied.slice(0, 1).concat(rest.filter(function (r) { return r.conditional; }));
+    return rest;
+  }
+
   function applyDxAge(rules, ctx) {
     var dx = ctx && !isBlank(ctx.age) && !isBlank(ctx.yearsSince) ? Number(ctx.age) - Number(ctx.yearsSince) : null;
     var gated = [], rest = [];
@@ -303,7 +318,7 @@
   function evalRules(rules, ctxOrYears) {
     var ctx = ctxOrYears !== null && typeof ctxOrYears === 'object' ? ctxOrYears : { yearsSince: ctxOrYears };
     var yearsSince = ctx.yearsSince;
-    rules = applyDxAge(rules, ctx);
+    rules = applyDxAge(applyTobacco(rules, ctx), ctx);
     var firm = rules.filter(function (r) { return !r.conditional; });
     var cond = rules.filter(function (r) { return r.conditional; });
     var res = evalFirmRules(firm, yearsSince);
@@ -438,7 +453,7 @@
   function evalCondition(p, cond) {
     var c = state.conditions[cond.id];
     var lbl = (c ? c.name : cond.id) + (!isBlank(cond.yearsSince) ? ' (' + cond.yearsSince + ' yrs ago)' : '');
-    var ctx = { yearsSince: cond.yearsSince, age: cond.age, dxChecks: [] };
+    var ctx = { yearsSince: cond.yearsSince, age: cond.age, tobacco: cond.tobacco, dxChecks: [] };
     var f = evalItem(p, 'conditions', cond.id, ctx, lbl);
     // Show the age-at-diagnosis checks that decided (or didn't) this answer.
     var checks = ctx.dxChecks.filter(function (x, i, all) { return all.indexOf(x) === i; });
@@ -473,7 +488,7 @@
       factors.push(evalBuild(p, Number(client.heightIn), Number(client.weightLb)));
     }
     // Client age travels with each condition so "age at diagnosis" rules can be checked.
-    var withAge = function (x) { return Object.assign({}, x, { age: client.age }); };
+    var withAge = function (x) { return Object.assign({}, x, { age: client.age, tobacco: client.tobacco }); };
     (client.conditions || []).forEach(function (c) { factors.push(evalCondition(p, withAge(c))); });
     (client.medications || []).forEach(function (m) { factors.push(evalMedication(p, withAge(m))); });
 

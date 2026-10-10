@@ -818,14 +818,6 @@ UW.addProduct({
    ],
    "source": "p. 1"
   },
-  "copd": {
-   "rules": [
-    {
-     "outcome": "standard"
-    }
-   ],
-   "source": "p. 1"
-  },
   "emphysema": {
    "rules": [
     {
@@ -865,6 +857,21 @@ UW.addProduct({
     }
    ],
    "source": "p. 1"
+  },
+  "copd": {
+   "rules": [
+    {
+     "outcome": "graded",
+     "ifTobacco": true,
+     "note": "COPD with tobacco use: Graded (your grid)"
+    },
+    {
+     "outcome": "standard",
+     "note": "guide: Preferred not available"
+    }
+   ],
+   "source": "p. 1; your grid (tobacco rule)",
+   "note": "Agent chose the grid for COPD: Graded if paired with tobacco"
   },
   "kidney_disease": {
    "rules": [

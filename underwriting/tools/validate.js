@@ -55,7 +55,7 @@ function checkRules(where, rules) {
   });
   // Conditional rules (facts the app can't check) may sit anywhere; ordering
   // applies to the firm, timing-only rules.
-  var firm = rules.filter(function (r) { return !r.conditional; });
+  var firm = rules.filter(function (r) { return !r.conditional && !r.ifTobacco && r.dxAgeMax == null && r.dxAgeBelow == null; });
   var last = -Infinity;
   firm.forEach(function (r, i) {
     if (r.withinYears != null) {

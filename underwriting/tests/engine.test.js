@@ -239,6 +239,18 @@ test('grid face bands follow the client age; grid overrides guide ages/face, kee
   assert.strictEqual(run(50, 10000).status, 'ineligible');   // guide minimum $25k kept
 });
 
+test('tobacco-gated rules use the tobacco answer', function () {
+  UW.state.products = []; UW.state.grid = null;
+  UW.addProduct({ id: 't', carrier: 'T', product: 'T', type: 'final_expense', underwriting: 'simplified', bestOutcome: 'preferred',
+    conditions: { copd: { rules: [{ outcome: 'graded', ifTobacco: true }, { outcome: 'standard' }] } } });
+  var run = function (tob) { return UW.evaluate({ tobacco: tob, conditions: [{ id: 'copd' }] })[0]; };
+  assert.strictEqual(run('no').best, 'standard');
+  assert.strictEqual(run('no').worst, 'standard');
+  assert.strictEqual(run('yes').best, 'graded');
+  assert.strictEqual(run('').best, 'standard');
+  assert.strictEqual(run('').worst, 'graded');
+});
+
 test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });
