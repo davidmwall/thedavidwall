@@ -302,6 +302,8 @@
     "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
       "product": "rnoa-ensured-legacy"
     },
+    "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": "skip",
+    "TERM, UL, IUL :: AMERICO HMS PLUS CBO": "skip",
     "WHOLE LIFE :: TransAmerica Easy Solution": "skip",
     "WHOLE LIFE :: TransAmerica Immediate  Solution Preferred": "skip",
     "WHOLE LIFE :: TransAmerica Immediate Solution Standard": "skip",

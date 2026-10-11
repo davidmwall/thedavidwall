@@ -3,7 +3,7 @@
 UW.registerGrid({
  "source": {
   "document": "pinnacle-cheat-sheet.xlsx",
-  "imported": "2026-10-10"
+  "imported": "2026-10-11"
  },
  "columns": {
   "WHOLE LIFE :: AIG Guaranteed Issue": {
@@ -1226,60 +1226,6 @@ UW.registerGrid({
    "approveOnly": false,
    "bestOutcome": "preferred",
    "product": "uhl-simple-term"
-  },
-  "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-   "carrier": "AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)",
-   "productName": "Term, UL, IUL (from your grid)",
-   "type": "term",
-   "underwriting": "accelerated",
-   "info": {
-    "Age range": "20-75",
-    "Max face amount": "450000.0",
-    "Product type": "TERM",
-    "Build / UW guide": "https://drive.google.com/file/d/1WqZxLvnb-j6slus_-y0_g-YDClRGAr4i/view?usp=sharing",
-    "Living benefits": "100% Critical chronic and terminal",
-    "Quote tool": "https://account.americoagent.com/Identity/Account/Login/?returnUrl=https%3a%2f%2ftools.americoagent.com%2f",
-    "Payment methods": "ACH"
-   },
-   "issueAges": {
-    "min": 20,
-    "max": 75,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 450000,
-    "source": "grid: Max face amount"
-   },
-   "approveOnly": true,
-   "bestOutcome": "standard"
-  },
-  "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-   "carrier": "AMERICO HMS PLUS CBO",
-   "productName": "Term, UL, IUL (from your grid)",
-   "type": "term",
-   "underwriting": "accelerated",
-   "info": {
-    "Age range": "20 - 60",
-    "Max face amount": "400000.0",
-    "Product type": "TERM",
-    "Build / UW guide": "https://83cea077-ef69-458f-ac96-5ba721701b74.filesusr.com/ugd/002d25_37020640773549c9a91d81be2a7e15e9.pdf",
-    "Living benefits": "100% Critical chronic and terminal",
-    "Quote tool": "https://account.americoagent.com/Identity/Account/Login/?returnUrl=https%3a%2f%2ftools.americoagent.com%2f",
-    "Payment methods": "ACH"
-   },
-   "issueAges": {
-    "min": 20,
-    "max": 60,
-    "source": "grid: Age range",
-    "note": ""
-   },
-   "faceAmount": {
-    "max": 400000,
-    "source": "grid: Max face amount"
-   },
-   "approveOnly": true,
-   "bestOutcome": "standard"
   }
  },
  "conditions": {
@@ -1647,22 +1593,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "alcohol_abuse": {
@@ -1952,32 +1882,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 5 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 5 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "als": {
@@ -2220,22 +2124,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "alzheimers_dementia": {
@@ -2472,22 +2360,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -2738,22 +2610,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "aneurysm": {
@@ -2900,22 +2756,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -3756,22 +3596,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "heart_stent": {
@@ -4102,22 +3926,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -5102,36 +4910,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF MILD, NON SMOKER AND NO STEROID USE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF MILD, NON SMOKER AND NO STEROID USE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "asthma_severe": {
@@ -5246,22 +5024,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -5534,22 +5296,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -6217,22 +5963,6 @@ UW.registerGrid({
       "outcome": "standard"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "blood_clots": {
@@ -6892,22 +6622,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "heart_bypass": {
@@ -7190,22 +6904,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -7499,22 +7197,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Decline | Standard: Decline | Graded: Decline",
     "rules": [
@@ -7796,22 +7478,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "cancer": {
@@ -8070,22 +7736,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -8381,22 +8031,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "cerebral_palsy": {
@@ -8626,36 +8260,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 9 YEARS OF AGE, MILD AND SELF- SUFFICIENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 9 YEARS OF AGE, MILD AND SELF- SUFFICIENT",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "chronic_pain": {
@@ -9247,22 +8851,6 @@ UW.registerGrid({
       "outcome": "preferred"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "chf": {
@@ -9516,22 +9104,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -9952,22 +9524,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "chronic_cough": {
@@ -10379,48 +9935,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF TESTED POSITIVE > 3 MONTHS AGO, NO RESIDUAL EFFECTS WITHIN THE LAST 6 MONTHS, NO SYMPTOMS WITHIN THE LAST 30 DAYS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 0.25,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF TESTED POSITIVE > 3 MONTHS AGO, NO RESIDUAL EFFECTS WITHIN THE LAST 6 MONTHS, NO SYMPTOMS WITHIN THE LAST 30 DAYS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 0.25,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Approved",
     "rules": [
@@ -10698,22 +10212,6 @@ UW.registerGrid({
       "outcome": "preferred"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "hospitalized_now": {
@@ -10862,22 +10360,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -11174,22 +10656,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "defibrillator": {
@@ -11437,22 +10903,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -11995,38 +11445,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF NO HOSPITALIZATIONS WITHIN 3 YEARS, NO MAJOR DEPRESSION,  < 3 MEDICATIONS AND NO HISTORY OF ALCOHOL PROBLEMS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 3,
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF NO HOSPITALIZATIONS WITHIN 3 YEARS, NO MAJOR DEPRESSION,  < 3 MEDICATIONS AND NO HISTORY OF ALCOHOL PROBLEMS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 3,
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "depression_severe": {
@@ -12217,38 +11635,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF NO HOSPITALIZATIONS WITHIN 3 YEARS, < 3 MEDICATIONS AND NO HISTORY OF ALCOHOL PROBLEMS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 3,
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF NO HOSPITALIZATIONS WITHIN 3 YEARS, < 3 MEDICATIONS AND NO HISTORY OF ALCOHOL PROBLEMS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 3,
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "diabetes_insulin": {
@@ -12424,46 +11810,6 @@ UW.registerGrid({
       "outcome": "standard"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 60 YEARS OF AGE WHEN DIAGNOSED, NOT OVERWEIGHT,  NO HEART PROBLEMS, NO HISTORY OF ALCOHOL ABUSE OR STROKE, INDIDVIDUAL CONSIDERATION GIVEN FOR SMOKERS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 60
-     },
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 60 YEARS OF AGE WHEN DIAGNOSED, NOT OVERWEIGHT,  NO HEART PROBLEMS, NO HISTORY OF ALCOHOL ABUSE OR STROKE, INDIDVIDUAL CONSIDERATION GIVEN FOR SMOKERS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 60
-     },
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Graded: Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Modified / ROP: Accepted",
@@ -12825,46 +12171,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 30 YEARS OF AGE WHEN DIAGNOSED, NOT OVERWEIGHT,  NO HEART PROBLEMS, NO ALCOHOL ABUSE OR STROKE, INDIDVIDUAL CONSIDERATION GIVEN FOR SMOKERS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 30
-     },
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 30 YEARS OF AGE WHEN DIAGNOSED, NOT OVERWEIGHT,  NO HEART PROBLEMS, NO ALCOHOL ABUSE OR STROKE, INDIDVIDUAL CONSIDERATION GIVEN FOR SMOKERS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "note": "diagnosed too young",
-      "dxAgeMax": 30
-     },
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Graded: Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Modified / ROP: Accepted",
     "rules": null
@@ -13208,22 +12514,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "diabetic_coma": {
@@ -13483,22 +12773,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "disability_benefits": {
@@ -13681,48 +12955,6 @@ UW.registerGrid({
       "outcome": "standard"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 6 MONTHS AGO, CHECK UNDERLYING REASON FOR DISABILITY",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 0.5,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 6 MONTHS AGO, CHECK UNDERLYING REASON FOR DISABILITY",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 0.5,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "downs_syndrome": {
@@ -14774,36 +14006,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 2 YEARS OR < 3 VIOLATIONS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true,
-      "note": "other branch of the \"or\" in the note"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 2 YEARS OR < 3 VIOLATIONS",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true,
-      "note": "other branch of the \"or\" in the note"
-     }
-    ]
-   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Y IF > 2 YEARS OR < 2 VIOLATIONS | Graded: Accepted",
     "rules": [
@@ -15110,32 +14312,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 5 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 5 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 5,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "dui": {
@@ -15406,36 +14582,6 @@ UW.registerGrid({
       "outcome": "standard"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 25 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 25 YEARS OF AGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "dui_multiple": {
@@ -15703,22 +14849,6 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    }
@@ -15991,22 +15121,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -16293,48 +15407,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF GRAND MAL OR PETIT MAL > 6 MONTHS SINCE LAST ATTACK",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 0.5,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF GRAND MAL OR PETIT MAL > 6 MONTHS SINCE LAST ATTACK",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 0.5,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "felony": {
@@ -16602,32 +15674,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 10 YEARS",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 10 YEARS",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "fibromyalgia": {
@@ -16923,36 +15969,6 @@ UW.registerGrid({
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
     "rules": null
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER)",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER)",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa) | Graded: Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa) | Modified / ROP: Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
@@ -17278,22 +16294,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "heart_blockage": {
@@ -17535,22 +16535,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "heart_failure_other": {
@@ -17747,22 +16731,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "heart_murmur_symptomatic": {
@@ -17894,36 +16862,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF MITRAL VALVE PROLAPSE AND NO MEDICATION PRESCRIBED",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF MITRAL VALVE PROLAPSE AND NO MEDICATION PRESCRIBED",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "heart_surgery": {
@@ -18228,22 +17166,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "heart_valve": {
@@ -18403,22 +17325,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -18689,22 +17595,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -18980,36 +17870,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF FULL RECOVERY",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF FULL RECOVERY",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "hepatitis_b": {
@@ -19269,22 +18129,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -19554,22 +18398,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "high_blood_pressure": {
@@ -19829,22 +18657,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Accepted",
-    "rules": [
-     {
-      "outcome": "standard"
      }
     ]
    }
@@ -20414,32 +19226,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 3 YEARS",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 3 YEARS",
-    "rules": [
-     {
-      "withinYears": 3,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
      }
     ]
    }
@@ -21063,22 +19849,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "kidney_disease": {
@@ -21272,22 +20042,6 @@ UW.registerGrid({
     "qualified": true
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -21873,22 +20627,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "kidney_transplant": {
@@ -22307,32 +21045,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT",
-    "rules": [
-     {
-      "withinYears": 2,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Accepted | Graded: Accepted | Modified / ROP: Accepted",
     "rules": [
@@ -22616,22 +21328,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "marijuana": {
@@ -22806,36 +21502,6 @@ UW.registerGrid({
       "outcome": "best"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF OCASSIONAL, NOT DAILY USAGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF OCASSIONAL, NOT DAILY USAGE",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Y IF NOT ILLEGAL | Graded: Y IF NOT ILLEGAL | Modified / ROP: Y IF NOT ILLEGAL",
@@ -23367,32 +22033,6 @@ UW.registerGrid({
       "outcome": "best"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 10 YEARS",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 10 YEARS",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
    }
   },
   "mitral_insufficiency": {
@@ -23664,22 +22304,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "muscular_dystrophy": {
@@ -23913,22 +22537,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -24685,22 +23293,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "organ_transplant": {
@@ -24974,22 +23566,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "oxygen": {
@@ -25143,22 +23719,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -25473,22 +24033,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "pancreatitis": {
@@ -25700,22 +24244,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    }
@@ -25995,36 +24523,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF PERFORMS ACTIVIITES OF DAILY LIVING WITHOUT HELP",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF PERFORMS ACTIVIITES OF DAILY LIVING WITHOUT HELP",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "parkinsons": {
@@ -26276,22 +24774,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "pvd": {
@@ -26518,22 +25000,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -26918,32 +25384,6 @@ UW.registerGrid({
      {
       "withinYears": 7,
       "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 10 YEARS",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 10 YEARS",
-    "rules": [
-     {
-      "withinYears": 10,
-      "outcome": "decline",
-      "note": "implied by grid"
-     },
-     {
-      "outcome": "standard"
      }
     ]
    }
@@ -27596,36 +26036,6 @@ UW.registerGrid({
       "outcome": "refer"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF WORKING FULL TIME, NOT DISABLED DUE TO ARTHRITUS OR USING STEROIDS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF WORKING FULL TIME, NOT DISABLED DUE TO ARTHRITUS OR USING STEROIDS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "ra_severe": {
@@ -27758,36 +26168,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF WORKING FULL TIME, NOT DISABLED DUE TO ARTHRITUS OR USING STEROIDS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF WORKING FULL TIME, NOT DISABLED DUE TO ARTHRITUS OR USING STEROIDS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "sarcoid_pulm_early": {
@@ -28135,22 +26515,6 @@ UW.registerGrid({
      }
     ]
    },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Decline | Graded: Accepted",
     "rules": [
@@ -28282,22 +26646,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -28561,22 +26909,6 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "standard"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
      }
     ]
    }
@@ -29012,22 +27344,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -29582,22 +27898,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "cardiac_procedure": {
@@ -29845,22 +28145,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -30170,22 +28454,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "suicide_attempt": {
@@ -30453,22 +28721,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
    }
   },
   "tests_pending": {
@@ -30616,22 +28868,6 @@ UW.registerGrid({
     "qualified": true
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -30924,22 +29160,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -31295,48 +29515,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Y IF > 1 YEAR, CHECK UNDERLYING CONDITIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Y IF > 1 YEAR, CHECK UNDERLYING CONDITIONS",
-    "rules": [
-     {
-      "outcome": "decline",
-      "conditional": true,
-      "note": "if the conditions in the note are not met"
-     },
-     {
-      "withinYears": 1,
-      "outcome": "decline",
-      "note": "implied by grid",
-      "conditional": true
-     },
-     {
-      "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
    }
   },
   "terminal_illness": {
@@ -31565,22 +29743,6 @@ UW.registerGrid({
     ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
     "raw": "Decline",
     "rules": [
      {
@@ -31901,22 +30063,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
@@ -32955,22 +31101,6 @@ UW.registerGrid({
     ],
     "qualified": true
    },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Decline | Graded: Decline | Modified / ROP: Decline",
     "rules": [
@@ -33181,36 +31311,6 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "If diagnosed within 6 months, Decline. If \"Is the insured taking more than 2 anxiety/depression medications?\" answered \"Yes\" , Decline",
-    "rules": [
-     {
-      "withinYears": 0.5,
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
-      "conditional": true
-     }
-    ],
-    "qualified": true
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "If diagnosed within 6 months, Decline. If \"Is the insured taking more than 2 anxiety/depression medications?\" answered \"Yes\" , Decline",
-    "rules": [
-     {
-      "withinYears": 0.5,
-      "outcome": "decline",
-      "conditional": true
-     },
-     {
-      "outcome": "decline",
       "conditional": true
      }
     ],
@@ -33746,22 +31846,6 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 5,
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS 100, AMERICO HMS PLUS 125, AMERICO HMS PLUS CONTINUATION , AMERICO HMS PLUS PAYMENT PROTECTOR, AMERICO HMS PAYMENT PROTECTOR CONTINUATION, Americo (Continuation 25)": {
-    "raw": "Decline",
-    "rules": [
-     {
-      "outcome": "decline"
-     }
-    ]
-   },
-   "TERM, UL, IUL :: AMERICO HMS PLUS CBO": {
-    "raw": "Decline",
-    "rules": [
-     {
       "outcome": "decline"
      }
     ]
