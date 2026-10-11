@@ -19,6 +19,22 @@
   // Words that carry no meaning for matching a condition or medication.
   var FILLER = /\b(ago|diagnosed|dx|dx'd|had|has|have|history|hx|h\/o|of|with|w\/|on|takes|taking|take|for|the|a|an|since|in|at|age|aged|years?|yrs?|months?|mos?|treated|treatment|last|was|is|been|got|about|around|approx|approximately|currently|current|now|still|controlled|well|mild|recent|recently|uses?|using|prescribed|rx|meds?|medication|cured|resolved|compliant)\b/gi;
 
+  // Details that settle a carrier's caveats. Negated forms first.
+  var QUALS = [
+    ['no_comp', /\b(?:no|without|w\/o)\s+(?:diabetic\s+)?complications?\b|\buncomplicated\b/i],
+    ['no_hosp', /\b(?:no|without|never|not)\s+(?:been\s+)?(?:hospitali[sz]\w*|inpatient|er visits?)\b|\bno\s+(?:hospital|er)\s+(?:visits?|stays?)\b/i],
+    ['no_oxygen', /\b(?:no|without|not on)\s+(?:home\s+)?oxygen\b/i],
+    ['no_insulin', /\b(?:no|without|not on)\s+insulin\b/i],
+    ['uncontrolled', /\b(?:uncontrolled|not controlled|poorly controlled|out of control)\b/i],
+    ['controlled', /\b(?:well[- ]controlled|controlled|stable)\b/i],
+    ['mild', /\b(?:mild|minor|occasional)\b/i],
+    ['severe', /\b(?:severe|serious)\b/i],
+    ['hosp', /\b(?:hospitali[sz]\w*|inpatient|er visits?)\b/i],
+    ['comp', /\bwith (?:diabetic\s+)?complications?\b/i]
+  ];
+  var QUAL_LABEL = { no_oxygen: 'no oxygen', no_insulin: 'no insulin', no_comp: 'no complications', no_hosp: 'no hospitalization', uncontrolled: 'uncontrolled', controlled: 'controlled',
+    mild: 'mild', severe: 'severe', hosp: 'hospitalized', comp: 'with complications' };
+
   function norm(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(); }
 
   function score(q, entry) {
@@ -125,10 +141,30 @@
       // What's left is a condition or medication, maybe with a time frame.
       var t = takeTime(s, nowYear);
       if (t) cut(t.text);
+      // Details like "mild" or "no complications": noted for the carrier rules, then matched
+      // with and without them ("severe asthma" is its own entry; "severe copd" is COPD + severe).
+      var quals = [], plain = s;
+      QUALS.forEach(function (qd) {
+        var mm = plain.match(qd[1]);
+        if (mm) { quals.push(qd[0]); plain = plain.replace(mm[0], ' '); }
+      });
+      // Only a detail or a time ("diabetes, no complications, dx at 55"): it belongs to the condition before it.
+      var lastCond = c.conditions[c.conditions.length - 1];
+      if ((quals.length || t) && lastCond && norm(plain.replace(FILLER, ' ')).length < 2) {
+        if (quals.length) lastCond.q = (lastCond.q || []).concat(quals.filter(function (k) { return (lastCond.q || []).indexOf(k) === -1; }));
+        if (t && t.years != null && lastCond.yearsSince == null) lastCond.yearsSince = t.years;
+        if (t && t.dxAge != null && lastCond.yearsSince == null) pendingDx.push({ item: lastCond, dxAge: t.dxAge });
+        return;
+      }
       var q = norm(s.replace(FILLER, ' '));
       if (!q || q.length < 2) return;
       var hits = bestMatches(UW, q, 4);
       var top = hits[0];
+      if (quals.length && (!top || top.score < 60)) {
+        var q2 = norm(plain.replace(FILLER, ' '));
+        var hits2 = q2.length >= 2 ? bestMatches(UW, q2, 4) : [];
+        if (hits2[0] && hits2[0].score >= 60) { hits = hits2; top = hits2[0]; q = q2; }
+      }
       if (!top || top.score < 60) {
         res.unknown.push({ text: raw, query: q, suggestions: hits.filter(function (h) { return h.score >= 40 || hits.length <= 3; }).slice(0, 3) });
         return;
@@ -144,6 +180,7 @@
       var MULTI = { tia: 'tia_multiple', heart_attack: 'heart_attacks_multiple', dui: 'dui_multiple' };
       if (multi && MULTI[top.id] && UW.state.conditions[MULTI[top.id]]) top = { kind: 'condition', id: MULTI[top.id], name: UW.state.conditions[MULTI[top.id]].name };
       var item = { id: top.id };
+      if (quals.length && top.kind === 'condition') item.q = quals;
       if (t && t.years != null) item.yearsSince = t.years;
       if (t && t.dxAge != null) pendingDx.push({ item: item, dxAge: t.dxAge });
       (top.kind === 'condition' ? c.conditions : c.medications).push(item);
@@ -158,6 +195,7 @@
       if (ch.item) {
         var y = ch.item.yearsSince;
         ch.detail = y == null ? (ch.time && ch.time.dxAge != null ? 'dx at ' + ch.time.dxAge + ' (add age)' : '') : y === 0 ? 'current' : (y < 1 ? Math.round(y * 12) + ' mo ago' : (Math.round(y * 10) / 10) + ' yrs ago');
+        if (ch.item.q) ch.detail = (ch.detail ? ch.detail + ' · ' : '') + ch.item.q.map(function (k) { return QUAL_LABEL[k]; }).join(', ');
       }
     });
     return res;

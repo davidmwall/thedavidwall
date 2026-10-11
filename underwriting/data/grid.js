@@ -1243,6 +1243,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -1609,10 +1610,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded",
+      "why": "if treated within 2 years, simplinow legacy",
       "conditional": true
      },
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -1773,6 +1776,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if alcohol abuse within past 5 years, decline",
       "conditional": true
      }
     ],
@@ -1784,6 +1788,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if drug/alcohol abuse within past 10 years, decline",
       "conditional": true
      }
     ],
@@ -1795,6 +1800,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if drug/alcohol abuse within past 10 years, decline",
       "conditional": true
      }
     ],
@@ -1868,6 +1874,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if alcohol abuse/treatment within 5 years, decline",
       "conditional": true
      }
     ],
@@ -2381,6 +2388,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -2407,6 +2415,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -2417,6 +2426,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed",
       "conditional": true
      }
     ],
@@ -2435,6 +2445,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -2453,10 +2464,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "modified",
+      "why": "if  question   answered   , modified",
       "conditional": true
      }
     ],
@@ -2475,6 +2488,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -2605,6 +2619,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -2625,6 +2640,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -3356,14 +3372,17 @@ UW.registerGrid({
      {
       "withinYears": 0.5,
       "outcome": "gi",
+      "why": "if treated within 6 months, decline",
       "conditional": true
      },
      {
       "outcome": "gi",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , simplinow legacy",
       "conditional": true
      }
     ],
@@ -3646,6 +3665,7 @@ UW.registerGrid({
      },
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, simplinow legacy",
       "conditional": true
      }
     ],
@@ -3976,11 +3996,13 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded",
+      "why": "if  question blood thinner question   answered   , simplinow legacy",
       "conditional": true
      },
      {
       "withinYears": 2,
       "outcome": "graded",
+      "why": "if diagnosed within 2 years, simplinow legacy",
       "conditional": true
      }
     ],
@@ -4134,10 +4156,12 @@ UW.registerGrid({
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "may accept — afib if diagnosed >2 yrs ago, controlled on meds, age <65",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "may accept — afib if diagnosed >2 yrs ago, controlled on meds, age <65",
       "conditional": true
      }
     ],
@@ -4351,6 +4375,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "if unable to work >10 consecutive days in past 12 months, decline",
       "conditional": true
      }
     ],
@@ -4362,6 +4387,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "if disability within past 12 months, decline",
       "conditional": true
      }
     ],
@@ -4373,6 +4399,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "if disability within past 12 months, decline",
       "conditional": true
      }
     ],
@@ -4468,6 +4495,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -4511,10 +4539,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "preferred",
+      "why": "if treated within 2 years, preferred",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "if  question   answered   , standard",
       "conditional": true
      }
     ],
@@ -4551,6 +4581,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -4561,6 +4592,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -4571,6 +4603,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -4581,6 +4614,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -4591,6 +4625,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — mild, well controlled, stable, no comorbidity",
       "conditional": true
      }
     ],
@@ -4601,10 +4636,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild/moderate = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe/hospitalization = declined",
       "conditional": true
      }
     ],
@@ -4615,10 +4652,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "mild/moderate = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe/hospitalization = declined",
       "conditional": true
      }
     ],
@@ -4629,10 +4668,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild/moderate = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe/hospitalization = declined",
       "conditional": true
      }
     ],
@@ -4707,10 +4748,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "if  question   answered   , standard",
       "conditional": true
      }
     ],
@@ -4762,10 +4805,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "preferred",
+      "why": "if treated within 2 years, preferred",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "if  question   answered   , standard",
       "conditional": true
      }
     ],
@@ -4801,6 +4846,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -4811,6 +4857,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -4821,6 +4868,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -4831,6 +4879,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -4875,6 +4924,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — controlled, stable, no comorbidity",
       "conditional": true
      }
     ],
@@ -4885,10 +4935,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild/moderate = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe/hospitalization = declined",
       "conditional": true
      }
     ],
@@ -4899,10 +4951,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "mild/moderate = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe/hospitalization = declined",
       "conditional": true
      }
     ],
@@ -4913,10 +4967,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild/moderate = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe/hospitalization = declined",
       "conditional": true
      }
     ],
@@ -4935,6 +4991,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -4953,6 +5010,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -5005,6 +5063,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if applicant under age 6",
       "conditional": true
      },
      {
@@ -5093,11 +5152,13 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded",
+      "why": "if  question blood thinner question   answered   , simplinow legacy",
       "conditional": true
      },
      {
       "withinYears": 2,
       "outcome": "graded",
+      "why": "if diagnosed within 2 years, simplinow legacy",
       "conditional": true
      }
     ],
@@ -5140,6 +5201,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -5272,10 +5334,12 @@ UW.registerGrid({
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "may accept — diagnosed >2 yrs ago, controlled on medication, age <65",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "may accept — diagnosed >2 yrs ago, controlled on medication, age <65",
       "conditional": true
      }
     ],
@@ -5410,6 +5474,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if under age 2 or any age with other mental health diagnosis",
       "conditional": true
      },
      {
@@ -5594,6 +5659,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — no other mental health dx",
       "conditional": true
      }
     ],
@@ -5803,6 +5869,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -5909,6 +5976,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if hospitalization/inpatient within last 5 years or suicidal thoughts past 6 mo, decline",
       "conditional": true
      }
     ],
@@ -6018,6 +6086,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -6028,6 +6097,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -6038,6 +6108,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -6048,6 +6119,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -6058,6 +6130,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if continuing anticoagulant or multiple episodes, decline",
       "conditional": true
      }
     ],
@@ -6068,6 +6141,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if continuing anticoagulant or multiple episodes, decline",
       "conditional": true
      }
     ],
@@ -6189,11 +6263,13 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — leukemia",
       "conditional": true
      },
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "blood disorder dx or treated within last 10 yrs = decline",
       "conditional": true
      }
     ],
@@ -6418,6 +6494,7 @@ UW.registerGrid({
      },
      {
       "outcome": "gi",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -6441,6 +6518,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -6459,6 +6537,7 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -6505,6 +6584,7 @@ UW.registerGrid({
      },
      {
       "outcome": "modified",
+      "why": "if paired with tobacco, modified",
       "conditional": true
      }
     ],
@@ -6532,6 +6612,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, graded",
       "conditional": true
      }
     ],
@@ -7056,6 +7137,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "metastatic or recurrent cancer of the same type  , decline",
       "conditional": true
      }
     ],
@@ -7098,6 +7180,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "question  question  question  question \" , decline",
       "conditional": true
      }
     ],
@@ -7283,14 +7366,17 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level",
+      "why": "if  question   answered   , simplinow legacy max",
       "conditional": true
      },
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , simplinow legacy",
       "conditional": true
      }
     ],
@@ -7558,6 +7644,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "preferred",
+      "why": "medically diagnosed or treated within 24+ months   -preferred",
       "conditional": true
      }
     ],
@@ -7625,10 +7712,12 @@ UW.registerGrid({
      {
       "withinYears": 8,
       "outcome": "decline",
+      "why": "if treated within 8 years, decline",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -7640,10 +7729,12 @@ UW.registerGrid({
      {
       "withinYears": 8,
       "outcome": "decline",
+      "why": "if treated within 8 years, decline",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -7655,10 +7746,12 @@ UW.registerGrid({
      {
       "withinYears": 8,
       "outcome": "decline",
+      "why": "if treated within 8 years, decline",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -7670,10 +7763,12 @@ UW.registerGrid({
      {
       "withinYears": 8,
       "outcome": "decline",
+      "why": "if treated within 8 years, decline",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -7725,14 +7820,17 @@ UW.registerGrid({
       "withinYears": 10,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "cancer with treatment completed over 10 years ago, with no recurrence, or recommended treatment = approved",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "cancer with treatment completed over 10 years ago, with no recurrence, or recommended treatment = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others declined",
       "conditional": true
      }
     ],
@@ -7745,14 +7843,17 @@ UW.registerGrid({
       "withinYears": 10,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "cancer with treatment completed over 10 years ago, with no recurrence, or recommended treatment = approved",
       "conditional": true
      },
      {
       "outcome": "best",
+      "why": "cancer with treatment completed over 10 years ago, with no recurrence, or recommended treatment = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others declined",
       "conditional": true
      }
     ],
@@ -7765,14 +7866,17 @@ UW.registerGrid({
       "withinYears": 10,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "cancer with treatment completed over 10 years ago, with no recurrence, or recommended treatment = approved",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "cancer with treatment completed over 10 years ago, with no recurrence, or recommended treatment = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others declined",
       "conditional": true
      }
     ],
@@ -7899,6 +8003,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -8159,6 +8264,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -8306,10 +8412,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if mild to moderate"
      },
      {
       "outcome": "standard",
+      "why": "y if mild to moderate",
       "conditional": true
      }
     ],
@@ -8738,10 +8846,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if mild to moderate"
      },
      {
       "outcome": "best",
+      "why": "y if mild to moderate",
       "conditional": true
      }
     ],
@@ -8848,6 +8958,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild or moderate approved",
       "conditional": true
      },
      {
@@ -8862,6 +8973,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "mild or moderate approved",
       "conditional": true
      },
      {
@@ -8876,6 +8988,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild or moderate approved",
       "conditional": true
      },
      {
@@ -8978,6 +9091,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "potentially accepted",
       "conditional": true
      }
     ],
@@ -9109,6 +9223,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "decline if heart surgery/bypass/valve/attack within last 5 yrs or w/ tobacco/diabetes/stroke at any time",
       "conditional": true
      }
     ],
@@ -9344,6 +9459,7 @@ UW.registerGrid({
      },
      {
       "outcome": "gi",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -9367,10 +9483,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "otherwise standard",
       "conditional": true
      }
     ],
@@ -9389,6 +9507,7 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -9431,6 +9550,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "modified",
+      "why": "if paired with tobacco, modified",
       "conditional": true
      }
     ],
@@ -9458,6 +9578,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, graded",
       "conditional": true
      }
     ],
@@ -9731,10 +9852,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 14 days since symptoms, > 30 days since quarantine, > days since positve test result, > 21 days since travel outside of the united states, > 30 days since someone in your household has been treated or diagnosed"
      },
      {
       "outcome": "best",
+      "why": "y if > 14 days since symptoms, > 30 days since quarantine, > days since positve test result, > 21 days since travel outside of the united states, > 30 days since someone in your household has been treated or diagnosed",
       "conditional": true
      }
     ],
@@ -9753,6 +9876,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "modified",
+      "why": "if  question   answered   , rop",
       "conditional": true
      }
     ],
@@ -9828,20 +9952,24 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days"
      },
      {
       "withinYears": 0.25,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -9853,20 +9981,24 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days"
      },
      {
       "withinYears": 0.25,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -9878,20 +10010,24 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days"
      },
      {
       "withinYears": 0.25,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -9903,20 +10039,24 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days"
      },
      {
       "withinYears": 0.25,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "y if tested positive > 3 months ago, no residual effects within the last 6 months, no symptoms within the last 30 days",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -9927,6 +10067,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if any symptoms or positive test within past 14 days, decline",
       "conditional": true
      }
     ],
@@ -9937,6 +10078,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if any symptoms or positive test within past 14 days, decline",
       "conditional": true
      }
     ],
@@ -9962,10 +10104,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 14 days since symptoms, > 30 days since quarantine, > days since positve test result, > 21 days since travel outside of the united states, > 30 days since someone in your household has been treated or diagnosed"
      },
      {
       "outcome": "standard",
+      "why": "y if > 14 days since symptoms, > 30 days since quarantine, > days since positve test result, > 21 days since travel outside of the united states, > 30 days since someone in your household has been treated or diagnosed",
       "conditional": true
      },
      {
@@ -9981,10 +10125,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 14 days since symptoms, > 30 days since quarantine, > days since positve test result, > 21 days since travel outside of the united states, > 30 days since someone in your household has been treated or diagnosed"
      },
      {
       "outcome": "best",
+      "why": "y if > 14 days since symptoms, > 30 days since quarantine, > days since positve test result, > 21 days since travel outside of the united states, > 30 days since someone in your household has been treated or diagnosed",
       "conditional": true
      },
      {
@@ -10000,10 +10146,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 14 days since symptoms, > 30 days since quarantine, > days since positve test result, > 21 days since travel outside of the united states, > 30 days since someone in your household has been treated or diagnosed"
      },
      {
       "outcome": "standard",
+      "why": "y if > 14 days since symptoms, > 30 days since quarantine, > days since positve test result, > 21 days since travel outside of the united states, > 30 days since someone in your household has been treated or diagnosed",
       "conditional": true
      },
      {
@@ -10109,16 +10257,19 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 5 years in remission"
      },
      {
       "withinYears": 5,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if > 5 years in remission",
       "conditional": true
      },
      {
       "outcome": "best",
+      "why": "y if > 5 years in remission",
       "conditional": true
      }
     ],
@@ -10218,16 +10369,19 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 5 years in remission"
      },
      {
       "withinYears": 5,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if > 5 years in remission",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "y if > 5 years in remission",
       "conditional": true
      }
     ],
@@ -10239,16 +10393,19 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 5 years in remission"
      },
      {
       "withinYears": 5,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if > 5 years in remission",
       "conditional": true
      },
      {
       "outcome": "best",
+      "why": "y if > 5 years in remission",
       "conditional": true
      }
     ],
@@ -10260,16 +10417,19 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 5 years in remission"
      },
      {
       "withinYears": 5,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if > 5 years in remission",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "y if > 5 years in remission",
       "conditional": true
      }
     ],
@@ -10528,6 +10688,7 @@ UW.registerGrid({
      },
      {
       "outcome": "gi",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -10625,6 +10786,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, graded",
       "conditional": true
      }
     ],
@@ -11099,6 +11261,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded",
+      "why": "if  question   answered   , graded",
       "conditional": true
      }
     ],
@@ -11117,6 +11280,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -11127,6 +11291,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -11137,6 +11302,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -11147,6 +11313,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -11157,10 +11324,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild/well-controlled = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe with hospitalization/suicidal history = decline",
       "conditional": true
      }
     ],
@@ -11171,10 +11340,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild/well-controlled = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe with hospitalization/suicidal history = decline",
       "conditional": true
      }
     ],
@@ -11185,10 +11356,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild/well-controlled = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe with hospitalization/suicidal history = decline",
       "conditional": true
      }
     ],
@@ -11199,6 +11372,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — no bipolar, no hospitalization, no time lost from work",
       "conditional": true
      }
     ],
@@ -11211,14 +11385,17 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others = decline",
       "conditional": true
      }
     ],
@@ -11231,14 +11408,17 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "best",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others = decline",
       "conditional": true
      }
     ],
@@ -11251,14 +11431,17 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others = decline",
       "conditional": true
      }
     ],
@@ -11269,10 +11452,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "major or bipolar decline",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "mild accepted",
       "conditional": true
      }
     ],
@@ -11283,6 +11468,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -11302,6 +11488,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if  question   answered   , simple term deluxe",
       "conditional": true
      }
     ],
@@ -11322,6 +11509,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -11341,16 +11529,19 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 25 years old, diagnosis > 1 year ago, no hospitalizations or time off work"
      },
      {
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if > 25 years old, diagnosis > 1 year ago, no hospitalizations or time off work",
       "conditional": true
      },
      {
       "outcome": "best",
+      "why": "y if > 25 years old, diagnosis > 1 year ago, no hospitalizations or time off work",
       "conditional": true
      }
     ],
@@ -11370,10 +11561,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if not major depression, no more than 1 medication and not chronic"
      },
      {
       "outcome": "standard",
+      "why": "y if not major depression, no more than 1 medication and not chronic",
       "conditional": true
      }
     ],
@@ -11385,10 +11578,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if not major depression, no more than 1 medication and not chronic"
      },
      {
       "outcome": "standard",
+      "why": "y if not major depression, no more than 1 medication and not chronic",
       "conditional": true
      }
     ],
@@ -11400,10 +11595,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if not major depression, no more than 1 medication and not chronic"
      },
      {
       "outcome": "standard",
+      "why": "y if not major depression, no more than 1 medication and not chronic",
       "conditional": true
      }
     ],
@@ -11415,10 +11612,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if not major depression, no more than 1 medication and not chronic"
      },
      {
       "outcome": "standard",
+      "why": "y if not major depression, no more than 1 medication and not chronic",
       "conditional": true
      }
     ],
@@ -11453,6 +11652,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — controlled, no hospitalization, no time lost from work",
       "conditional": true
      }
     ],
@@ -11465,14 +11665,17 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others = decline",
       "conditional": true
      }
     ],
@@ -11485,14 +11688,17 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "best",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others = decline",
       "conditional": true
      }
     ],
@@ -11505,14 +11711,17 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others = decline",
       "conditional": true
      }
     ],
@@ -11532,10 +11741,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if controlled"
      },
      {
       "outcome": "standard",
+      "why": "y if controlled",
       "conditional": true
      }
     ],
@@ -11547,10 +11758,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if controlled"
      },
      {
       "outcome": "standard",
+      "why": "y if controlled",
       "conditional": true
      }
     ],
@@ -11571,6 +11784,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -11638,6 +11852,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if hospitalization within last 5 years, decline",
       "conditional": true
      }
     ],
@@ -11649,6 +11864,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if hospitalization/inpatient treatment within last 5 years, or suicidal thoughts/attempt within 10 years, decline",
       "conditional": true
      }
     ],
@@ -11660,6 +11876,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if hospitalization/inpatient treatment within last 5 years, or suicidal thoughts/attempt within 10 years, decline",
       "conditional": true
      }
     ],
@@ -11670,6 +11887,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if requiring 2+ meds, hospitalization, or disability",
       "conditional": true
      }
     ],
@@ -11713,10 +11931,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if controlled with medication"
      },
      {
       "outcome": "standard",
+      "why": "y if controlled with medication",
       "conditional": true
      }
     ],
@@ -11728,10 +11948,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if controlled with medication"
      },
      {
       "outcome": "standard",
+      "why": "y if controlled with medication",
       "conditional": true
      }
     ],
@@ -11761,6 +11983,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — if no complications: answer depends on questions",
       "conditional": true
      }
     ],
@@ -11820,6 +12043,7 @@ UW.registerGrid({
      {
       "withinYears": 0.5,
       "outcome": "decline",
+      "why": "if any of: dx in past 6 mo, under age 30, complications  , a1c >9.5 in last 12 mo under age 41, no testing in last 12 mo, bmi >41.49 = decline",
       "conditional": true
      }
     ],
@@ -11852,6 +12076,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if type 1 or type 2 with a1c ≥7 within last year, or with neuropathy/retinopathy/kidney disease/heart disease/stroke history",
       "conditional": true
      }
     ],
@@ -11994,14 +12219,17 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level",
+      "why": "if  question   answered   , simplinow legacy max",
       "conditional": true
      },
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , simplinow legacy",
       "conditional": true
      }
     ],
@@ -12012,6 +12240,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level",
+      "why": "if  question   answered   , immediate",
       "conditional": true
      },
      {
@@ -12035,10 +12264,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if  question   answered   , standard",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if units of insulin taken per day is greater than or equal to 51, decline",
       "conditional": true
      },
      {
@@ -12059,6 +12290,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed",
       "conditional": true
      }
     ],
@@ -12085,6 +12317,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
@@ -12094,6 +12327,7 @@ UW.registerGrid({
      },
      {
       "outcome": "standard",
+      "why": "if  question   answered   , standard",
       "conditional": true
      }
     ],
@@ -12123,6 +12357,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if  question   answered   , standard",
       "conditional": true
      }
     ],
@@ -12143,6 +12378,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -12162,10 +12398,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if no complications and not overweight"
      },
      {
       "outcome": "best",
+      "why": "y if no complications and not overweight",
       "conditional": true
      }
     ],
@@ -12182,10 +12420,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 35 years old when diagnosed, non smoker, no complications, not overweight and controlled with oral medications"
      },
      {
       "outcome": "standard",
+      "why": "y if > 35 years old when diagnosed, non smoker, no complications, not overweight and controlled with oral medications",
       "conditional": true
      }
     ],
@@ -12202,10 +12442,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 35 years old when diagnosed, non smoker, no complications, not overweight and controlled with oral medications"
      },
      {
       "outcome": "standard",
+      "why": "y if > 35 years old when diagnosed, non smoker, no complications, not overweight and controlled with oral medications",
       "conditional": true
      }
     ],
@@ -12222,10 +12464,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 35 years old when diagnosed, non smoker, no complications, not overweight and controlled with oral medications"
      },
      {
       "outcome": "standard",
+      "why": "y if > 35 years old when diagnosed, non smoker, no complications, not overweight and controlled with oral medications",
       "conditional": true
      }
     ],
@@ -12242,10 +12486,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > 35 years old when diagnosed, non smoker, no complications, not overweight and controlled with oral medications"
      },
      {
       "outcome": "standard",
+      "why": "y if > 35 years old when diagnosed, non smoker, no complications, not overweight and controlled with oral medications",
       "conditional": true
      }
     ],
@@ -12256,6 +12502,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — a1c <7, no complications",
       "conditional": true
      }
     ],
@@ -12300,6 +12547,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if applicant has been diagnosed with diabetes prior to age 50, applicant will be declined",
       "conditional": true
      }
     ],
@@ -12316,10 +12564,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > age 45 when diagnosed, non smoker, no complications and good build"
      },
      {
       "outcome": "standard",
+      "why": "y if > age 45 when diagnosed, non smoker, no complications and good build",
       "conditional": true
      }
     ],
@@ -12336,10 +12586,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if > age 45 when diagnosed, non smoker, no complications and good build"
      },
      {
       "outcome": "standard",
+      "why": "y if > age 45 when diagnosed, non smoker, no complications and good build",
       "conditional": true
      }
     ],
@@ -12422,31 +12674,38 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level",
+      "why": "simplinow legacy max",
       "conditional": true
      },
      {
       "withinYears": 4,
       "outcome": "graded",
+      "why": "if treated within 4 years, simplinow legacy",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "simplinow legacy",
       "conditional": true
      },
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "level",
+      "why": "if  question   answered   , simplinow legacy max",
       "conditional": true
      },
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , simplinow legacy",
       "conditional": true
      }
     ],
@@ -12467,14 +12726,17 @@ UW.registerGrid({
      {
       "withinYears": 3,
       "outcome": "graded",
+      "why": "if treated within 3 years, special",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "if  question   answered   , standard",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if units of insulin taken per day is greater than or equal to 51, decline",
       "conditional": true
      },
      {
@@ -12499,6 +12761,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed",
       "conditional": true
      },
      {
@@ -12522,14 +12785,17 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "modified",
+      "why": "if treated within 2 years, modified",
       "conditional": true
      },
      {
       "outcome": "preferred",
+      "why": "if  question   answered   , preferred",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
@@ -12560,19 +12826,23 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "graded",
+      "why": "if treated within 10 years, graded",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , graded",
       "conditional": true
      },
      {
       "withinYears": 10,
       "outcome": "standard",
+      "why": "if treated within 10 years, standard",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , graded",
       "conditional": true
      }
     ],
@@ -12746,14 +13016,17 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "level",
+      "why": "if  question   answered   , simplinow legacy max",
       "conditional": true
      },
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , simplinow legacy",
       "conditional": true
      }
     ],
@@ -12797,6 +13070,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -13005,6 +13279,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -13064,6 +13339,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "if unable to work >10 consecutive days in past 12 months, decline",
       "conditional": true
      }
     ],
@@ -13075,6 +13351,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "if unable to work >30 consecutive days in past 12 months, decline",
       "conditional": true
      }
     ],
@@ -13086,6 +13363,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "if unable to work >30 consecutive days in past 12 months, decline",
       "conditional": true
      }
     ],
@@ -13137,6 +13415,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "any disability check in the previous 12 months will be declined",
       "conditional": true
      }
     ],
@@ -13148,6 +13427,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "any disability check in the previous 12 months will be declined",
       "conditional": true
      }
     ],
@@ -13158,6 +13438,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if unable to work due to chronic illness or permanent injury",
       "conditional": true
      }
     ],
@@ -13437,6 +13718,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if license suspended within past year, decline",
       "conditional": true
      }
     ],
@@ -13447,6 +13729,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if license suspended within past year, decline",
       "conditional": true
      }
     ],
@@ -13457,6 +13740,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if license suspended within past year, decline",
       "conditional": true
      }
     ],
@@ -13626,10 +13910,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "level",
+      "why": "if treated within 2 years, level",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , graded",
       "conditional": true
      }
     ],
@@ -13685,6 +13971,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if major violations   within 5 years, decline",
       "conditional": true
      }
     ],
@@ -13696,6 +13983,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if dui/dwi within 5 years, decline",
       "conditional": true
      }
     ],
@@ -13707,6 +13995,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if dui/dwi within 5 years, decline",
       "conditional": true
      }
     ],
@@ -13726,6 +14015,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "1 occurance within 12 months, or 2 within 5 years = decline",
       "conditional": true
      }
     ],
@@ -13737,6 +14027,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "2 occurance within 12 months, or 2 within 5 years = decline",
       "conditional": true
      }
     ],
@@ -13748,6 +14039,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "3 occurance within 12 months, or 2 within 5 years = decline",
       "conditional": true
      }
     ],
@@ -13759,6 +14051,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "violations within 5 years, decline",
       "conditional": true
      }
     ],
@@ -13936,6 +14229,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if suspended within past year, decline",
       "conditional": true
      }
     ],
@@ -13946,6 +14240,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if suspended within past year, decline",
       "conditional": true
      }
     ],
@@ -13956,6 +14251,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if suspended within past year, decline",
       "conditional": true
      }
     ],
@@ -13999,6 +14295,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "violations within 5 years, decline",
       "conditional": true
      }
     ],
@@ -14068,11 +14365,13 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if < 3 in the last 5 years and no reckless driving in last 5 years"
      },
      {
       "withinYears": 5,
       "outcome": "best",
+      "why": "y if < 3 in the last 5 years and no reckless driving in last 5 years",
       "conditional": true
      }
     ],
@@ -14171,6 +14470,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "decline if dui/dwi/reckless driving within last 5 years",
       "conditional": true
      }
     ],
@@ -14182,11 +14482,13 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if < 3 in the last 5 years and no reckless driving in last 5 years"
      },
      {
       "withinYears": 5,
       "outcome": "standard",
+      "why": "y if < 3 in the last 5 years and no reckless driving in last 5 years",
       "conditional": true
      }
     ],
@@ -14198,11 +14500,13 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if < 3 in the last 5 years and no reckless driving in last 5 years"
      },
      {
       "withinYears": 5,
       "outcome": "best",
+      "why": "y if < 3 in the last 5 years and no reckless driving in last 5 years",
       "conditional": true
      }
     ],
@@ -14214,11 +14518,13 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if < 3 in the last 5 years and no reckless driving in last 5 years"
      },
      {
       "withinYears": 5,
       "outcome": "standard",
+      "why": "y if < 3 in the last 5 years and no reckless driving in last 5 years",
       "conditional": true
      }
     ],
@@ -14230,6 +14536,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "violations within 5 years, decline",
       "conditional": true
      }
     ],
@@ -14307,10 +14614,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "graded",
+      "why": "if treated within 2 years, simplinow legacy",
       "conditional": true
      },
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -14466,6 +14775,13 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if drug abuse within past 10 years, decline",
+      "conditional": true
+     },
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "why": "if drug use within past 10 years, decline",
       "conditional": true
      }
     ],
@@ -14477,6 +14793,13 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if drug abuse within past 10 years, decline",
+      "conditional": true
+     },
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "why": "if drug use/treatment within past 10 years, decline",
       "conditional": true
      }
     ],
@@ -14488,6 +14811,13 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if drug abuse within past 10 years, decline",
+      "conditional": true
+     },
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "why": "if drug use/treatment within past 10 years, decline",
       "conditional": true
      }
     ],
@@ -14562,6 +14892,7 @@ UW.registerGrid({
      {
       "withinYears": 7,
       "outcome": "decline",
+      "why": "if drug use/abuse/treatment within 7 years  , decline",
       "conditional": true
      },
      {
@@ -14687,10 +15018,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "level",
+      "why": "if treated within 2 years, level",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , graded",
       "conditional": true
      }
     ],
@@ -14781,6 +15114,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -14791,6 +15125,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -14801,6 +15136,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -14957,10 +15293,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "level",
+      "why": "if treated within 2 years, level",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , graded",
       "conditional": true
      }
     ],
@@ -15051,6 +15389,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15061,6 +15400,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15071,6 +15411,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15139,6 +15480,7 @@ UW.registerGrid({
      },
      {
       "outcome": "gi",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -15162,6 +15504,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15180,6 +15523,7 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -15198,6 +15542,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -15232,6 +15577,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "modified",
+      "why": "if paired with tobacco, modified",
       "conditional": true
      }
     ],
@@ -15259,6 +15605,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, graded",
       "conditional": true
      }
     ],
@@ -15459,6 +15806,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -15486,16 +15834,19 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if no complications and > 2 years since last seizure"
      },
      {
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "y if no complications and > 2 years since last seizure",
       "conditional": true
      },
      {
       "outcome": "best",
+      "why": "y if no complications and > 2 years since last seizure",
       "conditional": true
      }
     ],
@@ -15539,6 +15890,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15549,6 +15901,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15559,6 +15912,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15569,6 +15923,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15607,6 +15962,7 @@ UW.registerGrid({
      },
      {
       "outcome": "standard",
+      "why": "may accept if diagnosed >5 yrs ago, ≤1 seizure/yr, compliant with meds",
       "conditional": true
      }
     ],
@@ -15618,6 +15974,7 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "standard",
+      "why": "controlled on meds, no seizures for 2 years, no complications = approved",
       "conditional": true
      }
     ],
@@ -15629,6 +15986,7 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "best",
+      "why": "controlled on meds, no seizures for 2 years, no complications = approved",
       "conditional": true
      }
     ],
@@ -15640,6 +15998,7 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "standard",
+      "why": "controlled on meds, no seizures for 2 years, no complications = approved",
       "conditional": true
      }
     ],
@@ -15683,6 +16042,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15771,10 +16131,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "modified",
+      "why": "if within 2 years, modified",
       "conditional": true
      },
      {
       "outcome": "modified",
+      "why": "if  question   answered   , modified",
       "conditional": true
      }
     ],
@@ -15811,10 +16173,12 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if within 5 years, decline",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15826,10 +16190,12 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if within 5 years, decline",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15841,10 +16207,12 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if within 5 years, decline",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -15856,10 +16224,12 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if within 5 years, decline",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -16020,10 +16390,12 @@ UW.registerGrid({
      {
       "withinYears": 7,
       "outcome": "decline",
+      "why": "if within 7 years, decline",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -16101,10 +16473,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if no depression and working full time"
      },
      {
       "outcome": "best",
+      "why": "y if no depression and working full time",
       "conditional": true
      }
     ],
@@ -16179,6 +16553,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — mild, controlled, no comorbidity",
       "conditional": true
      }
     ],
@@ -16189,6 +16564,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, no depression, working full-time",
       "conditional": true
      }
     ],
@@ -16199,6 +16575,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "approved, no depression, working full-time",
       "conditional": true
      }
     ],
@@ -16209,6 +16586,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, no depression, working full-time",
       "conditional": true
      }
     ],
@@ -16549,6 +16927,7 @@ UW.registerGrid({
      },
      {
       "outcome": "gi",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -16606,6 +16985,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -17185,6 +17565,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — no symptoms, negative cardiac workup",
       "conditional": true
      }
     ],
@@ -17196,10 +17577,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: accepted if  question , no symptoms, no treatment"
      },
      {
       "outcome": "standard",
+      "why": "accepted if  question , no symptoms, no treatment",
       "conditional": true
      }
     ],
@@ -17211,10 +17594,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: accepted if  question , no symptoms, no treatment"
      },
      {
       "outcome": "best",
+      "why": "accepted if  question , no symptoms, no treatment",
       "conditional": true
      }
     ],
@@ -17226,10 +17611,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: accepted if  question , no symptoms, no treatment"
      },
      {
       "outcome": "standard",
+      "why": "accepted if  question , no symptoms, no treatment",
       "conditional": true
      }
     ],
@@ -17418,6 +17805,7 @@ UW.registerGrid({
      },
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, simplinow legacy",
       "conditional": true
      }
     ],
@@ -17475,6 +17863,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -17515,10 +17904,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "modified",
+      "why": "if performed within 2 years, modified",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -17564,6 +17955,7 @@ UW.registerGrid({
      {
       "withinYears": 7,
       "outcome": "decline",
+      "why": "if treated or prescribed medication within 7 years, decline",
       "conditional": true
      }
     ],
@@ -17583,6 +17975,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if treated or prescribed medication within 10 years, decline",
       "conditional": true
      }
     ],
@@ -17594,6 +17987,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if treated or prescribed medication within 10 years, decline",
       "conditional": true
      }
     ],
@@ -17795,6 +18189,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "decline if valve repair/replacement within last 5 yrs, or at any time w/ tobacco/diabetes/stroke",
       "conditional": true
      }
     ],
@@ -17884,6 +18279,7 @@ UW.registerGrid({
      },
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, simplinow legacy",
       "conditional": true
      }
     ],
@@ -18232,10 +18628,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if recovered"
      },
      {
       "outcome": "best",
+      "why": "y if recovered",
       "conditional": true
      }
     ],
@@ -18246,6 +18644,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "modified",
+      "why": "if  question   answered   , modified",
       "conditional": true
      }
     ],
@@ -18328,6 +18727,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — fully recovered",
       "conditional": true
      }
     ],
@@ -18339,10 +18739,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: accept if recovered"
      },
      {
       "outcome": "standard",
+      "why": "accept if recovered",
       "conditional": true
      }
     ],
@@ -18354,10 +18756,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: accept if recovered"
      },
      {
       "outcome": "best",
+      "why": "accept if recovered",
       "conditional": true
      }
     ],
@@ -18369,10 +18773,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: accept if recovered"
      },
      {
       "outcome": "standard",
+      "why": "accept if recovered",
       "conditional": true
      }
     ],
@@ -18391,6 +18797,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "yes, if recovered",
       "conditional": true
      }
     ],
@@ -18401,6 +18808,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "yes, if recovered",
       "conditional": true
      }
     ],
@@ -18477,6 +18885,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -18578,6 +18987,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if active or not recovered  , decline",
       "conditional": true
      }
     ],
@@ -18588,6 +18998,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if active or not recovered  , decline",
       "conditional": true
      }
     ],
@@ -18598,6 +19009,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if active or not recovered  , decline",
       "conditional": true
      }
     ],
@@ -18743,6 +19155,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -18844,6 +19257,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if active or not recovered  , decline",
       "conditional": true
      }
     ],
@@ -18854,6 +19268,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if active or not recovered  , decline",
       "conditional": true
      }
     ],
@@ -18864,6 +19279,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if active or not recovered  , decline",
       "conditional": true
      }
     ],
@@ -19054,6 +19470,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -19064,6 +19481,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -19074,6 +19492,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -19085,10 +19504,12 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard",
+      "why": "if treated within 10 years, standard",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -19100,11 +19521,13 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if avg bp within last 12 mo: age 18-39 ≤155/98, 40-49 ≤160/98, 50-59 ≤165/100, 60 ≤175/100"
      },
      {
       "withinYears": 1,
       "outcome": "standard",
+      "why": "approved if avg bp within last 12 mo: age 18-39 ≤155/98, 40-49 ≤160/98, 50-59 ≤165/100, 60 ≤175/100",
       "conditional": true
      }
     ],
@@ -19116,11 +19539,13 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if avg bp within last 12 mo: age 18-39 ≤150/98, 40-49 ≤160/98, 50-59 ≤165/100, 60+ ≤175/100"
      },
      {
       "withinYears": 1,
       "outcome": "standard",
+      "why": "approved if avg bp within last 12 mo: age 18-39 ≤150/98, 40-49 ≤160/98, 50-59 ≤165/100, 60+ ≤175/100",
       "conditional": true
      }
     ],
@@ -19132,11 +19557,13 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if avg bp within last 12 mo: age 18-39 ≤150/98, 40-49 ≤160/98, 50-59 ≤165/100, 60+ ≤175/100"
      },
      {
       "withinYears": 1,
       "outcome": "standard",
+      "why": "approved if avg bp within last 12 mo: age 18-39 ≤150/98, 40-49 ≤160/98, 50-59 ≤165/100, 60+ ≤175/100",
       "conditional": true
      }
     ],
@@ -19171,6 +19598,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "accepted as long as no hospitalization",
       "conditional": true
      }
     ],
@@ -19181,6 +19609,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "yes, if non-smoker",
       "conditional": true
      }
     ],
@@ -19191,6 +19620,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "y, if non-smoker",
       "conditional": true
      }
     ],
@@ -19246,6 +19676,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed",
       "conditional": true
      }
     ],
@@ -19300,6 +19731,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed issue",
       "conditional": true
      }
     ],
@@ -19320,6 +19752,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "more than 5 days of total confinement in last year decline",
       "conditional": true
      },
      {
@@ -19344,6 +19777,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -19429,6 +19863,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if bipolar/ptsd/schizophrenia requiring hospitalization",
       "conditional": true
      },
      {
@@ -19554,6 +19989,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -19993,6 +20429,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "convicted of misdemeanor or felony within 5 yrs- decline",
       "conditional": true
      }
     ],
@@ -20008,6 +20445,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "convicted of misdemeanor or felony within 5 yrs- decline",
       "conditional": true
      }
     ],
@@ -20023,6 +20461,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "convicted of misdemeanor or felony within 5 yrs- decline",
       "conditional": true
      }
     ],
@@ -20038,6 +20477,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "convicted of misdemeanor or felony within 5 yrs- decline",
       "conditional": true
      }
     ],
@@ -20244,6 +20684,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -20436,6 +20877,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if recurrent dialysis within 10 years, decline",
       "conditional": true
      }
     ],
@@ -20473,6 +20915,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -20636,6 +21079,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if chronic kidney failure within 10 years, decline",
       "conditional": true
      }
     ],
@@ -21276,6 +21720,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "gi",
+      "why": "if completed within 5 years, guaranteed",
       "conditional": true
      }
     ],
@@ -21357,6 +21802,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -21475,6 +21921,7 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
+      "why": "liver failure = decline ever",
       "conditional": true
      }
     ],
@@ -21504,6 +21951,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -21532,10 +21980,12 @@ UW.registerGrid({
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "if nonsystemic or treated over 2 years preferred",
       "conditional": true
      },
      {
       "outcome": "preferred",
+      "why": "if nonsystemic or treated over 2 years preferred",
       "conditional": true
      }
     ],
@@ -21580,10 +22030,12 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "may accept — discoid type only, >1 year after diagnosis, no comorbidity",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "may accept — discoid type only, >1 year after diagnosis, no comorbidity",
       "conditional": true
      }
     ],
@@ -21718,6 +22170,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -21859,6 +22312,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "systemic decline",
       "conditional": true
      },
      {
@@ -21873,6 +22327,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "systemic decline",
       "conditional": true
      },
      {
@@ -21944,6 +22399,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -22002,10 +22458,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — <4 times/week and ≤4 grams/week",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "daily use = decline",
       "conditional": true
      }
     ],
@@ -22016,6 +22474,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "individual consideration may be given",
       "conditional": true
      },
      {
@@ -22030,6 +22489,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "individual consideration may be given",
       "conditional": true
      },
      {
@@ -22044,6 +22504,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "individual consideration may be given",
       "conditional": true
      },
      {
@@ -22067,10 +22528,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if legal"
      },
      {
       "outcome": "standard",
+      "why": "y if legal",
       "conditional": true
      }
     ],
@@ -22082,10 +22545,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if legal"
      },
      {
       "outcome": "standard",
+      "why": "y if legal",
       "conditional": true
      }
     ],
@@ -22564,6 +23029,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if 3+ misdemeanors within last 10 years, decline",
       "conditional": true
      }
     ],
@@ -22574,6 +23040,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if multiple recent misdemeanors, decline",
       "conditional": true
      }
     ],
@@ -22584,6 +23051,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if multiple recent misdemeanors, decline",
       "conditional": true
      }
     ],
@@ -22749,6 +23217,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -22950,6 +23419,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -22961,10 +23431,12 @@ UW.registerGrid({
      {
       "withinYears": 3,
       "outcome": "graded",
+      "why": "if treated within 3 years, graded",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -23000,6 +23472,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -23018,6 +23491,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -23053,6 +23527,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -23310,10 +23785,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if only occasional episodes"
      },
      {
       "outcome": "best",
+      "why": "y if only occasional episodes",
       "conditional": true
      }
     ],
@@ -23416,6 +23893,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, if occasional episodes",
       "conditional": true
      }
     ],
@@ -23426,6 +23904,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "approved, if occasional episodes",
       "conditional": true
      }
     ],
@@ -23436,6 +23915,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, if occasional episodes",
       "conditional": true
      }
     ],
@@ -23566,6 +24046,7 @@ UW.registerGrid({
      },
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, graded",
       "conditional": true
      }
     ],
@@ -23613,6 +24094,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -23623,6 +24105,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed",
       "conditional": true
      }
     ],
@@ -23685,6 +24168,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed issue",
       "conditional": true
      }
     ],
@@ -23995,6 +24479,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -24479,6 +24964,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -24912,6 +25398,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -24922,10 +25409,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , graded",
       "conditional": true
      }
     ],
@@ -24936,6 +25425,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -24946,6 +25436,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -24956,6 +25447,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed",
       "conditional": true
      }
     ],
@@ -24966,6 +25458,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -24984,6 +25477,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -25003,10 +25497,12 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "modified",
+      "why": "if treated within 2 years, modified",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -25025,6 +25521,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -25231,6 +25728,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -25715,6 +26213,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if hospitalization within last 5 years, decline",
       "conditional": true
      }
     ],
@@ -25726,6 +26225,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if hospitalization/inpatient treatment within last 5 years, or suicidal thoughts/attempt within 10 years, decline",
       "conditional": true
      }
     ],
@@ -25737,6 +26237,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if hospitalization/inpatient treatment within last 5 years, or suicidal thoughts/attempt within 10 years, decline",
       "conditional": true
      }
     ],
@@ -25747,6 +26248,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if requiring 2+ meds, hospitalization, or disability",
       "conditional": true
      }
     ],
@@ -26053,10 +26555,12 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard",
+      "why": "if it occured within 10 years, approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -26068,10 +26572,12 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "standard",
+      "why": "if it occured within 10 years, approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -26313,6 +26819,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — controlled",
       "conditional": true
      }
     ],
@@ -26462,10 +26969,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if minimal or slight impairment"
      },
      {
       "outcome": "standard",
+      "why": "approved if minimal or slight impairment",
       "conditional": true
      }
     ],
@@ -26477,10 +26986,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if minimal or slight impairment"
      },
      {
       "outcome": "standard",
+      "why": "approved if minimal or slight impairment",
       "conditional": true
      }
     ],
@@ -26492,10 +27003,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if minimal or slight impairment"
      },
      {
       "outcome": "standard",
+      "why": "approved if minimal or slight impairment",
       "conditional": true
      }
     ],
@@ -26507,10 +27020,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if minimal or slight impairment"
      },
      {
       "outcome": "standard",
+      "why": "approved if minimal or slight impairment",
       "conditional": true
      }
     ],
@@ -26529,10 +27044,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe = declined",
       "conditional": true
      }
     ],
@@ -26543,10 +27060,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "mild = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe = declined",
       "conditional": true
      }
     ],
@@ -26557,10 +27076,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe = declined",
       "conditional": true
      }
     ],
@@ -26579,6 +27100,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline, if moderate/severe",
       "conditional": true
      }
     ],
@@ -26589,6 +27111,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline, if moderate/severe",
       "conditional": true
      }
     ],
@@ -26618,6 +27141,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -26645,10 +27169,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if minimal or slight impairment"
      },
      {
       "outcome": "standard",
+      "why": "approved if minimal or slight impairment",
       "conditional": true
      }
     ],
@@ -26660,10 +27186,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if minimal or slight impairment"
      },
      {
       "outcome": "standard",
+      "why": "approved if minimal or slight impairment",
       "conditional": true
      }
     ],
@@ -26675,10 +27203,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if minimal or slight impairment"
      },
      {
       "outcome": "standard",
+      "why": "approved if minimal or slight impairment",
       "conditional": true
      }
     ],
@@ -26690,10 +27220,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: approved if minimal or slight impairment"
      },
      {
       "outcome": "standard",
+      "why": "approved if minimal or slight impairment",
       "conditional": true
      }
     ],
@@ -26721,10 +27253,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if not disabled"
      },
      {
       "outcome": "standard",
+      "why": "y if not disabled",
       "conditional": true
      }
     ],
@@ -26736,10 +27270,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if not disabled"
      },
      {
       "outcome": "standard",
+      "why": "y if not disabled",
       "conditional": true
      }
     ],
@@ -26768,6 +27304,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -26896,6 +27433,7 @@ UW.registerGrid({
      },
      {
       "outcome": "gi",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -26959,6 +27497,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "modified",
+      "why": "if paired with tobacco, modified",
       "conditional": true
      }
     ],
@@ -26989,6 +27528,7 @@ UW.registerGrid({
      },
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, graded",
       "conditional": true
      }
     ],
@@ -27005,6 +27545,7 @@ UW.registerGrid({
      },
      {
       "outcome": "gi",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -27073,6 +27614,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "modified",
+      "why": "if paired with tobacco, modified",
       "conditional": true
      }
     ],
@@ -27104,6 +27646,7 @@ UW.registerGrid({
      },
      {
       "outcome": "graded",
+      "why": "if paired with tobacco, graded",
       "conditional": true
      }
     ],
@@ -27792,14 +28335,17 @@ UW.registerGrid({
       "withinYears": 2,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "may accept — skin only, >2 years after diagnosis",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "may accept — skin only, >2 years after diagnosis",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "systemic = decline",
       "conditional": true
      }
     ],
@@ -27925,6 +28471,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -28223,6 +28770,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "central sleep apnea = decline",
       "conditional": true
      },
      {
@@ -28524,6 +29072,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if asymptomatic spina bifida occulta = approved",
       "conditional": true
      },
      {
@@ -28538,6 +29087,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if asymptomatic spina bifida occulta = approved",
       "conditional": true
      },
      {
@@ -28552,6 +29102,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if asymptomatic spina bifida occulta = approved",
       "conditional": true
      },
      {
@@ -28566,6 +29117,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if asymptomatic spina bifida occulta = approved",
       "conditional": true
      },
      {
@@ -28655,6 +29207,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "graded",
+      "why": "if  question   answered   , simplinow legacy",
       "conditional": true
      }
     ],
@@ -28765,6 +29318,7 @@ UW.registerGrid({
      {
       "withinYears": 7,
       "outcome": "decline",
+      "why": "if treated or prescribed medication within 7 years, decline",
       "conditional": true
      }
     ],
@@ -28784,6 +29338,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if treated or prescribed medication within 10 years, decline",
       "conditional": true
      }
     ],
@@ -28795,6 +29350,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if treated or prescribed medication within 10 years, decline",
       "conditional": true
      }
     ],
@@ -29125,6 +29681,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "decline if cva within last 5 years or 2+ tias",
       "conditional": true
      }
     ],
@@ -29253,6 +29810,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — automated uw decision",
       "conditional": true
      }
     ],
@@ -29360,6 +29918,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if multiple suicide attempts within 5 years or suicidal thoughts past 6 mo, decline",
       "conditional": true
      }
     ],
@@ -29371,6 +29930,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if suicide attempt within past 10 years, decline",
       "conditional": true
      }
     ],
@@ -29382,6 +29942,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "if suicide attempt within past 10 years, decline",
       "conditional": true
      }
     ],
@@ -29449,6 +30010,7 @@ UW.registerGrid({
      {
       "withinYears": 5,
       "outcome": "decline",
+      "why": "if suicide attempt within 5 years, decline",
       "conditional": true
      }
     ],
@@ -29526,6 +30088,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if pending tests/treatment not completed or awaiting results, decline",
       "conditional": true
      }
     ],
@@ -29536,6 +30099,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if pending tests/treatment not completed or awaiting results, decline",
       "conditional": true
      }
     ],
@@ -29603,6 +30167,7 @@ UW.registerGrid({
      {
       "withinYears": 0.5,
       "outcome": "decline",
+      "why": "if pending tests, surgery, hospitalization, medical diagnosis, or test results within 6 months, decline",
       "conditional": true
      }
     ],
@@ -30051,10 +30616,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "graded",
+      "why": "if  question   answered   , special",
       "conditional": true
      }
     ],
@@ -30065,6 +30632,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed",
       "conditional": true
      }
     ],
@@ -30093,10 +30661,12 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "preferred",
+      "why": "if within 1 year, preferred",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -30169,6 +30739,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if pending tests/treatment not completed, decline",
       "conditional": true
      }
     ],
@@ -30179,6 +30750,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if pending tests/treatment not completed, decline",
       "conditional": true
      }
     ],
@@ -30250,6 +30822,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -30505,10 +31078,12 @@ UW.registerGrid({
      {
       "withinYears": 0.5,
       "outcome": "gi",
+      "why": "if treated within 6 months, decline",
       "conditional": true
      },
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -30566,6 +31141,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — not counted as stroke per trustage",
       "conditional": true
      }
     ],
@@ -30649,6 +31225,7 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -30663,6 +31240,7 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -30677,6 +31255,7 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -30691,6 +31270,7 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
+      "why": "if paired with tobacco, decline",
       "conditional": true
      }
     ],
@@ -30727,14 +31307,17 @@ UW.registerGrid({
       "withinYears": 0.5,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "may accept — no more than 1 tia, >6 months ago, age 46+",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "may accept — no more than 1 tia, >6 months ago, age 46+",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "2+ tias = decline",
       "conditional": true
      }
     ],
@@ -30883,10 +31466,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: y if treatment completed"
      },
      {
       "outcome": "best",
+      "why": "y if treatment completed",
       "conditional": true
      }
     ],
@@ -30897,6 +31482,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "modified",
+      "why": "if paired with tobacco, modified",
       "conditional": true
      }
     ],
@@ -30977,6 +31563,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if treatment completed, accepted",
       "conditional": true
      }
     ],
@@ -30987,6 +31574,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "if treatment completed, accepted",
       "conditional": true
      }
     ],
@@ -30997,6 +31585,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if treatment completed, accepted",
       "conditional": true
      }
     ],
@@ -31116,6 +31705,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "modified",
+      "why": "if  question   answered   , modified",
       "conditional": true
      }
     ],
@@ -31208,6 +31798,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "modified",
+      "why": "if  question   answered   , modified",
       "conditional": true
      }
     ],
@@ -31448,6 +32039,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31458,6 +32050,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31476,6 +32069,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31486,6 +32080,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed",
       "conditional": true
      }
     ],
@@ -31513,14 +32108,17 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "preferred",
+      "why": "if treated within 2 years, preferred",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "modified",
+      "why": "if  question   answered   , modified",
       "conditional": true
      }
     ],
@@ -31557,6 +32155,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31567,6 +32166,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31586,6 +32186,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31596,6 +32197,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
+      "why": "if  question   answered   , guaranteed",
       "conditional": true
      }
     ],
@@ -31614,6 +32216,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31625,14 +32228,17 @@ UW.registerGrid({
      {
       "withinYears": 2,
       "outcome": "preferred",
+      "why": "if treated within 2 years, preferred",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      },
      {
       "outcome": "modified",
+      "why": "if  question   answered   , modified",
       "conditional": true
      }
     ],
@@ -31651,6 +32257,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31732,6 +32339,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "if unable to work >10 consecutive days in past 12 months, decline",
       "conditional": true
      }
     ],
@@ -31743,6 +32351,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "if unable to work >30 consecutive days in past 12 months, decline",
       "conditional": true
      }
     ],
@@ -31754,6 +32363,7 @@ UW.registerGrid({
      {
       "withinYears": 1,
       "outcome": "decline",
+      "why": "if unable to work >30 consecutive days in past 12 months, decline",
       "conditional": true
      }
     ],
@@ -31764,6 +32374,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if due to paralysis",
       "conditional": true
      },
      {
@@ -31836,6 +32447,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31880,6 +32492,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31890,6 +32503,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31900,6 +32514,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31910,6 +32525,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if  question   answered   , decline",
       "conditional": true
      }
     ],
@@ -31921,6 +32537,7 @@ UW.registerGrid({
      {
       "withinYears": 0.5,
       "outcome": "decline",
+      "why": "suicidal thoughts in past 6 months or multiple suicide attempts within 5 years or hospitalization within 5 years or disability/missed work 10+ days in last 12 months = decline",
       "conditional": true
      }
     ],
@@ -31931,10 +32548,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild/well-controlled = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe with hospitalization/suicidal history = decline",
       "conditional": true
      }
     ],
@@ -31945,10 +32564,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild/well-controlled = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "severe with hospitalization/suicidal history = decline",
       "conditional": true
      }
     ],
@@ -31959,6 +32580,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — mild, controlled, no hospitalization, no time lost from work",
       "conditional": true
      }
     ],
@@ -31971,14 +32593,17 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others = decline",
       "conditional": true
      }
     ],
@@ -31991,14 +32616,17 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "best",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others = decline",
       "conditional": true
      }
     ],
@@ -32011,14 +32639,17 @@ UW.registerGrid({
       "withinYears": 1,
       "outcome": "decline",
       "note": "implied by grid",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "mild > age 25, onset more than 1 year or longer, no hospitalization or time off work = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others = decline",
       "conditional": true
      }
     ],
@@ -32029,6 +32660,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild, situational accepted",
       "conditional": true
      }
     ],
@@ -32061,6 +32693,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "if  question   answered   , simple term deluxe",
       "conditional": true
      }
     ],
@@ -32173,6 +32806,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "lupus/sle, scleroderma, mixed connective tissue syndrome = decline",
       "conditional": true
      }
     ],
@@ -32666,6 +33300,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "benign/simple fatty liver excluded from liver knockout",
       "conditional": true
      }
     ],
@@ -32807,10 +33442,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: accepted if no diabetes"
      },
      {
       "outcome": "standard",
+      "why": "accepted if no diabetes",
       "conditional": true
      }
     ],
@@ -32822,10 +33459,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: accepted if no diabetes"
      },
      {
       "outcome": "standard",
+      "why": "accepted if no diabetes",
       "conditional": true
      }
     ],
@@ -32962,6 +33601,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if lymphoma/hodgkins, decline",
       "conditional": true
      }
     ],
@@ -33329,6 +33969,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, unless related to diabetes",
       "conditional": true
      }
     ],
@@ -33339,6 +33980,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, unless related to diabetes",
       "conditional": true
      }
     ],
@@ -33349,6 +33991,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, unless related to diabetes",
       "conditional": true
      }
     ],
@@ -33359,6 +34002,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, unless related to diabetes",
       "conditional": true
      }
     ],
@@ -33369,6 +34013,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if diabetic-related, decline",
       "conditional": true
      }
     ],
@@ -33379,6 +34024,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if diabetic-related, decline",
       "conditional": true
      }
     ],
@@ -33389,6 +34035,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "if diabetic-related, decline",
       "conditional": true
      }
     ],
@@ -33399,10 +34046,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "may accept — mild",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "diabetic neuropathy = decline",
       "conditional": true
      }
     ],
@@ -33413,6 +34062,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, unless related to diabetes",
       "conditional": true
      }
     ],
@@ -33423,6 +34073,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "approved, unless related to diabetes",
       "conditional": true
      }
     ],
@@ -33433,6 +34084,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, unless related to diabetes",
       "conditional": true
      }
     ],
@@ -33444,10 +34096,12 @@ UW.registerGrid({
      {
       "outcome": "decline",
       "conditional": true,
-      "note": "if the conditions in the note are not met"
+      "note": "if the conditions in the note are not met",
+      "why": "not met: accepted if not connected to diabetes"
      },
      {
       "outcome": "standard",
+      "why": "accepted if not connected to diabetes",
       "conditional": true
      }
     ],
@@ -33458,6 +34112,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "yes, if not combined with diabetes",
       "conditional": true
      }
     ],
@@ -33468,6 +34123,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "yes, if not combined with diabetes",
       "conditional": true
      }
     ],
@@ -33635,10 +34291,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "commercial pilot and private pilot over 100 flying hours = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others declined",
       "conditional": true
      }
     ],
@@ -33649,10 +34307,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "commercial pilot and private pilot over 100 flying hours = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others declined",
       "conditional": true
      }
     ],
@@ -33663,10 +34323,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "commercial pilot and private pilot over 100 flying hours = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others declined",
       "conditional": true
      }
     ],
@@ -33677,10 +34339,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "commercial pilot and private pilot over 100 flying hours = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "all others declined",
       "conditional": true
      }
     ],
@@ -33691,6 +34355,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "refer",
+      "why": "case by case — aviation flat extra ratings may apply",
       "conditional": true
      }
     ],
@@ -33701,6 +34366,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "individual consideration based on type and experience",
       "conditional": true
      }
     ],
@@ -33711,6 +34377,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "individual consideration based on type and experience",
       "conditional": true
      }
     ],
@@ -33721,6 +34388,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "individual consideration based on type and experience",
       "conditional": true
      }
     ],
@@ -33811,6 +34479,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if gestational diabetes or pre-eclampsia",
       "conditional": true
      },
      {
@@ -34167,10 +34836,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "non pulmonary = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "pulmonary = declined",
       "conditional": true
      }
     ],
@@ -34181,10 +34852,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "non pulmonary = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "pulmonary = declined",
       "conditional": true
      }
     ],
@@ -34195,10 +34868,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "non pulmonary = approved",
       "conditional": true
      },
      {
       "outcome": "decline",
+      "why": "pulmonary = declined",
       "conditional": true
      }
     ],
@@ -34243,6 +34918,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, if no diabetes or hbp",
       "conditional": true
      }
     ],
@@ -34253,6 +34929,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, if no diabetes or hbp",
       "conditional": true
      }
     ],
@@ -34263,6 +34940,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, if no diabetes or hbp",
       "conditional": true
      }
     ],
@@ -34273,6 +34951,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "approved, if no diabetes or hbp",
       "conditional": true
      }
     ],
@@ -34286,6 +34965,7 @@ UW.registerGrid({
      {
       "withinYears": 7,
       "outcome": "decline",
+      "why": "cancerous and treated within 7 years, decline",
       "conditional": true
      }
     ],
@@ -34305,6 +34985,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "cancerous and treated within 10 years, decline",
       "conditional": true
      }
     ],
@@ -34316,6 +34997,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "cancerous and treated within 10 years, decline",
       "conditional": true
      }
     ],
@@ -34335,6 +35017,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "cancerous and treated within 10 years, decline",
       "conditional": true
      }
     ],
@@ -34346,6 +35029,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "cancerous and treated within 10 years, decline",
       "conditional": true
      }
     ],
@@ -34357,6 +35041,7 @@ UW.registerGrid({
      {
       "withinYears": 10,
       "outcome": "decline",
+      "why": "cancerous and treated within 10 years, decline",
       "conditional": true
      }
     ],
@@ -34367,10 +35052,12 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "cancerous = decline",
       "conditional": true
      },
      {
       "outcome": "standard",
+      "why": "non-cancerous = not asked",
       "conditional": true
      }
     ],
@@ -34409,6 +35096,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "but 2 or less medications should be ok",
       "conditional": true
      }
     ],
@@ -34419,6 +35107,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "but 2 or less medications should be ok",
       "conditional": true
      }
     ],
@@ -34429,6 +35118,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "but 2 or less medications should be ok",
       "conditional": true
      }
     ],
@@ -34439,6 +35129,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "but 2 or less medications should be ok",
       "conditional": true
      }
     ],
@@ -34449,6 +35140,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
+      "why": "decline if chronic opioid/narcotic use",
       "conditional": true
      }
     ],
@@ -34459,6 +35151,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "non opiods should be accepted",
       "conditional": true
      }
     ],
@@ -34469,6 +35162,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "non opiods should be accepted",
       "conditional": true
      }
     ],
@@ -34479,6 +35173,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "non opiods should be accepted",
       "conditional": true
      }
     ],
@@ -34489,6 +35184,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "mild usage ok",
       "conditional": true
      }
     ],
@@ -34499,6 +35195,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "acceptable as long as not on disability",
       "conditional": true
      }
     ],
@@ -34509,6 +35206,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "standard",
+      "why": "acceptable as long as not on disability",
       "conditional": true
      }
     ],
@@ -34520,6 +35218,7 @@ UW.registerGrid({
      {
       "withinYears": 3,
       "outcome": "decline",
+      "why": "if frequent/high-dose opioids within 3 years, decline",
       "conditional": true
      }
     ],
@@ -34530,6 +35229,7 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "best",
+      "why": "mild accepted",
       "conditional": true
      }
     ],

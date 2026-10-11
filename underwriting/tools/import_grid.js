@@ -128,7 +128,7 @@ var FILLER = /\b(if|y|treated|treatment|diagnosed|diagnosis|performed|occurred|i
 // One sentence -> { outcome, within, after, qualified } or null when it
 // doesn't contain exactly one outcome word.
 function parseSegment(seg) {
-  var ageq = false, dxAccept = null, dxApply = null;
+  var ageq = false, dxAccept = null, dxApply = null, text = seg.trim();
   // Age at diagnosis. Accept-only-if-older: "> age 45 when diagnosed",
   // "diagnosed > age 49", "onset > age 45", "age 45 or greater at onset".
   seg = seg.replace(/(?:>|over|after|older than)\s*(?:age\s*)?(\d{1,2})\s*(?:years?\s*(?:of age|old)\s*)?(?:when|at)\s*(?:diagnosed|diagnosis|onset|occurrence)/g,
@@ -190,7 +190,7 @@ function parseSegment(seg) {
       .replace(/[^a-z]/g, ' ').trim();
     if (!before) orBranch = true;
   }
-  return { outcome: o, within: within, after: after, qualified: qualified && !orBranch, orBranch: orBranch, current: current,
+  return { text: text, outcome: o, within: within, after: after, qualified: qualified && !orBranch, orBranch: orBranch, current: current,
     dxAccept: dxAccept, dxApply: dxApply, acceptIf: /^(?:y|yes|approved?|accept(?:ed)?)\s+if\b/.test(seg.trim()) || /\b(?:approved|accepted?)\s+if\b/.test(seg) };
 }
 
@@ -235,6 +235,8 @@ function interpret(raw) {
     qualified = qualified || q;
     var add = function (rule) {
       if (p.current) rule.current = true;
+      // Keep the caveat's wording so typed details ("mild", "no complications") can resolve it.
+      if (q && p.text) rule.why = p.text;
       if (q) conditional.push(Object.assign(rule, { conditional: true }));
       else if (p.current) conditional.push(rule);   // decided per client by the engine
       else if (rule.withinYears != null) timed.push(rule);
@@ -244,7 +246,7 @@ function interpret(raw) {
     if (p.dxAccept) timed.unshift(Object.assign({ outcome: 'decline', note: 'diagnosed too young' }, p.dxAccept));
     if (p.dxApply) { conditional.push(Object.assign({ outcome: p.outcome, conditional: q }, p.dxApply)); return; }
     // "Y IF <conditions>": accepted when they're met, declined otherwise.
-    if (p.acceptIf && q && p.outcome !== 'decline') conditional.push({ outcome: 'decline', conditional: true, note: 'if the conditions in the note are not met' });
+    if (p.acceptIf && q && p.outcome !== 'decline') conditional.push({ outcome: 'decline', conditional: true, note: 'if the conditions in the note are not met', why: 'not met: ' + p.text });
     if (p.orBranch) conditional.push({ outcome: p.outcome, conditional: true, note: 'other branch of the "or" in the note' });
     if (p.within != null) add({ withinYears: p.within, outcome: p.outcome });
     else if (p.after != null) {

@@ -54,3 +54,13 @@ test('agent shorthand: a fib, high bp, ckd stage 3, cigars, cpap, brand names', 
   assert.strictEqual(c.client.tobacco, 'yes');
   assert.strictEqual(c.unknown.length, 0);
 });
+
+test('details and times typed after a comma attach to the condition before them', function () {
+  var r = parse('68, diabetes, nonsmoker, dx at 55, no complications, mild copd, severe asthma');
+  var dm = r.client.conditions.filter(function (c) { return c.id === 'diabetes_oral'; })[0];
+  assert.deepStrictEqual(dm.q, ['no_comp']);
+  assert.strictEqual(dm.yearsSince, 13);
+  assert.deepStrictEqual(r.client.conditions.filter(function (c) { return c.id === 'copd'; })[0].q, ['mild']);
+  assert.ok(r.client.conditions.some(function (c) { return c.id === 'asthma_severe'; }));
+  assert.strictEqual(r.unknown.length, 0);
+});

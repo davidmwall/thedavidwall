@@ -484,3 +484,22 @@ test('drug rules "if taken for X" follow the condition the client entered', func
   assert.strictEqual(rx([{ id: 'cancer_breast', yearsSince: 1 }]), 'graded>graded');          // window uses the cancer's timing
   assert.strictEqual(rx([{ id: 'cancer_breast', yearsSince: 5 }]), 'ok>ok');
 });
+
+test('typed details settle caveats: mild, severe, no complications; never on mixed caveats', function () {
+  UW.state.grid = null;
+  load([{ id: 'qd', carrier: 'A', product: 'Q', type: 'final_expense', underwriting: 'simplified', bestOutcome: 'level',
+    conditions: {
+      asthma: { rules: [{ outcome: 'level' }, { outcome: 'decline', conditional: true, note: 'severe: hospitalization or ER in 12 months' }] },
+      rheumatoid_arthritis: { rules: [{ outcome: 'decline', conditional: true, note: 'Mild, no limitations: accept' }] },
+      diabetes_oral: { rules: [{ outcome: 'level' }, { outcome: 'decline', conditional: true, note: 'if diabetic complications' }] },
+      depression: { rules: [{ outcome: 'level' }, { outcome: 'decline', conditional: true, note: 'Knockout if: suicide attempt or hospitalization in 5 yrs' }] }
+    } }]);
+  var one = function (id, q) { var r = find(UW.evaluate({ conditions: [{ id: id, q: q }] }), 'qd'); return r.best + '>' + r.worst; };
+  assert.strictEqual(one('asthma'), 'level>decline');
+  assert.strictEqual(one('asthma', ['mild']), 'level>level');
+  assert.strictEqual(one('asthma', ['severe']), 'decline>decline');
+  assert.strictEqual(one('rheumatoid_arthritis', ['mild']), 'level>level');      // accept criteria on a decline rule = criteria not met
+  assert.strictEqual(one('diabetes_oral', ['no_comp']), 'level>level');
+  assert.strictEqual(one('diabetes_oral', ['comp']), 'decline>decline');
+  assert.strictEqual(one('depression', ['no_hosp']), 'level>decline');          // suicide attempt still possible
+});

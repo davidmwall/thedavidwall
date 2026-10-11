@@ -227,6 +227,69 @@
     var e = lookupReason(m[1]);
     return e ? { ids: expandIds(e.ids), firm: e.firm, text: m[1] } : null;
   }
+  // Typed details ("mild", "controlled", "no complications", "no hospitalization",
+  // "severe", "hospitalized", "uncontrolled", "with complications") settle caveats.
+  // Each caveat is read for which side of a detail it describes; "not met: ..." (the
+  // decline behind "approved if ...") is the opposite side.
+  function caveatSides(text, flip) {
+    var t = String(text || '').toLowerCase(), s = {};
+    // side(good, bad): +1 when the text describes the good side, -1 the bad side.
+    var side = function (good, bad) { return good.test(t) ? 1 : bad.test(t) ? -1 : 0; };
+    s.comp = side(/\b(no|without|non|not)\b[^.;]{0,25}complication|uncomplicated/, /complication|retinopathy|nephropathy|protein in urine/);
+    s.hosp = side(/\b(no|without|not|never)\b[^.;]{0,20}(hospitali|inpatient|er visit)/, /hospitali|inpatient|\ber\b|emergency room/);
+    s.oxy = side(/\b(no|without|not)\b[^.;]{0,15}oxygen/, /oxygen/);
+    s.ins = side(/\b(no|without|not)\b[^.;]{0,15}insulin|non[- ]insulin/, /insulin/);
+    s.ctrl = -side(/uncontrolled|not (well[- ])?controlled|poor(ly)? control/, /controlled|control\b/);
+    s.sev = -side(/\bnot (mild|occasional)|if not mild/, /\bmild\b|minimal|slight|occasional/);
+    if (!s.sev && /\bsevere|moderate|serious|\bmajor\b/.test(t)) s.sev = -1;
+    // Other triggers in the same caveat ("suicide attempt, hospitalization or missed work"):
+    // a typed detail can confirm it but never rule it out on its own.
+    s.mixed = /suicid|attempt|disab|missed work|time off|unable to work|counsel|psychos|more than \d|\d\+/.test(t);
+    // "Approved if A, B and C": typed details settle it only when there's a single criterion.
+    if (flip && t.replace(/^.*?not met:\s*/, '').replace(/^(y|yes|approved|accepted?)\s+if\s+/, '').split(/,|\band\b|\bor\b/).length > 1) s.mixed = true;
+    if (flip) ['comp', 'hosp', 'ctrl', 'sev', 'oxy', 'ins'].forEach(function (k) { s[k] = -s[k]; });
+    return s;   // +1: the good side (mild, controlled, no complications); -1: the bad side
+  }
+  var QUAL = {   // typed detail -> [aspect, side the client is on]
+    mild: [['sev', 1], ['ctrl', 1]], controlled: [['ctrl', 1]], no_comp: [['comp', 1]], no_hosp: [['hosp', 1]],
+    no_oxygen: [['oxy', 1]], no_insulin: [['ins', 1]],
+    severe: [['sev', -1]], uncontrolled: [['ctrl', -1]], comp: [['comp', -1]], hosp: [['hosp', -1]]
+  };
+  function applyQualifiers(rules, ctx) {
+    var qs = ctx && ctx.q;
+    if (!qs || !qs.length) return rules;
+    var out = [], decided = null;
+    // The item's usual answer: its best firm rule. A caveat that reads like the good
+    // side ("mild, no hospitalization: accept") on a worse outcome is that side NOT met.
+    var firmBest = null;
+    rules.forEach(function (r) { if (!r.conditional && (firmBest === null || rank(r.outcome) < rank(firmBest))) firmBest = r.outcome; });
+    if (firmBest === null && ctx.defaultBest) firmBest = ctx.defaultBest;
+    rules.forEach(function (r) {
+      if (!r.conditional) { out.push(r); return; }
+      var notMet = /^not met:/.test(r.why || '');
+      var sides = caveatSides((r.note || '') + ' ' + (r.why || ''), notMet), keep = null;
+      if (firmBest !== null && rank(r.outcome) > rank(firmBest) && !notMet) {
+        Object.keys(sides).forEach(function (k) { if (sides[k] === 1) sides[k] = -1; });
+      }
+      qs.forEach(function (q) {
+        (QUAL[q] || []).forEach(function (a) {
+          var s = sides[a[0]];
+          if (!s) return;
+          if (s === a[1]) { if (keep !== false) keep = true; } else if (!sides.mixed) keep = false;
+        });
+      });
+      if (keep === false) return;                       // the client is on the other side of this caveat
+      if (keep !== true) { out.push(r); return; }
+      var x = Object.assign({}, r, { note: (r.note ? r.note + '; ' : '') + 'you entered: ' + qs.join(', ').replace(/_/g, ' ') });
+      delete x.conditional;
+      if (x.withinYears == null) { if (!decided || rank(x.outcome) > rank(decided.outcome)) decided = x; }
+      else out.push(x);
+    });
+    if (!decided) return out;
+    var timed = out.filter(function (r) { return !r.conditional && r.withinYears != null; });
+    return timed.concat([decided], out.filter(function (r) { return timed.indexOf(r) === -1 && (r.conditional || r.withinYears != null); }));
+  }
+
   // A drug's rules when the client entered why it's taken: "if taken for CHF" applies
   // (firmly, unless the reason has its own caveat) when CHF is entered, and rules for
   // other reasons drop out. Nothing entered that this drug treats: rules unchanged.
@@ -513,7 +576,7 @@
   function evalRules(rules, ctxOrYears) {
     var ctx = ctxOrYears !== null && typeof ctxOrYears === 'object' ? ctxOrYears : { yearsSince: ctxOrYears };
     var yearsSince = ctx.yearsSince;
-    rules = applyDxAge(applyTobacco(applyFacts(applyReasons(rules, ctx), ctx), ctx), ctx);
+    rules = applyDxAge(applyTobacco(applyFacts(applyQualifiers(applyReasons(rules, ctx), ctx), ctx), ctx), ctx);
     var firm = rules.filter(function (r) { return !r.conditional; });
     var cond = rules.filter(function (r) { return r.conditional; });
     var res = evalFirmRules(firm, yearsSince);
@@ -701,7 +764,7 @@
   function evalCondition(p, cond) {
     var c = state.conditions[cond.id];
     var lbl = (c ? c.name : cond.id) + (!isBlank(cond.yearsSince) ? ' (' + cond.yearsSince + ' yrs ago)' : '');
-    var ctx = { yearsSince: cond.yearsSince, age: cond.age, tobacco: cond.tobacco, others: cond.others, dxChecks: [], ongoing: isOngoing(cond.id) };
+    var ctx = { yearsSince: cond.yearsSince, age: cond.age, tobacco: cond.tobacco, others: cond.others, dxChecks: [], ongoing: isOngoing(cond.id), q: cond.q, defaultBest: defaultBest(p) };
     var f = evalItem(p, 'conditions', cond.id, ctx, lbl);
     // Show the age-at-diagnosis checks that decided (or didn't) this answer.
     var checks = ctx.dxChecks.filter(function (x, i, all) { return all.indexOf(x) === i; });
