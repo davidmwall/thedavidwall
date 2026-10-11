@@ -13,6 +13,19 @@ UW.addProduct({
     "effective": "2026-09",
     "lastReviewed": "2026-10-10"
   },
+  "issueAges": { "min": 20, "max": 80, "source": "agent (UHL product limits)", "note": "Premier/Deluxe 20–80; EIWL Graded 25–80; CGWL 40–75" },
+  "faceAmount": {
+    "min": 2000, "max": 100000, "source": "agent (UHL product limits)",
+    "note": "Premier: $100k to 60, $50k 61–80; Deluxe $50k; EIWL Graded and CGWL $25k",
+    "bands": [ { "min": 20, "max": 60, "face": 100000 }, { "min": 61, "max": 80, "face": 50000 } ]
+  },
+  "tierLimits": {
+    "source": "agent (UHL product limits)",
+    "preferred": { "name": "Express Issue Premier", "faceMin": 5000, "fallback": "standard" },
+    "standard": { "name": "Express Issue Deluxe", "faceMin": 5000, "faceMax": 50000, "fallback": "graded" },
+    "graded": { "name": "Express Issue Whole Life Graded", "ageMin": 25, "faceMin": 2000, "faceMax": 25000, "fallback": "gi" },
+    "gi": { "name": "Conditionally Guaranteed Whole Life", "ageMin": 40, "ageMax": 75, "faceMin": 5000, "faceMax": 25000, "fallback": "decline" }
+  },
   "build": {
     "source": "UHL tab of the agency grid (Premier / Deluxe columns); heights between rows use the shorter row; over Deluxe = EIWL (no height/weight limit)",
     "overweight": "graded",
