@@ -1,10 +1,19 @@
 // Agent-wide rules: your decisions that override every carrier's guide and grid for a condition.
 //   outcome 'gi-only': products that offer a GI plan (or are GI) show GI; every other product declines.
+//   outcome 'decline-if-silent': decline on the listed product types only when neither the guide nor the grid answers.
 //   except: product IDs where the carrier's own guide/grid answer is kept.
 UW.registerAgentRules({
   hiv_aids: { outcome: 'gi-only', note: 'Agent rule: HIV is guaranteed issue only, across every carrier',
-             except: ['rnoa-ensured-legacy'] }   // Royal Neighbors' guide: HIV virus only = GDB (graded)
+             except: ['rnoa-ensured-legacy'] },   // Royal Neighbors' guide: HIV virus only = GDB (graded)
+  adl_assistance: TERM_SILENT('Needs help with ADLs'),
+  bedridden: TERM_SILENT('Bedridden'),
+  hospice: TERM_SILENT('Hospice'),
+  nursing_home: TERM_SILENT('Nursing home')
 });
+function TERM_SILENT(what) {
+  return { outcome: 'decline-if-silent', types: ['term', 'mortgage_protection', 'universal_life', 'iul'],
+    note: 'Agent rule: ' + what + ' declines on term/UL/IUL when the guide and grid don\'t say otherwise' };
+}
 
 // Product limits that override carrier guides and the grid.
 UW.registerAgentLimits([

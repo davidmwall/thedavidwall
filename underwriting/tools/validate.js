@@ -20,7 +20,11 @@ require(path.join(ROOT, 'data', 'conditions.js'));
 if (fs.existsSync(path.join(ROOT, 'data', 'agent-rules.js'))) {
   require(path.join(ROOT, 'data', 'agent-rules.js'));
   if (html.indexOf('src="data/agent-rules.js"') === -1) errors.push('index.html: data/agent-rules.js is not loaded');
-  Object.keys(UW.state.agentRules || {}).forEach(function (id) { if (!UW.state.conditions[id]) errors.push('agent-rules.js: unknown condition "' + id + '"'); });
+  Object.keys(UW.state.agentRules || {}).forEach(function (id) {
+    if (!UW.state.conditions[id]) errors.push('agent-rules.js: unknown condition "' + id + '"');
+    var o = UW.state.agentRules[id].outcome;
+    if (o !== 'gi-only' && o !== 'decline-if-silent') errors.push('agent-rules.js: ' + id + ' has unknown outcome "' + o + '"');
+  });
 }
 fs.readdirSync(path.join(ROOT, 'data')).filter(function (f) { return /^medications-extra.*\.js$/.test(f); }).forEach(function (f) {
   require(path.join(ROOT, 'data', f));

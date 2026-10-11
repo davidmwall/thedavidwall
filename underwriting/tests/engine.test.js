@@ -445,3 +445,18 @@ test('a status the carrier does not list uses its closely related row (bedridden
   assert.strictEqual(f.best, 'decline');
   assert.match(f.factors[0].note, /Needs help with ADLs rule/);
 });
+
+test('agent rule decline-if-silent: declines only where guide and grid are silent, only on listed types', function () {
+  UW.state.grid = null; var saved = UW.state.agentRules; UW.state.agentRules = {};
+  UW.registerAgentRules({ bedridden: { outcome: 'decline-if-silent', types: ['term'], note: 'Agent rule: test' } });
+  load([
+    { id: 's-term', carrier: 'A', product: 'T', type: 'term', underwriting: 'accelerated', bestOutcome: 'standard' },
+    { id: 's-term2', carrier: 'B', product: 'T2', type: 'term', underwriting: 'accelerated', bestOutcome: 'standard', conditions: { bedridden: { rules: [{ outcome: 'standard' }] } } },
+    { id: 's-fe', carrier: 'C', product: 'FE', type: 'final_expense', underwriting: 'simplified', bestOutcome: 'level' }
+  ]);
+  var r = UW.evaluate({ conditions: [{ id: 'bedridden' }] });
+  assert.strictEqual(find(r, 's-term').best, 'decline');
+  assert.strictEqual(find(r, 's-term2').best, 'standard');   // the guide answers: kept
+  assert.strictEqual(find(r, 's-fe').best, 'level');          // not a listed type
+  UW.state.agentRules = saved;
+});
