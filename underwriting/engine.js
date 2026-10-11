@@ -188,6 +188,76 @@
   // Agent-wide product limits (data/agent-rules.js): your numbers win over guides and the grid.
   // { products: /^ethos-/, except: ['ethos-trustage-ga-wl'], issueAgeMin: 18 }
   function registerAgentLimits(list) { state.agentLimits = (state.agentLimits || []).concat(list); }
+
+  // Drug charts' "if taken for <reason>" (data/med-reasons.js): the conditions that reason covers.
+  function reasonKey(t) {
+    return String(t).toLowerCase().replace(/\(time since last fill\)/g, ' ').replace(/[*#]/g, ' ').replace(/\s+within\b.*$/, '')
+      .replace(/\s*\/\s*/g, ' / ').replace(/\s+/g, ' ').trim();
+  }
+  function registerMedReasons(table) {
+    state.medReasons = state.medReasons || {};
+    Object.keys(table).forEach(function (k) { state.medReasons[reasonKey(k)] = table[k]; });
+  }
+  // "Angina / CHF": the union of each part (one-word fragments like "failure" are skipped).
+  function lookupReason(text) {
+    var key = reasonKey(text), e = state.medReasons[key];
+    if (e) return { ids: e.ids, firm: e.firm !== false };
+    var parts = key.split(' / '), ids = [], firm = true, found = 0;
+    for (var i = 0; i < parts.length; i++) {
+      var pe = state.medReasons[parts[i]];
+      if (pe) { ids = ids.concat(pe.ids); firm = firm && pe.firm !== false; found++; }
+      else if (parts[i].indexOf(' ') !== -1 || parts.length === 1) return null;
+    }
+    return found ? { ids: ids, firm: firm } : null;
+  }
+  function expandIds(ids) {
+    var out = [];
+    ids.forEach(function (id) {
+      if (id.indexOf('cat:') === 0) {
+        var cat = id.slice(4);
+        Object.keys(state.conditions).forEach(function (c) { if (state.conditions[c].category === cat) out.push(c); });
+      } else out.push(id);
+    });
+    return out;
+  }
+  function reasonOf(r) {
+    // "if taken for CHF", or a reason with its own window: "Cancer treatment within 3 years".
+    var m = r.note && (/^(?:if )?taken for (.+?)(?:;|$)/i.exec(r.note) || /^(.+?),? within \d/i.exec(r.note));
+    if (!m || !state.medReasons) return null;
+    var e = lookupReason(m[1]);
+    return e ? { ids: expandIds(e.ids), firm: e.firm, text: m[1] } : null;
+  }
+  // A drug's rules when the client entered why it's taken: "if taken for CHF" applies
+  // (firmly, unless the reason has its own caveat) when CHF is entered, and rules for
+  // other reasons drop out. Nothing entered that this drug treats: rules unchanged.
+  function applyReasons(rules, ctx) {
+    if (!ctx || !ctx.isMed || !state.medReasons) return rules;
+    var others = ctx.others || [];
+    var tagged = rules.map(function (r) { return { r: r, why: reasonOf(r) }; });
+    var related = (ctx.commonlyFor || []).slice();
+    tagged.forEach(function (t) { if (t.why) related = related.concat(t.why.ids); });
+    if (!others.some(function (id) { return related.indexOf(id) !== -1; })) return rules;
+    var out = [], decided = null;
+    tagged.forEach(function (t) {
+      if (!t.why) { out.push(t.r); return; }
+      var hit = others.filter(function (id) { return t.why.ids.indexOf(id) !== -1; });
+      if (!hit.length) return;   // taken for something else
+      var x = Object.assign({}, t.r);
+      if (t.why.firm) delete x.conditional;
+      // A window on the reason ("cancer treatment within 3 years") uses the condition's timing.
+      var ys = (ctx.othersSince || {})[hit[0]];
+      if (x.withinYears != null && isBlank(ctx.yearsSince) && ys != null) {
+        if (ys >= x.withinYears) return;
+        delete x.withinYears;
+      }
+      if (!x.conditional && x.withinYears == null) { if (!decided || rank(x.outcome) > rank(decided.outcome)) decided = x; }
+      else out.push(x);
+    });
+    if (!decided) return out;
+    // The matching reason decides over the chart's general answer for the drug.
+    var timed = out.filter(function (r) { return !r.conditional && r.withinYears != null; });
+    return timed.concat([decided], out.filter(function (r) { return timed.indexOf(r) === -1 && (r.conditional || r.withinYears != null); }));
+  }
   function agentAges(p) {
     var a = p.issueAges ? Object.assign({}, p.issueAges) : null;
     (state.agentLimits || []).forEach(function (l) {
@@ -443,7 +513,7 @@
   function evalRules(rules, ctxOrYears) {
     var ctx = ctxOrYears !== null && typeof ctxOrYears === 'object' ? ctxOrYears : { yearsSince: ctxOrYears };
     var yearsSince = ctx.yearsSince;
-    rules = applyDxAge(applyTobacco(applyFacts(rules, ctx), ctx), ctx);
+    rules = applyDxAge(applyTobacco(applyFacts(applyReasons(rules, ctx), ctx), ctx), ctx);
     var firm = rules.filter(function (r) { return !r.conditional; });
     var cond = rules.filter(function (r) { return r.conditional; });
     var res = evalFirmRules(firm, yearsSince);
@@ -641,7 +711,8 @@
 
   function evalMedication(p, med) {
     var m = state.medications[med.id];
-    var f = evalItem(p, 'medications', med.id, { yearsSince: med.yearsSince, age: med.age, tobacco: med.tobacco, others: med.others }, 'Rx: ' + (m ? m.name : med.id));
+    var f = evalItem(p, 'medications', med.id, { yearsSince: med.yearsSince, age: med.age, tobacco: med.tobacco, others: med.others,
+      isMed: true, commonlyFor: m && m.commonlyFor, othersSince: med.othersSince }, 'Rx: ' + (m ? m.name : med.id));
     // A drug the guide doesn't list, taken for a condition the client already
     // entered, is judged through that condition (drug lists only name the drugs
     // that change the answer on their own).
@@ -703,7 +774,9 @@
     }
     // Client age travels with each condition so "age at diagnosis" rules can be checked.
     var condIds = (client.conditions || []).map(function (c) { return c.id; });
-    var withAge = function (x) { return Object.assign({}, x, { age: client.age, tobacco: client.tobacco, others: condIds.filter(function (id) { return id !== x.id; }) }); };
+    var since = {};
+    (client.conditions || []).forEach(function (c) { if (!isBlank(c.yearsSince)) since[c.id] = Number(c.yearsSince); });
+    var withAge = function (x) { return Object.assign({}, x, { age: client.age, tobacco: client.tobacco, others: condIds.filter(function (id) { return id !== x.id; }), othersSince: since }); };
     (client.conditions || []).forEach(function (c) { factors.push(evalCondition(p, withAge(c))); });
     (client.medications || []).forEach(function (m) { factors.push(evalMedication(p, withAge(m))); });
 
@@ -856,6 +929,8 @@
     registerConditions: registerConditions,
     registerAgentRules: registerAgentRules,
     registerAgentLimits: registerAgentLimits,
+    registerMedReasons: registerMedReasons,
+    lookupReason: function (t) { return state.medReasons ? lookupReason(t) : null; },
     agentAges: agentAges,
     registerMedications: registerMedications,
     addProduct: addProduct,

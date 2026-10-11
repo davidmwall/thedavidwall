@@ -462,3 +462,25 @@ test('agent rule decline-if-silent: declines only where guide and grid are silen
   assert.strictEqual(find(r, 's-fe').best, 'level');          // not a listed type
   UW.state.agentRules = saved;
 });
+
+test('drug rules "if taken for X" follow the condition the client entered', function () {
+  UW.state.grid = null;
+  UW.registerMedReasons({ 'chf': { ids: ['chf'] }, 'hypertension': { ids: ['high_blood_pressure'] }, 'cancer treatment': { ids: ['cat:Cancer'] } });
+  UW.registerMedications([{ id: 'test_lasix', name: 'Test Lasix', commonlyFor: ['chf', 'high_blood_pressure'] }]);
+  load([{ id: 'tf', carrier: 'A', product: 'TF', type: 'final_expense', underwriting: 'simplified', bestOutcome: 'level',
+    medications: { test_lasix: { rules: [
+      { outcome: 'level', note: 'if taken for Hypertension' },
+      { outcome: 'decline', conditional: true, note: 'if taken for CHF' },
+      { withinYears: 3, outcome: 'graded', conditional: true, note: 'Cancer treatment within 3 years' }] } } }]);
+  var rx = function (conds) {
+    var r = find(UW.evaluate({ conditions: conds, medications: [{ id: 'test_lasix' }] }), 'tf');
+    var f = r.factors.filter(function (x) { return x.kind === 'medication'; })[0];
+    return (f.best || 'ok') + '>' + (f.worst || f.best || 'ok');
+  };
+  assert.strictEqual(rx([]), 'level>decline');                                   // reason unknown: range
+  assert.strictEqual(rx([{ id: 'high_blood_pressure' }]), 'level>level');        // taken for HTN
+  assert.strictEqual(rx([{ id: 'chf' }]), 'decline>decline');                    // taken for CHF
+  assert.strictEqual(rx([{ id: 'high_blood_pressure' }, { id: 'chf' }]), 'decline>decline');   // both: the worse
+  assert.strictEqual(rx([{ id: 'cancer_breast', yearsSince: 1 }]), 'graded>graded');          // window uses the cancer's timing
+  assert.strictEqual(rx([{ id: 'cancer_breast', yearsSince: 5 }]), 'ok>ok');
+});

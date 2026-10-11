@@ -110,6 +110,8 @@ The **Rule check** tab lists every rule with a time window or an age at diagnosi
 
 Agent-wide rules: `data/agent-rules.js` overrides every carrier for a condition. Today: **HIV = guaranteed issue only** (GI on products with a GI plan, decline everywhere else).
 
+Drug reasons: drug charts that say "if taken for CHF" (Foresters PlanRight, AmAm) follow the conditions you enter. `data/med-reasons.js` links each reason to condition IDs; the validator lists any reason not linked yet. A drug no chart lists is judged through the condition it treats.
+
 Per-product: `preferGrid: true` makes your grid win over an outdated guide (the guide's answer is shown under each grid answer). Used for Mutual of Omaha Term Life Express and IUL Express.
 
 Outcomes from best to worst: `preferred_plus, preferred, standard_plus, standard, level, table, graded, modified, gi, refer, decline`. A product's overall result is the **worst** outcome across everything entered.

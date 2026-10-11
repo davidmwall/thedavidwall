@@ -26,6 +26,17 @@ if (fs.existsSync(path.join(ROOT, 'data', 'agent-rules.js'))) {
     if (o !== 'gi-only' && o !== 'decline-if-silent') errors.push('agent-rules.js: ' + id + ' has unknown outcome "' + o + '"');
   });
 }
+if (fs.existsSync(path.join(ROOT, 'data', 'med-reasons.js'))) {
+  require(path.join(ROOT, 'data', 'med-reasons.js'));
+  if (html.indexOf('src="data/med-reasons.js"') === -1) errors.push('index.html: data/med-reasons.js is not loaded');
+  var cats = {};
+  Object.keys(UW.state.conditions).forEach(function (id) { cats[UW.state.conditions[id].category] = true; });
+  Object.keys(UW.state.medReasons || {}).forEach(function (k) {
+    (UW.state.medReasons[k].ids || []).forEach(function (id) {
+      if (id.indexOf('cat:') === 0 ? !cats[id.slice(4)] : !UW.state.conditions[id]) errors.push('med-reasons.js: "' + k + '" has unknown condition "' + id + '"');
+    });
+  });
+}
 fs.readdirSync(path.join(ROOT, 'data')).filter(function (f) { return /^medications-extra.*\.js$/.test(f); }).forEach(function (f) {
   require(path.join(ROOT, 'data', f));
   if (html.indexOf('src="data/' + f + '"') === -1) errors.push('index.html: data/' + f + ' is not loaded');
@@ -199,5 +210,18 @@ Object.keys(UW.state.conditions).forEach(function (id) {
 
 warnings.forEach(function (m) { console.log('WARN  ' + m); });
 errors.forEach(function (m) { console.log('ERROR ' + m); });
+// Drug-chart reasons ("if taken for X") the app can't tie to a condition yet.
+var unknownReasons = {};
+UW.state.products.forEach(function (p) {
+  Object.keys(p.medications || {}).forEach(function (id) {
+    (p.medications[id].rules || []).forEach(function (r) {
+      var m = r.note && /^(?:if )?taken for (.+?)(?:;|$)/i.exec(r.note);
+      if (!m) return;
+      var key = m[1].toLowerCase().trim();
+      if (!UW.lookupReason(m[1]) && !/^(other uses?|other|allergies|malaria)$/.test(key)) unknownReasons[key] = (unknownReasons[key] || 0) + 1;
+    });
+  });
+});
+Object.keys(unknownReasons).forEach(function (k) { console.log('INFO  drug reason not linked to a condition: "' + k + '" x' + unknownReasons[k]); });
 console.log('\n' + UW.state.products.length + ' products checked: ' + errors.length + ' error(s), ' + warnings.length + ' warning(s).');
 process.exit(errors.length ? 1 : 0);
