@@ -1303,7 +1303,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 1 year, Decline",
@@ -2776,7 +2780,25 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT | Standard: Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "graded"
+     },
+     {
+      "outcome": "preferred"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if not repaired"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if not repaired"
+     }
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Standard: Y IF > 18 MONTHS SINCE TREATMENT | Graded: Y IF > 18 MONTHS SINCE TREATMENT",
@@ -3524,7 +3546,20 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case — heart disease within 5 yrs (or w/ tobacco/diabetes/stroke at any time) = Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "refer"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "with tobacco, diabetes or stroke"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -4621,7 +4656,16 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "Severe Asthma = Decline. Otherwise see med guide",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if severe"
+     }
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "If treated within 5 years, Decline",
@@ -4802,11 +4846,29 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Mild asthma excluded from knockouts. Approved if controlled",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if not controlled"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Mild asthma excluded from knockouts. Approved if controlled",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if not controlled"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "May Accept — controlled, stable, no comorbidity",
@@ -6533,7 +6595,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case — acute & full recovery may be accepted",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -7541,7 +7607,17 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Mutual of Omaha (Children's Whole Life)": {
     "raw": "2 – 5 years  -Indiv. Consideration",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 2,
+      "outcome": "decline",
+      "note": "implied by grid"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If treated within 8 years, Decline. If \"Has the prospect ever had cancer more than once?\" answered \"Yes\" , Decline",
@@ -7605,15 +7681,33 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "If diagnosed within past 10 years, Decline. Skin cancers, thyroid cancer, testicular cancer excluded",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "note": "some skin, thyroid, testicular cancers and lymphomas excluded"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If diagnosed within past 10 years, Decline. Skin cancers (basal/squamous/melanoma) and some lymphoma excluded",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "note": "some skin, thyroid, testicular cancers and lymphomas excluded"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If diagnosed within past 10 years, Decline. Skin cancers (basal/squamous/melanoma) and some lymphoma excluded",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 10,
+      "outcome": "decline",
+      "note": "some skin, thyroid, testicular cancers and lymphomas excluded"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline if diagnosed or treated within last 10 years",
@@ -9443,7 +9537,20 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Non Smoker, mild COPD, no oxygen, no\nsteroids or serious COPD medications. Little\nto no shortness of breath (SOB)on exertion;\nable to climb at least 1 flight of stairs with\nlittle to no SOB = approved. Smoker = decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "tobacco": "yes"
+     },
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if not mild (oxygen, steroids, shortness of breath)"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "Decline",
@@ -9837,7 +9944,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case — fully recovered | N/A — no specific COVID questions on F&G application",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer",
+      "conditional": true
+     },
+     {
+      "outcome": "standard",
+      "conditional": true
+     }
+    ],
+    "qualified": true
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Y IF > 14 DAYS SINCE SYMPTOMS, > 30 DAYS SINCE QUARANTINE, > DAYS SINCE POSITVE TEST RESULT, > 21 DAYS SINCE TRAVEL OUTSIDE OF THE UNITED STATES, > 30 DAYS SINCE SOMEONE IN YOUR HOUSEHOLD HAS BEEN TREATED OR DIAGNOSED | Approved",
@@ -10218,7 +10335,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -10294,15 +10415,27 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Manual Underwriting - additional info required on application",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "Manual Underwriting - additional info required on application",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Manual Underwriting - additional info required on application",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Decline",
@@ -11726,7 +11859,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Individual consideration based on A1C,\nage, duration and build with no\ndiabetic complications \n\nhttps://ezbiz.foresters.com/sfdiabetesratings",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "Decline",
@@ -11790,19 +11927,65 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Graded: Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Modified / ROP: Accepted",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "modified"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF NO COMPLICATIONS | Standard: Y IF NO COMPLICATIONS | Graded: Accepted",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     }
+    ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "graded"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     }
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Standard: Y IF INSULIN > 30 YEARS OF AGE | Graded: Y IF INSULIN > 30 YEARS OF AGE",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    }
   },
   "diabetes_uncomplicated": {
@@ -12080,15 +12263,37 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Individual consideration based on A1C,\nage, duration and build with no\ndiabetic complications \n\nhttps://ezbiz.foresters.com/sfdiabetesratings",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "Current age 20-29, duration since diagnosis\n< 5 yrs\nCurrent age 30+ any duration since\ndiagnosis",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "best"
+     },
+     {
+      "outcome": "refer",
+      "conditional": true,
+      "note": "depends on age and years since diagnosis (see grid)"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Current age 20-29, duration since diagnosis\n< 5 yrs\nCurrent age 30+ any duration since\ndiagnosis",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "refer",
+      "conditional": true,
+      "note": "depends on age and years since diagnosis (see grid)"
+     }
+    ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "If applicant has been diagnosed with diabetes prior to age 50, applicant will be declined.\nIf applicant is diabetic with any complication, applicant will be declined.",
@@ -12150,15 +12355,57 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Graded: Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50 | Modified / ROP: Accepted",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "modified"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF NO COMPLICATIONS | Standard: Y IF NO COMPLICATIONS | Graded: Accepted",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     }
+    ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Y IF Diagnosed > AGE 49 AND no Complications | Graded: Y IF NO COMPLICATIONS",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "graded"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if diabetic complications"
+     }
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Standard: Accepted | Graded: Accepted",
@@ -12410,14 +12657,6 @@ UW.registerGrid({
       "outcome": "decline"
      }
     ]
-   },
-   "TERM, UL, IUL :: Ethos Term Life - Prime": {
-    "raw": "If diabetic-related, see Diabetes (Insulin) row",
-    "rules": null
-   },
-   "TERM, UL, IUL :: Ethos Term Life - Choice": {
-    "raw": "If diabetic-related, see Diabetes (Insulin) row",
-    "rules": null
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline",
@@ -13265,11 +13504,25 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if DUI/reckless conviction or 4+ moving violations",
+      "withinYears": 5
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if DUI/reckless conviction or 4+ moving violations",
+      "withinYears": 5
+     }
+    ]
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "If within 2 years, Decline",
@@ -13513,11 +13766,25 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if DUI/reckless conviction or 4+ moving violations",
+      "withinYears": 5
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if DUI/reckless conviction or 4+ moving violations",
+      "withinYears": 5
+     }
+    ]
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "If within 2 years, Decline",
@@ -13739,11 +14006,25 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if DUI/reckless conviction or 4+ moving violations",
+      "withinYears": 5
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if DUI/reckless conviction or 4+ moving violations",
+      "withinYears": 5
+     }
+    ]
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "If within 2 years, Decline",
@@ -13956,11 +14237,25 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if DUI/reckless conviction or 4+ moving violations",
+      "withinYears": 5
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if DUI/reckless conviction or 4+ moving violations",
+      "withinYears": 5
+     }
+    ]
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "If within 2 years, Decline",
@@ -15281,15 +15576,27 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "Epilepsy/seizures excluded from neurological knockouts",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Epilepsy/seizures excluded from neurological knockouts. See med guide",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Epilepsy/seizures excluded from neurological knockouts. See med guide",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "May Accept if diagnosed >5 yrs ago, ≤1 seizure/yr, compliant with meds; Decline if diagnosed within last 5 years",
@@ -15563,19 +15870,39 @@ UW.registerGrid({
     "rules": [
      {
       "withinYears": 10,
-      "outcome": "decline",
-      "conditional": true
+      "outcome": "decline"
+     },
+     {
+      "outcome": "refer",
+      "note": "some felonies considered after 10 years"
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If felony, probation, or parole within last 10 years, Decline. Some felonies >10 years considered",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 10,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "refer",
+      "note": "some felonies considered after 10 years"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If felony, probation, or parole within last 10 years, Decline. Some felonies >10 years considered",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 10,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "refer",
+      "note": "some felonies considered after 10 years"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline (conviction for serious crime)",
@@ -15587,15 +15914,69 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "current": true
+     },
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer",
+      "note": "if jail time served: considered 5 years after parole"
+     },
+     {
+      "outcome": "refer",
+      "note": "individual consideration"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "current": true
+     },
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer",
+      "note": "if jail time served: considered 5 years after parole"
+     },
+     {
+      "outcome": "refer",
+      "note": "individual consideration"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "current": true
+     },
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer",
+      "note": "if jail time served: considered 5 years after parole"
+     },
+     {
+      "outcome": "refer",
+      "note": "individual consideration"
+     }
+    ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "If within 10 years, Decline",
@@ -15885,75 +16266,257 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "best"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Express Term)": {
     "raw": "Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "US citizens & permanent residents only",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Support for ITIN, EAD & most visas (Foreign National Agent Guide)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Trustage Term": {
     "raw": "US citizens & permanent residents only",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Max $300,000. Must have PR card or eligible visa (E1/E2/E3/Eb5/H1B/H1C/L1/L2/K1 etc). Must reside in US 6+ consecutive months in past year.",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "best"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "To be considered for coverage, these are the acceptable types of visas (fully underwritten product rules\nmay vary).\n• Permanent residency visa\n• H1B or L1 visa\no Individual must have been residing in the U.S. for a minimum of one year.\no For foreign travel, contact Underwriting with questions.\no A copy of the proposed insured’s visa, I-94 Form and/or I-797A, Notice of Action form will\nbe required.",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa) | Graded: Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa) | Modified / ROP: Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "level"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN | Standard: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN | Graded: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "preferred"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2 | Graded: Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "level"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "without a green card or an accepted visa/ITIN"
+     }
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Standard: Call Underwriting | Graded: Call Underwriting",
@@ -17746,11 +18309,19 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Recovered Hep A excluded from knockouts. Approved",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Recovered Hep A excluded from knockouts. Approved",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "May Accept — fully recovered",
@@ -18934,7 +19505,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Y IF NOT CURRENT | Graded: Y IF NOT CURRENT | Modified / ROP: Y IF NOT CURRENT",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Y IF > 2 YEARS SINCE DIAGNOSIS AND TREATMENT | Graded: Accepted",
@@ -18950,7 +19525,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Standard: Y IF NOT CURRENT | Graded: Y IF NOT CURRENT",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    }
   },
   "huntingtons": {
@@ -19498,15 +20077,69 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "\"If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.\"",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "current": true
+     },
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer",
+      "note": "if jail time served: considered 5 years after parole"
+     },
+     {
+      "outcome": "refer",
+      "note": "individual consideration"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "\"If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.\"",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "current": true
+     },
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer",
+      "note": "if jail time served: considered 5 years after parole"
+     },
+     {
+      "outcome": "refer",
+      "note": "individual consideration"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "\"If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.\"",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "current": true
+     },
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer",
+      "note": "if jail time served: considered 5 years after parole"
+     },
+     {
+      "outcome": "refer",
+      "note": "individual consideration"
+     }
+    ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Decline if within 10 years",
@@ -21460,7 +22093,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "NA (excluded from drug use)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Not asked",
@@ -21472,7 +22109,26 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "Level (day-1 coverage): Y IF NOT ILLEGAL | Graded: Y IF NOT ILLEGAL | Modified / ROP: Y IF NOT ILLEGAL",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "level"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if illegal use"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if illegal use"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if illegal use"
+     }
+    ]
    }
   },
   "melanoma": {
@@ -22192,11 +22848,19 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Multiple sclerosis excluded from neurological knockouts",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Multiple sclerosis excluded from neurological knockouts",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Decline",
@@ -22556,7 +23220,15 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters (Plan Right)": {
     "raw": "Preferred: Y IF > 3 YEARS SINCE DIAGNOSIS AND TREATMENT | Standard: Y IF NOT CURRENT | Graded: Y IF NOT CURRENT",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 3,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "preferred"
+     }
+    ]
    },
    "WHOLE LIFE :: Mutual of Omaha (Living Promise)": {
     "raw": "Level (day-1 coverage): Decline | Graded: Decline",
@@ -22717,11 +23389,19 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Narcolepsy excluded from neurological knockouts",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Narcolepsy excluded from neurological knockouts",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case",
@@ -22967,7 +23647,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 1 year, Decline",
@@ -23080,7 +23764,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If treated within 1 year, Decline",
@@ -23532,7 +24220,16 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "Used within last 12 months- Decline Used within last 1-2 yrs- Preferred",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 2,
+      "outcome": "preferred"
+     }
+    ]
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
@@ -24922,7 +25619,20 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Considered if not in combination with diabetes",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "withConditions": [
+       "diabetes_oral",
+       "diabetes_insulin",
+       "diabetes_complications",
+       "diabetes_uncomplicated"
+      ]
+     },
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Decline",
@@ -25065,14 +25775,6 @@ UW.registerGrid({
       "outcome": "standard"
      }
     ]
-   },
-   "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
-    "raw": "Check meds list",
-    "rules": null
-   },
-   "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
-    "raw": "Check meds list",
-    "rules": null
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "If within 1 year, Decline",
@@ -25272,15 +25974,69 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "current": true
+     },
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer",
+      "note": "if jail time served: considered 5 years after parole"
+     },
+     {
+      "outcome": "refer",
+      "note": "individual consideration"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "current": true
+     },
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer",
+      "note": "if jail time served: considered 5 years after parole"
+     },
+     {
+      "outcome": "refer",
+      "note": "individual consideration"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "current": true
+     },
+     {
+      "withinYears": 1,
+      "outcome": "decline"
+     },
+     {
+      "withinYears": 5,
+      "outcome": "refer",
+      "note": "if jail time served: considered 5 years after parole"
+     },
+     {
+      "outcome": "refer",
+      "note": "individual consideration"
+     }
+    ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Decline if within 10 years",
@@ -25538,11 +26294,19 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Restless leg syndrome excluded from neurological knockouts",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Restless leg syndrome excluded from neurological knockouts",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "May Accept — controlled",
@@ -27257,7 +28021,12 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case — Sickle Cell Trait may be accepted",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer",
+      "note": "sickle cell trait may be accepted"
+     }
+    ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Decline",
@@ -27465,15 +28234,27 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "Treated obstructive sleep apnea excluded from knockouts. Approved",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "Treated obstructive sleep apnea excluded from knockouts. Approved",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "May Accept — treated sleep apnea accepted",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Approved",
@@ -27525,7 +28306,16 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "NA. Sleep apnea with oxygen use or central sleep apnea = Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "with oxygen or central sleep apnea"
+     }
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term",
@@ -29046,7 +29836,15 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case — heart surgery within 5 yrs = Decline",
-    "rules": null
+    "rules": [
+     {
+      "withinYears": 5,
+      "outcome": "decline"
+     },
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Decline",
@@ -30886,7 +31684,11 @@ UW.registerGrid({
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If currently, Decline",
@@ -31242,7 +32044,17 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "Severe = Decline within 5 years. Otherwise see med guide",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if severe",
+      "withinYears": 5
+     },
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "If \"Is the insured taking more than 2 anxiety/depression medications?\" answered \"Yes\" , Simple Term Deluxe",
@@ -31368,15 +32180,42 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If Lupus/SLE or scleroderma, Decline. Other autoimmune: see med guide",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if lupus or scleroderma"
+     }
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Choice": {
     "raw": "If Lupus/SLE or scleroderma, Decline. Other autoimmune: see med guide",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if lupus or scleroderma"
+     }
+    ]
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case — Lupus/RA/Scleroderma (connective tissue) = Decline",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if lupus, RA or scleroderma"
+     }
+    ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Decline",
@@ -31874,7 +32713,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "NA (fatty liver disease excluded from liver knockout)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     }
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Decline",
@@ -32306,7 +33149,11 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
     "raw": "Case by case — citizenship/residency/foreign travel/military duties can affect Preferred class availability",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
     "raw": "Case by case (dependent on rank, role, active duty?)",
@@ -32342,15 +33189,32 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Not allowed",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Not allowed",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "NA (decline if active duty deployment outside US)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "if deployed outside the US"
+     }
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Not asked",
@@ -32864,19 +33728,41 @@ UW.registerGrid({
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "Considered based on commercial pilot or private with enough hours. case by case review",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "refer"
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
     "raw": "Not allowed",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    },
    "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
     "raw": "Not allowed",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "decline"
+     }
+    ]
    },
    "TERM, UL, IUL :: Transamerica FFIUL2": {
     "raw": "NA (aviation - flight crew except commercial airline within 2 years = Decline)",
-    "rules": null
+    "rules": [
+     {
+      "outcome": "standard"
+     },
+     {
+      "outcome": "decline",
+      "conditional": true,
+      "note": "flight crew (not commercial airline)",
+      "withinYears": 2
+     }
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "Simple Term Deluxe",
@@ -33391,58 +34277,6 @@ UW.registerGrid({
      }
     ],
     "qualified": true
-   },
-   "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
-    "raw": "Tobacco and Non-tobacco classes available",
-    "rules": null
-   },
-   "TERM, UL, IUL :: Ethos Term Life - Prime": {
-    "raw": "Tobacco and Non-tobacco classes available",
-    "rules": null
-   },
-   "TERM, UL, IUL :: Ethos Term Life - Choice": {
-    "raw": "Tobacco and Non-tobacco classes available",
-    "rules": null
-   },
-   "TERM, UL, IUL :: Ethos Trustage Term": {
-    "raw": "Tobacco and Non-tobacco classes available",
-    "rules": null
-   },
-   "TERM, UL, IUL :: Fidelity & Guaranty Quantum IUL": {
-    "raw": "Tobacco class available. Preferred Non-tobacco: no use 2+ yrs. Non-tobacco: no use 1+ yr. Occasional cigar may qualify for Non-tobacco if disclosed.",
-    "rules": null
-   },
-   "TERM, UL, IUL :: FORESTERS STRONG FOUNDATION": {
-    "raw": "Proposed insureds who have not smoked cigarettes within the past 12 months. Allows use\nof cigar, pipe, chewing tobacco, nicotine patches, vape pens, marijuana and other substitutes",
-    "rules": null
-   },
-   "TERM, UL, IUL :: FORESTERS YOUR TERM": {
-    "raw": "Proposed insureds who have not used any tobacco or product\ncontaining nicotine within the past 12 months. Allows use of marijuana but no vape pens (nicotine and nonnicotine vaping included).",
-    "rules": null
-   },
-   "TERM, UL, IUL :: FORESTERS SMART UL": {
-    "raw": "Proposed insureds who have not used any tobacco or product\ncontaining nicotine within the past 12 months. Allows use of marijuana but no vape pens (nicotine and nonnicotine vaping included).",
-    "rules": null
-   },
-   "TERM, UL, IUL :: Kansas City Life": {
-    "raw": "12 month or less = smoker",
-    "rules": null
-   },
-   "TERM, UL, IUL :: MUTUAL OF OMAHA TERM LIFE EXPRESS": {
-    "raw": "within 12 months",
-    "rules": null
-   },
-   "TERM, UL, IUL :: MUTUAL OF OMAHA INDEXED UNIVERSAL LIFE EXPRESS": {
-    "raw": "within 12 months",
-    "rules": null
-   },
-   "TERM, UL, IUL :: Transamerica FFIUL2": {
-    "raw": "Select Tobacco and Select Nontobacco classes available",
-    "rules": null
-   },
-   "TERM, UL, IUL :: UHL (Simple Term)": {
-    "raw": "Within 12 months = smoker",
-    "rules": null
    }
   },
   "tumor": {

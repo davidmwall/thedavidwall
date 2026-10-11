@@ -531,7 +531,7 @@
       note: (preferred === 'item' ? 'From your grid (the guide only gives a range here): "' : preferred ? 'From your grid (you chose the grid over this guide for this product): "' : 'From your grid: "') + cell.raw + '"' +
         (preferred ? '' : '. Not confirmed by a carrier guide') +
         (cell.qualified ? '. Depends on details the app doesn\'t check, so read the full note' : ''),
-      source: 'grid', timing: res.timing, basis: 'grid', backup: !preferred && !p.gridOfficial, verify: !!cell.qualified
+      source: 'grid', timing: res.timing, basis: 'grid', backup: !preferred && !p.gridOfficial, depends: !!cell.qualified
     });
   }
 
@@ -585,9 +585,11 @@
         note: 'Grid says "' + cell.raw + '" (could not interpret automatically)'
       });
     }
+    // Silent guide and grid (after borrowing a related condition's rule): the
+    // application doesn't ask about it, so it doesn't change the class.
     return factor(k, lbl, null, null, {
-      verify: true, basis: 'none',
-      note: p.gridOnly ? 'Not in your grid for this carrier' : 'Not addressed in this guide — verify with carrier/underwriting'
+      info: true, basis: 'none',
+      note: (p.gridOnly ? 'Not in your grid for this carrier' : 'Not mentioned in this guide') + ': not asked on the application, so no effect on the class'
     });
   }
 
@@ -644,17 +646,16 @@
     // that change the answer on their own).
     // (Any diabetes entry counts for a diabetes drug: metformin with insulin-treated diabetes.)
     var dm = function (id) { return state.conditions[id] && state.conditions[id].category === 'Diabetes'; };
-    var treats = f.verify && f.basis === 'none' && m && (med.others || []).filter(function (id) {
+    var treats = f.basis === 'none' && m && (med.others || []).filter(function (id) {
       return (m.commonlyFor || []).some(function (c) { return c === id || (dm(c) && dm(id)); });
     });
     if (treats && treats.length) {
-      f.verify = false; f.info = true;
       f.note = 'Not on this guide\'s drug list. Judged through ' + treats.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; }).join(', ');
       return f;
     }
-    if (f.verify && m && m.commonlyFor && m.commonlyFor.length) {
+    if (f.basis === 'none' && m && m.commonlyFor && m.commonlyFor.length) {
       var names = m.commonlyFor.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; });
-      f.note += '. Often prescribed for: ' + names.join(', ') + ' — add the condition for a better match';
+      f.note = 'Not on this guide\'s drug list. Often prescribed for: ' + names.join(', ') + ' — add the condition, since that is what the carrier rates';
     }
     return f;
   }

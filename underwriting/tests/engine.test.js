@@ -97,12 +97,14 @@ test('hard decline condition', function () {
   assert.strictEqual(find(r, 'gi').best, 'gi');
 });
 
-test('condition not in guide is flagged verify, never assumed fine', function () {
+test('condition the guide and grid never mention: not asked, best class, shown as info', function () {
   load([TERM]);
   var r = UW.evaluate({ conditions: [{ id: 'lupus' }] })[0];
-  assert.strictEqual(r.status, 'verify');
-  assert.strictEqual(r.verifyCount, 1);
+  assert.strictEqual(r.verifyCount, 0);
   assert.strictEqual(r.best, 'preferred_plus');
+  var f = r.factors.filter(function (x) { return x.kind === 'condition'; })[0];
+  assert.ok(f.info && f.basis === 'none');
+  assert.match(f.note, /not asked on the application/);
 });
 
 test('worst factor wins; tobacco caps term class', function () {
@@ -408,7 +410,7 @@ test('a drug the guide does not list is judged through the condition it treats',
   var alone = find(UW.evaluate({ medications: [{ id: 'metformin' }] }), 'fe');
   var withDx = find(UW.evaluate({ conditions: [{ id: 'diabetes_insulin' }], medications: [{ id: 'metformin' }] }), 'fe');
   var rx = function (r) { return r.factors.filter(function (f) { return f.kind === 'medication'; })[0]; };
-  assert.ok(rx(alone).verify);
+  assert.match(rx(alone).note, /add the condition/);
   assert.ok(!rx(withDx).verify && rx(withDx).info);
   assert.match(rx(withDx).note, /Judged through Diabetes — insulin/);
 });

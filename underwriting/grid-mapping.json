@@ -385,7 +385,451 @@
     }
   },
   "values": {
-    "Accepted — Guaranteed Issue (no health questions)": "gi"
+    "Accepted — Guaranteed Issue (no health questions)": "gi",
+    "\"If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.\"": [
+      {
+        "outcome": "decline",
+        "current": true
+      },
+      {
+        "withinYears": 1,
+        "outcome": "decline"
+      },
+      {
+        "withinYears": 5,
+        "outcome": "refer",
+        "note": "if jail time served: considered 5 years after parole"
+      },
+      {
+        "outcome": "refer",
+        "note": "individual consideration"
+      }
+    ],
+    "12 month or less = smoker": "empty",
+    "2 – 5 years  -Indiv. Consideration": [
+      {
+        "withinYears": 2,
+        "outcome": "decline",
+        "note": "implied by grid"
+      },
+      {
+        "withinYears": 5,
+        "outcome": "refer"
+      }
+    ],
+    "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION": "refer",
+    "Case by case — Lupus/RA/Scleroderma (connective tissue) = Decline": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if lupus, RA or scleroderma"
+      }
+    ],
+    "Case by case — Sickle Cell Trait may be accepted": [
+      {
+        "outcome": "refer",
+        "note": "sickle cell trait may be accepted"
+      }
+    ],
+    "Case by case — acute & full recovery may be accepted": "refer",
+    "Case by case — citizenship/residency/foreign travel/military duties can affect Preferred class availability": "refer",
+    "Case by case — fully recovered": "refer",
+    "Case by case — heart disease within 5 yrs (or w/ tobacco/diabetes/stroke at any time) = Decline": [
+      {
+        "withinYears": 5,
+        "outcome": "decline"
+      },
+      {
+        "outcome": "refer"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "with tobacco, diabetes or stroke"
+      }
+    ],
+    "Case by case — heart surgery within 5 yrs = Decline": [
+      {
+        "withinYears": 5,
+        "outcome": "decline"
+      },
+      {
+        "outcome": "refer"
+      }
+    ],
+    "Check meds list": "empty",
+    "Considered based on commercial pilot or private with enough hours. case by case review": "refer",
+    "Considered if not in combination with diabetes": [
+      {
+        "outcome": "decline",
+        "withConditions": [
+          "diabetes_oral",
+          "diabetes_insulin",
+          "diabetes_complications",
+          "diabetes_uncomplicated"
+        ]
+      },
+      {
+        "outcome": "refer"
+      }
+    ],
+    "Current age 20-29, duration since diagnosis\n< 5 yrs\nCurrent age 30+ any duration since\ndiagnosis": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "refer",
+        "conditional": true,
+        "note": "depends on age and years since diagnosis (see grid)"
+      }
+    ],
+    "Epilepsy/seizures excluded from neurological knockouts": "best",
+    "Epilepsy/seizures excluded from neurological knockouts. See med guide": "best",
+    "If Lupus/SLE or scleroderma, Decline. Other autoimmune: see med guide": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if lupus or scleroderma"
+      }
+    ],
+    "If diabetic-related, see Diabetes (Insulin) row": "empty",
+    "If diagnosed within past 10 years, Decline. Skin cancers (basal/squamous/melanoma) and some lymphoma excluded": [
+      {
+        "withinYears": 10,
+        "outcome": "decline",
+        "note": "some skin, thyroid, testicular cancers and lymphomas excluded"
+      }
+    ],
+    "If diagnosed within past 10 years, Decline. Skin cancers, thyroid cancer, testicular cancer excluded": [
+      {
+        "withinYears": 10,
+        "outcome": "decline",
+        "note": "some skin, thyroid, testicular cancers and lymphomas excluded"
+      }
+    ],
+    "If felony, probation, or parole within last 10 years, Decline": [
+      {
+        "withinYears": 10,
+        "outcome": "decline"
+      },
+      {
+        "outcome": "refer",
+        "note": "some felonies considered after 10 years"
+      }
+    ],
+    "If felony, probation, or parole within last 10 years, Decline. Some felonies >10 years considered": [
+      {
+        "withinYears": 10,
+        "outcome": "decline"
+      },
+      {
+        "outcome": "refer",
+        "note": "some felonies considered after 10 years"
+      }
+    ],
+    "If on probation /parole, incarcerated\nor criminal charges pending.\nIf no jail time served, individual\nconsideration 1 year after end of\nprobation. If jail time has been served, consider\n5 years after parole.": [
+      {
+        "outcome": "decline",
+        "current": true
+      },
+      {
+        "withinYears": 1,
+        "outcome": "decline"
+      },
+      {
+        "withinYears": 5,
+        "outcome": "refer",
+        "note": "if jail time served: considered 5 years after parole"
+      },
+      {
+        "outcome": "refer",
+        "note": "individual consideration"
+      }
+    ],
+    "Individual consideration based on A1C,\nage, duration and build with no\ndiabetic complications \n\nhttps://ezbiz.foresters.com/sfdiabetesratings": "refer",
+    "Manual Underwriting - additional info required on application": "refer",
+    "Max $300,000. Must have PR card or eligible visa (E1/E2/E3/Eb5/H1B/H1C/L1/L2/K1 etc). Must reside in US 6+ consecutive months in past year.": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "without a green card or an accepted visa/ITIN"
+      }
+    ],
+    "May Accept — treated sleep apnea accepted": "best",
+    "Mild asthma excluded from knockouts. Approved if controlled": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if not controlled"
+      }
+    ],
+    "Multiple sclerosis excluded from neurological knockouts": "best",
+    "N/A — no specific COVID questions on F&G application": "best",
+    "NA (aviation - flight crew except commercial airline within 2 years = Decline)": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "flight crew (not commercial airline)",
+        "withinYears": 2
+      }
+    ],
+    "NA (decline if active duty deployment outside US)": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if deployed outside the US"
+      }
+    ],
+    "NA (excluded from drug use)": "best",
+    "NA (fatty liver disease excluded from liver knockout)": "best",
+    "NA. Sleep apnea with oxygen use or central sleep apnea = Decline": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "with oxygen or central sleep apnea"
+      }
+    ],
+    "Narcolepsy excluded from neurological knockouts": "best",
+    "No convictions for DWI, DUI or reckless driving within the last five (5) years\nNo convictions of four (4) or more moving violations": [
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if DUI/reckless conviction or 4+ moving violations",
+        "withinYears": 5
+      }
+    ],
+    "Non Smoker, mild COPD, no oxygen, no\nsteroids or serious COPD medications. Little\nto no shortness of breath (SOB)on exertion;\nable to climb at least 1 flight of stairs with\nlittle to no SOB = approved. Smoker = decline": [
+      {
+        "outcome": "decline",
+        "tobacco": "yes"
+      },
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if not mild (oxygen, steroids, shortness of breath)"
+      }
+    ],
+    "Not allowed": "decline",
+    "Proposed insureds who have not smoked cigarettes within the past 12 months. Allows use\nof cigar, pipe, chewing tobacco, nicotine patches, vape pens, marijuana and other substitutes": "empty",
+    "Proposed insureds who have not used any tobacco or product\ncontaining nicotine within the past 12 months. Allows use of marijuana but no vape pens (nicotine and nonnicotine vaping included).": "empty",
+    "Provide ITIN* (Individual Tax Identi\nfication Number) and a Copy of Permanent Residence Card (Green Card) or Copy of Visa (Non-Immigrant Work Visa or Immigrant Visa)": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "without a green card or an accepted visa/ITIN"
+      }
+    ],
+    "Recovered Hep A excluded from knockouts. Approved": "best",
+    "Restless leg syndrome excluded from neurological knockouts": "best",
+    "Select Tobacco and Select Nontobacco classes available": "empty",
+    "Severe = Decline within 5 years. Otherwise see med guide": [
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if severe",
+        "withinYears": 5
+      },
+      {
+        "outcome": "best"
+      }
+    ],
+    "Severe Asthma = Decline. Otherwise see med guide": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if severe"
+      }
+    ],
+    "Support for ITIN, EAD & most visas (Foreign National Agent Guide)": "best",
+    "To be considered for coverage, these are the acceptable types of visas (fully underwritten product rules\nmay vary).\n• Permanent residency visa\n• H1B or L1 visa\no Individual must have been residing in the U.S. for a minimum of one year.\no For foreign travel, contact Underwriting with questions.\no A copy of the proposed insured’s visa, I-94 Form and/or I-797A, Notice of Action form will\nbe required.": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "without a green card or an accepted visa/ITIN"
+      }
+    ],
+    "Tobacco and Non-tobacco classes available": "empty",
+    "Tobacco class available. Preferred Non-tobacco: no use 2+ yrs. Non-tobacco: no use 1+ yr. Occasional cigar may qualify for Non-tobacco if disclosed.": "empty",
+    "Treated obstructive sleep apnea excluded from knockouts. Approved": "best",
+    "US citizens & permanent residents only": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "without a green card or an accepted visa/ITIN"
+      }
+    ],
+    "Used within last 12 months- Decline Used within last 1-2 yrs- Preferred": [
+      {
+        "withinYears": 1,
+        "outcome": "decline"
+      },
+      {
+        "withinYears": 2,
+        "outcome": "preferred"
+      }
+    ],
+    "Within 12 months = smoker": "empty",
+    "Y IF Diagnosed > AGE 49 AND no Complications": [
+      {
+        "dxAgeBelow": 50,
+        "outcome": "decline",
+        "note": "diagnosed before 50"
+      },
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if diabetic complications"
+      }
+    ],
+    "Y IF INSULIN > 30 YEARS OF AGE": [
+      {
+        "dxAgeBelow": 30,
+        "outcome": "decline",
+        "note": "insulin before age 30"
+      },
+      {
+        "outcome": "best"
+      }
+    ],
+    "Y IF NO COMPLICATIONS": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if diabetic complications"
+      }
+    ],
+    "Y IF NO COMPLICATIONS AND NO INSULIN PRIOR TO AGE 50": [
+      {
+        "dxAgeBelow": 50,
+        "outcome": "decline",
+        "note": "insulin before age 50"
+      },
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if diabetic complications"
+      }
+    ],
+    "Y IF NOT CURRENT": [
+      {
+        "outcome": "decline",
+        "current": true
+      },
+      {
+        "outcome": "best"
+      }
+    ],
+    "Y IF NOT ILLEGAL": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if illegal use"
+      }
+    ],
+    "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER)": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "without a green card or an accepted visa/ITIN"
+      }
+    ],
+    "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E-1, E-2,\nH-1B, H-4, L-1, L-2": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "without a green card or an accepted visa/ITIN"
+      }
+    ],
+    "Y IF PERMANENT RESIDENT (GREEN CARD HOLDER),OR HAS ONE OF THE ACCEPTABLE VISAS: E1, E2, E3\nG1, G2, G3, G4\nH-1B, H-2A, H-2B, H-3, H4\nJ1, J2\nK1, K3\nL-1A, L-1B, L2\nO1, O3\nP1, P2, P3, P4, R1, TN": [
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "without a green card or an accepted visa/ITIN"
+      }
+    ],
+    "Y IF REPAIRED AND > 2 YEASR SINCE DIAGNOSIS AND TREATMENT": [
+      {
+        "withinYears": 2,
+        "outcome": "decline",
+        "note": "implied by grid"
+      },
+      {
+        "outcome": "best"
+      },
+      {
+        "outcome": "decline",
+        "conditional": true,
+        "note": "if not repaired"
+      }
+    ],
+    "within 12 months": "empty",
+    "IF > 4 YEARS SINCE DIAGNOSIS AND TREATMENT": [
+      {
+        "withinYears": 4,
+        "outcome": "decline",
+        "note": "implied by grid"
+      },
+      {
+        "outcome": "best"
+      }
+    ]
   },
   "tiers": [
     {

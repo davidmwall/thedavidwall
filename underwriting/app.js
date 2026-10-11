@@ -151,7 +151,7 @@
     }
     var result = f.best ? (f.best === f.worst ? UW.label(f.best) : UW.label(f.best) + ' → ' + UW.label(f.worst))
       : f.worst ? 'Approved → ' + UW.label(f.worst)
-      : (f.verify ? 'Verify' : f.info ? 'Not checked' : 'OK');
+      : (f.verify ? 'Verify' : f.basis === 'none' ? 'Not asked' : f.info ? 'Not checked' : 'OK');
     return '<li class="factor ' + cls + '"><span class="ic">' + icon + '</span>' +
       '<div><div><strong>' + esc(f.label) + '</strong>: ' + esc(result) +
       (f.basis === 'grid' ? ' <span class="src grid">' + (f.backup ? 'grid (backup)' : 'grid') + '</span>' : f.source ? ' <span class="src">' + esc(f.source) + '</span>' : '') + '</div>' +
@@ -249,7 +249,7 @@
       '<div class="table-wrap"><table><thead><tr><th>Carrier / product</th><th>Result</th><th>Details</th><th>Source</th></tr></thead><tbody>' +
       rows.map(function (r) {
         var f = r.factor, p = r.product;
-        var res = f.verify ? '<span class="pill warn">Not in guide</span>' :
+        var res = f.verify ? '<span class="pill warn">Not in guide</span>' : f.basis === 'none' ? '<span class="pill">Not asked</span>' :
           (f.best ? (f.best === f.worst ? pill(f.best) : pill(f.best) + ' → ' + pill(f.worst)) : (f.worst ? '<span class="pill good">Not asked</span> → ' + pill(f.worst) : '<span class="pill good">OK</span>'));
         if (f.basis === 'grid' && !f.verify) res += ' <span class="badge grid">grid</span>';
         var details = esc(f.note) + (f.grid ? '<div class="gridnote ' + (f.gridConflict ? 'conflict' : 'agree') + '">Grid: "' + esc(f.grid) + '"' + (f.gridConflict ? ', disagrees' : ', agrees') + '</div>' : '');
