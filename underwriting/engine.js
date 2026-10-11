@@ -192,7 +192,7 @@
     var a = p.issueAges ? Object.assign({}, p.issueAges) : null;
     (state.agentLimits || []).forEach(function (l) {
       var hit = l.products instanceof RegExp ? l.products.test(p.id) : (l.products || []).indexOf(p.id) !== -1;
-      if (!hit || (l.except || []).indexOf(p.id) !== -1) return;
+      if (!hit || (l.except || []).indexOf(p.id) !== -1 || (l.issueAgeMin == null && l.issueAgeMax == null)) return;
       a = a || {};
       if (l.issueAgeMin != null) a.min = l.issueAgeMin;
       if (l.issueAgeMax != null) a.max = l.issueAgeMax;
@@ -200,6 +200,13 @@
       a.source = 'agent rule';
     });
     return a;
+  }
+  // Agent limit { statesNot: ['AL'] }: the agent's own knowledge of where a product is sold.
+  function agentStateLimit(p, st) {
+    return (state.agentLimits || []).filter(function (l) {
+      var hit = l.products instanceof RegExp ? l.products.test(p.id) : (l.products || []).indexOf(p.id) !== -1;
+      return hit && (l.except || []).indexOf(p.id) === -1 && (l.statesNot || []).indexOf(st) !== -1;
+    })[0];
   }
 
   function evalAge(p, age) {
@@ -217,6 +224,8 @@
 
   function evalState(p, st) {
     st = String(st).toUpperCase();
+    var al = agentStateLimit(p, st);
+    if (al) return factor('state', 'State ' + st, 'decline', 'decline', { note: al.note || 'Not available in ' + st, source: 'agent rule' });
     if (!p.statesNotAvailable && !p.statesAvailable) {
       return factor('state', 'State ' + st, null, null, { info: true, note: 'State list not loaded for this product. Check availability before you quote' });
     }

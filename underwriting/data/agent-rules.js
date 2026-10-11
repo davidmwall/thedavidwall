@@ -9,5 +9,8 @@ UW.registerAgentRules({
 // Product limits that override carrier guides and the grid.
 UW.registerAgentLimits([
   { products: /^ethos-/, except: ['ethos-trustage-ga-wl', 'ethos-term-prime', 'ethos-term-choice', 'ethos-trustage-term'], issueAgeMin: 18, note: 'Agent rule: Ethos issues from age 18 (term stays at 20)' },
-  { products: ['ethos-trustage-ga-wl'], issueAgeMin: 45, note: 'Agent rule: Ethos GI from age 45' }
+  { products: ['ethos-trustage-ga-wl'], issueAgeMin: 45, note: 'Agent rule: Ethos GI from age 45' },
+  { products: /^rnoa-/, statesNot: ['AL'], note: 'Agent rule: Royal Neighbors does not operate in Alabama' },
+  { products: /cica/, statesNot: ['CA'], note: 'Agent rule: Cica does not operate in California' },
+  { products: /^ahl-/, statesNot: ['CA'], note: 'Agent rule: American Home Life does not operate in California' }
 ]);

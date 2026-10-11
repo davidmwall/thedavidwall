@@ -412,3 +412,14 @@ test('a drug the guide does not list is judged through the condition it treats',
   assert.ok(!rx(withDx).verify && rx(withDx).info);
   assert.match(rx(withDx).note, /Judged through Diabetes — insulin/);
 });
+
+test('agent state limits decline a product in states it is not sold in', function () {
+  UW.state.products = []; UW.state.grid = null; var saved = UW.state.agentLimits; UW.state.agentLimits = [];
+  UW.registerAgentLimits([{ products: /^acme-/, statesNot: ['AL'], note: 'Agent rule: not in Alabama' }]);
+  UW.addProduct({ id: 'acme-fe', carrier: 'A', product: 'FE', type: 'final_expense', underwriting: 'instant', bestOutcome: 'level', issueAges: { min: 50, max: 85 } });
+  assert.strictEqual(find(UW.evaluate({ state: 'AL' }), 'acme-fe').best, 'decline');
+  var ga = find(UW.evaluate({ state: 'GA', age: 60 }), 'acme-fe');
+  assert.strictEqual(ga.best, 'level');
+  assert.ok(ga.factors.filter(function (f) { return f.kind === 'age'; })[0].note.indexOf('agent') === -1);   // ages untouched
+  UW.state.agentLimits = saved;
+});
