@@ -172,6 +172,10 @@ function parseSegment(seg) {
   if (tAt < 0 && /\b(after|longer)\b/.test(seg)) after = 0;
 
   var rest = seg.slice(0, outs[0].at) + ' ' + seg.slice(outs[0].at + outs[0].len);
+  // "If currently, Decline": the engine decides from the condition (ongoing
+  // statuses like needing ADL help are current by definition) or the client's timing.
+  var current = false;
+  if (tAt < 0 && /\bcurrent(?:ly)?\b/.test(rest)) { current = true; rest = rest.replace(/\bcurrent(?:ly)?\b/g, ' '); }
   rest = rest.replace(/\d+(\.\d+)?/g, ' ').replace(/[<>(),:"'—–]/g, ' ').replace(FILLER, ' ')
     .replace(/\b(since diagnosis|diagnosis and treatment)\b/g, ' ').trim();
   var qualified = ageq || /[a-z]{2,}/.test(rest);
@@ -186,7 +190,7 @@ function parseSegment(seg) {
       .replace(/[^a-z]/g, ' ').trim();
     if (!before) orBranch = true;
   }
-  return { outcome: o, within: within, after: after, qualified: qualified && !orBranch, orBranch: orBranch,
+  return { outcome: o, within: within, after: after, qualified: qualified && !orBranch, orBranch: orBranch, current: current,
     dxAccept: dxAccept, dxApply: dxApply, acceptIf: /^(?:y|yes|approved?|accept(?:ed)?)\s+if\b/.test(seg.trim()) || /\b(?:approved|accepted?)\s+if\b/.test(seg) };
 }
 
@@ -230,7 +234,9 @@ function interpret(raw) {
     var q = p.qualified || asked;
     qualified = qualified || q;
     var add = function (rule) {
+      if (p.current) rule.current = true;
       if (q) conditional.push(Object.assign(rule, { conditional: true }));
+      else if (p.current) conditional.push(rule);   // decided per client by the engine
       else if (rule.withinYears != null) timed.push(rule);
       else fallback.push(rule);
     };
@@ -251,7 +257,7 @@ function interpret(raw) {
   });
   // "Approved if mild. Otherwise, decline": the fallback only applies when the
   // qualifier fails, so it is conditional too.
-  if (conditional.length && fallback.length) {
+  if (conditional.some(function (r) { return r.conditional; }) && fallback.length) {
     fallback.forEach(function (r) { conditional.push(Object.assign(r, { conditional: true })); });
     fallback = [];
   }

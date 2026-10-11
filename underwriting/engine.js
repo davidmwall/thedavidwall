@@ -363,14 +363,26 @@
   // Rules tied to other facts the client entered:
   //   tobacco: 'yes' | 'no' -> applies only to that tobacco answer and keeps its place in the
   //     timeline ("within 24 months: Level non-tobacco, Graded tobacco"). Unknown answer: conditional.
+  //   current: true -> "if currently": firm for an ongoing status (needs help with ADLs, bedridden,
+  //     wheelchair...) or when the client said "currently"; dropped when it was years ago;
+  //     otherwise conditional.
   //   withConditions: [ids] -> applies only when the client also has one of these conditions
   //     ("diabetes with stroke or coronary disease"); without a time window it decides the answer.
   function applyFacts(rules, ctx) {
     var t = ctx && ctx.tobacco, others = (ctx && ctx.others) || [];
     var out = [], combos = [];
     var add = function (x, s) { x.note = (x.note ? x.note + '; ' : '') + s; };
+    var ys = ctx && !isBlank(ctx.yearsSince) ? Number(ctx.yearsSince) : null;
     rules.forEach(function (r) {
       var x = r;
+      if (r.current) {
+        x = Object.assign({}, x); delete x.current;
+        if (ys !== null && ys > 0) return;
+        if (ys === 0 || (ctx && ctx.ongoing)) {
+          delete x.withinYears; add(x, 'current');
+          if (!x.conditional) { combos.push(x); return; }   // other caveats still only widen
+        } else { x.conditional = true; add(x, 'if current'); }
+      }
       if (r.tobacco) {
         x = Object.assign({}, x); delete x.tobacco;
         var want = r.tobacco === 'yes' ? 'tobacco user' : 'non-tobacco';
@@ -600,10 +612,17 @@
       guideSays: f.basis !== 'none' && f.best ? summarize(f) + (f.source ? ' (' + f.source + ')' : '') : undefined });
   }
 
+  // Statuses that are current by definition: entering one means "currently".
+  var NOT_ONGOING = ['recent_surgery_hospitalization', 'multiple_hospital_stays'];
+  function isOngoing(id) {
+    var c = state.conditions[id];
+    return !!c && (c.ongoing === true || ((c.category === 'Current status' || c.category === 'Mobility') && c.ongoing !== false && NOT_ONGOING.indexOf(id) === -1));
+  }
+
   function evalCondition(p, cond) {
     var c = state.conditions[cond.id];
     var lbl = (c ? c.name : cond.id) + (!isBlank(cond.yearsSince) ? ' (' + cond.yearsSince + ' yrs ago)' : '');
-    var ctx = { yearsSince: cond.yearsSince, age: cond.age, tobacco: cond.tobacco, others: cond.others, dxChecks: [] };
+    var ctx = { yearsSince: cond.yearsSince, age: cond.age, tobacco: cond.tobacco, others: cond.others, dxChecks: [], ongoing: isOngoing(cond.id) };
     var f = evalItem(p, 'conditions', cond.id, ctx, lbl);
     // Show the age-at-diagnosis checks that decided (or didn't) this answer.
     var checks = ctx.dxChecks.filter(function (x, i, all) { return all.indexOf(x) === i; });

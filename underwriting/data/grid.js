@@ -1253,20 +1253,18 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Baltimore Life": {
     "raw": "If treated within 1 year, Decline",
@@ -1282,10 +1280,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
@@ -1300,10 +1297,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
@@ -1331,10 +1327,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "Guaranteed Issue",
@@ -4186,30 +4181,27 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Baltimore Life": {
     "raw": "If within 1 year, Decline",
@@ -4225,10 +4217,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
@@ -4243,10 +4234,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 1 year, Decline",
@@ -4271,20 +4261,18 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If currently, Guaranteed Issue",
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If within 6 months, Decline",
@@ -4318,10 +4306,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "If unable to work >10 consecutive days in past 12 months, Decline",
@@ -4410,20 +4397,18 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    }
   },
   "asthma_chronic": {
@@ -5607,50 +5592,45 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Baltimore Life": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Cica Life (Superior Choice)": {
     "raw": "If currently, Guaranteed",
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
@@ -5665,10 +5645,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 1 year, Decline",
@@ -5693,20 +5672,18 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If currently, Guaranteed Issue",
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    }
   },
   "bipolar": {
@@ -13656,40 +13633,36 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Express Term)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: Ethos Accumulation IUL - North American": {
     "raw": "If suspended within past year, Decline",
@@ -18667,30 +18640,27 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Baltimore Life": {
     "raw": "Decline",
@@ -18723,10 +18693,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 1 year, Decline",
@@ -18751,10 +18720,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Guaranteed Issue",
@@ -19570,10 +19538,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "If within 7 years, Decline",
@@ -21685,10 +21652,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
@@ -22940,30 +22906,27 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Baltimore Life": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
@@ -22998,10 +22961,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
@@ -23030,10 +22992,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Guaranteed Issue",
@@ -23060,30 +23021,27 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Baltimore Life": {
     "raw": "If treated within 1 year, Decline",
@@ -23099,10 +23057,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Ethos - TruStage Guaranteed Acceptance Whole Life": {
     "raw": "Accepted — Guaranteed Issue (no health questions)",
@@ -23117,10 +23074,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Foresters Advantage Plus II": {
     "raw": "C ADDITIONAL INFORMATION REQUIRED ON APPLICATION",
@@ -23149,20 +23105,18 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If currently, Guaranteed Issue",
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "Decline",
@@ -23289,10 +23243,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    }
   },
   "organ_transplant": {
@@ -25373,10 +25326,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: UHL (Simple Term)": {
     "raw": "If within 7 years, Decline",
@@ -27602,10 +27554,9 @@ UW.registerGrid({
      },
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "Preferred",
@@ -29275,30 +29226,27 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Amicable (Senior Choice)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: American Home Life (Patriot Series)": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Baltimore Life": {
     "raw": "If \"Did confinement last 5 or more days?\" answered \"Yes\" , Decline. If currently, Decline. If \"Hospitalized 3 or more times in the past 2 years?\" answered \"Yes\" , Special",
@@ -29337,10 +29285,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Liberty Bankers  (Simple Preferred, Standard, or Modified)": {
     "raw": "If within 1 year, Preferred. If \"More than 5 days of total confinement over the past year?\" answered \"Yes\" , Decline",
@@ -29370,20 +29317,18 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Royal Neighbors (Ensured Legacy FEX)": {
     "raw": "If currently, Guaranteed Issue",
     "rules": [
      {
       "outcome": "gi",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE HOME CERTAINTY": {
     "raw": "If within 6 months, Decline",
@@ -29417,10 +29362,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: Ethos Term Life - Prime": {
     "raw": "If pending tests/treatment not completed, Decline",
@@ -29447,30 +29391,27 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: FORESTERS YOUR TERM": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: FORESTERS SMART UL": {
     "raw": "If currently, Decline",
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: Kansas City Life": {
     "raw": "If within 1 year, Decline",
@@ -30838,10 +30779,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "WHOLE LIFE :: Baltimore Life": {
     "raw": "If \"Does the proposed insured need help with any activities of daily living (adls)?\" answered \"Yes\" , Decline",
@@ -30953,10 +30893,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: AMERICAN AMICABLE SURVIVOR PROCTECTOR": {
     "raw": "If treated within 6 months, Decline",
@@ -30972,10 +30911,9 @@ UW.registerGrid({
     "rules": [
      {
       "outcome": "decline",
-      "conditional": true
+      "current": true
      }
-    ],
-    "qualified": true
+    ]
    },
    "TERM, UL, IUL :: American Amicable (Term Made Simple)": {
     "raw": "If treated within 6 months, Decline",

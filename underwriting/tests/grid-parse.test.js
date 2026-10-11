@@ -16,7 +16,7 @@ function short(text, opts) {
   var r = rules(text, opts);
   if (!r || r === 'empty') return r;
   return r.map(function (x) {
-    return (x.conditional ? '?' : '') +
+    return (x.conditional ? '?' : '') + (x.current ? 'now ' : '') +
       (x.withinYears != null ? '<' + x.withinYears + 'y ' : '') +
       (x.dxAgeMax != null ? 'dx<=' + x.dxAgeMax + ' ' : '') +
       (x.dxAgeBelow != null ? 'dx<' + x.dxAgeBelow + ' ' : '') + x.outcome;
@@ -77,7 +77,9 @@ var CASES = [
   // ...unless the window is about something else (a hospital stay, not the diagnosis)
   ['If hospitalization/inpatient within last 5 years or suicidal thoughts past 6 mo, Decline', '?<5y decline'],
   // Conditions the app can't check never become a firm decline
-  ['If currently, Decline', '?decline'],
+  // "Currently" is decided by the engine (ongoing status or the client's timing)
+  ['If currently, Decline', 'now decline'],
+  ['If currently, Decline. If "Is the prospect confined to a wheelchair?" answered "Yes", Modified', '?now decline, ?modified'],
   ['Approved if minimal or slight impairment. Otherwise, decline', '?decline, ?best'],
   ['If "Is the insured taking more than 2 anxiety/depression medications?" answered "Yes" , Decline', '?decline'],
   ['Cancerous and treated within 10 years, Decline', '?<10y decline'],

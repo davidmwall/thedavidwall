@@ -423,3 +423,25 @@ test('agent state limits decline a product in states it is not sold in', functio
   assert.ok(ga.factors.filter(function (f) { return f.kind === 'age'; })[0].note.indexOf('agent') === -1);   // ages untouched
   UW.state.agentLimits = saved;
 });
+
+test('"if currently" rules: firm for ongoing statuses or "currently", dropped for the past, else a range', function () {
+  UW.state.grid = null;
+  var rules = [{ outcome: 'decline', current: true }];
+  load([{ id: 'cur', carrier: 'A', product: 'C', type: 'final_expense', underwriting: 'simplified', bestOutcome: 'level',
+    conditions: { adl_assistance: { rules: rules }, copd: { rules: rules } } }]);
+  var one = function (c) { return find(UW.evaluate({ conditions: [c] }), 'cur'); };
+  assert.strictEqual(one({ id: 'adl_assistance' }).best, 'decline');            // needing ADL help is current by definition
+  assert.strictEqual(one({ id: 'copd' }).best, 'level');                        // unknown timing: range
+  assert.strictEqual(one({ id: 'copd' }).worst, 'decline');
+  assert.strictEqual(one({ id: 'copd', yearsSince: 0 }).best, 'decline');       // typed "currently"
+  assert.strictEqual(one({ id: 'copd', yearsSince: 3 }).worst, 'level');        // years ago: not current
+});
+
+test('a status the carrier does not list uses its closely related row (bedridden -> ADL help)', function () {
+  UW.state.grid = null;
+  load([{ id: 'rel', carrier: 'A', product: 'R', type: 'final_expense', underwriting: 'simplified', bestOutcome: 'level',
+    conditions: { adl_assistance: { rules: [{ outcome: 'decline' }] } } }]);
+  var f = find(UW.evaluate({ conditions: [{ id: 'bedridden' }] }), 'rel');
+  assert.strictEqual(f.best, 'decline');
+  assert.match(f.factors[0].note, /Needs help with ADLs rule/);
+});
