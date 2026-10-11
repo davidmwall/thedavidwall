@@ -25,7 +25,7 @@ UW.registerConditions([
   { id: 'heart_stent', category: 'Heart', name: 'Angioplasty / heart stent', aliases: ['stent', 'angioplasty', 'pci', 'stents'] },
   { id: 'heart_bypass', category: 'Heart', name: 'Heart bypass surgery', aliases: ['cabg', 'bypass', 'open heart surgery'] },
   { id: 'chf', category: 'Heart', name: 'Congestive heart failure', aliases: ['chf', 'heart failure'] },
-  { id: 'afib', category: 'Heart', name: 'Atrial fibrillation', aliases: ['afib', 'a-fib', 'a fib'] },
+  { id: 'afib', category: 'Heart', name: 'Atrial fibrillation', aliases: ['afib', 'a-fib', 'a fib', 'paroxysmal afib', 'pafib', 'atrial flutter', 'aflutter'] },
   { id: 'pacemaker', category: 'Heart', name: 'Pacemaker', aliases: [] },
   { id: 'heart_valve', category: 'Heart', name: 'Heart valve disease / disorder', aliases: ['mitral valve', 'aortic stenosis', 'valve disorder'] },
   { id: 'high_blood_pressure', category: 'Heart', name: 'High blood pressure', aliases: ['hypertension', 'htn', 'hbp', 'high bp', 'high blood pressure', 'blood pressure'] },
