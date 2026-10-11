@@ -198,7 +198,8 @@ test('grid: grid-only product does not rule anyone out on age/state/face it does
   loadWithGrid();
   var z = UW.evaluate({ age: 99, state: 'NY', faceAmount: 5000000 }).filter(function (x) { return x.product.gridOnly; })[0];
   assert.strictEqual(z.status, 'verify');
-  assert.strictEqual(z.verifyCount, 3);
+  assert.strictEqual(z.verifyCount, 2);   // age + face; a missing state list is info only
+  assert.ok(z.factors.some(function (f) { return f.kind === 'state' && f.info && !f.verify; }));
 });
 
 test('importer reads all xlsx tabs, skips UHL, parses timed cells', function () {
@@ -399,4 +400,15 @@ test('shipped data passes the validator', function () {
   var cp = require('child_process');
   var res = cp.spawnSync(process.execPath, [path.join(__dirname, '..', 'tools', 'validate.js')], { encoding: 'utf8' });
   assert.strictEqual(res.status, 0, res.stdout + res.stderr);
+});
+
+test('a drug the guide does not list is judged through the condition it treats', function () {
+  UW.state.grid = null;
+  load([FE]);
+  var alone = find(UW.evaluate({ medications: [{ id: 'metformin' }] }), 'fe');
+  var withDx = find(UW.evaluate({ conditions: [{ id: 'diabetes_insulin' }], medications: [{ id: 'metformin' }] }), 'fe');
+  var rx = function (r) { return r.factors.filter(function (f) { return f.kind === 'medication'; })[0]; };
+  assert.ok(rx(alone).verify);
+  assert.ok(!rx(withDx).verify && rx(withDx).info);
+  assert.match(rx(withDx).note, /Judged through Diabetes — insulin/);
 });

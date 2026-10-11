@@ -218,7 +218,7 @@
   function evalState(p, st) {
     st = String(st).toUpperCase();
     if (!p.statesNotAvailable && !p.statesAvailable) {
-      return factor('state', 'State ' + st, null, null, { verify: true, note: 'State availability not loaded' });
+      return factor('state', 'State ' + st, null, null, { info: true, note: 'State list not loaded for this product. Check availability before you quote' });
     }
     if ((p.statesNotAvailable || []).indexOf(st) !== -1) {
       return factor('state', 'State ' + st, 'decline', 'decline', { note: 'Not available in ' + st });
@@ -259,7 +259,7 @@
   function evalTobacco(p, tobacco) {
     if (tobacco !== 'yes') return null;
     var t = p.tobacco;
-    if (!t) return factor('tobacco', 'Tobacco/nicotine', null, null, { verify: true, note: 'Tobacco treatment not entered for this product' });
+    if (!t) return factor('tobacco', 'Tobacco/nicotine', null, null, { info: true, note: 'Tobacco rates apply. The class rule for tobacco users is not loaded for this product' });
     return factor('tobacco', 'Tobacco/nicotine', t.outcome || null, t.outcome || null,
       { note: t.note || 'Tobacco rates apply', source: t.source || '' });
   }
@@ -289,7 +289,7 @@
     var b = p.build;
     if (b === 'none') return factor('build', lbl, null, null, { note: 'No build requirement' });
     if (b && b.rowsBySex) b = Object.assign({}, b, { rows: rowsFor(b, sex) });
-    if (!b || !b.rows) return factor('build', lbl, null, null, { verify: true, note: 'No build chart entered for this product' });
+    if (!b || !b.rows) return factor('build', lbl, null, null, { info: true, note: 'No build chart loaded for this product' });
     var row = null;
     for (var i = 0; i < b.rows.length; i++) if (b.rows[i].h === heightIn) row = b.rows[i];
     if (!row) return factor('build', lbl, null, null, { verify: true, note: 'Height not on build chart', source: b.source || '' });
@@ -605,6 +605,19 @@
   function evalMedication(p, med) {
     var m = state.medications[med.id];
     var f = evalItem(p, 'medications', med.id, { yearsSince: med.yearsSince, age: med.age, tobacco: med.tobacco, others: med.others }, 'Rx: ' + (m ? m.name : med.id));
+    // A drug the guide doesn't list, taken for a condition the client already
+    // entered, is judged through that condition (drug lists only name the drugs
+    // that change the answer on their own).
+    // (Any diabetes entry counts for a diabetes drug: metformin with insulin-treated diabetes.)
+    var dm = function (id) { return state.conditions[id] && state.conditions[id].category === 'Diabetes'; };
+    var treats = f.verify && f.basis === 'none' && m && (med.others || []).filter(function (id) {
+      return (m.commonlyFor || []).some(function (c) { return c === id || (dm(c) && dm(id)); });
+    });
+    if (treats && treats.length) {
+      f.verify = false; f.info = true;
+      f.note = 'Not on this guide\'s drug list. Judged through ' + treats.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; }).join(', ');
+      return f;
+    }
     if (f.verify && m && m.commonlyFor && m.commonlyFor.length) {
       var names = m.commonlyFor.map(function (id) { return state.conditions[id] ? state.conditions[id].name : id; });
       f.note += '. Often prescribed for: ' + names.join(', ') + ' — add the condition for a better match';

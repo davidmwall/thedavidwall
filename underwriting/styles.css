@@ -145,6 +145,7 @@ input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -1
 .factor.mid .ic { background: var(--mid-bg); color: var(--mid); }
 .factor.warn .ic { background: var(--warn-bg); color: var(--warn); }
 .factor.bad .ic { background: var(--bad-bg); color: var(--bad); }
+.factor.info .ic { background: var(--bg); color: var(--muted); border: 1px solid var(--line); font-style: italic; font-family: Georgia, serif; }
 .note { color: var(--muted); font-size: 13px; }
 .src { font-size: 11px; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; white-space: nowrap; }
 td.src { background: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 8px 10px; font-size: 12px; white-space: nowrap; }

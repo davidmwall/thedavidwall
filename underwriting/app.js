@@ -141,6 +141,7 @@
     if (f.best === 'decline') { icon = '✕'; cls = 'bad'; }
     else if (f.verify) { icon = '?'; cls = 'warn'; }
     else if (f.timing) { icon = '◐'; cls = 'warn'; }
+    else if (f.info) { icon = 'i'; cls = 'info'; }
     else if (f.best) { icon = '•'; cls = tone(f.best); }
     else { icon = '✓'; cls = 'good'; }
     var gridLine = '';
@@ -150,7 +151,7 @@
     }
     var result = f.best ? (f.best === f.worst ? UW.label(f.best) : UW.label(f.best) + ' → ' + UW.label(f.worst))
       : f.worst ? 'Approved → ' + UW.label(f.worst)
-      : (f.verify ? 'Verify' : 'OK');
+      : (f.verify ? 'Verify' : f.info ? 'Not checked' : 'OK');
     return '<li class="factor ' + cls + '"><span class="ic">' + icon + '</span>' +
       '<div><div><strong>' + esc(f.label) + '</strong>: ' + esc(result) +
       (f.basis === 'grid' ? ' <span class="src grid">' + (f.backup ? 'grid (backup)' : 'grid') + '</span>' : f.source ? ' <span class="src">' + esc(f.source) + '</span>' : '') + '</div>' +
@@ -176,7 +177,7 @@
   function card(r, open) {
     var p = r.product;
     var flags = [];
-    if (r.verifyCount) flags.push(r.verifyCount + ' to verify');
+    if (r.verifyCount) flags.push(r.verifyCount + ' not answered by the guide');
     if (r.timingCount) flags.push(r.timingCount + ' depends on timing');
     if (r.backupCount) flags.push(r.backupCount + ' from grid');
     if (r.conflictCount) flags.push(r.conflictCount + ' grid disagrees');

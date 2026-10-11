@@ -22,13 +22,19 @@
     return { preferred_plus: 'Preferred+', preferred: 'Preferred', standard_plus: 'Standard+', standard: 'Standard', level: 'Level',
       table: 'Table', graded: 'Graded', modified: 'Modified/ROP', gi: 'GI only', refer: 'Refer', decline: 'Decline' }[o] || UW.label(o);
   }
-  var TYPE_SHORT = { final_expense: 'Final expense', whole_life: 'Whole life', term: 'Term', mortgage_protection: 'Mortgage', iul: 'IUL', universal_life: 'UL' };
+  // Filter groups: product types that are shopped together.
+  var GROUPS = [
+    { key: 'wl', label: 'Final expense / Whole life', types: ['final_expense', 'whole_life'] },
+    { key: 'term', label: 'Term', types: ['term', 'mortgage_protection'] },
+    { key: 'ul', label: 'UL / IUL', types: ['universal_life', 'iul'] }
+  ];
+  var TYPE_SHORT = { final_expense: 'Final expense', whole_life: 'Whole life', term: 'Term', mortgage_protection: 'Term', iul: 'IUL', universal_life: 'UL' };
 
   function buildTypeToggles() {
     var present = {};
     UW.state.products.forEach(function (p) { present[p.type] = true; });
-    $('#live-types').innerHTML = Object.keys(TYPE_SHORT).filter(function (k) { return present[k]; }).map(function (k) {
-      return '<label class="toggle"><input type="checkbox" value="' + k + '"><span>' + TYPE_SHORT[k] + '</span></label>';
+    $('#live-types').innerHTML = GROUPS.filter(function (g) { return g.types.some(function (t) { return present[t]; }); }).map(function (g) {
+      return '<label class="toggle"><input type="checkbox" value="' + g.key + '"><span>' + g.label + '</span></label>';
     }).join('');
     $('#live-types').addEventListener('change', function (e) { types[e.target.value] = e.target.checked; render(); });
   }
@@ -43,8 +49,19 @@
       return f.label.replace(/\s*\((?!\d).*?\)\s*$/, '') + ': ' + o;
     }
     var v = r.factors.filter(function (f) { return f.verify; })[0];
-    if (v) return v.label + ': verify';
+    if (v) return v.label.replace(/\s*\(.*?\)/g, '') + ': not in guide';
     return r.factors.length ? 'Nothing entered limits this product' : '';
+  }
+
+  // What the guide (and grid) leave unanswered for this client.
+  function unanswered(r) {
+    return r.factors.filter(function (f) { return f.verify; }).map(function (f) {
+      return f.label.replace(/^Rx: /, '').replace(/\s*\(.*?\)/g, '');
+    });
+  }
+  function unansweredShort(r) {
+    var u = unanswered(r);
+    return u.length === 1 ? u[0] + ' unclear' : u.length + ' unclear';
   }
 
   function tile(r) {
@@ -53,7 +70,7 @@
     var gb = group(best), gw = group(worst);
     var label = best === worst ? short(best) : short(best) + ' → ' + short(worst);
     var flags = (p.gridOnly && !p.gridOfficial ? '<span class="tflag">grid only</span>' : '') +
-      (r.verifyCount ? '<span class="tflag">' + r.verifyCount + ' to verify</span>' : '');
+      (r.verifyCount && worst !== 'decline' ? '<span class="tflag" title="' + esc(unanswered(r).join(', ')) + '">? ' + esc(unansweredShort(r)) + '</span>' : '');
     return '<button type="button" class="tile g-' + gb + (gb !== gw ? ' split w-' + gw : '') + (openId === p.id ? ' open' : '') + '" data-id="' + esc(p.id) + '">' +
       '<span class="t-class">' + esc(label) + '</span>' +
       '<span class="t-carrier">' + esc(p.carrier) + '</span>' +
@@ -67,7 +84,8 @@
     var parsed = UWParse.parse(box.value, UW);
     renderChips(parsed);
     var client = parsed.client;
-    var sel = Object.keys(types).filter(function (k) { return types[k]; });
+    var sel = [];
+    GROUPS.forEach(function (g) { if (types[g.key]) sel = sel.concat(g.types); });
     client.productTypes = sel;
     var results = UW.evaluate(client);
     last = results;
@@ -81,8 +99,9 @@
   }
 
   function renderChips(parsed) {
+    var have = (parsed.client.conditions || []).map(function (c) { return c.id; });
     var html = parsed.chips.map(function (c) {
-      return '<span class="qchip k-' + c.kind + '">' + esc(c.label) + (c.detail ? ' <em>' + esc(c.detail) + '</em>' : '') + '</span>';
+      return '<span class="qchip k-' + c.kind + '">' + esc(c.label) + (c.detail ? ' <em>' + esc(c.detail) + '</em>' : '') + reasonHint(c, have) + '</span>';
     }).join('');
     html += parsed.unknown.map(function (u) {
       return '<span class="qchip unknown" title="Not recognized">“' + esc(u.text) + '”?' +
@@ -91,6 +110,18 @@
         }).join(', ') + '</span>' : ' <span class="sugg">not found. Try another word, or use the Find tab</span>') + '</span>';
     }).join('');
     chipsEl.innerHTML = html;
+  }
+
+  // A drug without the condition it treats leaves most guides silent. Offer the
+  // likely reasons as one-click adds.
+  function reasonHint(c, have) {
+    var m = c.kind === 'medication' && c.item && UW.state.medications[c.item.id];
+    var why = m && (m.commonlyFor || []).filter(function (id) { return UW.state.conditions[id]; });
+    if (!why || !why.length || why.some(function (id) { return have.indexOf(id) !== -1; })) return '';
+    return ' <span class="sugg">for ' + why.slice(0, 3).map(function (id) {
+      var n = UW.state.conditions[id].name.replace(/\s*\(.*?\)/g, '');
+      return '<button type="button" class="link-btn" data-append="' + esc(n) + '">' + esc(n) + '</button>';
+    }).join(' / ') + '?</span>';
   }
 
   function renderDetail() {
@@ -113,6 +144,8 @@
   });
   detail.addEventListener('click', function (e) { if (e.target.id === 'td-close') { openId = null; render(); } });
   chipsEl.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-append]');
+    if (a) { box.value = box.value.replace(/[\s,]*$/, '') + ', ' + a.dataset.append.toLowerCase(); render(); box.focus(); return; }
     var b = e.target.closest('[data-replace]'); if (!b) return;
     box.value = box.value.replace(b.dataset.replace, b.dataset.with);
     render(); box.focus();
