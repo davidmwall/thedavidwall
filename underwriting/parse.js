@@ -17,7 +17,7 @@
     RI: 'rhode island', SC: 'south carolina', SD: 'south dakota', TN: 'tennessee', TX: 'texas', UT: 'utah', VT: 'vermont', VA: 'virginia',
     WA: 'washington', WV: 'west virginia', WI: 'wisconsin', WY: 'wyoming' };
   // Words that carry no meaning for matching a condition or medication.
-  var FILLER = /\b(ago|diagnosed|dx|dx'd|had|has|have|history|hx|h\/o|of|with|w\/|on|takes|taking|take|for|the|a|an|since|in|at|age|aged|years?|yrs?|months?|mos?|treated|treatment|last|was|is|been|got|about|around|approx|approximately|currently|current|now|still|controlled|well|mild|recent|recently|uses?|using|prescribed|rx|meds?|medication)\b/gi;
+  var FILLER = /\b(ago|diagnosed|dx|dx'd|had|has|have|history|hx|h\/o|of|with|w\/|on|takes|taking|take|for|the|a|an|since|in|at|age|aged|years?|yrs?|months?|mos?|treated|treatment|last|was|is|been|got|about|around|approx|approximately|currently|current|now|still|controlled|well|mild|recent|recently|uses?|using|prescribed|rx|meds?|medication|cured|resolved|compliant)\b/gi;
 
   function norm(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(); }
 
@@ -79,10 +79,12 @@
     segs.forEach(function (raw) {
       var s = ' ' + raw + ' ', m;
       var cut = function (t) { s = s.replace(t, ' '); };
+      // Shorthand that the filler words would break apart ("a fib" -> "fib").
+      s = s.replace(/\ba[\s.-]?fib\b/gi, ' afib ');
 
       // Tobacco (negations first)
       if ((m = s.match(/\b(non[- ]?smok\w*|non[- ]?tobacco|no tobacco|doesn'?t smoke|never smok\w*|quit smoking|no nicotine)\b/i))) { c.tobacco = 'no'; chip('tobacco', 'Non-tobacco'); cut(m[0]); }
-      else if ((m = s.match(/\b(smok\w*|tobacco|vap\w*|nicotine|cigar\w*|chew\w*|dips)\b/i))) { c.tobacco = 'yes'; chip('tobacco', 'Tobacco'); cut(m[0]); }
+      else if ((m = s.match(/\b(smok\w*|tobacco|vap\w*|nicotine|cigar\w*|chew\w*|dips)\b/i))) { c.tobacco = 'yes'; chip('tobacco', 'Tobacco'); cut(/\b(smok\w*|tobacco|vap\w*|nicotine|cigar\w*|chew\w*|dips|pipes?|cigs?)\b/gi); }
       // Sex
       if ((m = s.match(/\b(male|man|female|woman)\b/i))) { c.sex = /fe|wo/i.test(m[1]) ? 'female' : 'male'; chip('sex', c.sex === 'male' ? 'Male' : 'Female'); cut(m[0]); }
       else if ((m = raw.match(/^\s*(m|f)\s*$/i))) { c.sex = /f/i.test(m[1]) ? 'female' : 'male'; chip('sex', c.sex === 'male' ? 'Male' : 'Female'); cut(raw); }

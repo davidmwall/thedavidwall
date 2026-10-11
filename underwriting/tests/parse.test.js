@@ -40,3 +40,17 @@ test('unrecognized phrases are reported, not guessed', function () {
   assert.strictEqual(r.unknown.length, 1);
   assert.strictEqual(r.unknown[0].text, 'blah thing');
 });
+
+test('agent shorthand: a fib, high bp, ckd stage 3, cigars, cpap, brand names', function () {
+  var one = function (t) { var r = parse(t); return ids(r.client.conditions).concat(ids(r.client.medications)).join(' ') + (r.unknown.length ? ' ?' : ''); };
+  assert.strictEqual(one('a fib'), 'afib');                      // not fibromyalgia
+  assert.strictEqual(one('high bp'), 'high_blood_pressure');
+  assert.strictEqual(one('ckd stage 3'), 'kidney_disease_stage3');
+  assert.strictEqual(one('type 2 diabetic'), 'diabetes_oral');
+  assert.strictEqual(one('sleep apnea cpap'), 'sleep_apnea_controlled');
+  assert.strictEqual(one('hip replacement 2023'), 'joint_replacement@3');
+  assert.strictEqual(one('xanax'), 'rx_alprazolam');
+  var c = parse('smokes cigars');
+  assert.strictEqual(c.client.tobacco, 'yes');
+  assert.strictEqual(c.unknown.length, 0);
+});

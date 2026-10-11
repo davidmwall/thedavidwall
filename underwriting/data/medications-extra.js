@@ -186,7 +186,7 @@ UW.registerMedications([
  {
   "id": "rx_alprazolam",
   "name": "Alprazolam",
-  "aliases": [],
+  "aliases": ["xanax"],
   "commonlyFor": [
    "anxiety"
   ]

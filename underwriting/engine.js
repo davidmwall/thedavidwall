@@ -268,7 +268,8 @@
   function evalTobacco(p, tobacco) {
     if (tobacco !== 'yes') return null;
     var t = p.tobacco;
-    if (!t) return factor('tobacco', 'Tobacco/nicotine', null, null, { info: true, note: 'Tobacco rates apply. The class rule for tobacco users is not loaded for this product' });
+    // Agent rule: a product with no tobacco class rule keeps its class; only the rates change.
+    if (!t) return factor('tobacco', 'Tobacco/nicotine', null, null, { note: 'Tobacco rates apply; no class change (agent rule: no tobacco class rule for this product)', source: 'agent rule' });
     return factor('tobacco', 'Tobacco/nicotine', t.outcome || null, t.outcome || null,
       { note: t.note || 'Tobacco rates apply', source: t.source || '' });
   }
