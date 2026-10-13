@@ -1,0 +1,471 @@
+<title>Lead Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working column — totals strip, vendor P&L chart, batch ledger, then the credit queue where policies get assigned. */
+:root{
+  --bg:#f4f5f3; --panel:#ffffff; --ink:#15181c; --ink-2:#4a5059; --ink-3:#7a808a;
+  --line:#dfe2e0; --line-2:#eceeed; --accent:#1f5c4a; --accent-soft:#e3efe9;
+  --gain:#2a6fdb; --loss:#d6453d; --mid:#f0efec;
+  --warn-bg:#fff4dc; --warn-ink:#7a5200; --ok-ink:#1f6b2a; --ok-bg:#e5f3e5; --bad-ink:#9b2a24; --bad-bg:#fbe7e5;
+  --f-display:"Archivo",system-ui,sans-serif; --f-body:"Public Sans",system-ui,sans-serif; --f-num:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101316; --panel:#171b1f; --ink:#eef0ee; --ink-2:#b4bab6; --ink-3:#848b88;
+  --line:#2a3035; --line-2:#20252a; --accent:#7cc7a9; --accent-soft:#1d2e28;
+  --gain:#3987e5; --loss:#e66767; --mid:#383835;
+  --warn-bg:#3a2d10; --warn-ink:#f5cd73; --ok-ink:#8fd99a; --ok-bg:#183020; --bad-ink:#f2a29c; --bad-bg:#3a1c1a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101316; --panel:#171b1f; --ink:#eef0ee; --ink-2:#b4bab6; --ink-3:#848b88;
+  --line:#2a3035; --line-2:#20252a; --accent:#7cc7a9; --accent-soft:#1d2e28;
+  --gain:#3987e5; --loss:#e66767; --mid:#383835;
+  --warn-bg:#3a2d10; --warn-ink:#f5cd73; --ok-ink:#8fd99a; --ok-bg:#183020; --bad-ink:#f2a29c; --bad-bg:#3a1c1a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f-body);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:24px 64px;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+h1{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.2rem;font-weight:700;letter-spacing:-.01em}
+.eyebrow{font:600 .72rem/1 var(--f-body);letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-3)}
+header.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+header.top p{margin:6px 0 0;color:var(--ink-2);max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:4px 10px;font-size:.78rem;color:var(--ink-2);white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:none}
+.dot.ok{background:var(--ok-ink)} .dot.warn{background:var(--warn-ink)} .dot.bad{background:var(--bad-ink)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.kpi{background:var(--panel);padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi .v{font:500 1.45rem/1.15 var(--f-num);font-variant-numeric:tabular-nums}
+.kpi .s{font-size:.78rem;color:var(--ink-3)}
+.kpi.attn{background:var(--warn-bg)} .kpi.attn .v,.kpi.attn .eyebrow,.kpi.attn .s{color:var(--warn-ink)}
+.kpi a{color:inherit}
+.pos{color:var(--gain)} .neg{color:var(--loss)}
+section{display:flex;flex-direction:column;gap:12px;min-width:0}
+.sechead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px}
+.sechead p{margin:0;color:var(--ink-2);font-size:.88rem;max-width:70ch}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;min-width:0}
+/* vendor diverging bars */
+.vbars{padding:14px 16px;display:flex;flex-direction:column;gap:10px;position:relative}
+.vrow{display:grid;grid-template-columns:minmax(110px,190px) 1fr minmax(84px,auto);align-items:center;gap:12px;cursor:default}
+.vrow .nm{font-weight:600;font-size:.9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.track{position:relative;height:22px;background:linear-gradient(90deg,transparent calc(50% - 1px),var(--line) calc(50% - 1px),var(--line) calc(50% + 1px),transparent calc(50% + 1px))}
+.bar{position:absolute;top:3px;height:16px}
+.bar.g{background:var(--gain);border-radius:0 4px 4px 0} .bar.l{background:var(--loss);border-radius:4px 0 0 4px}
+.vrow .val{text-align:right;font:500 .88rem var(--f-num)}
+.vrow:hover .track,.vrow:focus-within .track{background-color:var(--line-2)}
+.axisnote{display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink-3);padding:0 16px 12px}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);padding:8px 10px;border-radius:8px;font-size:.8rem;line-height:1.4;max-width:260px;z-index:20}
+.tip b{font-weight:600}
+/* tables */
+.tscroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line-2);vertical-align:middle;white-space:nowrap}
+th{font:600 .7rem/1.2 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);background:var(--panel);position:sticky;top:0}
+th button{all:unset;cursor:pointer} th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+td.r,th.r{text-align:right}
+td.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+tr.batch{cursor:pointer} tr.batch:hover td{background:var(--line-2)}
+tr.batch td:first-child{font-weight:600}
+tr.detail td{background:var(--bg);white-space:normal}
+.roi{display:inline-flex;align-items:center;gap:8px}
+.mini{width:70px;height:8px;background:var(--mid);border-radius:4px;position:relative;overflow:hidden}
+.mini i{position:absolute;top:0;bottom:0}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:600;letter-spacing:.02em}
+.st-IN_FORCE{background:var(--ok-bg);color:var(--ok-ink)}
+.st-PENDING,.st-APPROVED{background:var(--warn-bg);color:var(--warn-ink)}
+.st-LAPSED,.st-NOT_TAKEN,.st-DECLINED,.st-WITHDRAWN{background:var(--bad-bg);color:var(--bad-ink)}
+.tag{font-size:.72rem;color:var(--ink-3)}
+.tag.auto{color:var(--accent);font-weight:600}
+.filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.fbtn{font:500 .8rem var(--f-body);border:1px solid var(--line);background:var(--panel);color:var(--ink-2);border-radius:999px;padding:5px 12px;cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fbtn:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+select{font:inherit;font-size:.84rem;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:5px 8px;max-width:280px}
+select.unset{border-color:var(--warn-ink);background:var(--warn-bg);color:var(--warn-ink)}
+select:disabled{opacity:.6}
+.qrow td{white-space:normal}
+.qrow .who{font-weight:600}
+.qrow .sub{font-size:.76rem;color:var(--ink-3)}
+.saved{font-size:.72rem;color:var(--ok-ink);margin-left:6px}
+.empty{padding:22px 16px;color:var(--ink-2)}
+.notes{font-size:.82rem;color:var(--ink-2);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 28px}
+.notes h3{font:700 .8rem var(--f-display);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.notes p{margin:0}
+.banner{border:1px solid var(--warn-ink);background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:10px 14px;font-size:.86rem}
+label.chk{display:inline-flex;gap:6px;align-items:center;font-size:.82rem;color:var(--ink-2)}
+@media (max-width:560px){.vrow{grid-template-columns:96px 1fr 76px;gap:8px}}
+@media (prefers-reduced-motion:no-preference){.bar{transition:width .35s ease,left .35s ease}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Comp level 90 · 75% advance</div>
+      <h1>Lead Ledger</h1>
+      <p>What each lead purchase cost, which policies it produced, and what it returned after chargebacks.</p>
+    </div>
+    <div class="chips" id="chips">
+      <span class="chip"><span class="dot"></span>Connecting…</span>
+    </div>
+  </header>
+
+  <div id="banner" hidden></div>
+
+  <div class="kpis" id="kpis">
+    <div class="kpi"><span class="eyebrow">Lead spend</span><span class="v num">—</span><span class="s">All batches</span></div>
+    <div class="kpi"><span class="eyebrow">Advances credited</span><span class="v num">—</span><span class="s">Policies tied to a batch</span></div>
+    <div class="kpi"><span class="eyebrow">Chargebacks</span><span class="v num">—</span><span class="s">On credited policies</span></div>
+    <div class="kpi"><span class="eyebrow">Net</span><span class="v num">—</span><span class="s">Advances − chargebacks − spend</span></div>
+    <div class="kpi"><span class="eyebrow">Needs a batch</span><span class="v num">—</span><span class="s">Policies to credit</span></div>
+  </div>
+
+  <section aria-labelledby="h-vendor">
+    <div class="sechead">
+      <h2 id="h-vendor">Net by vendor</h2>
+      <p>Advances on credited policies minus chargebacks minus everything spent with that vendor.</p>
+    </div>
+    <div class="card">
+      <div class="vbars" id="vbars"><div class="empty">Vendor results appear once batches load.</div></div>
+      <div class="axisnote"><span>◂ loss</span><span>break-even</span><span>profit ▸</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-batches">
+    <div class="sechead">
+      <h2 id="h-batches">Batches</h2>
+      <div class="filters" id="vfilters" role="group" aria-label="Filter by vendor"></div>
+    </div>
+    <div class="card tscroll">
+      <table id="btable">
+        <thead><tr>
+          <th><button data-sort="date">Batch</button></th>
+          <th class="r"><button data-sort="cost">Cost</button></th>
+          <th class="r"><button data-sort="qty">Leads</button></th>
+          <th class="r"><button data-sort="cpl">Per lead</button></th>
+          <th class="r"><button data-sort="pols">Policies</button></th>
+          <th class="r"><button data-sort="ap">Annual premium</button></th>
+          <th class="r"><button data-sort="earned">Advances</button></th>
+          <th class="r"><button data-sort="cb">Chargebacks</button></th>
+          <th class="r"><button data-sort="net">Net</button></th>
+          <th><button data-sort="roi">ROI</button></th>
+        </tr></thead>
+        <tbody id="bbody"><tr><td colspan="10" class="empty">Batches appear here after the first sync from Gmail.</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-queue" id="queue">
+    <div class="sechead">
+      <h2 id="h-queue">Credit policies to batches</h2>
+      <div class="filters" role="group" aria-label="Queue view">
+        <button class="fbtn" data-q="open" aria-pressed="true">Needs a batch</button>
+        <button class="fbtn" data-q="done" aria-pressed="false">Credited</button>
+        <label class="chk"><input type="checkbox" id="showDead"> Include declined / withdrawn</label>
+      </div>
+    </div>
+    <p class="muted" style="margin:0;font-size:.86rem">Names from lead emails are matched to insured names automatically. Pick a batch for anything left over. Batches bought in the 120 days before the placed date are listed first.</p>
+    <div class="card tscroll">
+      <table>
+        <thead><tr><th>Insured</th><th>Status</th><th class="r">Annual premium</th><th class="r">Advance</th><th>Placed</th><th>Batch</th></tr></thead>
+        <tbody id="qbody"><tr><td colspan="6" class="empty">Policies from Axiums appear here.</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-notes">
+    <h2 id="h-notes" class="eyebrow" style="font-family:var(--f-body)">How the numbers work</h2>
+    <div class="notes">
+      <div><h3>Revenue</h3><p>In-force policies count the advance Axiums expects (75% of annual premium × comp rate). Where Axiums has no advance yet (Ethos, Corebridge), it is estimated from your comp table and marked “est.” Pending and approved policies show as pipeline, not net.</p></div>
+      <div><h3>Chargebacks</h3><p>Taken from Axiums’ per-policy commission actuals and its chargeback list. A lapsed or not-taken policy counts what the carrier paid minus what it clawed back.</p></div>
+      <div><h3>Meta batches</h3><p>Ad receipts are grouped by the week they were billed (Monday start). Leads from MyEZLeads count toward the week they arrived; duplicates and Meta test leads are removed.</p></div>
+      <div><h3>Sources</h3><p id="srcnote">Gmail and Axiums, synced by Claude. Axiums refreshes live in this page when you allow the connector.</p></div>
+    </div>
+  </section>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+(() => {
+  const S = { batches: new Map(), policies: new Map(), live: null, liveCb: null, assign: new Map(), meta: null,
+              db: null, canWrite: null, axiums: "pending", vendor: "All", sort: { k: "date", dir: -1 },
+              q: "open", showDead: false, open: new Set(), saved: new Set() };
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const money = (n, sign) => { if (n == null || isNaN(n)) return "—"; const s = Math.abs(n).toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }); return n < 0 ? "−" + s : (sign && n > 0 ? "+" + s : s); };
+  const money2 = (n) => n == null ? "—" : n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const pct = (n) => n == null || !isFinite(n) ? "—" : (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(Math.round(n * 100)) + "%";
+  const fmtDate = (d) => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "2-digit" }) : "—";
+  const DAY = 864e5;
+
+  // ---------- names ----------
+  const STOP = new Set(["jr", "sr", "ii", "iii", "iv", "mr", "mrs", "ms"]);
+  function toks(n) {
+    n = String(n || "");
+    if (n.includes(",")) { const [a, b] = n.split(","); n = b + " " + a; }
+    return n.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z\s-]/g, " ").split(/[\s-]+/).filter((t) => t && !STOP.has(t));
+  }
+  const nameKey = (t) => t.length ? t[0] + " " + t[t.length - 1] : "";
+
+  // ---------- economics ----------
+  const RATES = [[/ethos/i, /^gawln|guaranteed/i, 2.5], [/ethos/i, /./, 65], [/corebridge/i, /giwl/i, 45], [/corebridge/i, /simplinow|siwl/i, 87]];
+  function estRate(p) { for (const [c, pr, r] of RATES) if (c.test(p.carrier || "") && pr.test(p.product || "")) return r; return null; }
+  const ACTIVE = new Set(["IN_FORCE"]), PIPE = new Set(["PENDING", "APPROVED"]), DEAD = new Set(["DECLINED", "WITHDRAWN", "NOT_TAKEN", "LAPSED"]);
+  function econ(p) {
+    const cbList = S.liveCb?.get(p.policyNumber) || 0;
+    if (p.actual) return { earned: p.actual.gross, cb: Math.max(p.actual.chargeback, cbList), pipe: 0, est: false, actual: true };
+    let adv = p.advance, est = false;
+    if (adv == null && p.annualPremium && (ACTIVE.has(p.status) || PIPE.has(p.status))) {
+      const r = estRate(p); if (r != null) { adv = p.annualPremium * r / 100 * 0.75; est = true; }
+    }
+    if (ACTIVE.has(p.status)) return { earned: adv || 0, cb: cbList, pipe: 0, est, unknown: adv == null };
+    if (PIPE.has(p.status)) return { earned: 0, cb: cbList, pipe: adv || 0, est, unknown: adv == null };
+    return { earned: 0, cb: cbList, pipe: 0, est: false };
+  }
+  const advanceShown = (p) => { const e = econ(p); return e.actual ? e.earned : (e.earned || e.pipe || null); };
+
+  // ---------- policy set (live Axiums wins over the synced snapshot) ----------
+  function policies() {
+    const out = new Map();
+    for (const [pn, p] of S.policies) out.set(pn, { ...p, policyNumber: pn });
+    if (S.live) for (const lp of S.live) {
+      const prev = out.get(lp.policyNumber) || {};
+      out.set(lp.policyNumber, { ...prev, ...lp, actual: prev.actual });
+    }
+    return out;
+  }
+
+  // ---------- matching ----------
+  function leadIndex() {
+    const full = new Map(), last = new Map();
+    for (const [bid, b] of S.batches) for (const l of b.leads || []) {
+      const t = toks(l.n); if (!t.length) continue;
+      const k = nameKey(t); (full.get(k) || full.set(k, []).get(k)).push({ bid, l });
+      const ln = t[t.length - 1]; (last.get(ln) || last.set(ln, []).get(ln)).push({ bid, l });
+    }
+    return { full, last };
+  }
+  function credit(pols) {
+    const idx = leadIndex(), res = new Map();
+    for (const [pn, p] of pols) {
+      const a = S.assign.get(pn);
+      const t = toks(p.insured), hits = idx.full.get(nameKey(t)) || [];
+      const autoB = [...new Set(hits.map((h) => h.bid))];
+      const sugg = (idx.last.get(t[t.length - 1]) || []).filter((h) => !autoB.includes(h.bid)).map((h) => ({ bid: h.bid, why: "Last name matches lead " + h.l.n }));
+      if (a && a.batchId) res.set(pn, { bid: a.batchId, how: "manual", sugg, autoB });
+      else if (autoB.length === 1) res.set(pn, { bid: autoB[0], how: "auto", lead: hits[0].l, sugg, autoB });
+      else res.set(pn, { bid: null, how: autoB.length > 1 ? "ambiguous" : "none", sugg, autoB });
+    }
+    return res;
+  }
+
+  // ---------- rollups ----------
+  function rollup() {
+    const pols = policies(), cr = credit(pols), rows = new Map();
+    for (const [bid, b] of S.batches) rows.set(bid, { bid, b, cost: b.cost || 0, qty: b.qty, pols: [], ap: 0, earned: 0, cb: 0, pipe: 0, est: false });
+    for (const [pn, c] of cr) {
+      if (!c.bid || c.bid === "none") continue;
+      const r = rows.get(c.bid); if (!r) continue;
+      const p = pols.get(pn), e = econ(p);
+      r.pols.push({ p, c, e });
+      if (!DEAD.has(p.status) || p.actual) r.ap += (ACTIVE.has(p.status) || PIPE.has(p.status)) ? (p.annualPremium || 0) : 0;
+      r.earned += e.earned; r.cb += e.cb; r.pipe += e.pipe; r.est ||= e.est;
+    }
+    for (const r of rows.values()) { r.net = r.earned - r.cb - r.cost; r.roi = r.cost ? r.net / r.cost : null; r.cpl = r.qty ? r.cost / r.qty : null; r.date = r.b.date; r.npol = r.pols.filter((x) => !DEAD.has(x.p.status)).length; }
+    return { pols, cr, rows };
+  }
+
+  // ---------- render ----------
+  function render() {
+    const { pols, cr, rows } = rollup();
+    renderChips(); renderKpis(rows, pols, cr); renderVendors(rows); renderBatches(rows); renderQueue(pols, cr);
+  }
+
+  function renderChips() {
+    const c = [];
+    const synced = S.meta?.syncedAt ? new Date(S.meta.syncedAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) : null;
+    c.push(`<span class="chip"><span class="dot ${S.db ? (synced ? "ok" : "warn") : "bad"}"></span>Gmail · ${synced ? "synced " + esc(synced) : S.db === false ? "no data store" : "waiting for first sync"}</span>`);
+    const ax = { live: ["ok", "Axiums · live"], pending: ["", "Axiums · connecting"], snapshot: ["warn", "Axiums · last sync"], reauth: ["bad", "Axiums · reconnect in claude.ai"], off: ["warn", "Axiums · last sync (connector not allowed)"] }[S.axiums] || ["warn", "Axiums · last sync"];
+    c.push(`<span class="chip"><span class="dot ${ax[0]}"></span>${ax[1]}</span>`);
+    const rv = S.meta?.sources?.revup || "";
+    c.push(`<span class="chip"><span class="dot ${/^synced/i.test(rv) ? "ok" : "warn"}"></span>RevUp · ${/^synced/i.test(rv) ? "synced" : "not connected"}</span>`);
+    $("#chips").innerHTML = c.join("");
+    if (S.meta?.sources) $("#srcnote").textContent = "Gmail: " + S.meta.sources.gmail + ". Axiums: " + S.meta.sources.axiums + ". RevUp: " + S.meta.sources.revup + ".";
+  }
+
+  function renderKpis(rows, pols, cr) {
+    let spend = 0, earned = 0, cb = 0, pipe = 0, est = false;
+    for (const r of rows.values()) { spend += r.cost; earned += r.earned; cb += r.cb; pipe += r.pipe; est ||= r.est; }
+    const net = earned - cb - spend;
+    let open = 0; for (const [pn, c] of cr) { const p = pols.get(pn); if (!c.bid && (!DEAD.has(p.status) || p.actual)) open++; }
+    const k = $("#kpis").children;
+    const set = (i, v, s, cls) => { k[i].querySelector(".v").textContent = v; if (s != null) k[i].querySelector(".s").textContent = s; if (cls != null) k[i].querySelector(".v").className = "v num " + cls; };
+    if (!rows.size) return;
+    set(0, money(spend), `${rows.size} batches`);
+    set(1, money(earned), (est ? "Includes estimates · " : "") + (pipe ? money(pipe) + " pending" : "Policies tied to a batch"));
+    set(2, cb ? money(-cb) : money(0), "On credited policies", cb ? "neg" : "");
+    set(3, money(net, true), spend ? pct(net / spend) + " return on spend" : "", net >= 0 ? "pos" : "neg");
+    k[4].classList.toggle("attn", open > 0);
+    k[4].querySelector(".v").textContent = open;
+    k[4].querySelector(".s").innerHTML = open ? '<a href="#queue">Credit them below</a>' : "All credited";
+  }
+
+  const vendorOf = (b) => (b.vendor || "Other").replace(/\s*\(.*\)$/, "");
+  function renderVendors(rows) {
+    const by = new Map();
+    for (const r of rows.values()) {
+      const v = vendorOf(r.b); const a = by.get(v) || { v, cost: 0, earned: 0, cb: 0, n: 0, pols: 0 };
+      a.cost += r.cost; a.earned += r.earned; a.cb += r.cb; a.n++; a.pols += r.npol; by.set(v, a);
+    }
+    const list = [...by.values()].map((a) => ({ ...a, net: a.earned - a.cb - a.cost })).sort((x, y) => y.net - x.net);
+    if (!list.length) return;
+    const max = Math.max(...list.map((a) => Math.abs(a.net)), 1);
+    $("#vbars").innerHTML = list.map((a, i) => {
+      const w = Math.abs(a.net) / max * 50;
+      const bar = a.net >= 0 ? `<span class="bar g" style="left:50%;width:${w}%"></span>` : `<span class="bar l" style="left:${50 - w}%;width:${w}%"></span>`;
+      return `<div class="vrow" tabindex="0" data-i="${i}"><span class="nm">${esc(a.v)}</span><span class="track">${bar}</span><span class="val ${a.net >= 0 ? "pos" : "neg"}">${money(a.net, true)}</span></div>`;
+    }).join("");
+    const tip = $("#tip");
+    $("#vbars").querySelectorAll(".vrow").forEach((el) => {
+      const a = list[+el.dataset.i];
+      const show = (x, y) => {
+        tip.innerHTML = `<b>${esc(a.v)}</b><br>${a.n} batch${a.n > 1 ? "es" : ""} · ${a.pols} polic${a.pols === 1 ? "y" : "ies"}<br>Spend ${money(a.cost)} · Advances ${money(a.earned)}<br>Chargebacks ${money(a.cb)} · Net ${money(a.net, true)}`;
+        tip.hidden = false; const r = tip.getBoundingClientRect();
+        tip.style.left = Math.min(x + 14, innerWidth - r.width - 8) + "px"; tip.style.top = Math.min(y + 14, innerHeight - r.height - 8) + "px";
+      };
+      el.addEventListener("mousemove", (e) => show(e.clientX, e.clientY));
+      el.addEventListener("focus", () => { const r = el.getBoundingClientRect(); show(r.left + r.width / 2, r.bottom); });
+      el.addEventListener("mouseleave", () => (tip.hidden = true)); el.addEventListener("blur", () => (tip.hidden = true));
+    });
+  }
+
+  function renderBatches(rows) {
+    const vendors = ["All", ...[...new Set([...rows.values()].map((r) => vendorOf(r.b)))].sort()];
+    $("#vfilters").innerHTML = vendors.map((v) => `<button class="fbtn" data-v="${esc(v)}" aria-pressed="${v === S.vendor}">${esc(v)}</button>`).join("");
+    let list = [...rows.values()].filter((r) => S.vendor === "All" || vendorOf(r.b) === S.vendor);
+    const k = S.sort.k, d = S.sort.dir;
+    list.sort((a, b) => { const x = k === "pols" ? a.npol : a[k], y = k === "pols" ? b.npol : b[k]; return ((x ?? -Infinity) > (y ?? -Infinity) ? 1 : (x ?? -Infinity) < (y ?? -Infinity) ? -1 : 0) * d; });
+    if (!list.length) { $("#bbody").innerHTML = `<tr><td colspan="10" class="empty">No batches for this vendor.</td></tr>`; return; }
+    $("#bbody").innerHTML = list.map((r) => {
+      const roiW = r.roi == null ? 0 : Math.min(Math.abs(r.roi), 1) * 50;
+      const mini = r.roi == null ? "" : `<span class="mini"><i style="background:var(--${r.roi >= 0 ? "gain" : "loss"});left:${r.roi >= 0 ? 50 : 50 - roiW}%;width:${roiW}%"></i></span>`;
+      const open = S.open.has(r.bid);
+      let html = `<tr class="batch" data-b="${esc(r.bid)}" aria-expanded="${open}" tabindex="0">
+        <td>${esc(r.b.label)}<div class="tag">${esc(r.b.desc || "")}</div></td>
+        <td class="r num">${money2(r.cost)}</td>
+        <td class="r num">${r.qty ?? "—"}</td>
+        <td class="r num">${r.cpl == null ? "—" : money2(r.cpl)}</td>
+        <td class="r num">${r.npol}</td>
+        <td class="r num">${r.ap ? money(r.ap) : "—"}</td>
+        <td class="r num">${r.earned ? money(r.earned) + (r.est ? "*" : "") : "—"}${r.pipe ? `<div class="tag">${money(r.pipe)} pending</div>` : ""}</td>
+        <td class="r num">${r.cb ? money(-r.cb) : "—"}</td>
+        <td class="r num ${r.net >= 0 ? "pos" : "neg"}">${money(r.net, true)}</td>
+        <td><span class="roi">${mini}<span class="num">${pct(r.roi)}</span></span></td></tr>`;
+      if (open) {
+        const items = r.pols.length ? r.pols.map(({ p, c, e }) => `${esc(p.insured)} <span class="pill st-${esc(p.status)}">${esc(p.status.replace("_", " "))}</span> ${money(e.earned || e.pipe)}${c.how === "auto" ? ' <span class="tag auto">auto-matched</span>' : ""}`).join(" · ") : "No policies credited yet.";
+        const leads = (r.b.leads || []).length ? `<div class="tag" style="margin-top:6px">Leads: ${r.b.leads.map((l) => esc(l.n)).join(", ")}</div>` : "";
+        const note = r.b.note ? `<div class="tag">${esc(r.b.note)}</div>` : "";
+        html += `<tr class="detail"><td colspan="10">${items}${leads}${note}</td></tr>`;
+      }
+      return html;
+    }).join("");
+  }
+
+  function batchOptions(p, c) {
+    const placed = p.placedDate ? new Date(p.placedDate + "T12:00:00").getTime() : null;
+    const all = [...S.batches.entries()].map(([id, b]) => ({ id, b })).sort((x, y) => (y.b.date || "").localeCompare(x.b.date || ""));
+    const near = placed ? all.filter(({ b }) => { const t = new Date(b.date + "T12:00:00").getTime(); return t <= placed && placed - t <= 120 * DAY; }) : [];
+    const sugg = new Map(); for (const s of c.sugg) sugg.set(s.bid, s.why);
+    const opt = (id, label, extra = "") => `<option value="${esc(id)}"${c.bid === id ? " selected" : ""}>${esc(label)}${extra}</option>`;
+    let h = `<option value="">— Choose a batch —</option>`;
+    if (c.autoB.length > 1) h += `<optgroup label="Name matches more than one batch">${c.autoB.map((id) => opt(id, S.batches.get(id)?.label || id)).join("")}</optgroup>`;
+    if (sugg.size) h += `<optgroup label="Possible name match">${[...sugg].map(([id, why]) => opt(id, (S.batches.get(id)?.label || id), " · " + why)).join("")}</optgroup>`;
+    if (near.length) h += `<optgroup label="Bought 0–120 days before placement">${near.map(({ id, b }) => opt(id, b.label)).join("")}</optgroup>`;
+    const groups = new Map(); for (const x of all) { const v = vendorOf(x.b); (groups.get(v) || groups.set(v, []).get(v)).push(x); }
+    for (const [v, xs] of [...groups].sort()) h += `<optgroup label="${esc(v)}">${xs.map(({ id, b }) => opt(id, b.label)).join("")}</optgroup>`;
+    h += `<optgroup label="Other">${opt("none", "Not from a purchased batch")}</optgroup>`;
+    return h;
+  }
+
+  function renderQueue(pols, cr) {
+    let list = [...pols.values()].filter((p) => S.showDead || !DEAD.has(p.status) || p.actual);
+    list = list.filter((p) => { const c = cr.get(p.policyNumber); return S.q === "open" ? !c.bid : !!c.bid; });
+    list.sort((a, b) => (b.placedDate || "9").localeCompare(a.placedDate || "9"));
+    document.querySelectorAll("[data-q]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.q === S.q));
+    if (!pols.size) return;
+    if (!list.length) { $("#qbody").innerHTML = `<tr><td colspan="6" class="empty">${S.q === "open" ? "Every policy is credited to a batch." : "Nothing credited yet. Pick batches under “Needs a batch”."}</td></tr>`; return; }
+    const ro = S.canWrite === false;
+    $("#qbody").innerHTML = list.map((p) => {
+      const c = cr.get(p.policyNumber), e = econ(p), adv = advanceShown(p);
+      const how = c.how === "auto" ? `<div class="tag auto">Auto · matched lead ${esc(c.lead.n)} (${esc(c.lead.s)})</div>` : c.how === "manual" ? `<div class="tag">Credited by hand${S.saved.has(p.policyNumber) ? '<span class="saved">Saved</span>' : ""}</div>` : c.how === "ambiguous" ? `<div class="tag">Name matches several batches: pick one</div>` : "";
+      return `<tr class="qrow"><td><div class="who">${esc(p.insured)}</div><div class="sub">${esc(p.carrier)} · ${esc(p.product)} · #${esc(p.policyNumber)}</div></td>
+        <td><span class="pill st-${esc(p.status)}">${esc((p.status || "").replace("_", " "))}</span></td>
+        <td class="r num">${p.annualPremium ? money2(p.annualPremium) : "—"}</td>
+        <td class="r num">${adv == null ? "—" : money2(adv) + (e.est ? " est." : "")}${e.cb ? `<div class="tag neg">−${money2(e.cb)} chargeback</div>` : ""}</td>
+        <td class="num">${fmtDate(p.placedDate)}</td>
+        <td><select data-p="${esc(p.policyNumber)}" class="${c.bid ? "" : "unset"}" aria-label="Batch for ${esc(p.insured)}" ${ro || !S.db ? "disabled" : ""}>${batchOptions(p, c)}</select>${how}</td></tr>`;
+    }).join("");
+  }
+
+  // ---------- events ----------
+  document.addEventListener("click", (e) => {
+    const v = e.target.closest("[data-v]"); if (v) { S.vendor = v.dataset.v; render(); return; }
+    const s = e.target.closest("[data-sort]"); if (s) { const k = s.dataset.sort; S.sort = { k, dir: S.sort.k === k ? -S.sort.dir : -1 }; render(); return; }
+    const q = e.target.closest("[data-q]"); if (q) { S.q = q.dataset.q; render(); return; }
+    const tr = e.target.closest("tr.batch"); if (tr) { const b = tr.dataset.b; S.open.has(b) ? S.open.delete(b) : S.open.add(b); render(); }
+  });
+  document.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches("tr.batch")) { e.preventDefault(); e.target.click(); } });
+  $("#showDead").addEventListener("change", (e) => { S.showDead = e.target.checked; render(); });
+  document.addEventListener("change", async (e) => {
+    const sel = e.target.closest("select[data-p]"); if (!sel || !S.db) return;
+    const pn = sel.dataset.p, val = sel.value; sel.disabled = true;
+    try {
+      const ref = S.db.doc("assignments/" + pn);
+      if (val) await ref.set({ batchId: val, at: new Date().toISOString() }); else await ref.delete();
+      S.saved.add(pn);
+    } catch (err) {
+      if (err?.code === "invalid_argument") { S.canWrite = false; showBanner("You can view this ledger but not change it. Ask the owner for Contributor access to credit policies."); }
+      else showBanner("That change didn’t save (" + esc(err?.code || "error") + "). Try again in a moment.");
+      render();
+    }
+  });
+  function showBanner(t) { const b = $("#banner"); b.className = "banner"; b.innerHTML = t; b.hidden = false; }
+
+  // ---------- data ----------
+  async function boot() {
+    const claude = window.claude;
+    if (!claude?.use) { S.db = false; renderChips(); showBanner("Open this page on claude.ai to load your ledger."); return; }
+    const [db, user, mcp] = await Promise.all([claude.use("db"), claude.use("user"), claude.use("mcp")]);
+    if (user) { try { S.canWrite = await user.can("data.write"); } catch { } }
+    if (!db) { S.db = false; renderChips(); showBanner("Sign in to claude.ai to load the ledger data."); }
+    else {
+      S.db = db;
+      const coll = (name, map, fn) => db.collection(name).onSnapshot((snap) => { map.clear(); for (const d of snap.docs) map.set(d.id, fn ? fn(d.data()) : d.data()); render(); }, (err) => showBanner("Lost the connection to the ledger data (" + esc(err.code) + "). Reload to reconnect."));
+      coll("batches", S.batches); coll("policies", S.policies); coll("assignments", S.assign);
+      db.doc("crm/meta").onSnapshot((d) => { S.meta = d.exists ? d.data() : null; render(); });
+    }
+    if (!mcp) { S.axiums = "snapshot"; render(); return; }
+    mcp.watchTool("Axiums", "get_my_book", null, (ev) => {
+      if (ev.type === "data") {
+        const p = ev.result?.payload; const arr = Array.isArray(p?.policies) ? p.policies : null;
+        if (arr) { S.live = arr.map((x) => ({ policyNumber: String(x.policyNumber), insured: x.insured, product: x.product, carrier: x.carrier, status: x.status, annualPremium: x.annualPremium, advance: x.advance, backend: x.backend, placedDate: x.placedDate })); S.axiums = "live"; }
+      } else {
+        const code = ev.error?.code;
+        if (code === "needs_reauth") S.axiums = "reauth";
+        else if (["denied", "not_in_manifest", "not_granted", "server_not_connected", "consent_denied"].includes(code)) { S.live = null; S.axiums = "off"; }
+        else S.axiums = S.live ? "live" : "snapshot";
+      }
+      render();
+    }, { refetchInterval: 15 * 60 * 1000 });
+    mcp.watchTool("Axiums", "get_my_chargebacks", null, (ev) => {
+      if (ev.type !== "data") return;
+      const p = ev.result?.payload, m = new Map();
+      for (const c of [...(p?.ownChargebacks || [])]) { const pn = String(c.policyNumber || ""); if (pn) m.set(pn, (m.get(pn) || 0) + Math.abs(+c.amount || 0)); }
+      S.liveCb = m; render();
+    }, { refetchInterval: 60 * 60 * 1000 });
+  }
+  render(); boot();
+})();
+</script>

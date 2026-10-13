@@ -1,0 +1,2 @@
+# Lead names, client names and policy data stay out of git; the artifact database holds them.
+data/
